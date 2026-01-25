@@ -1,0 +1,19 @@
+name: Triggered Workflow
+
+on:
+  repository_dispatch:
+  # Event name that matches the one from the first workflow
+
+jobs:
+  handle-trigger:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Log event payload
+        run: |
+          echo "Received event payload:"
+          echo "$GITHUB_EVENT_PATH"
+          cat $GITHUB_EVENT_PATH
