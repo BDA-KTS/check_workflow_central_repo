@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../check_automation_workflow_thesis/.idea/check_automation_workflow_thesis.iml" filepath="$PROJECT_DIR$/../check_automation_workflow_thesis/.idea/check_automation_workflow_thesis.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/check_workflow_central_repo.iml" filepath="$PROJECT_DIR$/.idea/check_workflow_central_repo.iml" />
     </modules>
   </component>
