@@ -16,7 +16,7 @@ jobs:
       - name: Get repository info from payload
         run: |
           # Extract repository name from the event payload
-          REPO_NAME=$(jq -r '.repository.full_name' $GITHUB_EVENT_PATH)
+          echo "REPO_NAME=$(jq -r '.repository.full_name' $GITHUB_EVENT_PATH)" >> $GITHUB_ENV 
           echo "Repository name: $REPO_NAME"
 
       - name: Checkout the repository from the payload
