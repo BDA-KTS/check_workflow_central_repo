@@ -1,0 +1,59 @@
+name: method_report.yml
+permissions:
+  contents: write
+
+
+on:
+  repository_dispatch:
+    types: [method]
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+
+jobs:
+
+  generate-report:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Log event payload
+        run: |
+          echo "Received event payload:"
+          echo "$GITHUB_EVENT_PATH"
+          cat $GITHUB_EVENT_PATH
+      - name: Checkout central repository
+        uses: actions/checkout@v6
+        with:
+          path: 'central'
+
+      - name: Checkout repository
+        uses: actions/checkout@v6
+        with:
+          ref: ${{github.event.client_payload.repo_hash}}
+          path: 'testee'
+
+      - name: Create Report File
+        run: |
+          mkdir -p central/report
+          echo "# Report for commit ${{github.event.client_payload.repo_hash}}" > central/report/${{github.event.client_payload.repo_hash}}.md 
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r central/requirements.txt
+
+      - name: Run Test Script
+        run: python central/tutorial_report_creator.py
+
+      - name: Commit and Push the Report
+        working-directory: central
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add report/${{github.event.client_payload.repo_hash}}.md
+          git commit -m "Add report for ${{github.event.client_payload.repo_hash}}"
+          git push
+

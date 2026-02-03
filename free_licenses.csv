@@ -1,9 +1,8 @@
-Name,SPDX-Identifier,License-Typ
-Apache License 2.0,Apache-2.0,Permissive
-MIT License,MIT,Permissive
-BSD 2-Clause License,BSD-2-Clause,Permissive
-BSD 3-Clause License,BSD-3-Clause,Permissive
-ISC License,ISC,Permissive
-Zlib License,Zlib,Permissive
-Boost Software License 1.0,BSL-1.0,Permissive
-
+Name,
+Apache-2.0,
+MIT,
+BSD-2-Clause,
+BSD-3-Clause,
+ISC,
+Zlib,
+BSL-1.0
