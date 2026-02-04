@@ -16,7 +16,10 @@ required_files = get_needed_files()
 
 def check_and_write_license():
     license_name = from_text(testee/license)
-    with open(central/free_licenses.csv)
+    with open(central/free_licenses.csv) as csv:
+
+
+
 missing_files = [fname for fname in required_files if not (pathway / fname).is_file()]
 
 with open ("./Report/Report.md","w") as f:

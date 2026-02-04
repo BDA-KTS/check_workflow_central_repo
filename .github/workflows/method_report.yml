@@ -12,15 +12,19 @@ on:
 
 
 jobs:
-
   generate-report:
     runs-on: ubuntu-latest
+    env:
+      REPO_HASH: ${ {github.event.client_payload.repo_hash }}
+      REPO_FULLNAME: ${{ github.event.client_payload.repository }}
+
     steps:
       - name: Log event payload
         run: |
           echo "Received event payload:"
           echo "$GITHUB_EVENT_PATH"
           cat $GITHUB_EVENT_PATH
+
       - name: Checkout central repository
         uses: actions/checkout@v6
         with:
@@ -29,14 +33,15 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v6
         with:
-          ref: ${{github.event.client_payload.repo_hash}}
+          repository: '${{ env.REPO_FULLNAME }}'
+          ref: ${{ env.REPO_HASH }}
           path: 'testee'
 
       - name: Create Report File
         run: |
           mkdir -p central/report
-          echo "# Report for commit ${{github.event.client_payload.repo_hash}}" > central/report/${{github.event.client_payload.repo_hash}}.md 
-
+          echo "# Report for commit ${{ env.REPO_FULLNAME }}" > central/report/${{ env.REPO_FULLNAME }}.md
+      #TO-DO: Get Github Owner & Repo Name for more readability
       - name: Set up Python
         uses: actions/setup-python@v6
         with:
@@ -53,7 +58,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add report/${{github.event.client_payload.repo_hash}}.md
-          git commit -m "Add report for ${{github.event.client_payload.repo_hash}}"
+          git add report/${{ env.REPO_FULLNAME }}.md
+          git commit -m "Add report for ${{ env.REPO_FULLNAME }}"
           git push
 
