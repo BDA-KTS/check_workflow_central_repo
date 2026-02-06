@@ -34,8 +34,7 @@ jobs:
         with:
           repository: '${{ env.REPO_FULLNAME }}'
           path: 'testee'
-          fetch-depth: 0
-          ref: ${{ github.event.client_payload.repo_hash }}
+
 
       - name: Create Report File
         run: |
