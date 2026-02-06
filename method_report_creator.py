@@ -11,7 +11,7 @@ path = Path("central.report")
 def make_title():
     splitter=repo_fullname.split("/")
     with open ("report_path","w") as fx:
-        fx.write(f"#Report of {splitter[0]}")
+        fx.write(f"#Report of  {splitter[0]}")
     fx.close()
 
 def get_file_extensions(directory_path):
