@@ -33,8 +33,9 @@ jobs:
         uses: actions/checkout@v6
         with:
           repository: '${{ env.REPO_FULLNAME }}'
-          ref: ${{ env.REPO_HASH }}
           path: 'testee'
+          fetch-depth: 0
+          ref: ${{ github.event.client_payload.repo_hash }}
 
       - name: Create Report File
         run: |
