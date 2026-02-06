@@ -3,31 +3,54 @@ import csv
 from pathlib import Path
 from licensename import from_text
 
-repo_hash= os.environ.get('REPO_FULLNAME')
-report_path=Path("central/"+repo_hash)
+repo_fullname= os.environ.get('REPO_FULLNAME')
+report_path=Path("central/"+repo_fullname)
 testpath = Path("testee")
 path = Path("central.report")
 
+def make_title():
+    splitter=repo_fullname.split("/")
+    with open ("report_path","w") as fx:
+        fx.write(f"#Report of {splitter[0]}'s {splitter[1]}")
+    fx.close()
 
-def get_needed_files():
-    return {"citation.cff","license",}
-#TO DO: Get additional required files depending on the File extensions in the Testee Files
+def get_file_extensions(directory_path):
+    extensions = set()
+
+    # Loop through all files in the given directory
+    for filename in os.listdir(directory_path):
+        if os.path.isfile(os.path.join(directory_path, filename)):
+            # Split the filename to get the extension
+            ext = os.path.splitext(filename)[1]
+            extensions.add(ext)
+
+    return extensions
+
+def get_needed_files(suffix):
+    required={"citation.cff","license"}
+    if ".py" in suffix:
+        required.add("requirements.txt")
+        required.add("postBuild")
+    if ".R" in suffix:
+        required.add("install.R")
+        required.add("runtime.txt")
+        required.add("postBuild")
+    return required
 
 def check_and_write_license():
     license_name = from_text(testee/license)
     with open(central/free_licenses.csv) as csvf:
         reader = csv.reader(csvf)
-        #TO DO Match read input with license_name and return either license_name, "accepted" or license_name, "Denied"
 
-required_files = get_needed_files()
+        #TO DO Match read input with license_name and return either license_name, "accepted" or license_name, "Denied"
+make_title()
+file_suffix = get_file_extensions(testpath)
+required_files = get_needed_files(file_suffix)
 
 missing_files = [fname for fname in required_files if not (testpath / fname).is_file()]
 
-with open ("./Report/Report.md","w") as f:
-    f.write("#Report Test \n ##Fehlende Dateien:")
-f.close()
 
-with open ("./Report/Report.md","a") as f:
+with open (report_path,"a") as f:
     for fname in missing_files:
         f.write(fname)
     if len(missing_files) == 0:

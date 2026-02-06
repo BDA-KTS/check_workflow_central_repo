@@ -17,6 +17,8 @@ jobs:
     env:
       REPO_HASH: ${ {github.event.client_payload.repo_hash }}
       REPO_FULLNAME: ${{ github.event.client_payload.repository }}
+      READ_ME: ${{github.event.client_payload.readme}}
+      
 
     steps:
       - name: Log event payload
