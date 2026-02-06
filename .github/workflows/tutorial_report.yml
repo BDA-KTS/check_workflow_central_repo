@@ -6,7 +6,6 @@ permissions:
 on:
   repository_dispatch:
     types: [tutorial]
-  workflow_dispatch:
 
 
 jobs:

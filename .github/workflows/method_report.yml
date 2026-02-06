@@ -6,9 +6,6 @@ permissions:
 on:
   repository_dispatch:
     types: [method]
-  push:
-    branches: [ "main" ]
-  workflow_dispatch:
 
 
 jobs:
