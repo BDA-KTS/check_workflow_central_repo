@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       REPO_HASH: ${{github.event.client_payload.repo_hash }}
-      REPO_FULLNAME: ${{ github.event.client_payload.repository }}
+      REPO_FULLNAME: ${{ github.event.client_payload.repository_url }}
       READ_ME: ${{github.event.client_payload.readme}}
       
 
