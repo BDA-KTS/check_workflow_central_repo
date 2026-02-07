@@ -36,10 +36,10 @@ jobs:
           path: 'testee'
 
 
-      - name: Create Report File
-        run: |
-          mkdir -p central/report
-          echo "# Report for commit ${{ env.REPO_FULLNAME }}" > central/report/${{ env.REPO_FULLNAME }}.md
+      #- name: Create Report File
+      #  run: |
+     #     mkdir -p central/report
+      #    echo "# Report for commit ${{ env.REPO_FULLNAME }}" > central/report/${{ env.REPO_FULLNAME }}.md
       #TO-DO: Get Github Owner & Repo Name for more readability
       - name: Set up Python
         uses: actions/setup-python@v6
