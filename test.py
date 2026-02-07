@@ -1,5 +1,8 @@
+import os
 from pathlib import Path
 
+localvariable1=os.environ.get("REPO_FULL_NAME")
+print(localvariable1)
 def tree(path: Path, prefix=""):
     contents = sorted(path.iterdir(), key=lambda p: (p.is_file(), p.name.lower()))
     for i, item in enumerate(contents):
