@@ -8,7 +8,7 @@ event_path = os.environ.get("GITHUB_EVENT_PATH")
 with open(event_path, "r") as payload:
     event_data = json.load(payload)
     payload.close()
-full_name = event_data["repository_url"]
+full_name = event_data.get("repository_url")
 report_path=Path("central/"+full_name)
 testpath = Path("testee")
 path = Path("central.report")
