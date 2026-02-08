@@ -83,7 +83,7 @@ with open (report_file,"a") as f:
  #    for fname in missing_files:
 #          f.write(f"- Missing: {fname}\n")
     if all(fname.lower() in existing_files for fname in required_files):
-        f.write("All required files are present.\n")
+        f.write("\n All required files are present.\n")
     if "license" in existing_files:
-        f.write("\n ##Checking License: \n")
+        f.write("\n ## Checking License: \n ")
         f.write(check_and_write_license())
