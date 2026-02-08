@@ -55,9 +55,9 @@ def check_and_write_license():
         reader = csv.reader(csvf)
         licenses = {row[0] for row in reader if row}
         if license_name in licenses:
-            return f"License accepted: Found {license_name}"
+            return f"License accepted: Found {license_name}\n"
         else:
-            return f"License denied: Found {license_name}"
+            return f"License denied: Found {license_name}\n"
 
 make_title()
 file_suffix = get_file_extensions(testpath)
@@ -67,17 +67,23 @@ required_files = get_needed_files(file_suffix)
 existing_files = {p.name.lower() for p in testpath.iterdir() if p.is_file()}
 
 # Check which required files are missing
-missing_files = []
-for fname in required_files:
-    if fname.lower() not in existing_files:
-        missing_files.append(fname)
+#missing_files = []
+#for fname in required_files:
+#    if fname.lower() not in existing_files:
+#        missing_files.append(fname)
 
 
 with open (report_file,"a") as f:
-    for fname in missing_files:
-        f.write(f"- Missing: {fname}\n")
-
-    if len(missing_files) == 0:
-        f.write("All required files are present.")
-    if "license" not in missing_files:
-       f.write(check_and_write_license())
+    f.write("## Checking required files\n")
+    for fname in required_files:
+        if fname.lower() not in existing_files:
+            f.write(f"- {fname} is not present\n")
+        else:
+            f.write(f"- {fname} is present\n")
+ #   for fname in missing_files:
+#       f.write(f"- Missing: {fname}\n")
+    if all(fname.lower() in existing_files for fname in required_files):
+        f.write("All required files are present.\n")
+    if "license" in existing_files:
+        f.write("\n ##Checking License: \n")
+        f.write(check_and_write_license())
