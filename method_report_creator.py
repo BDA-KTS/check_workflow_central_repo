@@ -34,9 +34,6 @@ def get_file_extensions(directory_path):
             extensions.add(path.suffix)
     return extensions
 
-
-    return extensions
-
 def get_needed_files(suffixes):
     required = {"citation.cff", "LICENSE"}
 
@@ -66,7 +63,14 @@ make_title()
 file_suffix = get_file_extensions(testpath)
 required_files = get_needed_files(file_suffix)
 
-missing_files = [fname.casefold() for fname in required_files if not (testpath / fname).is_file()]
+# Get all files in testpath (case-insensitive names)
+existing_files = {p.name.lower() for p in testpath.iterdir() if p.is_file()}
+
+# Check which required files are missing
+missing_files = []
+for fname in required_files:
+    if fname.lower() not in existing_files:
+        missing_files.append(fname)
 
 
 with open (report_file,"a") as f:
