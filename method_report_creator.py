@@ -40,20 +40,20 @@ def get_file_extensions(directory_path):
 def get_needed_files(suffixes):
     required = {"citation.cff", "license"}
 
-    suffixes = {s.lower() for s in suffixes}
+    suffixes = {s.casefold() for s in suffixes}
 
     if ".py" in suffixes:
         required |= {"requirements.txt", "postBuild"}
 
     if ".r" in suffixes:
-        required |= {"install.R", "runtime.txt", "postBuild"}
+        required |= {"install.r", "runtime.txt", "postBuild"}
 
     return required
 
 def check_and_write_license():
     license_text = (testpath / "LICENSE").read_text(encoding="utf-8")
     license_name = from_text(license_text)
-
+    print(f"\n{license_name} \n")
     with open(Path("central") / "free_licenses.csv") as csvf:
         reader = csv.reader(csvf)
         licenses = {row[0] for row in reader if row}
@@ -66,7 +66,7 @@ make_title()
 file_suffix = get_file_extensions(testpath)
 required_files = get_needed_files(file_suffix)
 
-missing_files = [fname for fname in required_files if not (testpath / fname).is_file()]
+missing_files = [fname.casefold() for fname in required_files if not (testpath / fname).is_file()]
 
 
 with open (report_file,"a") as f:
