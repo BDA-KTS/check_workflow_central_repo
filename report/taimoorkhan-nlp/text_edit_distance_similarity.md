@@ -1,4 +1,3 @@
-# Report of taimoorkhan-nlp
+# Report for taimoorkhan-nlp of text_edit_distance_similarity 
 
-- Missing: citation.cff
-- Missing: license
+All required files are present.License accepted: Found Apache-2.0
