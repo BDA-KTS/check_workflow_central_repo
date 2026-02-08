@@ -2,6 +2,8 @@ import os
 import csv
 import json
 from pathlib import Path
+
+from jinja2.nodes import Concat
 from licensename import from_text
 
 event_path = os.environ.get("GITHUB_EVENT_PATH")
@@ -9,7 +11,11 @@ with open(event_path, "r") as payload:
     event_data = json.load(payload)
     payload.close()
 full_name = event_data.get("repository_url")
-report_path=Path("central/"+full_name)
+
+
+owner, repo = full_name.split("/", 1)
+
+report_file = Path("central", "report", owner, f"{repo}.md")
 testpath = Path("testee")
 path = Path("central.report")
 
@@ -61,7 +67,7 @@ required_files = get_needed_files(file_suffix)
 missing_files = [fname for fname in required_files if not (testpath / fname).is_file()]
 
 
-with open (report_path,"a") as f:
+with open (report_file,"a") as f:
     for fname in missing_files:
         f.write(fname)
     if len(missing_files) == 0:
