@@ -25,7 +25,7 @@ testpath = Path("testee")
 
 def make_title():
     with open(report_file, "w") as fx:
-        fx.write(f"# Report of {owner}\n\n")
+        fx.write(f"# Report for {owner} of {repo} \n\n")
 
 def get_file_extensions(directory_path):
     extensions = set()
@@ -38,7 +38,7 @@ def get_file_extensions(directory_path):
     return extensions
 
 def get_needed_files(suffixes):
-    required = {"citation.cff", "license"}
+    required = {"citation.cff", "LICENSE"}
 
     suffixes = {s.casefold() for s in suffixes}
 
@@ -47,7 +47,7 @@ def get_needed_files(suffixes):
 
     if ".r" in suffixes:
         required |= {"install.r", "runtime.txt", "postBuild"}
-
+    print(required)
     return required
 
 def check_and_write_license():
