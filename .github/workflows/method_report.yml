@@ -37,8 +37,16 @@ jobs:
 
       - name: Create Report File
         run: |
-         mkdir -p central/report
-         echo "# Report for commit ${{ env.REPO_FULLNAME }}" > central/report/${{ env.REPO_FULLNAME }}.md
+          mkdir -p central/report
+
+          OWNER="${REPO_FULLNAME%%/*}"
+          REPO="${REPO_FULLNAME##*/}"
+
+          mkdir -p central/report/${OWNER}
+
+          echo "# Report for commit ${REPO_FULLNAME}" \
+            > central/report/${OWNER}/${REPO}.md
+      
 
       - name: Set up Python
         uses: actions/setup-python@v6
