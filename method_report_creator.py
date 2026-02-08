@@ -1,15 +1,22 @@
 import os
 import csv
+import json
 from pathlib import Path
 from licensename import from_text
 
-repo_fullname= os.environ.get('REPO_FULLNAME')
-report_path=Path("central/"+repo_fullname)
+event_path = os.environ.get("GITHUB_EVENT_PATH")
+with open(event_path, "r") as payload:
+    event_data = json.load(payload)
+    payload.close()
+full_name = event_data["repository_url"]
+report_path=Path("central/"+full_name)
 testpath = Path("testee")
 path = Path("central.report")
 
+
+
 def make_title():
-    splitter=repo_fullname.split("/")
+    splitter=full_name("/")
     with open ("report_path","w") as fx:
         fx.write(f"#Report of  {splitter[0]}")
     fx.close()
@@ -37,12 +44,16 @@ def get_needed_files(suffix):
         required.add("postBuild")
     return required
 
-def check_and_write_license():
+def check_and_write_license(file):
     license_name = from_text(testee/license)
     with open(central/free_licenses.csv) as csvf:
         reader = csv.reader(csvf)
-
+        if license_name in reader:
+            file.write(f"License accepted: Found {license_name}")
+        else:
+            file.write(f"License denied: Found {license_name}")
         #TO DO Match read input with license_name and return either license_name, "accepted" or license_name, "Denied"
+
 make_title()
 file_suffix = get_file_extensions(testpath)
 required_files = get_needed_files(file_suffix)
@@ -57,4 +68,4 @@ with open (report_path,"a") as f:
         f.write("All required files are present.")
 
 if "license" not in missing_files:
-    check_and_write_license()
+    check_and_write_license(f)
