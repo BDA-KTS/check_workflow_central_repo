@@ -69,7 +69,7 @@ existing_files = {p.name.lower() for p in testpath.iterdir() if p.is_file()}
 # Check which required files are missing
 #missing_files = []
 #for fname in required_files:
-#    if fname.lower() not in existing_files:
+#     if fname.lower() not in existing_files:
 #        missing_files.append(fname)
 
 
