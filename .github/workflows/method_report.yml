@@ -57,7 +57,7 @@ jobs:
         run: pip install -r central/requirements.txt
 
       - name: Run Test Script
-        run: python central/test.py
+        run: python central/method_report_creator.py
 
       - name: Commit and Push the Report
         working-directory: central
