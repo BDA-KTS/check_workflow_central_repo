@@ -80,7 +80,7 @@ with open (report_file,"a") as f:
             f.write(f"- {fname} is not present\n")
         else:
             f.write(f"- {fname} is present\n")
- #   for fname in missing_files:
+ #    for fname in missing_files:
 #       f.write(f"- Missing: {fname}\n")
     if all(fname.lower() in existing_files for fname in required_files):
         f.write("All required files are present.\n")
