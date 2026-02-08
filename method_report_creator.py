@@ -4,59 +4,63 @@ import json
 from pathlib import Path
 from licensename import from_text
 
+#Client Payload: {'readme': 'README.md', 'repo_hash': '1ddf824b50bc6d159d1e1d6037d17419f32c2694', 'repository_url': 'owner/repo'}
 event_path = os.environ.get("GITHUB_EVENT_PATH")
 with open(event_path, "r") as payload:
     event_data = json.load(payload)
-    payload.close()
-full_name = event_data.get("repository_url")
+
+full_name = (
+    event_data
+    .get("client_payload", {})
+    .get("repository_url")
+)
 
 
 owner, repo = full_name.split("/", 1)
 
 report_file = Path("central", "report", owner, f"{repo}.md")
 testpath = Path("testee")
-path = Path("central.report")
 
 
 
 def make_title():
-    splitter=full_name("/")
-    with open ("report_path","w") as fx:
-        fx.write(f"#Report of  {splitter[0]}")
-    fx.close()
+    with open(report_file, "w") as fx:
+        fx.write(f"# Report of {owner}\n\n")
 
 def get_file_extensions(directory_path):
     extensions = set()
+    for path in Path(directory_path).rglob("*"):
+        if path.is_file():
+            extensions.add(path.suffix)
+    return extensions
 
-    # Loop through all files in the given directory
-    for filename in os.listdir(directory_path):
-        if os.path.isfile(os.path.join(directory_path, filename)):
-            # Split the filename to get the extension
-            ext = os.path.splitext(filename)[1]
-            extensions.add(ext)
 
     return extensions
 
-def get_needed_files(suffix):
-    required={"citation.cff","license"}
-    if ".py" in suffix:
-        required.add("requirements.txt")
-        required.add("postBuild")
-    if ".R" in suffix:
-        required.add("install.R")
-        required.add("runtime.txt")
-        required.add("postBuild")
+def get_needed_files(suffixes):
+    required = {"citation.cff", "license"}
+
+    suffixes = {s.lower() for s in suffixes}
+
+    if ".py" in suffixes:
+        required |= {"requirements.txt", "postBuild"}
+
+    if ".r" in suffixes:
+        required |= {"install.R", "runtime.txt", "postBuild"}
+
     return required
 
-def check_and_write_license(file):
-    license_name = from_text(testee/license)
-    with open(central/free_licenses.csv) as csvf:
+def check_and_write_license():
+    license_text = (testpath / "LICENSE").read_text(encoding="utf-8")
+    license_name = from_text(license_text)
+
+    with open(Path("central") / "free_licenses.csv") as csvf:
         reader = csv.reader(csvf)
-        if license_name in reader:
-            file.write(f"License accepted: Found {license_name}")
+        licenses = {row[0] for row in reader if row}
+        if license_name in licenses:
+            return f"License accepted: Found {license_name}"
         else:
-            file.write(f"License denied: Found {license_name}")
-        #TO DO Match read input with license_name and return either license_name, "accepted" or license_name, "Denied"
+            return f"License denied: Found {license_name}"
 
 make_title()
 file_suffix = get_file_extensions(testpath)
@@ -67,9 +71,9 @@ missing_files = [fname for fname in required_files if not (testpath / fname).is_
 
 with open (report_file,"a") as f:
     for fname in missing_files:
-        f.write(fname)
+        f.write(f"- Missing: {fname}\n")
+
     if len(missing_files) == 0:
         f.write("All required files are present.")
-
-if "license" not in missing_files:
-    check_and_write_license(f)
+    if "license" not in missing_files:
+       f.write(check_and_write_license())
