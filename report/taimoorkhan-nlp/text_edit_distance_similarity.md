@@ -1,1 +1,4 @@
-# Report for commit taimoorkhan-nlp/text_edit_distance_similarity
+# Report of taimoorkhan-nlp
+
+- Missing: license
+- Missing: citation.cff
