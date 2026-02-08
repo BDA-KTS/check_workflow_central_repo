@@ -2,8 +2,6 @@ import os
 import csv
 import json
 from pathlib import Path
-
-from jinja2.nodes import Concat
 from licensename import from_text
 
 event_path = os.environ.get("GITHUB_EVENT_PATH")
