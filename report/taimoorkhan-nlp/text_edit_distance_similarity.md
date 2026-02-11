@@ -3,9 +3,10 @@
 ## Checking required files
 - postBuild is present
 - LICENSE is present
-- requirements.txt is present
 - citation.cff is present
-All required files are present.
+- requirements.txt is present
 
- ##Checking License: 
-License accepted: Found Apache-2.0
+ All required files are present.
+
+ ## Checking License: 
+ License accepted: Found Apache-2.0
