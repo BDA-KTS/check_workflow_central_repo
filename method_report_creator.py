@@ -77,9 +77,9 @@ def check_readme(readme):
             elif line.startswith("## "):
                 subtitles.append(line[3:].strip())
     if len(titles) ==1:
-        return_string += "\n Found one title: Accepted\n"
+        return_string += "\n Found one title: Accepted \n"
     elif len(titles) < 1:
-        return_string += "\n Found no titles: Denied\n"
+        return_string += "\n Found no titles: Denied \n"
     else:
         return_string += f"\n Found to many titles: Anzahl: {len(titles)} \n"
     missing = set(necessary_subtitles) - set(subtitles)
@@ -99,7 +99,7 @@ def check_and_write_required_files(repo_files, binder_files):
 
     # --- Repo-Dateien direkt in testpath ---
     found_repo_files = {
-        p.name
+        p.name.lower()
         for p in testpath.iterdir()
         if p.is_file()
     }
