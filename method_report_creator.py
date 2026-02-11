@@ -38,7 +38,7 @@ def get_file_extensions(directory_path):
 
 
 def get_needed_files(suffixes):
-    required_in_repo = {"citation.cff", "LICENSE", "postBuild"}
+    required_in_repo = {"citation.cff", "license", "postbuild"}
     required_for_binder = set()
     suffixes = {s.casefold() for s in suffixes}
 
@@ -103,11 +103,12 @@ def check_and_write_required_files(repo_files, binder_files):
         for p in testpath.iterdir()
         if p.is_file()
     }
-
+    print(found_repo_files)
+    print(repo_files)
     missing_repo = repo_files - found_repo_files
 
     if missing_repo:
-        return_string += "Repo – es fehlen:\n"
+        return_string += "Repo – not found: \n"
         return_string += "\n".join(f"- {f}" for f in sorted(missing_repo)) + "\n"
     else:
         return_string += "Repo – everything found\n"
@@ -130,7 +131,7 @@ def check_and_write_required_files(repo_files, binder_files):
     missing_binder = binder_files - found_binder
 
     if missing_binder:
-        return_string += "Binder – es fehlen:\n"
+        return_string += "Binder – not found: \n"
         return_string += "\n".join(f"- {b}" for b in sorted(missing_binder)) + "\n"
     else:
         return_string += "Binder – everything found\n"
