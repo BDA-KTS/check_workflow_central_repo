@@ -70,7 +70,7 @@ def check_readme(readme):
     subtitles = []
     return_string = ""
 
-    with open(readme, encoding="utf-8") as f:
+    with open(testpath/readme, encoding="utf-8") as f:
         for line in f:
             if line.startswith("# "):
                 titles.append(line[2:].strip())
