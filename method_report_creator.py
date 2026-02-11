@@ -135,7 +135,7 @@ def check_and_write_required_files(repo_files, binder_files):
     else:
         return_string += "Binder – everything found\n"
 
-    return return_string
+    return return_string, missing_repo
 
 make_title()
 file_suffix = get_file_extensions(testpath)
@@ -143,13 +143,14 @@ required_repo, required_binder = get_needed_files(file_suffix)
 
 with open(report_file, "a") as f:
     f.write("## Checking required files\n")
-    f.write(check_and_write_required_files(required_repo, required_binder))
+    required_file_text,missing_files=check_and_write_required_files(required_repo, required_binder)
+    f.write(required_file_text)
     #    for fname in required_files:
     #        if fname.lower() not in existing_files:
     #            f.write(f"- {fname} is not present\n")
     #        else:
     #            f.write(f"- {fname} is present\n")
-    if "license" in existing_files:
+    if "license" not in missing_files:
         f.write("\n ## Checking License: \n ")
         f.write(check_and_write_license())
     f.write("## Checking Readme \n ")
