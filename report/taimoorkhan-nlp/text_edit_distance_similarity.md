@@ -2,12 +2,13 @@
 
 ## Checking required files
 Repo – es fehlen:
-- citation.cff
+- LICENSE
+- postBuild
 Binder – everything found
 
  ## Checking License: 
  License accepted: Found Apache-2.0
 ## Checking Readme 
  
- Found one title: Accepted
+ Found one title: Accepted 
 Missing subtitle: Hardware Requirements 
