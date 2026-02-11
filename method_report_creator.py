@@ -4,7 +4,7 @@ import json
 from pathlib import Path
 from licensename import from_text
 
-# Client Payload: {'readme': 'README.md', 'repo_hash': '1ddf824b50bc6d159d1e1d6037d17419f32c2694', 'repository_url': 'owner/repo'}
+# Client Payload: {'readme': 'README.md', 'repo_hash': '1ddf824b50bc6d159d1e1d6037d17419f32c2694', 'repository_full_name': 'owner/repo'}
 event_path = os.environ.get("GITHUB_EVENT_PATH")
 with open(event_path, "r") as payload:
     event_data = json.load(payload)
@@ -12,7 +12,7 @@ with open(event_path, "r") as payload:
 full_name = (
     event_data
     .get("client_payload", {})
-    .get("repository_url")
+    .get("repository_full_name")
 )
 readme=(
     event_data
