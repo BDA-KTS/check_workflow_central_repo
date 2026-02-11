@@ -149,9 +149,6 @@ with open(report_file, "a") as f:
     #            f.write(f"- {fname} is not present\n")
     #        else:
     #            f.write(f"- {fname} is present\n")
-
-    if all(fname.lower() in existing_files for fname in required_files):
-        f.write("\n All required files are present.\n")
     if "license" in existing_files:
         f.write("\n ## Checking License: \n ")
         f.write(check_and_write_license())
