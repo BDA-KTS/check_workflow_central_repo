@@ -132,10 +132,10 @@ def check_and_write_required_files(repo_files, binder_files):
     missing_binder = binder_files - found_binder
 
     if missing_binder:
-        return_string += "Binder – not found:\n "
+        return_string += "Binder – not found:\n"
         return_string += "\n".join(f"- {b}" for b in sorted(missing_binder)) + "\n"
     else:
-        return_string += "Binder – everything found\n "
+        return_string += "Binder – everything found\n"
 
     return return_string, missing_repo
 
@@ -155,5 +155,5 @@ with open(report_file, "a") as f:
     if "license" not in missing_files:
         f.write("## Checking License:\n\n")
         f.write(check_and_write_license())
-    f.write("## Checking Readme?\n\n")
+    f.write("## Checking Readme\n\n")
     f.write(check_readme(readme))
