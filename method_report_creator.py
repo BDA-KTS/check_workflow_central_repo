@@ -26,7 +26,7 @@ testpath = Path("testee")
 
 def make_title():
     with open(report_file, "w") as fx:
-        fx.write(f"# Report for {owner} of {repo} \n\n")
+        fx.write(f"# Report for {owner} of {repo}\n\n")
 
 
 def get_file_extensions(directory_path):
@@ -77,19 +77,19 @@ def check_readme(readme):
             elif line.startswith("## "):
                 subtitles.append(line[3:].strip())
     if len(titles) ==1:
-        return_string += "\n Found one title: Accepted \n"
+        return_string += "Found one title: Accepted\n"
     elif len(titles) < 1:
-        return_string += "\n Found no titles: Denied \n"
+        return_string += "Found no titles: Denied\n"
     else:
-        return_string += f"\n Found to many titles: Anzahl: {len(titles)} \n"
+        return_string += f"\n Found to many titles: Anzahl: {len(titles)}\n"
 
     missing = set(necessary_subtitles) - set(subtitles)
 
     if not missing:
-        return_string+="All necessary subtitles exists \n"
+        return_string+="All necessary subtitles exists\n"
     else:
         for s in missing:
-            return_string+=f"Missing subtitle: {s} \n"
+            return_string+=f"Missing subtitle: {s}\n"
 
     return return_string
 
@@ -109,10 +109,10 @@ def check_and_write_required_files(repo_files, binder_files):
     missing_repo = repo_files - found_repo_files
 
     if missing_repo:
-        return_string += "Repo – not found: \n"
+        return_string += "Repo – not found:\n"
         return_string += "\n".join(f"- {f}" for f in sorted(missing_repo)) + "\n"
     else:
-        return_string += "Repo – everything found \n "
+        return_string += "Repo – everything found\n"
 
     # --- Binder-Dateien: mehrere mögliche Orte ---
     binder_dirs = {
@@ -132,10 +132,10 @@ def check_and_write_required_files(repo_files, binder_files):
     missing_binder = binder_files - found_binder
 
     if missing_binder:
-        return_string += "Binder – not found: \n "
+        return_string += "Binder – not found:\n "
         return_string += "\n".join(f"- {b}" for b in sorted(missing_binder)) + "\n"
     else:
-        return_string += "Binder – everything found \n "
+        return_string += "Binder – everything found\n "
 
     return return_string, missing_repo
 
@@ -144,7 +144,7 @@ file_suffix = get_file_extensions(testpath)
 required_repo, required_binder = get_needed_files(file_suffix)
 
 with open(report_file, "a") as f:
-    f.write("## Checking required files\n")
+    f.write("## Checking required files\n\n")
     required_file_text,missing_files=check_and_write_required_files(required_repo, required_binder)
     f.write(required_file_text)
     #    for fname in required_files:
@@ -153,7 +153,7 @@ with open(report_file, "a") as f:
     #        else:
     #            f.write(f"- {fname} is present\n")
     if "license" not in missing_files:
-        f.write("\n ## Checking License: \n ")
+        f.write("## Checking License:\n\n")
         f.write(check_and_write_license())
-    f.write("## Checking Readme \n ")
+    f.write("## Checking Readme?\n\n")
     f.write(check_readme(readme))
