@@ -9,4 +9,4 @@ Binder – everything found
 ## Checking Readme 
  
  Found one title: Accepted 
-Missing subtitle: Hardware Requirements 
+
