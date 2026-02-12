@@ -1,9 +1,7 @@
 # Report for taimoorkhan-nlp of text_edit_distance_similarity 
 
 ## Checking required files
-Repo – es fehlen:
-- LICENSE
-- postBuild
+Repo – everything found
 Binder – everything found
 
  ## Checking License: 
