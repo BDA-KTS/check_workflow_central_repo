@@ -82,13 +82,14 @@ def check_readme(readme):
         return_string += "\n Found no titles: Denied \n"
     else:
         return_string += f"\n Found to many titles: Anzahl: {len(titles)} \n"
+
     missing = set(necessary_subtitles) - set(subtitles)
 
     if not missing:
         return_string+="All necessary subtitles exists \n"
     else:
         for s in missing:
-            return_string+=f"Missing subtitle: {s} \n"
+            return_string+=f"Missing subtitle: {s}".join("\n")
 
     return return_string
 
