@@ -89,7 +89,7 @@ def check_readme(readme):
         return_string+="All necessary subtitles exists \n"
     else:
         for s in missing:
-            return_string+=f"Missing subtitle: {s}".join("\n")
+            return_string+=f"Missing subtitle: {s} \n"
 
     return return_string
 
@@ -112,7 +112,7 @@ def check_and_write_required_files(repo_files, binder_files):
         return_string += "Repo – not found: \n"
         return_string += "\n".join(f"- {f}" for f in sorted(missing_repo)) + "\n"
     else:
-        return_string += "Repo – everything found\n"
+        return_string += "Repo – everything found \n "
 
     # --- Binder-Dateien: mehrere mögliche Orte ---
     binder_dirs = {
@@ -132,10 +132,10 @@ def check_and_write_required_files(repo_files, binder_files):
     missing_binder = binder_files - found_binder
 
     if missing_binder:
-        return_string += "Binder – not found: \n"
+        return_string += "Binder – not found: \n "
         return_string += "\n".join(f"- {b}" for b in sorted(missing_binder)) + "\n"
     else:
-        return_string += "Binder – everything found\n"
+        return_string += "Binder – everything found \n "
 
     return return_string, missing_repo
 
