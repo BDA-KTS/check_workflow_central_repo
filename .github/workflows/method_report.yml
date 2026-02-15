@@ -44,7 +44,7 @@ jobs:
         uses: NFDI-Jupyter/ghactions/.github/actions/notebooks@main
         with:
             repo: ${{ github.event.client_payload.repository_full_name }}
-            token: {{secrets.JUPYTERHUB_API_TOKEN}}
+            token: ${{secrets.JUPYTERHUB_API_TOKEN}}
 
       - name: Commit and Push the Report
         working-directory: central
