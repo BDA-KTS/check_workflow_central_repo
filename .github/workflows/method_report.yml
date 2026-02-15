@@ -25,19 +25,6 @@ jobs:
           ref: ${{ github.event.client_payload.repo_hash }}
           path: 'testee'
 
-      - name: Debug token length
-        shell: bash
-        run: |
-          if [ -z "$TOKEN" ]; then
-            echo "Token is EMPTY"
-          else
-            echo "Token length: ${#TOKEN}"
-          fi
-        env:
-          TOKEN: ${{ secrets.JUPYTERHUB_API_TOKEN }}
-
-
-
       - name: Set up Python
         uses: actions/setup-python@v6
         with:
@@ -57,9 +44,22 @@ jobs:
       - name: Test on Jupyter4NFDI
         uses: NFDI-Jupyter/ghactions/.github/actions/notebooks@main
         with:
-            repo: ${{ github.event.client_payload.repository_full_name }}
-            ref: ${{ github.event.client_payload.repo_hash }}
-            token: ${{secrets.JUPYTERHUB_API_TOKEN}}
+          repo: ${{ github.event.client_payload.repository_full_name }}
+          ref: ${{ github.event.client_payload.repo_hash }}
+          token: ${{ secrets.JUPYTERHUB_API_TOKEN }}
+          notebook_dirs: "src"           # path(s) where notebooks live
+          user_options: |
+            # Add the repo root to PYTHONPATH so imports like 'utils' work
+            import sys, os
+            sys.path.append(os.getcwd())
+            # Optional: install dependencies from the repo if a requirements.txt exists
+            import subprocess
+            req_file = os.path.join(os.getcwd(), "requirements.txt")
+            if os.path.exists(req_file):
+                subprocess.check_call([sys.executable, "-m", "pip", "install", "-r", req_file])
+        env:
+          PYTHONPATH: ${{ github.workspace }}/testee  # fallback for Python to find repo modules
+
 
       - name: Commit and Push the Report
         working-directory: central
