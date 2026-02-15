@@ -41,57 +41,36 @@ jobs:
         env:
           GITHUB_EVENT_PATH: ${{ github.event_path }}
 
-      - name: Run Jupyter notebooks and capture logs
-        id: run_jupyter
-        run: |
-          OWNER="${{ github.event.client_payload.repository_owner }}"
-          REPO="${{ github.event.client_payload.repository_name }}"
-          REPORT_DIR="central/report/$OWNER"
-          REPORT_FILE="$REPORT_DIR/$REPO.md"
-          LOG_FILE="$REPORT_DIR/${REPO}_papermill.log"
+      - name: Test on Jupyter4NFDI
+        id: jupyter
+        uses: NFDI-Jupyter/ghactions/.github/actions/notebooks@main
+        with:
+          repo: ${{ github.event.client_payload.repository_full_name }}
+          ref: ${{ github.event.client_payload.repo_hash }}
+          token: ${{ secrets.JUPYTERHUB_API_TOKEN }}
+          notebook_dirs: "src"
+          user_options: '{"pre_install":"for f in $(ls /home/jovyan/src); do case \"$f\" in requirements*.txt) pip install -r /home/jovyan/src/$f ;; environment*.yml) conda env update -f /home/jovyan/src/$f ;; *.R) Rscript /home/jovyan/src/$f ;; esac; done","env":{"PYTHONPATH":"/home/jovyan/src"}}'
 
-          mkdir -p "$REPORT_DIR"
-
-          set -o pipefail
-
-          echo "Running Jupyter4NFDI notebooks..."
-
-          # Run the composite action script directly and capture logs
-          python /home/runner/work/_actions/NFDI-Jupyter/ghactions/main/.github/actions/notebooks/run_papermill.py \
-            --repo "${{ github.event.client_payload.repository_full_name }}" \
-            --ref "${{ github.event.client_payload.repo_hash }}" \
-            --api-url "https://hub.nfdi-jupyter.de/hub/api/job" \
-            --token "${{ secrets.JUPYTERHUB_API_TOKEN }}" \
-            --notebook-dirs "src" \
-            --user-options '{"pre_install":"for f in $(ls /home/jovyan/src); do case \"$f\" in requirements*.txt) pip install -r /home/jovyan/src/$f ;; environment*.yml) conda env update -f /home/jovyan/src/$f ;; *.R) Rscript /home/jovyan/src/$f ;; esac; done","env":{"PYTHONPATH":"/home/jovyan/src"}}' \
-            2>&1 | tee "$LOG_FILE"
-
-          EXIT_CODE=${PIPESTATUS[0]}
-          echo "exit_code=$EXIT_CODE" >> $GITHUB_OUTPUT
-          exit 0
-
-      - name: Append Papermill logs to report
+      - name: Append Papermill result to report
+        if: always()
         run: |
           OWNER="${{ github.event.client_payload.repository_owner }}"
           REPO="${{ github.event.client_payload.repository_name }}"
           REPORT_FILE="central/report/$OWNER/$REPO.md"
-          LOG_FILE="central/report/$OWNER/${REPO}_papermill.log"
 
           echo "" >> "$REPORT_FILE"
-          echo "## Papermill Logs" >> "$REPORT_FILE"
-          echo '```' >> "$REPORT_FILE"
-          cat "$LOG_FILE" >> "$REPORT_FILE"
-          echo '```' >> "$REPORT_FILE"
+          echo "## Papermill Execution" >> "$REPORT_FILE"
+          echo "" >> "$REPORT_FILE"
 
-      - name: Fail workflow if Papermill failed
-        if: steps.run_jupyter.outputs.exit_code != '0'
-        run: |
-          echo "Papermill execution failed."
-          exit 1
-      
-      
-      
-      
+          if [ "${{ job.status }}" = "success" ]; then
+            echo "✅ **Status:** Success" >> "$REPORT_FILE"
+          else
+            echo "❌ **Status:** Failed" >> "$REPORT_FILE"
+          fi
+
+          echo "" >> "$REPORT_FILE"
+          echo "🔗 Full logs available in the GitHub Actions run:" >> "$REPORT_FILE"
+          echo "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}" >> "$REPORT_FILE
 
       - name: Commit and Push the Report
         working-directory: central
