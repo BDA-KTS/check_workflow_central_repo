@@ -5,7 +5,7 @@ permissions:
 
 on:
   repository_dispatch:
-    types: [method]
+    types: [ method ]
 
 
 jobs:
@@ -47,35 +47,27 @@ jobs:
           repo: ${{ github.event.client_payload.repository_full_name }}
           ref: ${{ github.event.client_payload.repo_hash }}
           token: ${{ secrets.JUPYTERHUB_API_TOKEN }}
-          notebook_dirs: "src"           # path(s) where notebooks live
-          user_options: |
-            # Add the repo root to PYTHONPATH so imports like 'utils' work
-            import sys, os
-            sys.path.append(os.getcwd())
-            # Optional: install dependencies from the repo if a requirements.txt exists
-            import subprocess
-            req_file = os.path.join(os.getcwd(), "requirements.txt")
-            if os.path.exists(req_file):
-                subprocess.check_call([sys.executable, "-m", "pip", "install", "-r", req_file])
+          notebook_dirs: "src"
         env:
-          PYTHONPATH: ${{ github.workspace }}/testee  # fallback for Python to find repo modules
+          PYTHONPATH: ${{ github.workspace }}/testee
 
 
-      - name: Commit and Push the Report
-        working-directory: central
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          
-          # Use the environment variable or payload directly for the path
-          REPORT_PATH="report/${{ github.event.client_payload.repository_full_name }}.md"
-          
-          if [ -f "$REPORT_PATH" ]; then
-            git add "$REPORT_PATH"
-            git commit -m "Add report for ${{ github.event.client_payload.repository_full_name }}" || echo "No changes to commit"
-            git push
-          else
-            echo "Report file not found: $REPORT_PATH"
-            exit 1
-          fi
+
+  - name: Commit and Push the Report
+    working-directory: central
+    run: |
+      git config user.name "github-actions[bot]"
+      git config user.email "github-actions[bot]@users.noreply.github.com"
+      
+      # Use the environment variable or payload directly for the path
+      REPORT_PATH="report/${{ github.event.client_payload.repository_full_name }}.md"
+      
+      if [ -f "$REPORT_PATH" ]; then
+        git add "$REPORT_PATH"
+        git commit -m "Add report for ${{ github.event.client_payload.repository_full_name }}" || echo "No changes to commit"
+        git push
+      else
+        echo "Report file not found: $REPORT_PATH"
+        exit 1
+      fi
 
