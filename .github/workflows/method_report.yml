@@ -27,11 +27,16 @@ jobs:
           path: 'testee'
 
       - name: Debug token length
+        shell: bash
+        run: |
+          if [ -z "$TOKEN" ]; then
+            echo "Token is EMPTY"
+          else
+            echo "Token length: ${#TOKEN}"
+          fi
         env:
-          TOKEN:
-            ${{ secrets.JUPYTERHUB_API_TOKEN }}
-        run:
-          echo "Token length: ${#TOKEN}"
+          TOKEN: ${{ secrets.JUPYTERHUB_API_TOKEN }}
+
 
 
       - name: Set up Python
