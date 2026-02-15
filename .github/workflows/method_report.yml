@@ -1,4 +1,4 @@
-name: method_report.yml
+name: Runs on Jupyter4NFDI
 permissions:
   contents: write
 
