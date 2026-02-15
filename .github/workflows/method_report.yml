@@ -48,18 +48,8 @@ jobs:
           ref: ${{ github.event.client_payload.repo_hash }}
           token: ${{ secrets.JUPYTERHUB_API_TOKEN }}
           notebook_dirs: "src"
-          user_options: >
-            {
-              "pre_install": "for f in $(ls /home/jovyan/src); do \
-                case \\\"$f\\\" in \
-                  requirements*.txt) pip install -r /home/jovyan/src/$f ;; \
-                  environment*.yml) conda env update -f /home/jovyan/src/$f ;; \
-                  *.R) Rscript /home/jovyan/src/$f ;; \
-                esac; done",
-              "env": {"PYTHONPATH":"/home/jovyan/src"}
-            }
-            ":"/home/jovyan/src"}
-            }
+          user_options: '{"pre_install":"for f in $(ls /home/jovyan/src); do case \"$f\" in requirements*.txt) pip install -r /home/jovyan/src/$f ;; environment*.yml) conda env update -f /home/jovyan/src/$f ;; *.R) Rscript /home/jovyan/src/$f ;; esac; done","env":{"PYTHONPATH":"/home/jovyan/src"}}'
+
       
       
       
