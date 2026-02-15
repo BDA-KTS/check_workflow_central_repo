@@ -11,60 +11,49 @@ on:
 jobs:
   generate-report:
     runs-on: ubuntu-latest
-    env:
-      REPO_HASH: ${{github.event.client_payload.repo_hash }}
-      REPO_FULLNAME: ${{ github.event.client_payload.repository_full_name }}
-      READ_ME: ${{github.event.client_payload.readme}}
-      
-
     steps:
-      - name: Log event payload
-        run: |
-          echo "Received event payload:"
-          echo "$GITHUB_EVENT_PATH"
-          cat $GITHUB_EVENT_PATH
-
       - name: Checkout central repository
         uses: actions/checkout@v6
         with:
           path: 'central'
 
-      - name: Checkout repository
+      - name: Checkout repository to test
         uses: actions/checkout@v6
         with:
-          repository: '${{ env.REPO_FULLNAME }}'
+          repository: '${{ github.event.client_payload.repository_full_name }}'
           path: 'testee'
-
-      - name: Create Report File
-        run: |
-          mkdir -p central/report
-
-          OWNER="${REPO_FULLNAME%%/*}"
-          REPO="${REPO_FULLNAME##*/}"
-
-          mkdir -p central/report/${OWNER}
-
-          echo "# Report for commit ${REPO_FULLNAME}" \
-            > central/report/${OWNER}/${REPO}.md
-      
 
       - name: Set up Python
         uses: actions/setup-python@v6
         with:
           python-version: "3.12"
+          cache: 'pip'
 
       - name: Install dependencies
-        run: pip install -r central/requirements.txt
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r central/requirements.txt
 
-      - name: Run Test Script
+      - name: Generate Report
         run: python central/method_report_creator.py
+        env:
+          GITHUB_EVENT_PATH: ${{ github.event_path }}
 
       - name: Commit and Push the Report
         working-directory: central
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add report/${{ env.REPO_FULLNAME }}.md
-          git commit -m "Add report for ${{ env.REPO_FULLNAME }}"
-          git push
+          
+          # Use the environment variable or payload directly for the path
+          REPORT_PATH="report/${{ github.event.client_payload.repository_full_name }}.md"
+          
+          if [ -f "$REPORT_PATH" ]; then
+            git add "$REPORT_PATH"
+            git commit -m "Add report for ${{ github.event.client_payload.repository_full_name }}" || echo "No changes to commit"
+            git push
+          else
+            echo "Report file not found: $REPORT_PATH"
+            exit 1
+          fi
 
