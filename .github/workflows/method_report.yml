@@ -23,7 +23,7 @@ jobs:
         with:
           fetch-depth: 1
           repository: '${{ github.event.client_payload.repository_full_name }}'
-          ref: $${{ github.event.client_payload.hash }}
+          ref: ${{ github.event.client_payload.repo_hash }}
           path: 'testee'
 
       - name: Set up Python
@@ -46,7 +46,7 @@ jobs:
         uses: NFDI-Jupyter/ghactions/.github/actions/notebooks@main
         with:
             repo: ${{ github.event.client_payload.repository_full_name }}
-            ref: $${{ github.event.client_payload.hash }}
+            ref: ${{ github.event.client_payload.repo_hash }}
             token: ${{secrets.JUPYTERHUB_API_TOKEN}}
 
       - name: Commit and Push the Report
