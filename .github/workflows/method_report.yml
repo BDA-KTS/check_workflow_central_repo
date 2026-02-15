@@ -26,6 +26,14 @@ jobs:
           ref: ${{ github.event.client_payload.repo_hash }}
           path: 'testee'
 
+      - name: Debug token length
+        env:
+          TOKEN:
+            ${{ secrets.JUPYTERHUB_API_TOKEN }}
+        run:
+          echo "Token length: ${#TOKEN}"
+
+
       - name: Set up Python
         uses: actions/setup-python@v6
         with:
