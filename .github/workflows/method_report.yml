@@ -54,8 +54,10 @@ jobs:
       - name: Append Papermill result to report
         if: always()
         run: |
-          OWNER="${{ github.event.client_payload.repository_owner }}"
-          REPO="${{ github.event.client_payload.repository_name }}"
+          FULL_REPO="${{ github.event.client_payload.repository_full_name }}"
+          OWNER=$(echo "$FULL_REPO" | cut -d'/' -f1)
+          REPO=$(echo "$FULL_REPO" | cut -d'/' -f2)
+
           REPORT_FILE="central/report/$OWNER/$REPO.md"
 
           echo "" >> "$REPORT_FILE"
@@ -69,8 +71,9 @@ jobs:
           fi
 
           echo "" >> "$REPORT_FILE"
-          echo "🔗 Full logs available in the GitHub Actions run:" >> "$REPORT_FILE"
-          echo "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}" >> "$REPORT_FILE
+          echo "🔗 Full logs:" >> "$REPORT_FILE"
+          echo "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}" >> "$REPORT_FILE"
+      
 
       - name: Commit and Push the Report
         working-directory: central
