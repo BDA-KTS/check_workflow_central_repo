@@ -21,7 +21,7 @@ jobs:
       - name: Checkout repository to test
         uses: actions/checkout@v6
         with:
-          fetch-depth: 1
+          fetch-depth: 0
           repository: '${{ github.event.client_payload.repository_full_name }}'
           ref: ${{ github.event.client_payload.repo_hash }}
           path: 'testee'
