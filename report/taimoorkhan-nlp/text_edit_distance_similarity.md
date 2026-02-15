@@ -3,10 +3,14 @@
 ## Checking required files
 
 Repo – everything found
+
 Binder – everything found
-## Checking License:
+
+## Checking License
 
 License accepted: Found Apache-2.0
+
+
 ## Checking Readme
 
 Found one title: Accepted
