@@ -116,7 +116,7 @@ def check_readme(readme_filename: str) -> str:
     else:
         for s in sorted(missing):
             report_lines.append(f"Missing subtitle: {s}")
-
+#Newline
     return "\n".join(report_lines) + "\n"
 
 
