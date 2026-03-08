@@ -192,8 +192,7 @@ def repo2dockertest():
         result = subprocess.run(
             [
                 "repo2docker",
-                "--no-run",  # build only, don't start container
-                "--quiet",
+                "--no-run",
                 "--debug",
                 str(TEST_PATH)
             ],
@@ -207,8 +206,11 @@ def repo2dockertest():
         else:
             report_creator("Repo2Docker build failed.\n")
             report_creator("### Repo2Docker Output:\n")
-            report_creator("```\n")
-            report_creator(result.stderr[-2000:] + "\n")  # limit output
+            report_creator("```text\n")
+            combined_output = "\\n".join(
+                part for part in [result.stdout, result.stderr] if part
+            )
+            report_creator(combined_output[-4000:] + "\\n")
             report_creator("```\n")
 
     except FileNotFoundError:
