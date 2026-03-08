@@ -41,16 +41,14 @@ def get_event_data() -> tuple:
     except (FileNotFoundError, json.JSONDecodeError) as e:
         print(f"Error loading event data: {e}")
         sys.exit(1)
-    if payload.is_empty():
+    if not payload:
         print("Error: No payload found in the event.")
         sys.exit(1)
     payload = payload.get("client_payload", {})
     full_name = payload.get("repository_full_name")
     if not full_name:
         print("Error: repository_full_name missing in payload.")
-    readme_name = payload.get("readme", "README.md")
-    if not readme_name:
-        print("Error: readme missing in payload.")
+    readme_name = payload.get("readme") or "README.md"
     return full_name, readme_name
 
 
@@ -62,7 +60,8 @@ def get_needed_files(suffixes: Set[str]) -> Set[str]:
         required_for_binder.add("requirements.txt")
 
     if ".r" in suffixes_lower:
-        required_for_binder.add({"install.r", "runtime.txt"})
+        required_for_binder.add("install.r")
+        required_for_binder.add("runtime.txt")
 
     if ".conda" in suffixes_lower:
         required_for_binder.add("environment.yml")
@@ -114,9 +113,6 @@ def check_for_binder_files(required_binder):
         for f in required_binder:
             if f not in found_files:
                 report_creator(f"Missing required file: {f} in {dir} \n")
-        if all(f in required_binder for f in found_files):
-            binder_ready_flag = True
-            report_creator(f"All required files found in {dir} \n")
         duplicates = {
             name for name, count in Counter(found_files).items() if count > 1
         }
@@ -138,15 +134,15 @@ def license_check():
             license_name = from_text(license_text)
             licenses.append(license_name)
         except Exception as e:
-            return f"License check failed: Could not read or parse LICENSE file ({e})\n"
+            return report_creator("License check failed: Could not read or parse LICENSE file ({e})\n")
+    if len(licenses) > 1:
+        report_creator(" Too many licenses found, try choosing just one \n")
+    if len(licenses) == 1:
     for l in licenses:
-        if len(licenses) > 1:
-            report_creator(" Too many licenses found, try choosing just one \n")
-        if len(licenses) == 1:
-            if l in FREE_LICENSES:
-                report_creator(f"Found {l} License, License accepted \n")
-            else:
-                report_creator(f"Found {l} License denied \n")
+        if l in FREE_LICENSES:
+            report_creator(f"Found {l} License, License accepted \n")
+        else:
+            report_creator(f"Found {l} License denied \n")
     return None
 
 def check_readme(readme_filename: str) -> None:
