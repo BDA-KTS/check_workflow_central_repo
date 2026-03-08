@@ -113,6 +113,9 @@ def check_for_binder_files(required_binder):
         for f in required_binder:
             if f not in found_files:
                 report_creator(f"Missing required file: {f} in {dir} \n")
+        if required_binder.issubset(found_files):
+            binder_ready_flag = True
+            report_creator(f"All Binder Files found \n")
         duplicates = {
             name for name, count in Counter(found_files).items() if count > 1
         }
@@ -140,9 +143,9 @@ def license_check():
         report_creator(" Too many licenses found, try choosing just one \n")
     if len(licenses) == 1:
         if licenses[0] in FREE_LICENSES:
-            report_creator(f"Found {l} License, License accepted \n")
+            report_creator(f"Found {licenses[0]} License, License accepted \n")
         else:
-            report_creator(f"Found {l} License denied \n")
+            report_creator(f"Found {licenses[0]} License denied \n")
     return None
 
 
