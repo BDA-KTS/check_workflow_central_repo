@@ -1,2 +1,5 @@
 licensename
 jupyter-repo2docker
+requests<2.33
+urllib3<2.0
+chardet<6
