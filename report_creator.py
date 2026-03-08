@@ -16,8 +16,9 @@ FREE_LICENSES = Settings.FREE_LICENSES
 REPO_REQUIREMENTS = Settings.REPO_REQUIREMENTS
 BINDER_DIRS = Settings.BINDER_DIRS
 report = []
-license_flag=False
-binder_ready_flag=False
+license_flag = False
+binder_ready_flag = False
+
 
 def report_creator(report_text: str) -> None:
     report.append(report_text)
@@ -80,12 +81,11 @@ def check_for_formal_files():
         if found in required:
             report_creator(f"Found required file: {found} \n")
         if found == "license":
-            license_flag=True
+            license_flag = True
 
     for missing in required:
         if missing not in repo_scaffold:
             report_creator(f"Missing required file: {missing} \n")
-
 
     duplicates = {
         name for name, count in Counter(repo_scaffold).items() if count > 1
@@ -124,9 +124,10 @@ def check_for_binder_files(required_binder):
                     "Warning: Some required files are duplicated.\n"
                 )
 
+
 def license_check():
-    file= [file for file in TEST_PATH.glob("license*") if file.is_file()]
-    licenses=[]
+    file = [file for file in TEST_PATH.glob("license*") if file.is_file()]
+    licenses = []
     report_creator("## Checking License: \n")
     for f in file:
         try:
@@ -138,12 +139,12 @@ def license_check():
     if len(licenses) > 1:
         report_creator(" Too many licenses found, try choosing just one \n")
     if len(licenses) == 1:
-    for l in licenses:
-        if l in FREE_LICENSES:
+        if licenses[0] in FREE_LICENSES:
             report_creator(f"Found {l} License, License accepted \n")
         else:
             report_creator(f"Found {l} License denied \n")
     return None
+
 
 def check_readme(readme_filename: str) -> None:
     """Analyze the README for required titles and subtitles."""
@@ -179,6 +180,7 @@ def check_readme(readme_filename: str) -> None:
         for s in sorted(missing):
             report_creator(f"Missing subtitle: {s}\n")
 
+
 def repo2dockertest():
     """Simulate a repo2docker build to verify Binder compatibility."""
     report_creator("## Testing repository with repo2docker\n")
@@ -187,7 +189,7 @@ def repo2dockertest():
         result = subprocess.run(
             [
                 "repo2docker",
-                "--no-run",          # build only, don't start container
+                "--no-run",  # build only, don't start container
                 "--quiet",
                 "--debug",
                 str(TEST_PATH)
@@ -211,6 +213,7 @@ def repo2dockertest():
 
     except Exception as e:
         report_creator(f"Repo2Docker test failed with unexpected error: {e}\n")
+
 
 def main():
     full_name, readme_name = get_event_data()
@@ -239,7 +242,7 @@ def main():
     # Readme check
     check_readme(readme_name)
 
-    #Simulate Repo2Docker
+    # Simulate Repo2Docker
     if binder_ready_flag:
         repo2dockertest()
     else:
