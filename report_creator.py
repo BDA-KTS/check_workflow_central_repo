@@ -61,7 +61,7 @@ def get_needed_files(suffixes: Set[str]) -> Set[str]:
         required_for_binder.add("requirements.txt")
 
     if ".r" in suffixes_lower:
-        required_for_binder.add("install.r")
+        required_for_binder.add("install.R")
         required_for_binder.add("runtime.txt")
 
     if ".conda" in suffixes_lower:
