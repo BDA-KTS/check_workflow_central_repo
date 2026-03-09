@@ -79,7 +79,7 @@ def check_for_formal_files():
 
     for found in repo_scaffold:
         if found in required:
-            report_creator(f"Found required file: {found} \n")
+            report_creator(f"Found required file: {found} <br>")
         if found == "license":
             license_flag = True
 
@@ -108,12 +108,15 @@ def check_for_binder_files(required_binder):
         for f in (TEST_PATH / dir).iterdir():
             found_files.append(f.name)
         for f in found_files:
-            if f in required_binder:
+            if f in required_binder or "environment.yml":
                 report_creator(f"Found required file: {f} in {dir} \n")
         for f in required_binder:
             if f not in found_files:
                 report_creator(f"Missing required file: {f} in {dir} \n")
         if required_binder.issubset(found_files):
+            binder_ready_flag = True
+            report_creator(f"All Binder Files found \n")
+        elif found_files=="environment.yml":
             binder_ready_flag = True
             report_creator(f"All Binder Files found \n")
         duplicates = {
