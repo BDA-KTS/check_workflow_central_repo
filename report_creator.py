@@ -240,7 +240,7 @@ def main():
     report_creator(f"## Report generated at {time.strftime('%Y-%m-%d %H:%M:%S')}\n\n")
 
     # File presence checks
-    report_creator("## Checking for required files<br>")
+    report_creator("## Checking for required files\n\n")
     suffixes = get_file_extensions(TEST_PATH)
     required_binder = get_needed_files(suffixes)
     check_for_formal_files()
