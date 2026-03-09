@@ -190,7 +190,7 @@ def check_readme(readme_filename: str) -> None:
     else:
         for s in sorted(missing):
             report_creator(f"Missing subtitle: {s}<br>")
-
+    report_creator("\n\n")
 
 def repo2dockertest():
     """Simulate a repo2docker build to verify Binder compatibility."""
