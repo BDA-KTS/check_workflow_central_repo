@@ -151,6 +151,7 @@ def license_check():
 
 def check_readme(readme_filename: str) -> None:
     """Analyze the README for required titles and subtitles."""
+    report_creator("## Checking Readme: \n\n")
     readme_path = TEST_PATH / readme_filename
     if not readme_path.exists():
         report_creator(f"Readme check failed: {readme_filename} not found\n")
