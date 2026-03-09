@@ -163,7 +163,6 @@ def check_readme(readme_filename: str) -> None:
         return
     titles = []
     subtitles = []
-    report_lines = []
     try:
         with open(readme_path, encoding="utf-8") as f:
             for line in f:
