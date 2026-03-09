@@ -85,17 +85,17 @@ def check_for_formal_files():
 
     for missing in required:
         if missing not in repo_scaffold:
-            report_creator(f"Missing required file: {missing} \n")
+            report_creator(f"Missing required file: {missing} <br>")
 
     duplicates = {
         name for name, count in Counter(repo_scaffold).items() if count > 1
     }
     if not duplicates:
-        report_creator("No duplicate files found.\n")
+        report_creator("No duplicate files found.<br>")
     else:
         if any(required.intersection(duplicates)):
             report_creator(
-                "Warning: Some required files are duplicated.\n"
+                "Warning: Some required files are duplicated.<br>"
             )
 
 
@@ -109,25 +109,25 @@ def check_for_binder_files(required_binder):
             found_files.append(f.name)
         for f in found_files:
             if f in required_binder or "environment.yml":
-                report_creator(f"Found required file: {f} in {dir} \n")
+                report_creator(f"Found required file: {f} in {dir} <br>")
         for f in required_binder:
             if f not in found_files:
-                report_creator(f"Missing required file: {f} in {dir} \n")
+                report_creator(f"Missing required file: {f} in {dir} <br>")
         if required_binder.issubset(found_files):
             binder_ready_flag = True
-            report_creator(f"All Binder Files found \n")
+            report_creator(f"All Binder Files found <br>")
         elif found_files=="environment.yml":
             binder_ready_flag = True
-            report_creator(f"All Binder Files found \n")
+            report_creator(f"All Binder Files found <br>")
         duplicates = {
             name for name, count in Counter(found_files).items() if count > 1
         }
         if not duplicates:
-            report_creator("No duplicate files found.\n")
+            report_creator("No duplicate files found.<br>")
         else:
             if any(required_binder.intersection(duplicates)):
                 report_creator(
-                    "Warning: Some required files are duplicated.\n"
+                    "Warning: Some required files are duplicated.<br>"
                 )
 
 
@@ -138,7 +138,7 @@ def license_check():
     ]
     print(license_files)
     licenses = []
-    report_creator("## Checking License: \n\n")
+    report_creator("## Checking License: <br>")
     for f in license_files:
         try:
             license_text = f.read_text(encoding="utf-8")
@@ -146,23 +146,23 @@ def license_check():
             licenses.append(license_name)
             print(license_name)
         except Exception as e:
-            return report_creator(f"License check failed: Could not read or parse LICENSE file ({e})\n")
+            return report_creator(f"License check failed: Could not read or parse LICENSE file ({e})<br>")
     if len(licenses) > 1:
-        report_creator(" Too many licenses found, try choosing just one \n")
+        report_creator(" Too many licenses found, try choosing just one <br>")
     if len(licenses) == 1:
         if licenses[0] in FREE_LICENSES:
-            report_creator(f"Found {licenses[0]} License, License accepted \n")
+            report_creator(f"Found {licenses[0]} License, License accepted <br>")
         else:
-            report_creator(f"Found {licenses[0]} License denied \n")
+            report_creator(f"Found {licenses[0]} License denied <br>")
     return None
 
 
 def check_readme(readme_filename: str) -> None:
     """Analyze the README for required titles and subtitles."""
-    report_creator("## Checking Readme: \n\n")
+    report_creator("## Checking Readme: <br>")
     readme_path = TEST_PATH / readme_filename
     if not readme_path.exists():
-        report_creator(f"Readme check failed: {readme_filename} not found\n")
+        report_creator(f"Readme check failed: {readme_filename} not found<br>")
         return
     titles = []
     subtitles = []
@@ -174,27 +174,27 @@ def check_readme(readme_filename: str) -> None:
                 elif line.startswith("## "):
                     subtitles.append(line[3:].strip())
     except Exception as e:
-        report_creator(f"Readme check failed: Error reading file ({e})\n")
+        report_creator(f"Readme check failed: Error reading file ({e})<br>")
         return
     if len(titles) == 1:
-        report_creator("Found one title: Accepted\n")
+        report_creator("Found one title: Accepted<br>")
     elif len(titles) < 1:
-        report_creator("Found no titles: Denied\n")
+        report_creator("Found no titles: Denied<br>")
     else:
-        report_creator(f"Found too many titles: Count: {len(titles)}\n")
+        report_creator(f"Found too many titles: Count: {len(titles)}<br>")
     missing = set(NECESSARY_SUBTITLES) - set(subtitles)
     for subtitle in subtitles:
-        report_creator(f"Found subtitle: {subtitle}\n")
+        report_creator(f"Found subtitle: {subtitle}<br>")
     if not missing:
-        report_creator("All necessary subtitles exist\n")
+        report_creator("All necessary subtitles exist<br>")
     else:
         for s in sorted(missing):
-            report_creator(f"Missing subtitle: {s}\n")
+            report_creator(f"Missing subtitle: {s}<br>")
 
 
 def repo2dockertest():
     """Simulate a repo2docker build to verify Binder compatibility."""
-    report_creator("## Testing repository with repo2docker\n\n")
+    report_creator("## Testing repository with repo2docker<br>")
 
     try:
         result = subprocess.run(
@@ -210,22 +210,22 @@ def repo2dockertest():
         )
 
         if result.returncode == 0:
-            report_creator("Repo2Docker build successful. Binder environment is valid.\n")
+            report_creator("Repo2Docker build successful. Binder environment is valid.<br>")
         else:
-            report_creator("Repo2Docker build failed.\n")
-            report_creator(" Repo2Docker Output:\n")
-            report_creator("```text\n")
-            combined_output = "\\n".join(
+            report_creator("Repo2Docker build failed.<br>")
+            report_creator(" Repo2Docker Output:<br>")
+            report_creator("```text<br>")
+            combined_output = "<br>".join(
                 part for part in [result.stdout, result.stderr] if part
             )
-            report_creator(combined_output[-4000:] + "\\n")
-            report_creator("```\n")
+            report_creator(combined_output[-4000:] + "<br>")
+            report_creator("```<br>")
 
     except FileNotFoundError:
-        report_creator("Repo2Docker test failed: repo2docker is not installed in the environment.\n")
+        report_creator("Repo2Docker test failed: repo2docker is not installed in the environment.<br>")
 
     except Exception as e:
-        report_creator(f"Repo2Docker test failed with unexpected error: {e}\n")
+        report_creator(f"Repo2Docker test failed with unexpected error: {e}<br>")
 
 
 def main():
@@ -236,11 +236,11 @@ def main():
     report_file = report_dir / f"{repo}.md"
 
     # Start building the report content
-    report_creator(f"# Report for {owner} of {repo}\n\n")
-    report_creator(f"## Report generated at {time.strftime('%Y-%m-%d %H:%M:%S')}\n\n")
+    report_creator(f"# Report for {owner} of {repo}<br>")
+    report_creator(f"## Report generated at {time.strftime('%Y-%m-%d %H:%M:%S')}<br>")
 
     # File presence checks
-    report_creator("## Checking for required files\n\n")
+    report_creator("## Checking for required files<br>")
     suffixes = get_file_extensions(TEST_PATH)
     required_binder = get_needed_files(suffixes)
     check_for_formal_files()
@@ -250,7 +250,7 @@ def main():
     if license_flag:
         license_check()
     else:
-        report_creator("## Can't check license, no license file found.\n\n")
+        report_creator("## Can't check license, no license file found.<br>")
 
     # Readme check
     check_readme(readme_name)
@@ -259,7 +259,7 @@ def main():
     if binder_ready_flag:
         repo2dockertest()
     else:
-        report_creator("## Can't check binder, no or wrong binder files found.\n\n")
+        report_creator("## Can't check binder, no or wrong binder files found.<br>")
 
     # Write the report
     with open(report_file, "w", encoding="utf-8") as f:
