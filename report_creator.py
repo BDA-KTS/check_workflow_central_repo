@@ -131,7 +131,7 @@ def check_for_binder_files(required_binder):
 def license_check():
     file = [file for file in TEST_PATH.glob("license*") if file.is_file()]
     licenses = []
-    report_creator("## Checking License: \n")
+    report_creator("## Checking License: \n\n")
     for f in file:
         try:
             license_text = f.read_text(encoding="utf-8")
@@ -186,7 +186,7 @@ def check_readme(readme_filename: str) -> None:
 
 def repo2dockertest():
     """Simulate a repo2docker build to verify Binder compatibility."""
-    report_creator("## Testing repository with repo2docker\n")
+    report_creator("## Testing repository with repo2docker\n\n")
 
     try:
         result = subprocess.run(
@@ -205,7 +205,7 @@ def repo2dockertest():
             report_creator("Repo2Docker build successful. Binder environment is valid.\n")
         else:
             report_creator("Repo2Docker build failed.\n")
-            report_creator("### Repo2Docker Output:\n")
+            report_creator(" Repo2Docker Output:\n")
             report_creator("```text\n")
             combined_output = "\\n".join(
                 part for part in [result.stdout, result.stderr] if part
@@ -228,11 +228,11 @@ def main():
     report_file = report_dir / f"{repo}.md"
 
     # Start building the report content
-    report_creator(f"# Report for {owner} of {repo}\n")
-    report_creator(f"## Report generated at {time.strftime('%Y-%m-%d %H:%M:%S')}\n")
+    report_creator(f"# Report for {owner} of {repo}\n\n")
+    report_creator(f"## Report generated at {time.strftime('%Y-%m-%d %H:%M:%S')}\n\n")
 
     # File presence checks
-    report_creator("## Checking for required files\n")
+    report_creator("## Checking for required files\n\n")
     suffixes = get_file_extensions(TEST_PATH)
     required_binder = get_needed_files(suffixes)
     check_for_formal_files()
@@ -242,7 +242,7 @@ def main():
     if license_flag:
         license_check()
     else:
-        report_creator("## Can't check license, no license file found.\n")
+        report_creator("## Can't check license, no license file found.\n\n")
 
     # Readme check
     check_readme(readme_name)
@@ -251,7 +251,7 @@ def main():
     if binder_ready_flag:
         repo2dockertest()
     else:
-        report_creator("## Can't check binder, no or wrong binder files found.\n")
+        report_creator("## Can't check binder, no or wrong binder files found.\n\n")
 
     # Write the report
     with open(report_file, "w", encoding="utf-8") as f:
