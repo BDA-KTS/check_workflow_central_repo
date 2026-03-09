@@ -91,11 +91,11 @@ def check_for_formal_files():
         name for name, count in Counter(repo_scaffold).items() if count > 1
     }
     if not duplicates:
-        report_creator("No duplicate files found.<br>")
+        report_creator("No duplicate files found.\n\n")
     else:
         if any(required.intersection(duplicates)):
             report_creator(
-                "Warning: Some required files are duplicated.<br>"
+                "Warning: Some required files are duplicated.\n\n"
             )
 
 
@@ -123,11 +123,11 @@ def check_for_binder_files(required_binder):
             name for name, count in Counter(found_files).items() if count > 1
         }
         if not duplicates:
-            report_creator("No duplicate files found./n/n")
+            report_creator("No duplicate files found.\n\n")
         else:
             if any(required_binder.intersection(duplicates)):
                 report_creator(
-                    "Warning: Some required files are duplicated./n/n"
+                    "Warning: Some required files are duplicated.\n\n"
                 )
 
 
@@ -151,9 +151,9 @@ def license_check():
         report_creator(" Too many licenses found, try choosing just one <br>")
     if len(licenses) == 1:
         if licenses[0] in FREE_LICENSES:
-            report_creator(f"Found {licenses[0]} License, License accepted /n/n")
+            report_creator(f"Found {licenses[0]} License, License accepted \n\n")
         else:
-            report_creator(f"Found {licenses[0]} License denied /n/n")
+            report_creator(f"Found {licenses[0]} License denied \n\n")
     return None
 
 
