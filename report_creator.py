@@ -130,6 +130,7 @@ def check_for_binder_files(required_binder):
 
 def license_check():
     file = [file for file in TEST_PATH.glob("license*") if file.is_file()]
+    print(file)
     licenses = []
     report_creator("## Checking License: \n\n")
     for f in file:
@@ -137,6 +138,7 @@ def license_check():
             license_text = f.read_text(encoding="utf-8")
             license_name = from_text(license_text)
             licenses.append(license_name)
+            print(license_name)
         except Exception as e:
             return report_creator("License check failed: Could not read or parse LICENSE file ({e})\n")
     if len(licenses) > 1:

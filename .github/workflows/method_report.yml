@@ -1,4 +1,4 @@
-name: Runs on Jupyter4NFDI
+name: Report Creator
 permissions:
   contents: write
 
