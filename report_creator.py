@@ -2,7 +2,7 @@ import os
 import json
 import subprocess
 import sys
-from collections import Counter
+import nbformat
 from pathlib import Path
 from typing import Set
 from licensename import from_text
@@ -71,32 +71,24 @@ def get_needed_files(suffixes: Set[str]) -> Set[str]:
 
 
 def check_for_formal_files():
+    report_creator("## Checking for required files: \n\n")
     global license_flag
     repo_files = [p.stem for p in TEST_PATH.iterdir() if p.is_file()]
     repo_scaffold = sorted([f.casefold() for f in repo_files])
 
     required = {r.casefold() for r in REPO_REQUIREMENTS}
 
-    for found in repo_scaffold:
-        if found in required:
+    for found in required:
+        if found in repo_scaffold:
             report_creator(f"Found required file: {found} <br>")
-        if found == "license":
-            license_flag = True
+            if found == "license":
+                license_flag = True
 
-    for missing in required:
-        if missing not in repo_scaffold:
-            report_creator(f"Missing required file: {missing} <br>")
-
-    duplicates = {
-        name for name, count in Counter(repo_scaffold).items() if count > 1
-    }
-    if not duplicates:
-        report_creator("No duplicate files found.\n\n")
+    missing = required - set(repo_scaffold)
+    if missing:
+        report_creator(f"Missing required files: {', '.join(missing)} <br>")
     else:
-        if any(required.intersection(duplicates)):
-            report_creator(
-                "Warning: Some required files are duplicated.\n\n"
-            )
+        report_creator("All required files found <br>")
 
 
 def check_for_binder_files(required_binder):
@@ -107,28 +99,22 @@ def check_for_binder_files(required_binder):
             continue
         for f in (TEST_PATH / dir).iterdir():
             found_files.append(f.name)
-        for f in found_files:
-            if f in required_binder or "environment.yml":
-                report_creator(f"Found required file: {f} in {dir} <br>")
-        for f in required_binder:
-            if f not in found_files:
-                report_creator(f"Missing required file: {f} in {dir} <br>")
-        if required_binder.issubset(found_files):
-            binder_ready_flag = True
-            report_creator(f"All Binder Files found <br>")
-        elif found_files=="environment.yml":
-            binder_ready_flag = True
-            report_creator(f"All Binder Files found <br>")
-        duplicates = {
-            name for name, count in Counter(found_files).items() if count > 1
-        }
-        if not duplicates:
-            report_creator("No duplicate files found.\n\n")
-        else:
-            if any(required_binder.intersection(duplicates)):
-                report_creator(
-                    "Warning: Some required files are duplicated.\n\n"
-                )
+    if duplicat(found_files):
+        report_creator(
+            "Warning: Some files are duplicated.<br>"
+        )
+    if "environment.yml" in found_files:
+        binder_ready_flag = True
+        report_creator("Found environment.yml for binder environment. <br>")
+    if all(f in found_files for f in required_binder):
+        if binder_ready_flag:
+            report_creator("Multiple binder files found, but only one is required. <br>")
+        binder_ready_flag = True
+        report_creator("Found all required binder files <br>")
+    report_creator("\n\n")
+
+def duplicat(lst):
+    return len(lst) != len(set(lst))
 
 
 def license_check():
@@ -151,13 +137,14 @@ def license_check():
         report_creator(" Too many licenses found, try choosing just one <br>")
     if len(licenses) == 1:
         if licenses[0] in FREE_LICENSES:
-            report_creator(f"Found {licenses[0]} License, License accepted \n\n")
+            report_creator(f"Found {licenses[0]} License, License accepted <br>")
         else:
-            report_creator(f"Found {licenses[0]} License denied \n\n")
+            report_creator(f"Found {licenses[0]} License denied <br>")
+    report_creator("\n\n")
     return None
 
 
-def check_readme(readme_filename: str) -> None:
+def convert_readme_md(readme_filename: str) -> None:
     """Analyze the README for required titles and subtitles."""
     report_creator("## Checking Readme: \n\n")
     readme_path = TEST_PATH / readme_filename
@@ -176,6 +163,22 @@ def check_readme(readme_filename: str) -> None:
     except Exception as e:
         report_creator(f"Readme check failed: Error reading file ({e})<br>")
         return
+    check_readme(titles, subtitles)
+
+def convert_readme_ipynb(readme_filename: str) -> None:
+    nb=nbformat.read(readme_filename, as_version=4)
+    cells=nb.cells
+    titles=[]
+    subtitles=[]
+    for cell in cells:
+        if cell.cell_type=="markdown":
+            if cell.source[0]=="#":
+                titles.append(cell.source[1:].strip())
+            elif cell.source[0]=="##":
+                subtitles.append(cell.source[2:].strip())
+    check_readme(titles, subtitles)
+
+def check_readme(titles,subtitles):
     if len(titles) == 1:
         report_creator("Found one title: Accepted<br>")
     elif len(titles) < 1:
@@ -185,11 +188,10 @@ def check_readme(readme_filename: str) -> None:
     missing = set(NECESSARY_SUBTITLES) - set(subtitles)
     for subtitle in subtitles:
         report_creator(f"Found subtitle: {subtitle}<br>")
-    if not missing:
-        report_creator("All necessary subtitles exist<br>")
-    else:
-        for s in sorted(missing):
-            report_creator(f"Missing subtitle: {s}<br>")
+    if missing:
+        report_creator(f"Missing subtitles: {', '.join(missing)}<br>")
+    if duplicat(subtitles):
+        report_creator("Warning: Some subtitles are duplicated.<br>")
     report_creator("\n\n")
 
 def repo2dockertest():
@@ -226,6 +228,7 @@ def repo2dockertest():
 
     except Exception as e:
         report_creator(f"Repo2Docker test failed with unexpected error: {e}<br>")
+    report_creator("\n\n")
 
 
 def main():
@@ -240,7 +243,6 @@ def main():
     report_creator(f"## Report generated at {time.strftime('%Y-%m-%d %H:%M:%S')}\n\n")
 
     # File presence checks
-    report_creator("## Checking for required files\n\n")
     suffixes = get_file_extensions(TEST_PATH)
     required_binder = get_needed_files(suffixes)
     check_for_formal_files()
@@ -253,7 +255,10 @@ def main():
         report_creator("## Can't check license, no license file found.\n\n")
 
     # Readme check
-    check_readme(readme_name)
+    if readme_name.suffix == ".ipynb":
+        convert_readme_ipynb(readme_name)
+    elif readme_name.suffix == ".md":
+        convert_readme_md(readme_name)
 
     # Simulate Repo2Docker
     if binder_ready_flag:
