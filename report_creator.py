@@ -76,7 +76,7 @@ def check_for_formal_files():
     repo_files = [p.stem for p in TEST_PATH.iterdir() if p.is_file()]
     repo_scaffold = sorted([f.casefold() for f in repo_files])
 
-    required = {r.casefold() for r in REPO_REQUIREMENTS}
+    required = {r.casefold() for r in set(REPO_REQUIREMENTS)}
 
     for found in required:
         if found in repo_scaffold:
@@ -87,6 +87,7 @@ def check_for_formal_files():
     missing = required - set(repo_scaffold)
     if missing:
         report_creator(f"Missing required files: {', '.join(missing)} <br>")
+        report_creator(f"For further information see: {REPO_REQUIREMENTS[missing]} <br>")
     else:
         report_creator("All required files found <br>")
 
@@ -190,6 +191,7 @@ def check_readme(titles,subtitles):
         report_creator(f"Found subtitle: {subtitle}<br>")
     if missing:
         report_creator(f"Missing subtitles: {', '.join(missing)}<br>")
+        report_creator(f"For further information see:{NECESSARY_SUBTITLES[missing]}<br>")
     if duplicat(subtitles):
         report_creator("Warning: Some subtitles are duplicated.<br>")
     report_creator("\n\n")
