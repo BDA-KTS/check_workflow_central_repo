@@ -15,7 +15,7 @@ class Settings:
         "How to Use":"https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#how-to-use",
         "Technical Details":"https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#how-to-use",
         "Contact Details":"https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#contact-detailsn "}
-    BINDER_DIRS: list[str] = ["","binder", "binder/"]
+    BINDER_DIRS: list[str] = ["",".binder", "binder"]
     FREE_LICENSES: list[str]=["Apache-2.0","MIT","BSD-2-Clause","BSD-3-Clause","ISC","Zlib","BSL-1.0","GNU"]
     REPO_REQUIREMENTS:dict = {"citation":"citation missing: https://github.com/GESIS-Methods-Hub/guidelines?tab=readme-ov-file#quality-criteria",
                          "license":"license missing: https://github.com/GESIS-Methods-Hub/guidelines?tab=readme-ov-file#quality-criteria",

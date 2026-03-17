@@ -49,6 +49,7 @@ def get_event_data() -> tuple:
     full_name = payload.get("repository_full_name")
     if not full_name:
         print("Error: repository_full_name missing in payload.")
+        sys.exit(1)
     readme_name = payload.get("readme") or "README.md"
     return full_name, readme_name
 
@@ -63,9 +64,6 @@ def get_needed_files(suffixes: Set[str]) -> Set[str]:
     if ".r" in suffixes_lower:
         required_for_binder.add("install.R")
         required_for_binder.add("runtime.txt")
-
-    if ".conda" in suffixes_lower:
-        required_for_binder.add("environment.yml")
 
     return required_for_binder
 
@@ -86,8 +84,9 @@ def check_for_formal_files():
 
     missing = required - set(repo_scaffold)
     if missing:
-        report_creator(f"Missing required files: {', '.join(missing)} <br>")
-        report_creator(f"For further information see: {REPO_REQUIREMENTS[missing]} <br>")
+        for item in missing:
+            report_creator(f"Missing required files: {item} <br>")
+            report_creator(f"For further information see: {REPO_REQUIREMENTS[item]} <br>")
     else:
         report_creator("All required files found <br>")
 
@@ -95,10 +94,13 @@ def check_for_formal_files():
 def check_for_binder_files(required_binder):
     global binder_ready_flag
     found_files = []
-    for dir in BINDER_DIRS:
-        if not (TEST_PATH / dir).is_dir():
+    if not required_binder:
+        report_creator("No binder files found <br>")
+        return
+    for binder_directory in BINDER_DIRS:
+        if not (TEST_PATH / binder_directory).is_dir():
             continue
-        for f in (TEST_PATH / dir).iterdir():
+        for f in (TEST_PATH / binder_directory).iterdir():
             found_files.append(f.name)
     if duplicat(found_files):
         report_creator(
@@ -133,7 +135,7 @@ def license_check():
             licenses.append(license_name)
             print(license_name)
         except Exception as e:
-            return report_creator(f"License check failed: Could not read or parse LICENSE file ({e})<br>")
+            report_creator(f"License check failed: Could not read or parse LICENSE file ({e})<br>")
     if len(licenses) > 1:
         report_creator(" Too many licenses found, try choosing just one <br>")
     if len(licenses) == 1:
@@ -145,12 +147,11 @@ def license_check():
     return None
 
 
-def convert_readme_md(readme_filename: str) -> None:
+def convert_readme_md(readme_path: Path) -> None:
     """Analyze the README for required titles and subtitles."""
     report_creator("## Checking Readme: \n\n")
-    readme_path = TEST_PATH / readme_filename
     if not readme_path.exists():
-        report_creator(f"Readme check failed: {readme_filename} not found<br>")
+        report_creator(f"Readme check failed: {readme_path} not found<br>")
         return
     titles = []
     subtitles = []
@@ -166,17 +167,27 @@ def convert_readme_md(readme_filename: str) -> None:
         return
     check_readme(titles, subtitles)
 
-def convert_readme_ipynb(readme_filename: str) -> None:
-    nb=nbformat.read(readme_filename, as_version=4)
-    cells=nb.cells
-    titles=[]
-    subtitles=[]
-    for cell in cells:
-        if cell.cell_type=="markdown":
-            if cell.source[0]=="#":
-                titles.append(cell.source[1:].strip())
-            elif cell.source[0]=="##":
-                subtitles.append(cell.source[2:].strip())
+def convert_readme_ipynb(readme_filename: Path) -> None:
+    report_creator("## Checking Readme: \n\n")
+    if not readme_filename.exists():
+        report_creator(f"Readme check failed: {readme_filename} not found<br>")
+        return
+    try:
+        nb=nbformat.read(readme_filename, as_version=4)
+    except Exception as e:
+        report_creator(f"Readme check failed: Error reading file ({e})<br>")
+        return
+    titles = []
+    subtitles = []
+    for cell in nb.cells:
+        if cell.cell_type == "markdown":
+            text= cell.source
+            for line in text.splitlines():
+                line=line.strip()
+                if line.startswith("# "):
+                    titles.append(line[2:].strip())
+                elif line.startswith("## "):
+                    subtitles.append(line[3:].strip())
     check_readme(titles, subtitles)
 
 def check_readme(titles,subtitles):
@@ -189,9 +200,9 @@ def check_readme(titles,subtitles):
     missing = set(NECESSARY_SUBTITLES) - set(subtitles)
     for subtitle in subtitles:
         report_creator(f"Found subtitle: {subtitle}<br>")
-    if missing:
-        report_creator(f"Missing subtitles: {', '.join(missing)}<br>")
-        report_creator(f"For further information see:{NECESSARY_SUBTITLES[missing]}<br>")
+    for item in missing:
+        report_creator(f"Missing subtitles: {item} <br>")
+        report_creator(f"For further information see: {NECESSARY_SUBTITLES[item]}<br>")
     if duplicat(subtitles):
         report_creator("Warning: Some subtitles are duplicated.<br>")
     report_creator("\n\n")
@@ -218,12 +229,10 @@ def repo2dockertest():
         else:
             report_creator("Repo2Docker build failed.<br>")
             report_creator(" Repo2Docker Output:<br>")
-            report_creator("```text<br>")
             combined_output = "<br>".join(
                 part for part in [result.stdout, result.stderr] if part
             )
             report_creator(combined_output[-4000:] + "<br>")
-            report_creator("```<br>")
 
     except FileNotFoundError:
         report_creator("Repo2Docker test failed: repo2docker is not installed in the environment.<br>")
@@ -257,10 +266,13 @@ def main():
         report_creator("## Can't check license, no license file found.\n\n")
 
     # Readme check
-    if readme_name.suffix == ".ipynb":
-        convert_readme_ipynb(readme_name)
-    elif readme_name.suffix == ".md":
-        convert_readme_md(readme_name)
+    readme_path = TEST_PATH / readme_name
+    if readme_path.suffix == ".ipynb":
+        convert_readme_ipynb(readme_path)
+    elif readme_path.suffix == ".md":
+        convert_readme_md(readme_path)
+    else:
+        report_creator("Readme check failed: Format not yet supported")
 
     # Simulate Repo2Docker
     if binder_ready_flag:
