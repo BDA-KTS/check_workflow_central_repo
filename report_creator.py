@@ -2,9 +2,11 @@ import os
 import json
 import subprocess
 import sys
+from dataclasses import dataclass, field
+
 import nbformat
 from pathlib import Path
-from typing import Set
+from typing import Set, List, Counter
 from licensename import from_text
 from config import Settings
 import time
@@ -16,13 +18,14 @@ FREE_LICENSES = Settings.FREE_LICENSES
 REPO_REQUIREMENTS = Settings.REPO_REQUIREMENTS
 BINDER_DIRS = Settings.BINDER_DIRS
 report = []
-license_flag = False
-binder_ready_flag = False
 
-
-def report_creator(report_text: str) -> None:
-    report.append(report_text)
-
+@dataclass(frozen=True)
+class CheckResult:
+    name: str
+    passed: bool
+    messages: List[str] = field(default_factory=list)
+    warnings: List[str] = field(default_factory=list)
+    statuses: List[str] = field(default_factory=list)
 
 def get_file_extensions(path: Path) -> Set[str]:
     """Get all file extensions in the given directory recursively."""
@@ -69,90 +72,98 @@ def get_needed_files(suffixes: Set[str]) -> Set[str]:
 
 
 def check_for_formal_files():
-    report_creator("## Checking for required files: \n\n")
-    global license_flag
+    passed=False
+    messages=[]
+    warnings=[]
+    statuses=[]
     repo_files = [p.stem for p in TEST_PATH.iterdir() if p.is_file()]
     repo_scaffold = sorted([f.casefold() for f in repo_files])
 
     required = {r.casefold() for r in set(REPO_REQUIREMENTS)}
-
-    for found in required:
-        if found in repo_scaffold:
-            report_creator(f"Found required file: {found} <br>")
-            if found == "license":
-                license_flag = True
-
+    repo_scaffold=[f in repo_scaffold for f in required]
+    if "license" in repo_scaffold:
+        statuses.append("license")
+    counter=Counter(repo_scaffold)
+    duplicates=[f for f, count in counter.items() if count <1]
+    if duplicates:
+        for f in duplicates:
+            warnings.append(f"Warning: {f} is duplicated.")
     missing = required - set(repo_scaffold)
     if missing:
         for item in missing:
-            report_creator(f"Missing required files: {item} <br>")
-            report_creator(f"For further information see: {REPO_REQUIREMENTS[item]} <br>")
+            messages.append(f"Missing required files: {item}")
+            messages.append(f"For further information see: {REPO_REQUIREMENTS[item]}")
     else:
-        report_creator("All required files found <br>")
+        messages.append("All required files found")
+        passed=True
+    return CheckResult("Formal Files", passed, messages, warnings, statuses)
 
 
 def check_for_binder_files(required_binder):
-    global binder_ready_flag
+    passed=False
+    messages=[]
+    warnings=[]
+    statuses=[]
     found_files = []
-    if not required_binder:
-        report_creator("No binder files found <br>")
-        return
     for binder_directory in BINDER_DIRS:
         if not (TEST_PATH / binder_directory).is_dir():
             continue
         for f in (TEST_PATH / binder_directory).iterdir():
             found_files.append(f.name)
-    if duplicat(found_files):
-        report_creator(
-            "Warning: Some files are duplicated.<br>"
-        )
     if "environment.yml" in found_files:
-        binder_ready_flag = True
-        report_creator("Found environment.yml for binder environment. <br>")
-    if all(f in found_files for f in required_binder):
-        if binder_ready_flag:
-            report_creator("Multiple binder files found, but only one is required. <br>")
-        binder_ready_flag = True
-        report_creator("Found all required binder files <br>")
-    report_creator("\n\n")
-
-def duplicat(lst):
-    return len(lst) != len(set(lst))
-
+        passed=True
+        messages.append("Found required file: environment.yml")
+        messages.append("All required binder files found")
+    found_files = sorted([f in found_files for f in required_binder])
+    counter=Counter(found_files)
+    duplicates=[f for f, count in counter.items() if count <1]
+    if duplicates:
+        for f in duplicates:
+            warnings.append(f"Warning: {f} is duplicated.")
+    for f in found_files:
+            messages.append(f"Found required file: {f}")
+    if found_files == required_binder:
+        if passed:
+            warnings.append("Multiple binder configs found")
+        else:
+            passed=True
+            messages.append("All required binder files found")
+    return CheckResult("Binder Files", passed, messages, warnings,statuses)
 
 def license_check():
+    passed=False
+    messages=[]
+    warnings=[]
     license_files = [
         f for f in TEST_PATH.iterdir()
         if f.is_file() and f.name.casefold().startswith("license")
     ]
-    print(license_files)
     licenses = []
-    report_creator("## Checking License: \n\n")
     for f in license_files:
         try:
             license_text = f.read_text(encoding="utf-8")
             license_name = from_text(license_text)
             licenses.append(license_name)
-            print(license_name)
         except Exception as e:
-            report_creator(f"License check failed: Could not read or parse LICENSE file ({e})<br>")
+            warnings.append(f"License file could not be read or parsed: Error {e}")
     if len(licenses) > 1:
-        report_creator(" Too many licenses found, try choosing just one <br>")
+        warnings.append(" Too many licenses found, try choosing just one ")
     if len(licenses) == 1:
         if licenses[0] in FREE_LICENSES:
-            report_creator(f"Found {licenses[0]} License, License accepted <br>")
+            passed=True
+            messages.append(f"Found {licenses[0]} License, License accepted ")
         else:
-            report_creator(f"Found {licenses[0]} License denied <br>")
-    report_creator("\n\n")
-    return None
+            messages.append(f"Found {licenses[0]} License denied ")
+
+    return CheckResult("License Check",passed,messages,warnings,[])
 
 
-def convert_readme_md(readme_path: Path) -> None:
+def convert_readme_md(readme_path: Path) :
     """Analyze the README for required titles and subtitles."""
-    report_creator("## Checking Readme: \n\n")
+    warnings=[]
     if not readme_path.exists():
-        report_creator(f"Readme check failed: {readme_path} not found<br>")
-        return
+        warnings.append(f"Readme check failed: {readme_path} not found")
+        return warnings
     titles = []
     subtitles = []
     try:
@@ -163,20 +174,20 @@ def convert_readme_md(readme_path: Path) -> None:
                 elif line.startswith("## "):
                     subtitles.append(line[3:].strip())
     except Exception as e:
-        report_creator(f"Readme check failed: Error reading file ({e})<br>")
-        return
-    check_readme(titles, subtitles)
+        warnings.append(f"Readme check failed: Error reading file ({e})")
+        return warnings
+    return check_readme(titles, subtitles, warnings)
 
-def convert_readme_ipynb(readme_filename: Path) -> None:
-    report_creator("## Checking Readme: \n\n")
-    if not readme_filename.exists():
-        report_creator(f"Readme check failed: {readme_filename} not found<br>")
-        return
+def convert_readme_ipynb(readme_path: Path):
+    warnings = []
+    if not readme_path.exists():
+        warnings.append(f"Readme check failed: {readme_path} not found")
+        return warnings
     try:
-        nb=nbformat.read(readme_filename, as_version=4)
+        nb=nbformat.read(readme_path, as_version=4)
     except Exception as e:
-        report_creator(f"Readme check failed: Error reading file ({e})<br>")
-        return
+        warnings.append(f"Readme check failed: Error reading file ({e})")
+        return warnings
     titles = []
     subtitles = []
     for cell in nb.cells:
@@ -188,28 +199,34 @@ def convert_readme_ipynb(readme_filename: Path) -> None:
                     titles.append(line[2:].strip())
                 elif line.startswith("## "):
                     subtitles.append(line[3:].strip())
-    check_readme(titles, subtitles)
+    return check_readme(titles, subtitles, warnings)
 
-def check_readme(titles,subtitles):
+def check_readme(titles,subtitles, warning):
+    passed=True
+    message=[]
+    warnings=warning
+    statuses=[]
     if len(titles) == 1:
-        report_creator("Found one title: Accepted<br>")
+        message.append("Found one title: Accepted")
     elif len(titles) < 1:
-        report_creator("Found no titles: Denied<br>")
+        passed=False
+        message.append("Found no titles: Denied")
     else:
-        report_creator(f"Found too many titles: Count: {len(titles)}<br>")
+        message.append(f"Found too many titles: Count: {len(titles)}")
     missing = set(NECESSARY_SUBTITLES) - set(subtitles)
     for subtitle in subtitles:
-        report_creator(f"Found subtitle: {subtitle}<br>")
+        message.append(f"Found subtitle: {subtitle}")
     for item in missing:
-        report_creator(f"Missing subtitles: {item} <br>")
-        report_creator(f"For further information see: {NECESSARY_SUBTITLES[item]}<br>")
-    if duplicat(subtitles):
-        report_creator("Warning: Some subtitles are duplicated.<br>")
-    report_creator("\n\n")
+        message.append(f"Missing subtitles: {item}")
+        message.append(f"For further information see: {NECESSARY_SUBTITLES[item]}")
+    if len(subtitles) == len(set(subtitles)):
+        warnings.append("Warning: Some subtitles are duplicated.")
+    return CheckResult("Readme Check",passed,message,warnings,statuses)
 
 def repo2dockertest():
     """Simulate a repo2docker build to verify Binder compatibility."""
-    report_creator("## Testing repository with repo2docker\n\n")
+    passed=False
+    message=[]
 
     try:
         result = subprocess.run(
@@ -225,24 +242,37 @@ def repo2dockertest():
         )
 
         if result.returncode == 0:
-            report_creator("Repo2Docker build successful. Binder environment is valid.<br>")
+            message.append("Repo2Docker build successful. Binder environment is valid.")
+            passed=True
         else:
-            report_creator("Repo2Docker build failed.<br>")
-            report_creator(" Repo2Docker Output:<br>")
-            combined_output = "<br>".join(
+            message.append("Repo2Docker build failed.")
+            message.append(" Repo2Docker Output:")
+            combined_output = "".join(
                 part for part in [result.stdout, result.stderr] if part
             )
-            report_creator(combined_output[-4000:] + "<br>")
+            message.append(combined_output[-4000:] + "")
 
     except FileNotFoundError:
-        report_creator("Repo2Docker test failed: repo2docker is not installed in the environment.<br>")
+        message.append("Repo2Docker test failed: repo2docker is not installed in the environment.")
 
     except Exception as e:
-        report_creator(f"Repo2Docker test failed with unexpected error: {e}<br>")
-    report_creator("\n\n")
+        message.append(f"Repo2Docker test failed with unexpected error: {e}")
+    return CheckResult("Binder Test",passed,message,[],[])
+
+
+def write_report(checklists, report_file, owner, repo):
+    with open(report_file, "w", encoding="utf-8") as f:
+        f.write(f"# Report for {owner} of {repo}\n\n")
+        f.write("## Report generated at {}\n\n".format(time.strftime("%Y-%m-%d %H:%M:%S")))
+        for checklist in checklists:
+            f.write("## {}\n\n".format(checklist.name))
+            f.write("<br>".join(checklist.messages))
+            f.write("<br>".join(checklist.warnings))
+            f.write("\n\n")
 
 
 def main():
+    checklists: list[CheckResult] = []
     full_name, readme_name = get_event_data()
     owner, repo = full_name.split("/", 1)
     report_dir = CENTRAL_PATH / "report" / owner
@@ -250,39 +280,36 @@ def main():
     report_file = report_dir / f"{repo}.md"
 
     # Start building the report content
-    report_creator(f"# Report for {owner} of {repo}\n\n")
-    report_creator(f"## Report generated at {time.strftime('%Y-%m-%d %H:%M:%S')}\n\n")
+    #messages.append(f"# Report for {owner} of {repo}\n\n")
+    #messages.append(f"## Report generated at {time.strftime('%Y-%m-%d %H:%M:%S')}\n\n")
 
     # File presence checks
     suffixes = get_file_extensions(TEST_PATH)
     required_binder = get_needed_files(suffixes)
-    check_for_formal_files()
-    check_for_binder_files(required_binder)
+    checklists.append(check_for_formal_files())
+    checklists.append(check_for_binder_files(required_binder))
 
     # License check
-    if license_flag:
+    if any(results.statuses == "license" for results in checklists):
         license_check()
-    else:
-        report_creator("## Can't check license, no license file found.\n\n")
 
     # Readme check
     readme_path = TEST_PATH / readme_name
     if readme_path.suffix == ".ipynb":
-        convert_readme_ipynb(readme_path)
+        checklists.append(convert_readme_ipynb(readme_path))
     elif readme_path.suffix == ".md":
-        convert_readme_md(readme_path)
+        checklists.append(convert_readme_md(readme_path))
     else:
-        report_creator("Readme check failed: Format not yet supported")
+        checklists.append(CheckResult("Readme Check",False,["Readme check failed: Format not yet supported"],[""],[""]))
 
     # Simulate Repo2Docker
-    if binder_ready_flag:
+    if any(results.name == "Binder Files" and results.passed for results in checklists):
         repo2dockertest()
     else:
-        report_creator("## Can't check binder, no or wrong binder files found.\n\n")
+        checklists.append(CheckResult("Binder Test",False,["Binder test skipped: Binder files not found or not valid"],[""],[""]))
 
     # Write the report
-    with open(report_file, "w", encoding="utf-8") as f:
-        f.write("".join(report))
+    write_report(checklists, report_file,owner,repo)
 
 
 if __name__ == "__main__":
