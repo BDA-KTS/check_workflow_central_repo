@@ -98,6 +98,9 @@ def check_for_formal_files():
     else:
         messages.append("All required files found")
         passed=True
+    print(messages)
+    print(warnings)
+    print(statuses)
     return CheckResult("Formal Files", passed, messages, warnings, statuses)
 
 
@@ -292,8 +295,8 @@ def main():
     checklists.append(check_for_binder_files(required_binder))
 
     # License check
-    license_res=next(result for result in checklists if result.statuses =="license")
-    if license_res is not None:
+    license_res=next(result for result in checklists if result.name =="Formal Files")
+    if "license" in license_res.statuses:
         license_check()
 
     # Readme check
