@@ -81,6 +81,8 @@ def check_for_formal_files():
 
     required = {r.casefold() for r in set(REPO_REQUIREMENTS)}
     repo_scaffold=[f for f in repo_scaffold if f in required]
+    for f in repo_scaffold:
+        messages.append(f"Found required file: {f}")
     if "license" in repo_scaffold:
         statuses.append("license")
     counter=Counter(repo_scaffold)
@@ -290,7 +292,7 @@ def main():
     checklists.append(check_for_binder_files(required_binder))
 
     # License check
-    if any(results.statuses == "license" for results in checklists):
+    if any("license" in results.statuses for results in checklists):
         license_check()
 
     # Readme check
