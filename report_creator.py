@@ -80,7 +80,7 @@ def check_for_formal_files():
     repo_scaffold = sorted([f.casefold() for f in repo_files])
 
     required = {r.casefold() for r in set(REPO_REQUIREMENTS)}
-    repo_scaffold=[f in repo_scaffold for f in required]
+    repo_scaffold=[f for f in repo_scaffold if f in required]
     if "license" in repo_scaffold:
         statuses.append("license")
     counter=Counter(repo_scaffold)
