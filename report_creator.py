@@ -98,9 +98,6 @@ def check_for_formal_files():
     else:
         messages.append("All required files found")
         passed=True
-    print(messages)
-    print(warnings)
-    print(statuses)
     return CheckResult("Formal Files", passed, messages, warnings, statuses)
 
 
@@ -127,7 +124,7 @@ def check_for_binder_files(required_binder):
             warnings.append(f"Warning: {f} is duplicated.")
     for f in found_files:
             messages.append(f"Found required file: {f}")
-    if found_files == required_binder:
+    if required_binder.issubset(set(found_files)):
         if passed:
             warnings.append("Multiple binder configs found")
         else:
