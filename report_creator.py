@@ -295,7 +295,7 @@ def main():
     checklists.append(check_for_binder_files(required_binder))
 
     # License check
-    if any("license" in result.statuses for result in checklists)
+    if any("license" in result.statuses for result in checklists):
         checklists.append(license_check())
 
     # Readme check
