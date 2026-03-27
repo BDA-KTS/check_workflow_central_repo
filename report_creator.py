@@ -86,7 +86,7 @@ def check_for_formal_files():
     if "license" in repo_scaffold:
         statuses.append("license")
     counter=Counter(repo_scaffold)
-    duplicates=[f for f, count in counter.items() if count <1]
+    duplicates=[f for f, count in counter.items() if count > 1]
     if duplicates:
         for f in duplicates:
             warnings.append(f"Warning: {f} is duplicated.")
@@ -121,7 +121,7 @@ def check_for_binder_files(required_binder):
         messages.append("All required binder files found")
     found_files = sorted([f in found_files for f in required_binder])
     counter=Counter(found_files)
-    duplicates=[f for f, count in counter.items() if count <1]
+    duplicates=[f for f, count in counter.items() if count > 1]
     if duplicates:
         for f in duplicates:
             warnings.append(f"Warning: {f} is duplicated.")
@@ -297,7 +297,7 @@ def main():
     # License check
     license_res=next(result for result in checklists if result.name =="Formal Files")
     if "license" in license_res.statuses:
-        license_check()
+        checklists.append(license_check())
 
     # Readme check
     readme_path = TEST_PATH / readme_name
@@ -311,7 +311,7 @@ def main():
     # Simulate Repo2Docker
     binder_res=next(result for result in checklists if result.name == "Binder Files")
     if binder_res.passed:
-        repo2dockertest()
+        checklists.append(repo2dockertest())
     else:
         checklists.append(CheckResult("Binder Test",False,["Binder test skipped: Binder files not found or not valid"],[""],[""]))
 
