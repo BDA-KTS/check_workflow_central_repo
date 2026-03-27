@@ -1,6 +1,6 @@
 # Report for taimoorkhan-nlp of text_edit_distance_similarity
 
-## Report generated at 2026-03-27 16:11:35
+## Report generated at 2026-03-27 16:27:54
 
 ## Formal Files
 
@@ -9,6 +9,10 @@ Found required file: citation<br>Found required file: license<br>Found required 
 ## Binder Files
 
 Found required file: True
+
+## License Check
+
+Found Apache-2.0 License, License accepted 
 
 ## Readme Check
 
