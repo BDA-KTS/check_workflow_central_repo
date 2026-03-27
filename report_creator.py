@@ -310,6 +310,7 @@ def main():
 
     # Simulate Repo2Docker
     binder_res=next(result for result in checklists if result.name == "Binder Files")
+    print(binder_res)
     if binder_res.passed:
         checklists.append(repo2dockertest())
     else:
