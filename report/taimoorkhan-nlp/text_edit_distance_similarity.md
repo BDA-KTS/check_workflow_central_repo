@@ -1,10 +1,10 @@
 # Report for taimoorkhan-nlp of text_edit_distance_similarity
 
-## Report generated at 2026-03-27 12:47:38
+## Report generated at 2026-03-27 12:57:40
 
 ## Formal Files
 
-Missing required files: license<br>For further information see: license missing: https://github.com/GESIS-Methods-Hub/guidelines?tab=readme-ov-file#quality-criteria<br>Missing required files: postbuild<br>For further information see: postbuild missing: https://github.com/GESIS-Methods-Hub/guidelines?tab=readme-ov-file#binder-environment<br>Missing required files: citation<br>For further information see: citation missing: https://github.com/GESIS-Methods-Hub/guidelines?tab=readme-ov-file#quality-criteria
+All required files found
 
 ## Binder Files
 
