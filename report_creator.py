@@ -292,7 +292,8 @@ def main():
     checklists.append(check_for_binder_files(required_binder))
 
     # License check
-    if any("license" in results.statuses for results in checklists):
+    license_res=next(result for result in checklists if result.statuses =="license")
+    if license_res is not None:
         license_check()
 
     # Readme check
@@ -305,7 +306,8 @@ def main():
         checklists.append(CheckResult("Readme Check",False,["Readme check failed: Format not yet supported"],[""],[""]))
 
     # Simulate Repo2Docker
-    if any(results.name == "Binder Files" and results.passed for results in checklists):
+    binder_res=next(result for result in checklists if result.name == "Binder Files")
+    if binder_res.passed:
         repo2dockertest()
     else:
         checklists.append(CheckResult("Binder Test",False,["Binder test skipped: Binder files not found or not valid"],[""],[""]))
