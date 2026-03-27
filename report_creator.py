@@ -133,6 +133,9 @@ def check_for_binder_files(required_binder):
         else:
             passed=True
             messages.append("All required binder files found")
+    print(f"Messages: {messages} ")
+    print(warnings)
+    print(passed)
     return CheckResult("Binder Files", passed, messages, warnings,statuses)
 
 def license_check():
