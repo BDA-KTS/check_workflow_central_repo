@@ -119,7 +119,7 @@ def check_for_binder_files(required_binder):
         passed=True
         messages.append("Found required file: environment.yml")
         messages.append("All required binder files found")
-    found_files = sorted([f in found_files for f in required_binder])
+    found_files = sorted([f for f in found_files if f in required_binder])
     counter=Counter(found_files)
     duplicates=[f for f, count in counter.items() if count > 1]
     if duplicates:
@@ -295,8 +295,7 @@ def main():
     checklists.append(check_for_binder_files(required_binder))
 
     # License check
-    license_res=next(result for result in checklists if result.name =="Formal Files")
-    if "license" in license_res.statuses:
+    if any("license" in result.statuses for result in checklists)
         checklists.append(license_check())
 
     # Readme check
