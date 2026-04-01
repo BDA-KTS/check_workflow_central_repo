@@ -241,7 +241,7 @@ def check_readme(titles,subtitles, error):
     for item in missing:
         warnings.append(f"Missing subtitles: {item}")
         warnings.append(f"For further information see: {NECESSARY_SUBTITLES[item]}")
-    if len(subtitles) == len(set(subtitles)):
+    if len(subtitles) != len(set(subtitles)):
         warnings.append("Warning: Some subtitles are duplicated.")
     return CheckResult("Readme Check",passed,message,warnings,errors,statuses)
 
@@ -281,6 +281,19 @@ def repo2dockertest():
     except Exception as e:
         errors.append(f"Repo2Docker test failed with unexpected error: {e}")
     return CheckResult("Binder Test",passed,message,[],errors,[])
+
+def summary(checklists: list[CheckResult]):
+    messages = []
+    passed = True
+    if any(not checklist.passed for checklist in checklists):
+        passed = False
+        messages.append("Major Flaws, Error in at least one Check")
+    elif  any(checklist.warnings for checklist in checklists) and passed:
+        messages.append("Passed but with warnings")
+    else:
+        messages.append("Passed perfectly")
+    return CheckResult("Summary", passed, messages, [], [], [])
+
 
 
 def write_report(checklists, report_file, owner, repo):
@@ -339,6 +352,7 @@ def main():
     else:
         checklists.append(CheckResult("Binder Test",False,["Binder test skipped: Binder files not found or not valid"],[""],[""]))
 
+    checklists.insert(0,summary(checklists))
     # Write the report
     write_report(checklists, report_file,owner,repo)
 
