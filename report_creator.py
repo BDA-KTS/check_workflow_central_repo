@@ -11,6 +11,7 @@ from licensename import from_text
 from config import Settings
 import time
 
+# Gets the configuration from the config.py file
 TEST_PATH = Settings.TEST_PATH
 CENTRAL_PATH = Settings.CENTRAL_PATH
 NECESSARY_SUBTITLES = Settings.NECESSARY_SUBTITLES
@@ -19,21 +20,23 @@ REPO_REQUIREMENTS = Settings.REPO_REQUIREMENTS
 BINDER_DIRS = Settings.BINDER_DIRS
 report = []
 
+
 @dataclass(frozen=True)
 class CheckResult:
     name: str
     passed: bool
     messages: List[str] = field(default_factory=list)
     warnings: List[str] = field(default_factory=list)
+    errors: List[str] = field(default_factory=list)
     statuses: List[str] = field(default_factory=list)
 
 def get_file_extensions(path: Path) -> Set[str]:
-    """Get all file extensions in the given directory recursively."""
+    #Get all file extensions in the given directory recursively.
     return {path.suffix for path in path.rglob("*") if path.is_file()}
 
 
 def get_event_data() -> tuple:
-    """Load event data from GITHUB_EVENT_PATH."""
+    #Load event data from GITHUB_EVENT_PATH.
     event_path = os.environ.get("GITHUB_EVENT_PATH")
     if not event_path:
         print("Error: GITHUB_EVENT_PATH not set.")
@@ -45,6 +48,7 @@ def get_event_data() -> tuple:
     except (FileNotFoundError, json.JSONDecodeError) as e:
         print(f"Error loading event data: {e}")
         sys.exit(1)
+
     if not payload:
         print("Error: No payload found in the event.")
         sys.exit(1)
@@ -75,6 +79,7 @@ def check_for_formal_files():
     passed=False
     messages=[]
     warnings=[]
+    errors=[]
     statuses=[]
     repo_files = [p.stem for p in TEST_PATH.iterdir() if p.is_file()]
     repo_scaffold = sorted([f.casefold() for f in repo_files])
@@ -93,18 +98,19 @@ def check_for_formal_files():
     missing = required - set(repo_scaffold)
     if missing:
         for item in missing:
-            messages.append(f"Missing required files: {item}")
-            messages.append(f"For further information see: {REPO_REQUIREMENTS[item]}")
+            errors.append(f"Missing required files: {item}")
+            errors.append(f"For further information see: {REPO_REQUIREMENTS[item]}")
     else:
         messages.append("All required files found")
         passed=True
-    return CheckResult("Formal Files", passed, messages, warnings, statuses)
+    return CheckResult("Formal Files", passed, messages, warnings,errors, statuses)
 
 
 def check_for_binder_files(required_binder):
     passed=False
     messages=[]
     warnings=[]
+    errors=[]
     statuses=[]
     found_files = []
     for binder_directory in BINDER_DIRS:
@@ -130,15 +136,19 @@ def check_for_binder_files(required_binder):
         else:
             passed=True
             messages.append("All required binder files found")
-    print(f"Messages: {messages} ")
-    print(warnings)
-    print(passed)
+    else:
+        missing = required_binder - set(found_files)
+        if missing:
+            for item in missing:
+                errors.append(f"Missing required files: {item}")
+                errors.append(f"For further information see: {REPO_REQUIREMENTS[item]}")
     return CheckResult("Binder Files", passed, messages, warnings,statuses)
 
 def license_check():
     passed=False
     messages=[]
     warnings=[]
+    errors=[]
     license_files = [
         f for f in TEST_PATH.iterdir()
         if f.is_file() and f.name.casefold().startswith("license")
@@ -150,25 +160,27 @@ def license_check():
             license_name = from_text(license_text)
             licenses.append(license_name)
         except Exception as e:
-            warnings.append(f"License file could not be read or parsed: Error {e}")
+            errors.append(f"License file could not be read or parsed: Error {e}")
     if len(licenses) > 1:
-        warnings.append(" Too many licenses found, try choosing just one ")
-    if len(licenses) == 1:
+        errors.append(" Too many licenses found, try choosing just one ")
+    elif len(licenses) == 1:
         if licenses[0] in FREE_LICENSES:
             passed=True
             messages.append(f"Found {licenses[0]} License, License accepted ")
         else:
-            messages.append(f"Found {licenses[0]} License denied ")
+            errors.append(f"Found {licenses[0]} License denied ")
+    else:
+        errors.append("No valid License found.")
 
-    return CheckResult("License Check",passed,messages,warnings,[])
+    return CheckResult("License Check",passed,messages,warnings,errors,[])
 
 
 def convert_readme_md(readme_path: Path) :
     """Analyze the README for required titles and subtitles."""
-    warnings=[]
+    errors=[]
     if not readme_path.exists():
-        warnings.append(f"Readme check failed: {readme_path} not found")
-        return warnings
+        errors.append(f"Readme check failed: {readme_path} not found")
+        return errors
     titles = []
     subtitles = []
     try:
@@ -179,20 +191,20 @@ def convert_readme_md(readme_path: Path) :
                 elif line.startswith("## "):
                     subtitles.append(line[3:].strip())
     except Exception as e:
-        warnings.append(f"Readme check failed: Error reading file ({e})")
-        return warnings
-    return check_readme(titles, subtitles, warnings)
+        errors.append(f"Readme check failed: Error reading file ({e})")
+        return errors
+    return check_readme(titles, subtitles, errors)
 
 def convert_readme_ipynb(readme_path: Path):
-    warnings = []
+    errors = []
     if not readme_path.exists():
-        warnings.append(f"Readme check failed: {readme_path} not found")
-        return warnings
+        errors.append(f"Readme check failed: {readme_path} not found")
+        return [],[],errors
     try:
         nb=nbformat.read(readme_path, as_version=4)
     except Exception as e:
-        warnings.append(f"Readme check failed: Error reading file ({e})")
-        return warnings
+        errors.append(f"Readme check failed: Error reading file ({e})")
+        return [],[],errors
     titles = []
     subtitles = []
     for cell in nb.cells:
@@ -204,34 +216,40 @@ def convert_readme_ipynb(readme_path: Path):
                     titles.append(line[2:].strip())
                 elif line.startswith("## "):
                     subtitles.append(line[3:].strip())
-    return check_readme(titles, subtitles, warnings)
+    return check_readme(titles, subtitles, errors)
 
-def check_readme(titles,subtitles, warning):
+def check_readme(titles,subtitles, error):
     passed=True
     message=[]
-    warnings=warning
+    warnings=[]
+    errors=error
     statuses=[]
+    if len(titles) < 1 and len(subtitles) < 1:
+        passed=False
+        return CheckResult("Readme Check",passed,message,warnings,errors,statuses)
     if len(titles) == 1:
         message.append("Found one title: Accepted")
     elif len(titles) < 1:
         passed=False
         message.append("Found no titles: Denied")
     else:
+        passed=False
         message.append(f"Found too many titles: Count: {len(titles)}")
     missing = set(NECESSARY_SUBTITLES) - set(subtitles)
     for subtitle in subtitles:
         message.append(f"Found subtitle: {subtitle}")
     for item in missing:
-        message.append(f"Missing subtitles: {item}")
-        message.append(f"For further information see: {NECESSARY_SUBTITLES[item]}")
+        warnings.append(f"Missing subtitles: {item}")
+        warnings.append(f"For further information see: {NECESSARY_SUBTITLES[item]}")
     if len(subtitles) == len(set(subtitles)):
         warnings.append("Warning: Some subtitles are duplicated.")
-    return CheckResult("Readme Check",passed,message,warnings,statuses)
+    return CheckResult("Readme Check",passed,message,warnings,errors,statuses)
 
 def repo2dockertest():
     """Simulate a repo2docker build to verify Binder compatibility."""
     passed=False
     message=[]
+    errors=[]
 
     try:
         result = subprocess.run(
@@ -250,19 +268,19 @@ def repo2dockertest():
             message.append("Repo2Docker build successful. Binder environment is valid.")
             passed=True
         else:
-            message.append("Repo2Docker build failed.")
-            message.append(" Repo2Docker Output:")
+            errors.append("Repo2Docker build failed.")
+            errors.append(" Repo2Docker Output:")
             combined_output = "".join(
                 part for part in [result.stdout, result.stderr] if part
             )
-            message.append(combined_output[-4000:] + "")
+            errors.append(combined_output[-4000:] + "")
 
     except FileNotFoundError:
-        message.append("Repo2Docker test failed: repo2docker is not installed in the environment.")
+        errors.append("Repo2Docker test failed: repo2docker is not installed in the environment.")
 
     except Exception as e:
-        message.append(f"Repo2Docker test failed with unexpected error: {e}")
-    return CheckResult("Binder Test",passed,message,[],[])
+        errors.append(f"Repo2Docker test failed with unexpected error: {e}")
+    return CheckResult("Binder Test",passed,message,[],errors,[])
 
 
 def write_report(checklists, report_file, owner, repo):
@@ -271,8 +289,15 @@ def write_report(checklists, report_file, owner, repo):
         f.write("## Report generated at {}\n\n".format(time.strftime("%Y-%m-%d %H:%M:%S")))
         for checklist in checklists:
             f.write("## {}\n\n".format(checklist.name))
+            if checklist.errors:
+                f.write("### Errors\n\n")
+                f.write("<br>".join(checklist.errors))
+                f.write("\n\n")
+            if checklist.warnings:
+                f.write("### Warnings\n\n")
+                f.write("<br>".join(checklist.warnings))
+                f.write("\n\n")
             f.write("<br>".join(checklist.messages))
-            f.write("<br>".join(checklist.warnings))
             f.write("\n\n")
 
 
@@ -284,9 +309,6 @@ def main():
     report_dir.mkdir(parents=True, exist_ok=True)
     report_file = report_dir / f"{repo}.md"
 
-    # Start building the report content
-    #messages.append(f"# Report for {owner} of {repo}\n\n")
-    #messages.append(f"## Report generated at {time.strftime('%Y-%m-%d %H:%M:%S')}\n\n")
 
     # File presence checks
     suffixes = get_file_extensions(TEST_PATH)
@@ -303,6 +325,8 @@ def main():
     if readme_path.suffix == ".ipynb":
         checklists.append(convert_readme_ipynb(readme_path))
     elif readme_path.suffix == ".md":
+        checklists.append(convert_readme_md(readme_path))
+    elif readme_path.suffix == ".qmd":#
         checklists.append(convert_readme_md(readme_path))
     else:
         checklists.append(CheckResult("Readme Check",False,["Readme check failed: Format not yet supported"],[""],[""]))
