@@ -1,6 +1,10 @@
 # Report for taimoorkhan-nlp of text_edit_distance_similarity
 
-## Report generated at 2026-04-01 19:58:04
+## Report generated at 2026-04-01 21:22:13
+
+## Summary
+
+Passed but with warnings
 
 ## Formal Files
 
@@ -18,7 +22,7 @@ Found Apache-2.0 License, License accepted
 
 ### Warnings
 
-Missing subtitles: Hardware Requirements<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#hardware-requirements<br>Warning: Some subtitles are duplicated.
+Missing subtitles: Hardware Requirements<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#hardware-requirements
 
 Found one title: Accepted<br>Found subtitle: Description<br>Found subtitle: Use Cases<br>Found subtitle: Input Data<br>Found subtitle: Output Data<br>Found subtitle: Hardware<br>Found subtitle: Environment Setup<br>Found subtitle: How to Use<br>Found subtitle: Technical Details<br>Found subtitle: Publications<br>Found subtitle: Contact Details
 
