@@ -1,15 +1,19 @@
+import html
 import os
 import json
+import re
 import subprocess
 import sys
 from dataclasses import dataclass, field
-
+import joblib
 import nbformat
 from pathlib import Path
 from typing import Set, List, Counter
 from licensename import from_text
 from config import Settings
 import time
+
+from jsons.Json_PreCooking import strip_markdown
 
 # Gets the configuration from the config.py file
 TEST_PATH = Settings.TEST_PATH
@@ -175,7 +179,7 @@ def license_check():
     return CheckResult("License Check",passed,messages,warnings,errors,[])
 
 
-def convert_readme_md(readme_path: Path) :
+def convert_readme_md(readme_path: Path) -> Checkresult:
     """Analyze the README for required titles and subtitles."""
     errors=[]
     if not readme_path.exists():
@@ -195,7 +199,7 @@ def convert_readme_md(readme_path: Path) :
         return errors
     return check_readme(titles, subtitles, errors)
 
-def convert_readme_ipynb(readme_path: Path):
+def convert_readme_ipynb(readme_path: Path) ->CheckResult :
     errors = []
     if not readme_path.exists():
         errors.append(f"Readme check failed: {readme_path} not found")
@@ -218,7 +222,7 @@ def convert_readme_ipynb(readme_path: Path):
                     subtitles.append(line[3:].strip())
     return check_readme(titles, subtitles, errors)
 
-def check_readme(titles,subtitles, error):
+def check_readme(titles,subtitles, error) -> CheckResult:
     passed=True
     message=[]
     warnings=[]
@@ -281,6 +285,91 @@ def repo2dockertest():
     except Exception as e:
         errors.append(f"Repo2Docker test failed with unexpected error: {e}")
     return CheckResult("Binder Test",passed,message,[],errors,[])
+
+def strip_markdown(text: str) -> str:
+    text = html.unescape(text)
+
+    # Remove YAML front matter
+    text = re.sub(r"(?s)\A---\n.*?\n---\n", "", text)
+
+    # Remove fenced and inline code
+    text = re.sub(r"```.*?```", " ", text, flags=re.DOTALL)
+    text = re.sub(r"`[^`]*`", " ", text)
+
+    # Remove images and convert links to their label
+    text = re.sub(r"!\[.*?\]\(.*?\)", " ", text)
+    text = re.sub(r"\[([^\]]+)\]\((.*?)\)", r"\1", text)
+
+    # Remove HTML tags
+    text = re.sub(r"<[^>]+>", " ", text)
+
+    # Remove markdown headings and blockquotes
+    text = re.sub(r"^\s{0,3}#{1,6}\s*", "", text, flags=re.MULTILINE)
+    text = re.sub(r"^\s{0,3}>\s?", "", text, flags=re.MULTILINE)
+
+    # Remove list markers
+    text = re.sub(r"^\s{0,3}[-*+]\s+", "", text, flags=re.MULTILINE)
+    text = re.sub(r"^\s{0,3}\d+\.\s+", "", text, flags=re.MULTILINE)
+
+    # Remove emphasis markers
+    text = re.sub(r"[*_~]+", " ", text)
+
+    # Collapse whitespace
+    text = re.sub(r"\s+", " ", text).strip()
+    return text
+
+def extract_text_from_content(path: Path) -> str:
+    suffix = path.suffix.lower()
+
+    if suffix == ".ipynb":
+        with open(path, "r", encoding="utf-8") as f:
+            notebook = json.load(f)
+
+        parts = []
+        for cell in notebook.get("cells", []):
+            if cell.get("cell_type") in {"markdown", "raw"}:
+                source = cell.get("source", "")
+                if isinstance(source, list):
+                    source = "".join(source)
+                parts.append(str(source))
+        return strip_markdown("\n\n".join(parts))
+
+    with open(path, "r", encoding="utf-8") as f:
+        return strip_markdown(f.read())
+
+def load_ml_artifacts():
+    model = joblib.load(CENTRAL_PATH / "models/model.joblib")
+    vectorizer = joblib.load(CENTRAL_PATH / "models/vectorizer.joblib")
+    mlb = joblib.load(CENTRAL_PATH / "models/mlb.joblib")
+    return model, vectorizer, mlb
+
+def predict_labels_with_probability(path: Path ,threshold: float = 0.5):
+    text = extract_text_from_content(path)
+    model, vectorizer, mlb = load_ml_artifacts()
+    vec = vectorizer.transform([text])
+    probs = model.predict_proba(vec)[0]
+
+    probability_map = {
+        label: float(prob)
+        for label, prob in zip(mlb.classes_, probs)
+    }
+
+    predicted = [
+        label for label, prob in probability_map.items()
+        if prob >= threshold
+    ]
+    predicted.sort(key=lambda label: probability_map[label], reverse=True)
+
+    return CheckResult(
+        name="ML Prediction",
+        passed=True,
+        messages=[f"Predicted labels: {', '.join(predicted) if predicted else 'none'}"],
+        warnings=[],
+        errors=[],
+        statuses=[]
+    )
+
+
 
 def summary(checklists: list[CheckResult]):
     messages = []
