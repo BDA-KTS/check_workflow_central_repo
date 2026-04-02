@@ -4,4 +4,4 @@ requests<2.33
 urllib3<2.0
 chardet<6
 nbformat
-jobblib
+joblib
