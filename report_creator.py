@@ -179,12 +179,12 @@ def license_check():
     return CheckResult("License Check",passed,messages,warnings,errors,[])
 
 
-def convert_readme_md(readme_path: Path) -> Checkresult:
+def convert_readme_md(readme_path: Path) :
     """Analyze the README for required titles and subtitles."""
     errors=[]
     if not readme_path.exists():
         errors.append(f"Readme check failed: {readme_path} not found")
-        return errors
+        return [],[],errors
     titles = []
     subtitles = []
     try:
@@ -196,10 +196,10 @@ def convert_readme_md(readme_path: Path) -> Checkresult:
                     subtitles.append(line[3:].strip())
     except Exception as e:
         errors.append(f"Readme check failed: Error reading file ({e})")
-        return errors
+        return [],[],errors
     return check_readme(titles, subtitles, errors)
 
-def convert_readme_ipynb(readme_path: Path) ->CheckResult :
+def convert_readme_ipynb(readme_path: Path)  :
     errors = []
     if not readme_path.exists():
         errors.append(f"Readme check failed: {readme_path} not found")
