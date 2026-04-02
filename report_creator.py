@@ -361,9 +361,9 @@ def predict_labels_with_probability(path: Path ,threshold: float = 0.5):
     predicted.sort(key=lambda label: probability_map[label], reverse=True)
 
     return CheckResult(
-        name="ML Prediction",
+        name="Taxonomie",
         passed=True,
-        messages=[f"Predicted labels: {', '.join(predicted) if predicted else 'none'}"],
+        messages=[f"Predicted labels: {', '.join(predicted) if predicted else 'none'}",f"Probability: {round(probability_map[predicted[0]]*100,2)}%"],
         warnings=[],
         errors=[],
         statuses=[]
