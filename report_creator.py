@@ -444,6 +444,7 @@ def write_report(checklists, report_file, owner, repo):
             f.write("\n\n")
 
 def write_macro(checklists, report_file, owner, repo):
+    print("I was here")
     with open(report_file, "a", encoding="utf-8") as f:
         for checklist in checklists:
             entry = {
