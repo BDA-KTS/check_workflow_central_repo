@@ -33,6 +33,8 @@ class CheckResult:
     warnings: List[str] = field(default_factory=list)
     errors: List[str] = field(default_factory=list)
     statuses: List[str] = field(default_factory=list)
+    warning_labels: List[str] = field(default_factory=list)
+    error_labels:  List[str] = field(default_factory=list)
 
 def get_file_extensions(path: Path) -> Set[str]:
     #Get all file extensions in the given directory recursively.
@@ -85,6 +87,8 @@ def check_for_formal_files():
     warnings=[]
     errors=[]
     statuses=[]
+    warning_labels=[]
+    error_labels=[]
     repo_files = [p.stem for p in TEST_PATH.iterdir() if p.is_file()]
     repo_scaffold = sorted([f.casefold() for f in repo_files])
 
@@ -99,15 +103,17 @@ def check_for_formal_files():
     if duplicates:
         for f in duplicates:
             warnings.append(f"Warning: {f} is duplicated.")
+            warning_labels.append(f"{f}")
     missing = required - set(repo_scaffold)
     if missing:
         for item in missing:
             errors.append(f"Missing required files: {item}")
             errors.append(f"For further information see: {REPO_REQUIREMENTS[item]}")
+            error_labels.append(f"{item}")
     else:
         messages.append("All required files found")
         passed=True
-    return CheckResult("Formal Files", passed, messages, warnings,errors, statuses)
+    return CheckResult("Formal Files", passed, messages, warnings, errors, statuses,warning_labels,error_labels)
 
 
 def check_for_binder_files(required_binder):
@@ -116,6 +122,8 @@ def check_for_binder_files(required_binder):
     warnings=[]
     errors=[]
     statuses=[]
+    warning_labels=[]
+    error_labels=[]
     found_files = []
     for binder_directory in BINDER_DIRS:
         if not (TEST_PATH / binder_directory).is_dir():
@@ -132,11 +140,13 @@ def check_for_binder_files(required_binder):
     if duplicates:
         for f in duplicates:
             warnings.append(f"Warning: {f} is duplicated.")
+            warning_labels.append(f"{f}")
     for f in found_files:
             messages.append(f"Found required file: {f}")
     if required_binder.issubset(set(found_files)):
         if passed:
             warnings.append("Multiple binder configs found")
+            warning_labels.append("Multiple")
         else:
             passed=True
             messages.append("All required binder files found")
@@ -146,13 +156,17 @@ def check_for_binder_files(required_binder):
             for item in missing:
                 errors.append(f"Missing required files: {item}")
                 errors.append(f"For further information see: {REPO_REQUIREMENTS[item]}")
-    return CheckResult("Binder Files", passed, messages, warnings,statuses)
+                error_labels.append(f"{item}")
+    return CheckResult("Binder Files", passed, messages, warnings,statuses,warning_labels,error_labels)
 
 def license_check():
     passed=False
     messages=[]
     warnings=[]
     errors=[]
+    statuses=[]
+    warning_labels=[]
+    error_labels=[]
     license_files = [
         f for f in TEST_PATH.iterdir()
         if f.is_file() and f.name.casefold().startswith("license")
@@ -165,26 +179,33 @@ def license_check():
             licenses.append(license_name)
         except Exception as e:
             errors.append(f"License file could not be read or parsed: Error {e}")
+            error_labels.append(f"Loading")
+            
     if len(licenses) > 1:
         errors.append(" Too many licenses found, try choosing just one ")
+        error_labels.append("Multiple")
     elif len(licenses) == 1:
         if licenses[0] in FREE_LICENSES:
             passed=True
             messages.append(f"Found {licenses[0]} License, License accepted ")
         else:
             errors.append(f"Found {licenses[0]} License denied ")
+            error_labels.append(f"{licenses[0]}")
     else:
         errors.append("No valid License found.")
+        error_labels.append("None")
 
-    return CheckResult("License Check",passed,messages,warnings,errors,[])
+    return CheckResult("License Check",passed,messages,warnings,errors,statuses,warning_labels,error_labels)
 
 
 def convert_readme_md(readme_path: Path) :
     """Analyze the README for required titles and subtitles."""
     errors=[]
+    error_labels=[]
     if not readme_path.exists():
         errors.append(f"Readme check failed: {readme_path} not found")
-        return [],[],errors
+        error_labels.append("Path")
+        return check_readme([],[],errors, error_labels)
     titles = []
     subtitles = []
     try:
@@ -196,19 +217,23 @@ def convert_readme_md(readme_path: Path) :
                     subtitles.append(line[3:].strip())
     except Exception as e:
         errors.append(f"Readme check failed: Error reading file ({e})")
-        return [],[],errors
-    return check_readme(titles, subtitles, errors)
+        error_labels.append("Loading")
+        return check_readme([],[],errors, error_labels)
+    return check_readme(titles, subtitles, errors, error_labels)
 
 def convert_readme_ipynb(readme_path: Path)  :
     errors = []
+    error_labels=[]
     if not readme_path.exists():
         errors.append(f"Readme check failed: {readme_path} not found")
-        return [],[],errors
+        error_labels.append("Path")
+        return check_readme([],[],errors, error_labels)
     try:
         nb=nbformat.read(readme_path, as_version=4)
     except Exception as e:
         errors.append(f"Readme check failed: Error reading file ({e})")
-        return [],[],errors
+        error_labels.append("Loading")
+        return check_readme([],[],errors, error_labels)
     titles = []
     subtitles = []
     for cell in nb.cells:
@@ -220,40 +245,50 @@ def convert_readme_ipynb(readme_path: Path)  :
                     titles.append(line[2:].strip())
                 elif line.startswith("## "):
                     subtitles.append(line[3:].strip())
-    return check_readme(titles, subtitles, errors)
+    return check_readme(titles, subtitles, errors, error_labels)
 
-def check_readme(titles,subtitles, error) -> CheckResult:
+def check_readme(titles,subtitles, error, error_labels) -> CheckResult:
     passed=True
     message=[]
     warnings=[]
     errors=error
     statuses=[]
-    if len(titles) < 1 and len(subtitles) < 1:
+    waring_labels=[]
+    error_labels = error_labels
+    if len(titles) < 1:
         passed=False
-        return CheckResult("Readme Check",passed,message,warnings,errors,statuses)
-    if len(titles) == 1:
+        errors.append("No title found but one is required.")
+        error_labels.append("None")
+    elif len(titles) == 1:
         message.append("Found one title: Accepted")
-    elif len(titles) < 1:
-        passed=False
-        message.append("Found no titles: Denied")
     else:
         passed=False
         message.append(f"Found too many titles: Count: {len(titles)}")
+    if len(subtitles) < 1:
+        passed=False
+        errors.append("No subtitle found but one is required.")
+        error_labels.append("Subtitles")
     missing = set(NECESSARY_SUBTITLES) - set(subtitles)
     for subtitle in subtitles:
         message.append(f"Found subtitle: {subtitle}")
     for item in missing:
         warnings.append(f"Missing subtitles: {item}")
         warnings.append(f"For further information see: {NECESSARY_SUBTITLES[item]}")
+        waring_labels.append(f"{item}")
     if len(subtitles) != len(set(subtitles)):
         warnings.append("Warning: Some subtitles are duplicated.")
-    return CheckResult("Readme Check",passed,message,warnings,errors,statuses)
+        waring_labels.append("Duplicated")
+    return CheckResult("Readme Check",passed,message,warnings,errors,statuses, waring_labels,error_labels)
 
 def repo2dockertest():
     """Simulate a repo2docker build to verify Binder compatibility."""
     passed=False
     message=[]
+    warnings=[]
     errors=[]
+    statuses=[]
+    warning_labels=[]
+    error_labels=[]
 
     try:
         result = subprocess.run(
@@ -278,13 +313,14 @@ def repo2dockertest():
                 part for part in [result.stdout, result.stderr] if part
             )
             errors.append(combined_output[-4000:] + "")
+            error_labels.append("repo2docker")
 
     except FileNotFoundError:
         errors.append("Repo2Docker test failed: repo2docker is not installed in the environment.")
 
     except Exception as e:
         errors.append(f"Repo2Docker test failed with unexpected error: {e}")
-    return CheckResult("Binder Test",passed,message,[],errors,[])
+    return CheckResult("Binder Test",passed,message,warnings,errors,statuses,warning_labels,error_labels)
 
 def strip_markdown(text: str) -> str:
     text = html.unescape(text)
@@ -366,19 +402,24 @@ def predict_labels_with_probability(path: Path ,threshold: float = 0.5):
         messages=[f"Predicted labels: {', '.join(predicted) if predicted else 'none'}",f"Probability: {round(probability_map[predicted[0]]*100,2)}%"],
         warnings=[],
         errors=[],
-        statuses=[]
+        statuses=[],
+        warning_labels=[],
+        error_labels=[]
     )
 
 
 
 def summary(checklists: list[CheckResult]):
     messages = []
+    error_labels = []
     passed = True
     if any(not checklist.passed for checklist in checklists):
         passed = False
         messages.append("Major Flaws, Error in at least one Check")
+        error_labels.append("Critical")
     elif  any(checklist.warnings for checklist in checklists) and passed:
         messages.append("Passed but with warnings")
+        error_labels.append("Warning")
     else:
         messages.append("Passed perfectly")
     return CheckResult("Summary", passed, messages, [], [], [])
@@ -402,6 +443,18 @@ def write_report(checklists, report_file, owner, repo):
             f.write("<br>".join(checklist.messages))
             f.write("\n\n")
 
+def write_macro(checklists, report_file, owner, repo):
+    with open(report_file, "a", encoding="utf-8") as f:
+        for checklist in checklists:
+            entry = {
+                "owner": owner,
+                "repo": repo,
+                "name": checklist.name,
+                "passed": checklist.passed,
+                "warning_labels": checklist.warning_labels,
+                "error_labels": checklist.error_labels,
+            }
+            f.write(json.dumps(entry, ensure_ascii=False) + "\n")
 
 def main():
     checklists: list[CheckResult] = []
@@ -411,7 +464,9 @@ def main():
     report_dir.mkdir(parents=True, exist_ok=True)
     report_file = report_dir / f"{repo}.md"
 
-
+    aggregated_dir=CENTRAL_PATH / "aggregation"
+    aggregated_dir.mkdir(parents=True, exist_ok=True)
+    aggregated=aggregated_dir / "report.jsonl"
     # File presence checks
     suffixes = get_file_extensions(TEST_PATH)
     required_binder = get_needed_files(suffixes)
@@ -445,6 +500,7 @@ def main():
     checklists.append(predict_labels_with_probability(TEST_PATH / "README.md"))
     # Write the report
     write_report(checklists, report_file,owner,repo)
+    write_macro(checklists, aggregated, owner, repo)
 
 
 if __name__ == "__main__":
