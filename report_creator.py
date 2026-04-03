@@ -422,7 +422,7 @@ def summary(checklists: list[CheckResult]):
         error_labels.append("Warning")
     else:
         messages.append("Passed perfectly")
-    return CheckResult("Summary", passed, messages, [], [], [])
+    return CheckResult("Summary", passed, messages, [], [], [],[],error_labels)
 
 
 
