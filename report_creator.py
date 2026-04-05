@@ -110,6 +110,7 @@ def check_for_formal_files():
             errors.append(f"Missing required files: {item}")
             errors.append(f"For further information see: {REPO_REQUIREMENTS[item]}")
             error_labels.append(f"{item}")
+        messages.append("Missing required files")
     else:
         messages.append("All required files found")
         passed=True
@@ -156,6 +157,7 @@ def check_for_binder_files(required_binder):
             for item in missing:
                 errors.append(f"Missing required files: {item}")
                 error_labels.append(f"{item}")
+        messages.append("Missing required files")
     return CheckResult("Binder Files", passed, messages, warnings,statuses,warning_labels,error_labels)
 
 def license_check():
@@ -508,7 +510,7 @@ def main():
         checklists.append(convert_readme_ipynb(readme_path))
     elif readme_path.suffix == ".md":
         checklists.append(convert_readme_md(readme_path))
-    elif readme_path.suffix == ".qmd":#
+    elif readme_path.suffix == ".qmd":
         checklists.append(convert_readme_md(readme_path))
     else:
         checklists.append(CheckResult("Readme Check",False,["Readme check failed: Format not yet supported"],[""],[""]))
