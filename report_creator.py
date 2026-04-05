@@ -155,7 +155,6 @@ def check_for_binder_files(required_binder):
         if missing:
             for item in missing:
                 errors.append(f"Missing required files: {item}")
-                errors.append(f"For further information see: {REPO_REQUIREMENTS[item]}")
                 error_labels.append(f"{item}")
     return CheckResult("Binder Files", passed, messages, warnings,statuses,warning_labels,error_labels)
 
