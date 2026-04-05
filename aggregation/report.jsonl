@@ -12,3 +12,10 @@
 {"owner": "BDA-KTS", "repo": "semantic-search-over_social-media-posts", "name": "Readme Check", "passed": true, "warning_labels": [], "error_labels": []}
 {"owner": "BDA-KTS", "repo": "semantic-search-over_social-media-posts", "name": "Binder Test", "passed": true, "warning_labels": [], "error_labels": []}
 {"owner": "BDA-KTS", "repo": "semantic-search-over_social-media-posts", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": []}
+{"owner": "gesistsa", "repo": "sweater", "name": "Summary", "passed": false, "warning_labels": [], "error_labels": ["Critical"]}
+{"owner": "gesistsa", "repo": "sweater", "name": "Formal Files", "passed": false, "warning_labels": [], "error_labels": ["postbuild"]}
+{"owner": "gesistsa", "repo": "sweater", "name": "Binder Files", "passed": false, "warning_labels": ["requirements.txt"], "error_labels": []}
+{"owner": "gesistsa", "repo": "sweater", "name": "License Check", "passed": false, "warning_labels": [], "error_labels": ["GPL-3.0"]}
+{"owner": "gesistsa", "repo": "sweater", "name": "Readme Check", "passed": false, "warning_labels": [], "error_labels": []}
+{"owner": "gesistsa", "repo": "sweater", "name": "Binder Test", "passed": false, "warning_labels": [], "error_labels": []}
+{"owner": "gesistsa", "repo": "sweater", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": []}
