@@ -1,6 +1,6 @@
 # Report for gesistsa of grafzahl
 
-## Report generated at 2026-04-05 21:25:46
+## Report generated at 2026-04-05 21:31:18
 
 ## Summary
 
@@ -12,11 +12,11 @@ Major Flaws, Error in at least one Check
 
 Missing required files: postbuild<br>For further information see: postbuild missing: https://github.com/GESIS-Methods-Hub/guidelines?tab=readme-ov-file#binder-environment
 
-Found required file: citation<br>Found required file: license
+Found required file: citation<br>Found required file: license<br>Missing required files
 
 ## Binder Files
 
-Found required file: install.R<br>Found required file: runtime.txt
+Found required file: install.R<br>Found required file: runtime.txt<br>Missing required files
 
 ## License Check
 
