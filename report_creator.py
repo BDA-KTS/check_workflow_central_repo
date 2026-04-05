@@ -444,17 +444,39 @@ def write_report(checklists, report_file, owner, repo):
             f.write("\n\n")
 
 def write_macro(checklists, report_file, owner, repo):
-    print("I was here")
-    with open(report_file, "a", encoding="utf-8") as f:
-        for checklist in checklists:
-            entry = {
-                "owner": owner,
-                "repo": repo,
-                "name": checklist.name,
-                "passed": checklist.passed,
-                "warning_labels": checklist.warning_labels,
-                "error_labels": checklist.error_labels,
-            }
+    existing_entries = []
+    if report_file.exists():
+        with open(report_file, "r", encoding="utf-8") as f:
+            for line in f:
+                line = line.strip()
+                if not line:
+                    continue
+                try:
+                    existing_entries.append(json.loads(line))
+                except json.JSONDecodeError:
+                    continue
+
+    # Keep only one entry per (owner, repo, name)
+    merged = {
+        (entry.get("owner"), entry.get("repo"), entry.get("name")): entry
+        for entry in existing_entries
+        if entry.get("owner") and entry.get("repo") and entry.get("name")
+    }
+
+    # New entries replace old ones with the same key
+    for checklist in checklists:
+        entry = {
+            "owner": owner,
+            "repo": repo,
+            "name": checklist.name,
+            "passed": checklist.passed,
+            "warning_labels": checklist.warning_labels,
+            "error_labels": checklist.error_labels,
+        }
+        merged[(owner, repo, checklist.name)] = entry
+
+    with open(report_file, "w", encoding="utf-8") as f:
+        for entry in merged.values():
             f.write(json.dumps(entry, ensure_ascii=False) + "\n")
 
 def main():
