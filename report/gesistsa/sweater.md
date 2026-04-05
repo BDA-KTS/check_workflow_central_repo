@@ -1,6 +1,6 @@
 # Report for gesistsa of sweater
 
-## Report generated at 2026-04-05 21:00:43
+## Report generated at 2026-04-05 21:12:04
 
 ## Summary
 
@@ -20,11 +20,7 @@ Found required file: install.R<br>Found required file: runtime.txt
 
 ## License Check
 
-### Errors
-
-Found GPL-3.0 License denied 
-
-
+Found GPL-3.0 License, License accepted 
 
 ## Readme Check
 
