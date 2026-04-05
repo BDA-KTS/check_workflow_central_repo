@@ -383,7 +383,6 @@ def predict_labels_with_probability(path: Path ,threshold: float = 0.5):
     model, vectorizer, mlb = load_ml_artifacts()
     vec = vectorizer.transform([text])
     probs = model.predict_proba(vec)[0]
-
     probability_map = {
         label: float(prob)
         for label, prob in zip(mlb.classes_, probs)
@@ -393,12 +392,16 @@ def predict_labels_with_probability(path: Path ,threshold: float = 0.5):
         label for label, prob in probability_map.items()
         if prob >= threshold
     ]
-    predicted.sort(key=lambda label: probability_map[label], reverse=True)
-
+    if predicted:
+        predicted.sort(key=lambda label: probability_map[label], reverse=True)
+        messages = [f"Predicted labels: {', '.join(predicted) if predicted else 'none'}",
+                    f"Probability: {round(probability_map[predicted[0]] * 100, 2)}%"]
+    else:
+        messages = ["No labels predicted with probability above threshold."]
     return CheckResult(
         name="Taxonomie",
         passed=True,
-        messages=[f"Predicted labels: {', '.join(predicted) if predicted else 'none'}",f"Probability: {round(probability_map[predicted[0]]*100,2)}%"],
+        messages=messages,
         warnings=[],
         errors=[],
         statuses=[],
