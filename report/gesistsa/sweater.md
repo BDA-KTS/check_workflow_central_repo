@@ -1,0 +1,48 @@
+# Report for gesistsa of sweater
+
+## Report generated at 2026-04-05 21:00:43
+
+## Summary
+
+Major Flaws, Error in at least one Check
+
+## Formal Files
+
+### Errors
+
+Missing required files: postbuild<br>For further information see: postbuild missing: https://github.com/GESIS-Methods-Hub/guidelines?tab=readme-ov-file#binder-environment
+
+Found required file: citation<br>Found required file: license
+
+## Binder Files
+
+Found required file: install.R<br>Found required file: runtime.txt
+
+## License Check
+
+### Errors
+
+Found GPL-3.0 License denied 
+
+
+
+## Readme Check
+
+Found too many titles: Count: 2<br>Found subtitle: Description<br>Found subtitle: Keywords<br>Found subtitle: Use Cases<br>Found subtitle: Input Data<br>Found subtitle: Output Data<br>Found subtitle: Hardware Requirements<br>Found subtitle: Environment Setup<br>Found subtitle: How to Use<br>Found subtitle: Technical Details<br>Found subtitle: References<br>Found subtitle: Contact Details
+
+## Binder Test
+
+### Errors
+
+
+
+### Warnings
+
+
+
+Binder test skipped: Binder files not found or not valid
+
+## Taxonomie
+
+Predicted labels: Data Analysis<br>Probability: 58.63%
+
