@@ -64,7 +64,8 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git pull origin main
+          git checkout -- aggregation/report.jsonl
+          git pull
           if [ -f "aggregation/report.jsonl" ]; then
           git add "aggregation/report.jsonl"
           git commit -m "Update report aggregation" || echo "No changes to commit"
