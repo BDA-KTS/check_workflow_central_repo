@@ -1,6 +1,6 @@
 # Report for mmmaurer of elfen
 
-## Report generated at 2026-04-05 21:25:45
+## Report generated at 2026-04-05 21:31:29
 
 ## Summary
 
@@ -12,11 +12,11 @@ Major Flaws, Error in at least one Check
 
 Missing required files: postbuild<br>For further information see: postbuild missing: https://github.com/GESIS-Methods-Hub/guidelines?tab=readme-ov-file#binder-environment
 
-Found required file: citation<br>Found required file: license
+Found required file: citation<br>Found required file: license<br>Missing required files
 
 ## Binder Files
 
-
+Missing required files
 
 ## License Check
 
