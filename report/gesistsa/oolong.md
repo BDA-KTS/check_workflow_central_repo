@@ -1,6 +1,6 @@
-# Report for gesistsa of sweater
+# Report for gesistsa of oolong
 
-## Report generated at 2026-04-05 21:26:23
+## Report generated at 2026-04-05 21:41:27
 
 ## Summary
 
@@ -20,11 +20,15 @@ Found required file: install.R<br>Found required file: runtime.txt<br>Missing re
 
 ## License Check
 
-Found GPL-3.0 License, License accepted 
+### Errors
+
+Found LGPL-2.1 License denied 
+
+
 
 ## Readme Check
 
-Found too many titles: Count: 2<br>Found subtitle: Description<br>Found subtitle: Keywords<br>Found subtitle: Use Cases<br>Found subtitle: Input Data<br>Found subtitle: Output Data<br>Found subtitle: Hardware Requirements<br>Found subtitle: Environment Setup<br>Found subtitle: How to Use<br>Found subtitle: Technical Details<br>Found subtitle: References<br>Found subtitle: Contact Details
+Found one title: Accepted<br>Found subtitle: Description<br>Found subtitle: Keywords<br>Found subtitle: Use Cases<br>Found subtitle: Input Data<br>Found subtitle: Output Data<br>Found subtitle: Hardware Requirements<br>Found subtitle: Environment Setup<br>Found subtitle: How to Use<br>Found subtitle: Technical Details<br>Found subtitle: References<br>Found subtitle: Contact Details
 
 ## Binder Test
 
@@ -40,5 +44,5 @@ Binder test skipped: Binder files not found or not valid
 
 ## Taxonomie
 
-Predicted labels: Data Analysis<br>Probability: 58.63%
+Predicted labels: Data Analysis<br>Probability: 53.29%
 
