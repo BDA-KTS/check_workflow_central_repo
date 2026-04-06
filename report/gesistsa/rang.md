@@ -1,6 +1,6 @@
 # Report for gesistsa of rang
 
-## Report generated at 2026-04-05 21:40:14
+## Report generated at 2026-04-06 10:56:57
 
 ## Summary
 
@@ -36,5 +36,5 @@ Repo2Docker build successful. Binder environment is valid.
 
 ## Taxonomie
 
-Predicted labels: Data Analysis<br>Probability: 53.25%
+No labels predicted with probability above threshold.
 
