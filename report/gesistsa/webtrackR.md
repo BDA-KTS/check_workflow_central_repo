@@ -1,6 +1,6 @@
 # Report for gesistsa of webtrackR
 
-## Report generated at 2026-04-05 21:50:17
+## Report generated at 2026-04-06 11:06:22
 
 ## Summary
 
@@ -20,11 +20,7 @@ Found required file: install.R<br>Found required file: runtime.txt<br>All requir
 
 ## License Check
 
-### Errors
-
- Too many licenses found, try choosing just one 
-
-
+Found MIT License, License accepted 
 
 ## Readme Check
 
@@ -40,5 +36,5 @@ Repo2Docker build successful. Binder environment is valid.
 
 ## Taxonomie
 
-Predicted labels: Data Analysis<br>Probability: 51.12%
+No labels predicted with probability above threshold.
 
