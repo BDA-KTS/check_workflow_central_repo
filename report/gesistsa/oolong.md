@@ -1,6 +1,6 @@
 # Report for gesistsa of oolong
 
-## Report generated at 2026-04-05 21:41:27
+## Report generated at 2026-04-06 10:57:23
 
 ## Summary
 
@@ -44,5 +44,5 @@ Binder test skipped: Binder files not found or not valid
 
 ## Taxonomie
 
-Predicted labels: Data Analysis<br>Probability: 53.29%
+No labels predicted with probability above threshold.
 
