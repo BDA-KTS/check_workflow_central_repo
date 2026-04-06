@@ -1,10 +1,10 @@
 # Report for schochastics of Rtumblr
 
-## Report generated at 2026-04-05 21:30:20
+## Report generated at 2026-04-06 10:44:46
 
 ## Summary
 
-Major Flaws, Error in at least one Check
+Passed but with warnings
 
 ## Formal Files
 
@@ -20,11 +20,7 @@ Found required file: install.R<br>Found required file: runtime.txt<br>All requir
 
 ## License Check
 
-### Errors
-
- Too many licenses found, try choosing just one 
-
-
+Found MIT License, License accepted 
 
 ## Readme Check
 
