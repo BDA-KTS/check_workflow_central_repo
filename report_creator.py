@@ -181,7 +181,7 @@ def license_check():
         except Exception as e:
             errors.append(f"License file could not be read or parsed: Error {e}")
             error_labels.append(f"Loading")
-            
+    print(licenses)
     if len(licenses) > 1:
         errors.append(" Too many licenses found, try choosing just one ")
         error_labels.append("Multiple")
