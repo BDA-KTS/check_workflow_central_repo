@@ -524,7 +524,7 @@ def main():
         checklists.append(CheckResult("Binder Test",False,["Binder test skipped: Binder files not found or not valid"],[""],[""]))
 
     checklists.insert(0,summary(checklists))
-    checklists.append(predict_labels_with_probability(TEST_PATH / "README.md"))
+    checklists.append(predict_labels_with_probability(readme_path))
     # Write the report
     write_report(checklists, report_file,owner,repo)
     write_macro(checklists, aggregated, owner, repo)
