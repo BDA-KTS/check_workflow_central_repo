@@ -541,7 +541,6 @@ def main():
         checklists.append(CheckResult("Readme Check",False,["Readme check failed: Format not yet supported"],[""],[""]))
 
     # Simulate Repo2Docker 2
-    binder_res=next(result for result in checklists if result.name == "Binder Files")
     if any("binder" in result.statuses for result in checklists):
         checklists.append(repo2dockertest())
     else:
