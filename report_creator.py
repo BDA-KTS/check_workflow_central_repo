@@ -472,7 +472,9 @@ def write_report(checklists, report_file, owner, repo, elapsed_time):
             f.write("### Information ✅ \n\n")
             f.write("<br>".join(checklist.messages))
             f.write("\n\n")
-        f.write(f"Time to complete {elapsed_time:.2f} seconds\n\n")
+        total_seconds = int(elapsed_time.total_seconds())
+        minutes, seconds = divmod(total_seconds, 60)
+        f.write(f"Time to complete {minutes} min {seconds} sec\n\n")
 
 def write_macro(checklists, report_file, owner, repo, elapsed_time):
     existing_entries = []
@@ -493,7 +495,9 @@ def write_macro(checklists, report_file, owner, repo, elapsed_time):
         for entry in existing_entries
         if entry.get("owner") and entry.get("repo") and entry.get("name")
     }
-
+    total_seconds = int(elapsed_time.total_seconds())
+    minutes, seconds = divmod(total_seconds, 60)
+    time=(f"{minutes}:{seconds}\n\n")
     # New entries replace old ones with the same key
     for checklist in checklists:
         entry = {
@@ -503,7 +507,7 @@ def write_macro(checklists, report_file, owner, repo, elapsed_time):
             "passed": checklist.passed,
             "warning_labels": checklist.warning_labels,
             "error_labels": checklist.error_labels,
-            "Workflow Duration": elapsed_time
+            "Workflow Duration": time
         }
         merged[(owner, repo, checklist.name)] = entry
 
