@@ -440,18 +440,20 @@ def predict_labels_with_probability(path: Path ,threshold: float = 0.5):
 
 def summary(checklists: list[CheckResult]):
     messages = []
+    warnings = []
+    errors = []
     error_labels = []
     passed = True
     if any(not checklist.passed for checklist in checklists):
         passed = False
-        messages.append("Major Flaws, Error in at least one Check")
+        errors.append("Major Flaws, Error in at least one Check")
         error_labels.append("Critical")
     elif  any(checklist.warnings for checklist in checklists) and passed:
-        messages.append("Passed but with warnings")
+        warnings.append("Passed but with warnings")
         error_labels.append("Warning")
     else:
         messages.append("Passed perfectly")
-    return CheckResult("Summary", passed, messages, [], [], [],[],error_labels)
+    return CheckResult("Summary", passed, messages, warnings, errors, [],[],error_labels)
 
 
 
