@@ -1,6 +1,6 @@
 # Report for BDA-KTS of NERD-Entity-Fishing
 
-## Report generated at 2026-04-05 21:51:23
+## Report generated at 2026-04-06 11:07:28
 
 ## Summary
 
@@ -22,7 +22,7 @@ Found MIT License, License accepted
 
 ### Warnings
 
-Missing subtitles: How to Use<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#how-to-use<br>Missing subtitles: Input Data<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#input-data<br>Missing subtitles: Description<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#description<br>Missing subtitles: Output Data<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#output-data<br>Missing subtitles: Technical Details<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#how-to-use<br>Missing subtitles: Hardware Requirements<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#hardware-requirements<br>Missing subtitles: Contact Details<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#contact-detailsn 
+Missing subtitles: Technical Details<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#how-to-use<br>Missing subtitles: Description<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#description<br>Missing subtitles: How to Use<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#how-to-use<br>Missing subtitles: Input Data<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#input-data<br>Missing subtitles: Output Data<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#output-data<br>Missing subtitles: Hardware Requirements<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#hardware-requirements<br>Missing subtitles: Contact Details<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#contact-detailsn 
 
 Found one title: Accepted<br>Found subtitle: NERD Entity Fishing - A Guide to Identifying Entities in Text<br>Found subtitle: Learning Objectives<br>Found subtitle: Duration<br>Found subtitle: Use Cases<br>Found subtitle: Environment Setup<br>Found subtitle: Overview<br>Found subtitle: **1. Entity Fishing Tool**<br>Found subtitle: 2. Dbpedia Spotlight<br>Found subtitle: Conclusion<br>Found subtitle: FAQ<br>Found subtitle: Contact details
 
@@ -56,5 +56,5 @@ ValueError: PythonBuildPack.python_version must always be specified as 'x.y', e.
 
 ## Taxonomie
 
-Predicted labels: Data Analysis<br>Probability: 58.81%
+Predicted labels: Data Analysis<br>Probability: 65.83%
 

@@ -1,6 +1,6 @@
 # Report for gesistsa of adaR
 
-## Report generated at 2026-04-05 21:25:20
+## Report generated at 2026-04-06 10:44:20
 
 ## Summary
 
@@ -16,7 +16,7 @@ Missing required files: postbuild<br>For further information see: postbuild miss
 
 Warning: license is duplicated.
 
-Found required file: citation<br>Found required file: license<br>Found required file: license
+Found required file: citation<br>Found required file: license<br>Found required file: license<br>Missing required files
 
 ## Binder Files
 
@@ -24,11 +24,7 @@ Found required file: install.R<br>Found required file: runtime.txt<br>All requir
 
 ## License Check
 
-### Errors
-
- Too many licenses found, try choosing just one 
-
-
+Found MIT License, License accepted 
 
 ## Readme Check
 
@@ -40,5 +36,5 @@ Repo2Docker build successful. Binder environment is valid.
 
 ## Taxonomie
 
-Predicted labels: Data Analysis<br>Probability: 57.66%
+Predicted labels: Data Analysis<br>Probability: 60.83%
 
