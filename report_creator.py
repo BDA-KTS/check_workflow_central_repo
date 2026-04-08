@@ -10,6 +10,8 @@ import nbformat
 from pathlib import Path
 from typing import Set, List, Counter
 from licensename import from_text
+
+
 from config import Settings
 import time
 
@@ -80,8 +82,36 @@ def get_needed_files(suffixes: Set[str]) -> Set[str]:
 
     return required_for_binder
 
+def get_files(path: Path):
+    root_files =[]
+    extended_files=[]
+    for binder_directory in BINDER_DIRS:
+        if not (path / binder_directory).is_dir():
+            continue
+        for f in (path/ binder_directory).iterdir():
+            if f.parent == path:
+                root_files.append(f.name)
+            extended_files.append(f.name)
+    return root_files , extended_files
 
-def check_for_formal_files():
+def check_for_files(repo_requirements,required_binder,root_files,extended_files):
+
+    if any(f.casefold().split(".")[0] == "postbuild" for f in extended_files):
+        root_files.append("postbuild")
+    formal_files=check_for_binder_files(repo_requirements,root_files)
+    binder_files=check_for_binder_files(required_binder,extended_files)
+    passed=formal_files.passed and binder_files.passed
+    messages=formal_files.messages + binder_files.messages
+    warnings=formal_files.warnings + binder_files.warnings
+    errors=formal_files.errors + binder_files.errors
+    statuses=formal_files.statuses + binder_files.statuses
+    warning_labels=formal_files.warning_labels + binder_files.warning_labels
+    error_labels=formal_files.error_labels + binder_files.error_labels
+    if passed:
+        messages.append("All required files found")
+    return CheckResult("File Check",passed=passed,messages=messages,warnings=warnings,errors=errors,statuses=statuses,warning_labels=warning_labels,error_labels=error_labels)
+
+def check_for_formal_files(repo_requirements,root_files):
     passed=False
     messages=[]
     warnings=[]
@@ -89,22 +119,22 @@ def check_for_formal_files():
     statuses=[]
     warning_labels=[]
     error_labels=[]
-    repo_files = [p.stem for p in TEST_PATH.iterdir() if p.is_file()]
-    repo_scaffold = sorted([f.casefold() for f in repo_files])
+    repo_sorted = sorted([f.casefold().split(".")[0] for f in root_files])
+    required = {r.casefold() for r in repo_requirements}
 
-    required = {r.casefold() for r in set(REPO_REQUIREMENTS)}
-    repo_scaffold=[f for f in repo_scaffold if f in required]
-    for f in repo_scaffold:
+    repo_sorted= [f for f in repo_sorted if f in required]
+
+    for f in repo_sorted:
         messages.append(f"Found required file: {f}")
-    if "license" in repo_scaffold:
+    if "license" in repo_sorted:
         statuses.append("license")
-    counter=Counter(repo_scaffold)
+    counter=Counter(repo_sorted)
     duplicates=[f for f, count in counter.items() if count > 1]
     if duplicates:
         for f in duplicates:
             warnings.append(f"Warning: {f} is duplicated.")
             warning_labels.append(f"{f}")
-    missing = required - set(repo_scaffold)
+    missing = required - set(repo_sorted)
     if missing:
         for item in missing:
             errors.append(f"Missing required files: {item}")
@@ -112,12 +142,11 @@ def check_for_formal_files():
             error_labels.append(f"{item}")
         messages.append("Missing required files")
     else:
-        messages.append("All required files found")
         passed=True
     return CheckResult("Formal Files", passed, messages, warnings, errors, statuses,warning_labels,error_labels)
 
 
-def check_for_binder_files(required_binder):
+def check_for_binder_files(required_binder,extended_files):
     passed=False
     messages=[]
     warnings=[]
@@ -125,16 +154,10 @@ def check_for_binder_files(required_binder):
     statuses=[]
     warning_labels=[]
     error_labels=[]
-    found_files = []
-    for binder_directory in BINDER_DIRS:
-        if not (TEST_PATH / binder_directory).is_dir():
-            continue
-        for f in (TEST_PATH / binder_directory).iterdir():
-            found_files.append(f.name)
+    found_files = extended_files
     if "environment.yml" in found_files:
         passed=True
         messages.append("Found required file: environment.yml")
-        messages.append("All required binder files found")
     found_files = sorted([f for f in found_files if f in required_binder])
     counter=Counter(found_files)
     duplicates=[f for f, count in counter.items() if count > 1]
@@ -144,20 +167,21 @@ def check_for_binder_files(required_binder):
             warning_labels.append(f"{f}")
     for f in found_files:
             messages.append(f"Found required file: {f}")
-    if required_binder.issubset(set(found_files)):
+    if set(required_binder).issubset(set(found_files)):
         if passed:
             warnings.append("Multiple binder configs found")
             warning_labels.append("Multiple")
         else:
             passed=True
-            messages.append("All required binder files found")
     else:
-        missing = required_binder - set(found_files)
+        missing = set(required_binder) - set(found_files)
         if missing:
             for item in missing:
                 errors.append(f"Missing required files: {item}")
                 error_labels.append(f"{item}")
         messages.append("Missing required files")
+    if passed:
+        statuses.append("binder")
     return CheckResult("Binder Files", passed, messages, warnings,statuses,warning_labels,error_labels)
 
 def license_check():
@@ -273,9 +297,9 @@ def check_readme(titles,subtitles, error, error_labels) -> CheckResult:
     for subtitle in subtitles:
         message.append(f"Found subtitle: {subtitle}")
     for item in missing:
-        warnings.append(f"Missing subtitles: {item}")
-        warnings.append(f"For further information see: {NECESSARY_SUBTITLES[item]}")
-        waring_labels.append(f"{item}")
+        error.append(f"Missing subtitles: {item}")
+        error.append(f"For further information see: {NECESSARY_SUBTITLES[item]}")
+        error_labels.append(f"{item}")
     if len(subtitles) != len(set(subtitles)):
         warnings.append("Warning: Some subtitles are duplicated.")
         waring_labels.append("Duplicated")
@@ -444,6 +468,7 @@ def write_report(checklists, report_file, owner, repo):
                 f.write("### Warnings\n\n")
                 f.write("<br>".join(checklist.warnings))
                 f.write("\n\n")
+            f.write("Information\n\n")
             f.write("<br>".join(checklist.messages))
             f.write("\n\n")
 
@@ -497,8 +522,8 @@ def main():
     # File presence checks
     suffixes = get_file_extensions(TEST_PATH)
     required_binder = get_needed_files(suffixes)
-    checklists.append(check_for_formal_files())
-    checklists.append(check_for_binder_files(required_binder))
+    root_files, extended_files=get_files(TEST_PATH)
+    checklists.append(check_for_files(REPO_REQUIREMENTS,required_binder,root_files,extended_files))
 
     # License check
     if any("license" in result.statuses for result in checklists):
@@ -517,7 +542,7 @@ def main():
 
     # Simulate Repo2Docker 2
     binder_res=next(result for result in checklists if result.name == "Binder Files")
-    if binder_res.passed:
+    if any("binder" in result.statuses for result in checklists):
         checklists.append(repo2dockertest())
     else:
         checklists.append(CheckResult("Binder Test",False,["Binder test skipped: Binder files not found or not valid"],[""],[""]))

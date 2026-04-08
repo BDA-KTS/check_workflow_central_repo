@@ -19,4 +19,4 @@ class Settings:
     FREE_LICENSES: list[str]=["Apache-2.0","MIT","BSD-2-Clause","BSD-3-Clause","ISC","Zlib","BSL-1.0","GNU","GPL-3.0"]
     REPO_REQUIREMENTS:dict = {"citation":"citation missing: https://github.com/GESIS-Methods-Hub/guidelines?tab=readme-ov-file#quality-criteria",
                          "license":"license missing: https://github.com/GESIS-Methods-Hub/guidelines?tab=readme-ov-file#quality-criteria",
-                         "postbuild":"postbuild missing: https://github.com/GESIS-Methods-Hub/guidelines?tab=readme-ov-file#binder-environment"}
+                                   "postbuild":"postbuild missing: https://github.com/GESIS-Methods-Hub/guidelines?tab=readme-ov-file#binder-environment"}
