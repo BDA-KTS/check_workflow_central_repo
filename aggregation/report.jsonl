@@ -26,3 +26,9 @@
 {"owner": "gesistsa", "repo": "grafzahl", "name": "Readme Check", "passed": true, "warning_labels": ["Output Data"], "error_labels": []}
 {"owner": "gesistsa", "repo": "grafzahl", "name": "Binder Test", "passed": false, "warning_labels": [], "error_labels": []}
 {"owner": "gesistsa", "repo": "grafzahl", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": []}
+{"owner": "schochastics", "repo": "paperwizard", "name": "Summary", "passed": true, "warning_labels": [], "error_labels": ["Warning"], "Workflow Duration": "5:2\n\n"}
+{"owner": "schochastics", "repo": "paperwizard", "name": "File Check", "passed": true, "warning_labels": ["license", "postbuild"], "error_labels": [], "Workflow Duration": "5:2\n\n"}
+{"owner": "schochastics", "repo": "paperwizard", "name": "License Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "5:2\n\n"}
+{"owner": "schochastics", "repo": "paperwizard", "name": "Readme Check", "passed": true, "warning_labels": [], "error_labels": ["Contact Details", "How to Use", "Technical Details", "Input Data", "Description", "Environment Setup", "Hardware Requirements", "Use Cases", "Output Data"], "Workflow Duration": "5:2\n\n"}
+{"owner": "schochastics", "repo": "paperwizard", "name": "Binder Test", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "5:2\n\n"}
+{"owner": "schochastics", "repo": "paperwizard", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "5:2\n\n"}
