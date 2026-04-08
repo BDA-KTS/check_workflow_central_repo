@@ -64,13 +64,12 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git checkout -- aggregation/report.jsonl
           git pull
           if [ -f "aggregation/report.jsonl" ]; then
-          git add "aggregation/report.jsonl"
-          git commit -m "Update report aggregation" || echo "No changes to commit"
-          git push
+            git add "aggregation/report.jsonl"
+            git commit -m "Update report aggregation" || echo "No changes to commit"
+            git push
           else
-            echo "Report file not found: $REPORT_PATH"
+            echo "Report file not found: aggregation/report.jsonl"
             exit 1
           fi

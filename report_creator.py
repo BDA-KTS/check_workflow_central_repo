@@ -498,7 +498,6 @@ def write_macro(checklists, report_file, owner, repo, elapsed_time):
     total_seconds = int(elapsed_time.total_seconds())
     minutes, seconds = divmod(total_seconds, 60)
     times= f"{minutes}:{seconds}\n\n"
-    print("I was here")
     # New entries replace old ones with the same key
     for checklist in checklists:
         entry = {
@@ -510,7 +509,6 @@ def write_macro(checklists, report_file, owner, repo, elapsed_time):
             "error_labels": checklist.error_labels,
             "Workflow Duration": times
         }
-        print("Done")
         merged[(owner, repo, checklist.name)] = entry
 
     with open(report_file, "w", encoding="utf-8") as f:
