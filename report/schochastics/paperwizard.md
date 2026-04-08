@@ -1,6 +1,6 @@
 # Report for schochastics of paperwizard
 
-## Report generated at 2026-04-08 10:20:22
+## Report generated at 2026-04-08 13:55:08
 
 ## Summary
 
@@ -10,7 +10,8 @@ Passed but with warnings
 
 ## File Check
 
-### Warnings ⚠️ n
+### Warnings ⚠️ 
+
 Warning: license is duplicated.<br>Warning: postbuild is duplicated.
 
 ### Information ✅ 
@@ -27,7 +28,7 @@ Found MIT License, License accepted
 
 ### Errors ⛔ 
 
-Missing subtitles: How to Use<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#how-to-use<br>Missing subtitles: Input Data<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#input-data<br>Missing subtitles: Output Data<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#output-data<br>Missing subtitles: Hardware Requirements<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#hardware-requirements<br>Missing subtitles: Contact Details<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#contact-detailsn <br>Missing subtitles: Technical Details<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#how-to-use<br>Missing subtitles: Environment Setup<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#environment-setup<br>Missing subtitles: Use Cases<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#use-cases<br>Missing subtitles: Description<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#description
+Missing subtitles: Technical Details<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#how-to-use<br>Missing subtitles: How to Use<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#how-to-use<br>Missing subtitles: Output Data<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#output-data<br>Missing subtitles: Use Cases<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#use-cases<br>Missing subtitles: Hardware Requirements<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#hardware-requirements<br>Missing subtitles: Environment Setup<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#environment-setup<br>Missing subtitles: Description<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#description<br>Missing subtitles: Contact Details<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#contact-detailsn <br>Missing subtitles: Input Data<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#input-data
 
 ### Information ✅ 
 
@@ -44,4 +45,6 @@ Repo2Docker build successful. Binder environment is valid.
 ### Information ✅ 
 
 Predicted labels: Data Analysis<br>Probability: 54.04%
+
+Time to complete 5 min 36 sec
 
