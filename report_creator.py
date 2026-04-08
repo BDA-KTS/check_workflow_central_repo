@@ -10,6 +10,7 @@ import nbformat
 from pathlib import Path
 from typing import Set, List, Counter
 from licensename import from_text
+from datetime import datetime, timedelta
 
 
 from config import Settings
@@ -454,7 +455,7 @@ def summary(checklists: list[CheckResult]):
 
 
 
-def write_report(checklists, report_file, owner, repo):
+def write_report(checklists, report_file, owner, repo, elapsed_time):
     with open(report_file, "w", encoding="utf-8") as f:
         f.write(f"# Report for {owner} of {repo}\n\n")
         f.write("## Report generated at {}\n\n".format(time.strftime("%Y-%m-%d %H:%M:%S")))
@@ -465,14 +466,15 @@ def write_report(checklists, report_file, owner, repo):
                 f.write("<br>".join(checklist.errors))
                 f.write("\n\n")
             if checklist.warnings:
-                f.write("### Warnings ⚠️ n\n")
+                f.write("### Warnings ⚠️ \n\n")
                 f.write("<br>".join(checklist.warnings))
                 f.write("\n\n")
             f.write("### Information ✅ \n\n")
             f.write("<br>".join(checklist.messages))
             f.write("\n\n")
+        f.write(f"Time to complete {elapsed_time:.2f} seconds\n\n")
 
-def write_macro(checklists, report_file, owner, repo):
+def write_macro(checklists, report_file, owner, repo, elapsed_time):
     existing_entries = []
     if report_file.exists():
         with open(report_file, "r", encoding="utf-8") as f:
@@ -501,6 +503,7 @@ def write_macro(checklists, report_file, owner, repo):
             "passed": checklist.passed,
             "warning_labels": checklist.warning_labels,
             "error_labels": checklist.error_labels,
+            "Workflow Duration": elapsed_time
         }
         merged[(owner, repo, checklist.name)] = entry
 
@@ -509,6 +512,7 @@ def write_macro(checklists, report_file, owner, repo):
             f.write(json.dumps(entry, ensure_ascii=False) + "\n")
 
 def main():
+    time_start = datetime.now()
     checklists: list[CheckResult] = []
     full_name, readme_name = get_event_data()
     owner, repo = full_name.split("/", 1)
@@ -548,9 +552,11 @@ def main():
 
     checklists.insert(0,summary(checklists))
     checklists.append(predict_labels_with_probability(readme_path))
+    time_end = datetime.now()
+    elapsed_time = time_end - time_start
     # Write the report
-    write_report(checklists, report_file,owner,repo)
-    write_macro(checklists, aggregated, owner, repo)
+    write_report(checklists, report_file,owner,repo, elapsed_time)
+    write_macro(checklists, aggregated, owner, repo, elapsed_time)
 
 
 if __name__ == "__main__":
