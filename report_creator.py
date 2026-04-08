@@ -98,7 +98,7 @@ def check_for_files(repo_requirements,required_binder,root_files,extended_files)
 
     if any(f.casefold().split(".")[0] == "postbuild" for f in extended_files):
         root_files.append("postbuild")
-    formal_files=check_for_binder_files(repo_requirements,root_files)
+    formal_files = check_for_formal_files(repo_requirements, root_files)
     binder_files=check_for_binder_files(required_binder,extended_files)
     passed=formal_files.passed and binder_files.passed
     messages=formal_files.messages + binder_files.messages
@@ -182,7 +182,7 @@ def check_for_binder_files(required_binder,extended_files):
         messages.append("Missing required files")
     if passed:
         statuses.append("binder")
-    return CheckResult("Binder Files", passed, messages, warnings,statuses,warning_labels,error_labels)
+    return CheckResult("Binder Files", passed, messages, warnings, errors, statuses, warning_labels, error_labels)
 
 def license_check():
     passed=False
@@ -468,7 +468,7 @@ def write_report(checklists, report_file, owner, repo):
                 f.write("### Warnings\n\n")
                 f.write("<br>".join(checklist.warnings))
                 f.write("\n\n")
-            f.write("Information\n\n")
+            f.write("### Information\n\n")
             f.write("<br>".join(checklist.messages))
             f.write("\n\n")
 
