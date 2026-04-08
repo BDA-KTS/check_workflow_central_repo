@@ -461,14 +461,14 @@ def write_report(checklists, report_file, owner, repo):
         for checklist in checklists:
             f.write("## {}\n\n".format(checklist.name))
             if checklist.errors:
-                f.write("### Errors\n\n")
+                f.write("### Errors ⛔ \n\n")
                 f.write("<br>".join(checklist.errors))
                 f.write("\n\n")
             if checklist.warnings:
-                f.write("### Warnings\n\n")
+                f.write("### Warnings ⚠️ n\n")
                 f.write("<br>".join(checklist.warnings))
                 f.write("\n\n")
-            f.write("### Information\n\n")
+            f.write("### Information ✅ \n\n")
             f.write("<br>".join(checklist.messages))
             f.write("\n\n")
 
