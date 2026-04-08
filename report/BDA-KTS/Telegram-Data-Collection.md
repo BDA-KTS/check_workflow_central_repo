@@ -1,36 +1,50 @@
 # Report for BDA-KTS of Telegram-Data-Collection
 
-## Report generated at 2026-04-06 10:53:45
+## Report generated at 2026-04-08 14:34:46
 
 ## Summary
 
+### Information ✅ 
+
 Major Flaws, Error in at least one Check
 
-## Formal Files
+## File Check
 
-Found required file: citation<br>Found required file: license<br>Found required file: postbuild<br>All required files found
+### Warnings ⚠️ 
 
-## Binder Files
+Warning: postbuild is duplicated.
 
-Found required file: requirements.txt<br>All required binder files found
+### Information ✅ 
+
+Found required file: citation<br>Found required file: license<br>Found required file: postbuild<br>Found required file: postbuild<br>Found required file: requirements.txt<br>All required files found
 
 ## License Check
+
+### Information ✅ 
 
 Found Apache-2.0 License, License accepted 
 
 ## Readme Check
 
-### Warnings
+### Errors ⛔ 
 
-Missing subtitles: Input Data<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#input-data<br>Missing subtitles: Contact Details<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#contact-detailsn 
+Missing subtitles: Contact Details<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#contact-detailsn <br>Missing subtitles: Input Data<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#input-data
+
+### Information ✅ 
 
 Found too many titles: Count: 2<br>Found subtitle: Description<br>Found subtitle: Use Cases<br>Found subtitle: Input data<br>Found subtitle: Output Data<br>Found subtitle: Hardware Requirements<br>Found subtitle: Environment Setup<br>Found subtitle: How to Use<br>Found subtitle: Technical Details
 
 ## Binder Test
 
+### Information ✅ 
+
 Repo2Docker build successful. Binder environment is valid.
 
 ## Taxonomie
 
+### Information ✅ 
+
 No labels predicted with probability above threshold.
+
+Time to complete 1 min 30 sec
 
