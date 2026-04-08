@@ -52,3 +52,9 @@
 {"owner": "gesistsa", "repo": "oolong", "name": "Readme Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "0:1"}
 {"owner": "gesistsa", "repo": "oolong", "name": "Binder Test", "passed": false, "warning_labels": [], "error_labels": [], "Workflow Duration": "0:1"}
 {"owner": "gesistsa", "repo": "oolong", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "0:1"}
+{"owner": "taimoorkhan-nlp", "repo": "latent_dirichlet_allocation", "name": "Summary", "passed": true, "warning_labels": [], "error_labels": ["Warning"], "Workflow Duration": "1:39"}
+{"owner": "taimoorkhan-nlp", "repo": "latent_dirichlet_allocation", "name": "File Check", "passed": true, "warning_labels": ["postbuild"], "error_labels": [], "Workflow Duration": "1:39"}
+{"owner": "taimoorkhan-nlp", "repo": "latent_dirichlet_allocation", "name": "License Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "1:39"}
+{"owner": "taimoorkhan-nlp", "repo": "latent_dirichlet_allocation", "name": "Readme Check", "passed": true, "warning_labels": [], "error_labels": ["Environment Setup", "Contact Details"], "Workflow Duration": "1:39"}
+{"owner": "taimoorkhan-nlp", "repo": "latent_dirichlet_allocation", "name": "Binder Test", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "1:39"}
+{"owner": "taimoorkhan-nlp", "repo": "latent_dirichlet_allocation", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "1:39"}
