@@ -1,6 +1,6 @@
 # Report for gesistsa of oolong
 
-## Report generated at 2026-04-10 09:04:20
+## Report generated at 2026-04-10 20:31:40
 
 ## Summary
 
@@ -33,14 +33,6 @@ Found one title: Accepted<br>Found subtitle: Description<br>Found subtitle: Keyw
 ## Binder Test
 
 ### Errors ⛔ 
-
-
-
-### Warnings ⚠️ 
-
-
-
-### Information ✅ 
 
 Binder test skipped: Binder files not found or not valid
 
