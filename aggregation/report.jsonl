@@ -100,6 +100,7 @@
 {"owner": "schochastics", "repo": "Rtumblr", "name": "Readme Check", "passed": true, "warning_labels": [], "error_labels": ["Hardware Requirements"], "Workflow Duration": "3:52"}
 {"owner": "schochastics", "repo": "Rtumblr", "name": "Binder Test", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "3:52"}
 {"owner": "schochastics", "repo": "Rtumblr", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "3:52"}
+<<<<<<< Updated upstream
 =======
 {"owner": "gesistsa", "repo": "adaR", "name": "Summary", "passed": true, "warning_labels": [], "error_labels": ["Warning"], "Workflow Duration": "4:47"}
 {"owner": "gesistsa", "repo": "adaR", "name": "File Check", "passed": true, "warning_labels": ["license"], "error_labels": [], "Workflow Duration": "4:47"}
@@ -107,4 +108,12 @@
 {"owner": "gesistsa", "repo": "adaR", "name": "Readme Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "4:47"}
 {"owner": "gesistsa", "repo": "adaR", "name": "Binder Test", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "4:47"}
 {"owner": "gesistsa", "repo": "adaR", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "4:47"}
+>>>>>>> Stashed changes
+=======
+{"owner": "YSKartal", "repo": "reference_disam", "name": "Summary", "passed": true, "warning_labels": [], "error_labels": ["Warning"], "Workflow Duration": "1:26"}
+{"owner": "YSKartal", "repo": "reference_disam", "name": "File Check", "passed": true, "warning_labels": ["postbuild"], "error_labels": [], "Workflow Duration": "1:26"}
+{"owner": "YSKartal", "repo": "reference_disam", "name": "License Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "1:26"}
+{"owner": "YSKartal", "repo": "reference_disam", "name": "Readme Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "1:26"}
+{"owner": "YSKartal", "repo": "reference_disam", "name": "Binder Test", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "1:26"}
+{"owner": "YSKartal", "repo": "reference_disam", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "1:26"}
 >>>>>>> Stashed changes
