@@ -1,12 +1,12 @@
 # Report for schochastics of paperwizard
 
-## Report generated at 2026-04-08 14:20:05
+## Report generated at 2026-04-10 20:21:44
 
 ## Summary
 
-### Information ✅ 
+### Errors ⛔ 
 
-Passed but with warnings
+Major Flaws, Error in at least one Check
 
 ## File Check
 
@@ -26,13 +26,9 @@ Found MIT License, License accepted
 
 ## Readme Check
 
-### Errors ⛔ 
-
-Missing subtitles: Contact Details<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#contact-detailsn <br>Missing subtitles: How to Use<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#how-to-use<br>Missing subtitles: Technical Details<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#how-to-use<br>Missing subtitles: Input Data<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#input-data<br>Missing subtitles: Description<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#description<br>Missing subtitles: Environment Setup<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#environment-setup<br>Missing subtitles: Hardware Requirements<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#hardware-requirements<br>Missing subtitles: Use Cases<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#use-cases<br>Missing subtitles: Output Data<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#output-data
-
 ### Information ✅ 
 
-Found one title: Accepted<br>Found subtitle: Installation<br>Found subtitle: Setup<br>Found subtitle: Use<br>Found subtitle: Known sites with issues
+Found too many titles: Count: 6<br>Found subtitle: Description<br>Found subtitle: Keywords<br>Found subtitle: Use Cases<br>Found subtitle: Input Data<br>Found subtitle: Output Data<br>Found subtitle: Hardware Requirements<br>Found subtitle: Environment Setup<br>Found subtitle: How to Use<br>Found subtitle: Technical Details<br>Found subtitle: Contact Details
 
 ## Binder Test
 
@@ -44,7 +40,7 @@ Repo2Docker build successful. Binder environment is valid.
 
 ### Information ✅ 
 
-Predicted labels: Data Analysis<br>Probability: 54.04%
+No labels predicted with probability above threshold.
 
-Time to complete 5 min 2 sec
+Time to complete 5 min 13 sec
 
