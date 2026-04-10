@@ -58,12 +58,12 @@
 {"owner": "taimoorkhan-nlp", "repo": "latent_dirichlet_allocation", "name": "Readme Check", "passed": true, "warning_labels": [], "error_labels": ["Environment Setup", "Contact Details"], "Workflow Duration": "1:23"}
 {"owner": "taimoorkhan-nlp", "repo": "latent_dirichlet_allocation", "name": "Binder Test", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "1:23"}
 {"owner": "taimoorkhan-nlp", "repo": "latent_dirichlet_allocation", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "1:23"}
-{"owner": "BDA-KTS", "repo": "4TCT", "name": "Summary", "passed": false, "warning_labels": [], "error_labels": ["Critical"], "Workflow Duration": "1:24"}
-{"owner": "BDA-KTS", "repo": "4TCT", "name": "File Check", "passed": true, "warning_labels": ["postbuild"], "error_labels": [], "Workflow Duration": "1:24"}
-{"owner": "BDA-KTS", "repo": "4TCT", "name": "License Check", "passed": false, "warning_labels": [], "error_labels": ["AGPL-3.0"], "Workflow Duration": "1:24"}
-{"owner": "BDA-KTS", "repo": "4TCT", "name": "Readme Check", "passed": true, "warning_labels": [], "error_labels": ["Technical Details"], "Workflow Duration": "1:24"}
-{"owner": "BDA-KTS", "repo": "4TCT", "name": "Binder Test", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "1:24"}
-{"owner": "BDA-KTS", "repo": "4TCT", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "1:24"}
+{"owner": "BDA-KTS", "repo": "4TCT", "name": "Summary", "passed": false, "warning_labels": [], "error_labels": ["Critical"], "Workflow Duration": "1:22"}
+{"owner": "BDA-KTS", "repo": "4TCT", "name": "File Check", "passed": true, "warning_labels": ["postbuild"], "error_labels": [], "Workflow Duration": "1:22"}
+{"owner": "BDA-KTS", "repo": "4TCT", "name": "License Check", "passed": false, "warning_labels": [], "error_labels": ["AGPL-3.0"], "Workflow Duration": "1:22"}
+{"owner": "BDA-KTS", "repo": "4TCT", "name": "Readme Check", "passed": true, "warning_labels": [], "error_labels": ["Technical Details"], "Workflow Duration": "1:22"}
+{"owner": "BDA-KTS", "repo": "4TCT", "name": "Binder Test", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "1:22"}
+{"owner": "BDA-KTS", "repo": "4TCT", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "1:22"}
 {"owner": "BDA-KTS", "repo": "NERD-Entity-Fishing", "name": "Summary", "passed": false, "warning_labels": [], "error_labels": ["Critical"], "Workflow Duration": "0:1"}
 {"owner": "BDA-KTS", "repo": "NERD-Entity-Fishing", "name": "File Check", "passed": true, "warning_labels": ["postbuild"], "error_labels": [], "Workflow Duration": "0:1"}
 {"owner": "BDA-KTS", "repo": "NERD-Entity-Fishing", "name": "License Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "0:1"}
@@ -112,7 +112,10 @@
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 {"owner": "taimoorkhan-nlp", "repo": "text_edit_distance_similarity", "name": "File Check", "passed": true, "warning_labels": ["postbuild"], "error_labels": [], "Workflow Duration": "1:31"}
@@ -129,6 +132,7 @@
 {"owner": "BDA-KTS", "repo": "claim_similarity_retrieval", "name": "Binder Test", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "2:52"}
 {"owner": "BDA-KTS", "repo": "claim_similarity_retrieval", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "2:52"}
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 >>>>>>> Stashed changes
 =======
 {"owner": "gesistsa", "repo": "rang", "name": "Summary", "passed": false, "warning_labels": [], "error_labels": ["Critical"], "Workflow Duration": "4:40"}
@@ -137,6 +141,8 @@
 {"owner": "gesistsa", "repo": "rang", "name": "Readme Check", "passed": false, "warning_labels": [], "error_labels": ["How to Use"], "Workflow Duration": "4:40"}
 {"owner": "gesistsa", "repo": "rang", "name": "Binder Test", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "4:40"}
 {"owner": "gesistsa", "repo": "rang", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "4:40"}
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
