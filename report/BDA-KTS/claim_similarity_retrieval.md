@@ -1,32 +1,46 @@
 # Report for BDA-KTS of claim_similarity_retrieval
 
-## Report generated at 2026-04-06 10:55:05
+## Report generated at 2026-04-10 20:29:27
 
 ## Summary
 
-Passed perfectly
+### Warnings ⚠️ 
 
-## Formal Files
+Passed but with warnings
 
-Found required file: citation<br>Found required file: license<br>Found required file: postbuild<br>All required files found
+## File Check
 
-## Binder Files
+### Warnings ⚠️ 
 
-Found required file: requirements.txt<br>All required binder files found
+Warning: postbuild is duplicated.
+
+### Information ✅ 
+
+Found required file: citation<br>Found required file: license<br>Found required file: postbuild<br>Found required file: postbuild<br>Found required file: requirements.txt<br>All required files found
 
 ## License Check
+
+### Information ✅ 
 
 Found MIT License, License accepted 
 
 ## Readme Check
 
+### Information ✅ 
+
 Found one title: Accepted<br>Found subtitle: Description<br>Found subtitle: Use Cases<br>Found subtitle: Input Data<br>Found subtitle: Output Data<br>Found subtitle: Hardware Requirements<br>Found subtitle: Environment Setup<br>Found subtitle: How to Use<br>Found subtitle: Technical Details<br>Found subtitle: References<br>Found subtitle: Disclaimer<br>Found subtitle: Contact Details
 
 ## Binder Test
+
+### Information ✅ 
 
 Repo2Docker build successful. Binder environment is valid.
 
 ## Taxonomie
 
+### Information ✅ 
+
 Predicted labels: Data Analysis<br>Probability: 67.52%
+
+Time to complete 2 min 52 sec
 
