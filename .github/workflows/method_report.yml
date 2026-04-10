@@ -45,36 +45,36 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-      
+          
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-      
+          
           REPORT_PATH="report/${{ github.event.client_payload.repository_full_name }}.md"
           [ -f "$REPORT_PATH" ] || { echo "Report file not found: $REPORT_PATH"; exit 1; }
-      
+          
           git add "$REPORT_PATH"
-      
+          
           if git diff --cached --quiet; then
             echo "No changes to commit"
             exit 0
           fi
-      
+          
           git commit -m "Add report for ${{ github.event.client_payload.repository_full_name }}"
-      
+          
           for i in 1 2 3 4 5; do
             echo "Push attempt $i"
-      
-            if git pull --rebase origin main && git push origin HEAD:main; then
+          
+            if git pull --rebase --autostash origin main && git push origin HEAD:main; then
               exit 0
             fi
-      
-            echo "Push conflict, retrying..."
+          
             WAIT=$((i * 2))
-            echo "Push conflict, retrying in ${WAIT}s..."
+            echo "Push failed, retrying in ${WAIT}s..."
             sleep "$WAIT"
           done
-      
+          
           echo "Push failed after 5 attempts"
+          git status --short
           exit 1
 
       - name: Commit and Push the Aggregation
@@ -82,34 +82,34 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-
+      
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-
+      
           AGGREGATION_PATH="aggregation/report.jsonl"
           [ -f "$AGGREGATION_PATH" ] || { echo "Report file not found: $AGGREGATION_PATH"; exit 1; }
-
+      
           git add "$AGGREGATION_PATH"
-
+      
           if git diff --cached --quiet; then
             echo "No changes to commit"
             exit 0
           fi
-
+      
           git commit -m "Update report aggregation"
-
+      
           for i in 1 2 3 4 5; do
             echo "Push attempt $i"
-
-            if git pull --rebase origin main && git push origin HEAD:main; then
+      
+            if git pull --rebase --autostash origin main && git push origin HEAD:main; then
               exit 0
             fi
-
-            echo "Push conflict, retrying..."
-              WAIT=$((i * 2))
-            echo "Push conflict, retrying in ${WAIT}s..."
+      
+            WAIT=$((i * 2))
+            echo "Push failed, retrying in ${WAIT}s..."
             sleep "$WAIT"
           done
-
+      
           echo "Push failed after 5 attempts"
+          git status --short
           exit 1
