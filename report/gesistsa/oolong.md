@@ -1,16 +1,12 @@
 # Report for gesistsa of oolong
 
-## Report generated at 2026-04-08 14:54:11
+## Report generated at 2026-04-10 09:04:20
 
 ## Summary
 
 ### Errors ⛔ 
 
 Major Flaws, Error in at least one Check
-
-### Information ✅ 
-
-
 
 ## File Check
 
@@ -27,10 +23,6 @@ Found required file: citation<br>Found required file: license<br>Found required 
 ### Errors ⛔ 
 
 Found LGPL-2.1 License denied 
-
-### Information ✅ 
-
-
 
 ## Readme Check
 

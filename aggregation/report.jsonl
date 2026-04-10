@@ -12,49 +12,73 @@
 {"owner": "BDA-KTS", "repo": "semantic-search-over_social-media-posts", "name": "Readme Check", "passed": true, "warning_labels": [], "error_labels": []}
 {"owner": "BDA-KTS", "repo": "semantic-search-over_social-media-posts", "name": "Binder Test", "passed": true, "warning_labels": [], "error_labels": []}
 {"owner": "BDA-KTS", "repo": "semantic-search-over_social-media-posts", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": []}
-{"owner": "gesistsa", "repo": "sweater", "name": "Summary", "passed": false, "warning_labels": [], "error_labels": ["Critical"], "Workflow Duration": "0:0"}
+{"owner": "gesistsa", "repo": "sweater", "name": "Summary", "passed": false, "warning_labels": [], "error_labels": ["Critical"], "Workflow Duration": "0:1"}
 {"owner": "gesistsa", "repo": "sweater", "name": "Formal Files", "passed": false, "warning_labels": [], "error_labels": ["postbuild"]}
 {"owner": "gesistsa", "repo": "sweater", "name": "Binder Files", "passed": false, "warning_labels": ["requirements.txt"], "error_labels": []}
-{"owner": "gesistsa", "repo": "sweater", "name": "License Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "0:0"}
-{"owner": "gesistsa", "repo": "sweater", "name": "Readme Check", "passed": false, "warning_labels": [], "error_labels": [], "Workflow Duration": "0:0"}
-{"owner": "gesistsa", "repo": "sweater", "name": "Binder Test", "passed": false, "warning_labels": [], "error_labels": [], "Workflow Duration": "0:0"}
-{"owner": "gesistsa", "repo": "sweater", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "0:0"}
-{"owner": "gesistsa", "repo": "grafzahl", "name": "Summary", "passed": false, "warning_labels": [], "error_labels": ["Critical"], "Workflow Duration": "0:1"}
+{"owner": "gesistsa", "repo": "sweater", "name": "License Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "0:1"}
+{"owner": "gesistsa", "repo": "sweater", "name": "Readme Check", "passed": false, "warning_labels": [], "error_labels": [], "Workflow Duration": "0:1"}
+{"owner": "gesistsa", "repo": "sweater", "name": "Binder Test", "passed": false, "warning_labels": [], "error_labels": [], "Workflow Duration": "0:1"}
+{"owner": "gesistsa", "repo": "sweater", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "0:1"}
+{"owner": "gesistsa", "repo": "grafzahl", "name": "Summary", "passed": false, "warning_labels": [], "error_labels": ["Critical"], "Workflow Duration": "0:0"}
 {"owner": "gesistsa", "repo": "grafzahl", "name": "Formal Files", "passed": false, "warning_labels": [], "error_labels": ["postbuild"]}
 {"owner": "gesistsa", "repo": "grafzahl", "name": "Binder Files", "passed": false, "warning_labels": ["requirements.txt"], "error_labels": []}
-{"owner": "gesistsa", "repo": "grafzahl", "name": "License Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "0:1"}
-{"owner": "gesistsa", "repo": "grafzahl", "name": "Readme Check", "passed": true, "warning_labels": [], "error_labels": ["Output Data"], "Workflow Duration": "0:1"}
-{"owner": "gesistsa", "repo": "grafzahl", "name": "Binder Test", "passed": false, "warning_labels": [], "error_labels": [], "Workflow Duration": "0:1"}
-{"owner": "gesistsa", "repo": "grafzahl", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "0:1"}
+{"owner": "gesistsa", "repo": "grafzahl", "name": "License Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "0:0"}
+{"owner": "gesistsa", "repo": "grafzahl", "name": "Readme Check", "passed": true, "warning_labels": [], "error_labels": ["Output Data"], "Workflow Duration": "0:0"}
+{"owner": "gesistsa", "repo": "grafzahl", "name": "Binder Test", "passed": false, "warning_labels": [], "error_labels": [], "Workflow Duration": "0:0"}
+{"owner": "gesistsa", "repo": "grafzahl", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "0:0"}
 {"owner": "schochastics", "repo": "paperwizard", "name": "Summary", "passed": true, "warning_labels": [], "error_labels": ["Warning"], "Workflow Duration": "5:2\n\n"}
 {"owner": "schochastics", "repo": "paperwizard", "name": "File Check", "passed": true, "warning_labels": ["license", "postbuild"], "error_labels": [], "Workflow Duration": "5:2\n\n"}
 {"owner": "schochastics", "repo": "paperwizard", "name": "License Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "5:2\n\n"}
 {"owner": "schochastics", "repo": "paperwizard", "name": "Readme Check", "passed": true, "warning_labels": [], "error_labels": ["Contact Details", "How to Use", "Technical Details", "Input Data", "Description", "Environment Setup", "Hardware Requirements", "Use Cases", "Output Data"], "Workflow Duration": "5:2\n\n"}
 {"owner": "schochastics", "repo": "paperwizard", "name": "Binder Test", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "5:2\n\n"}
 {"owner": "schochastics", "repo": "paperwizard", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "5:2\n\n"}
-{"owner": "gesistsa", "repo": "sweater", "name": "File Check", "passed": false, "warning_labels": [], "error_labels": ["requirements.txt"], "Workflow Duration": "0:0"}
+{"owner": "gesistsa", "repo": "sweater", "name": "File Check", "passed": false, "warning_labels": [], "error_labels": ["requirements.txt"], "Workflow Duration": "0:1"}
 {"owner": "mmmaurer", "repo": "elfen", "name": "Summary", "passed": false, "warning_labels": [], "error_labels": ["Critical"], "Workflow Duration": "0:0"}
 {"owner": "mmmaurer", "repo": "elfen", "name": "File Check", "passed": false, "warning_labels": [], "error_labels": ["requirements.txt"], "Workflow Duration": "0:0"}
 {"owner": "mmmaurer", "repo": "elfen", "name": "License Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "0:0"}
 {"owner": "mmmaurer", "repo": "elfen", "name": "Readme Check", "passed": true, "warning_labels": [], "error_labels": ["Output Data"], "Workflow Duration": "0:0"}
 {"owner": "mmmaurer", "repo": "elfen", "name": "Binder Test", "passed": false, "warning_labels": [], "error_labels": [], "Workflow Duration": "0:0"}
 {"owner": "mmmaurer", "repo": "elfen", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "0:0"}
-{"owner": "BDA-KTS", "repo": "Telegram-Data-Collection", "name": "Summary", "passed": false, "warning_labels": [], "error_labels": ["Critical"], "Workflow Duration": "1:29"}
-{"owner": "BDA-KTS", "repo": "Telegram-Data-Collection", "name": "File Check", "passed": true, "warning_labels": ["postbuild"], "error_labels": [], "Workflow Duration": "1:29"}
-{"owner": "BDA-KTS", "repo": "Telegram-Data-Collection", "name": "License Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "1:29"}
-{"owner": "BDA-KTS", "repo": "Telegram-Data-Collection", "name": "Readme Check", "passed": false, "warning_labels": [], "error_labels": ["Input Data", "Contact Details"], "Workflow Duration": "1:29"}
-{"owner": "BDA-KTS", "repo": "Telegram-Data-Collection", "name": "Binder Test", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "1:29"}
-{"owner": "BDA-KTS", "repo": "Telegram-Data-Collection", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "1:29"}
-{"owner": "gesistsa", "repo": "grafzahl", "name": "File Check", "passed": false, "warning_labels": [], "error_labels": ["requirements.txt"], "Workflow Duration": "0:1"}
+{"owner": "BDA-KTS", "repo": "Telegram-Data-Collection", "name": "Summary", "passed": false, "warning_labels": [], "error_labels": ["Critical"], "Workflow Duration": "1:31"}
+{"owner": "BDA-KTS", "repo": "Telegram-Data-Collection", "name": "File Check", "passed": true, "warning_labels": ["postbuild"], "error_labels": [], "Workflow Duration": "1:31"}
+{"owner": "BDA-KTS", "repo": "Telegram-Data-Collection", "name": "License Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "1:31"}
+{"owner": "BDA-KTS", "repo": "Telegram-Data-Collection", "name": "Readme Check", "passed": false, "warning_labels": [], "error_labels": ["Contact Details", "Input Data"], "Workflow Duration": "1:31"}
+{"owner": "BDA-KTS", "repo": "Telegram-Data-Collection", "name": "Binder Test", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "1:31"}
+{"owner": "BDA-KTS", "repo": "Telegram-Data-Collection", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "1:31"}
+{"owner": "gesistsa", "repo": "grafzahl", "name": "File Check", "passed": false, "warning_labels": [], "error_labels": ["requirements.txt"], "Workflow Duration": "0:0"}
 {"owner": "gesistsa", "repo": "oolong", "name": "Summary", "passed": false, "warning_labels": [], "error_labels": ["Critical"], "Workflow Duration": "0:1"}
 {"owner": "gesistsa", "repo": "oolong", "name": "File Check", "passed": false, "warning_labels": [], "error_labels": ["requirements.txt"], "Workflow Duration": "0:1"}
 {"owner": "gesistsa", "repo": "oolong", "name": "License Check", "passed": false, "warning_labels": [], "error_labels": ["LGPL-2.1"], "Workflow Duration": "0:1"}
 {"owner": "gesistsa", "repo": "oolong", "name": "Readme Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "0:1"}
 {"owner": "gesistsa", "repo": "oolong", "name": "Binder Test", "passed": false, "warning_labels": [], "error_labels": [], "Workflow Duration": "0:1"}
 {"owner": "gesistsa", "repo": "oolong", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "0:1"}
-{"owner": "taimoorkhan-nlp", "repo": "latent_dirichlet_allocation", "name": "Summary", "passed": true, "warning_labels": [], "error_labels": ["Warning"], "Workflow Duration": "1:39"}
-{"owner": "taimoorkhan-nlp", "repo": "latent_dirichlet_allocation", "name": "File Check", "passed": true, "warning_labels": ["postbuild"], "error_labels": [], "Workflow Duration": "1:39"}
-{"owner": "taimoorkhan-nlp", "repo": "latent_dirichlet_allocation", "name": "License Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "1:39"}
-{"owner": "taimoorkhan-nlp", "repo": "latent_dirichlet_allocation", "name": "Readme Check", "passed": true, "warning_labels": [], "error_labels": ["Environment Setup", "Contact Details"], "Workflow Duration": "1:39"}
-{"owner": "taimoorkhan-nlp", "repo": "latent_dirichlet_allocation", "name": "Binder Test", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "1:39"}
-{"owner": "taimoorkhan-nlp", "repo": "latent_dirichlet_allocation", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "1:39"}
+{"owner": "taimoorkhan-nlp", "repo": "latent_dirichlet_allocation", "name": "Summary", "passed": true, "warning_labels": [], "error_labels": ["Warning"], "Workflow Duration": "1:23"}
+{"owner": "taimoorkhan-nlp", "repo": "latent_dirichlet_allocation", "name": "File Check", "passed": true, "warning_labels": ["postbuild"], "error_labels": [], "Workflow Duration": "1:23"}
+{"owner": "taimoorkhan-nlp", "repo": "latent_dirichlet_allocation", "name": "License Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "1:23"}
+{"owner": "taimoorkhan-nlp", "repo": "latent_dirichlet_allocation", "name": "Readme Check", "passed": true, "warning_labels": [], "error_labels": ["Environment Setup", "Contact Details"], "Workflow Duration": "1:23"}
+{"owner": "taimoorkhan-nlp", "repo": "latent_dirichlet_allocation", "name": "Binder Test", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "1:23"}
+{"owner": "taimoorkhan-nlp", "repo": "latent_dirichlet_allocation", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "1:23"}
+{"owner": "BDA-KTS", "repo": "4TCT", "name": "Summary", "passed": false, "warning_labels": [], "error_labels": ["Critical"], "Workflow Duration": "1:24"}
+{"owner": "BDA-KTS", "repo": "4TCT", "name": "File Check", "passed": true, "warning_labels": ["postbuild"], "error_labels": [], "Workflow Duration": "1:24"}
+{"owner": "BDA-KTS", "repo": "4TCT", "name": "License Check", "passed": false, "warning_labels": [], "error_labels": ["AGPL-3.0"], "Workflow Duration": "1:24"}
+{"owner": "BDA-KTS", "repo": "4TCT", "name": "Readme Check", "passed": true, "warning_labels": [], "error_labels": ["Technical Details"], "Workflow Duration": "1:24"}
+{"owner": "BDA-KTS", "repo": "4TCT", "name": "Binder Test", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "1:24"}
+{"owner": "BDA-KTS", "repo": "4TCT", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "1:24"}
+{"owner": "BDA-KTS", "repo": "NERD-Entity-Fishing", "name": "Summary", "passed": false, "warning_labels": [], "error_labels": ["Critical"], "Workflow Duration": "0:1"}
+{"owner": "BDA-KTS", "repo": "NERD-Entity-Fishing", "name": "File Check", "passed": true, "warning_labels": ["postbuild"], "error_labels": [], "Workflow Duration": "0:1"}
+{"owner": "BDA-KTS", "repo": "NERD-Entity-Fishing", "name": "License Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "0:1"}
+{"owner": "BDA-KTS", "repo": "NERD-Entity-Fishing", "name": "Readme Check", "passed": true, "warning_labels": [], "error_labels": ["Output Data", "Description", "Input Data", "How to Use", "Contact Details", "Hardware Requirements", "Technical Details"], "Workflow Duration": "0:1"}
+{"owner": "BDA-KTS", "repo": "NERD-Entity-Fishing", "name": "Binder Test", "passed": false, "warning_labels": [], "error_labels": ["repo2docker"], "Workflow Duration": "0:1"}
+{"owner": "BDA-KTS", "repo": "NERD-Entity-Fishing", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "0:1"}
+{"owner": "juliaromberg", "repo": "methodshub-perspective-annotation-comparison", "name": "Summary", "passed": false, "warning_labels": [], "error_labels": ["Critical"], "Workflow Duration": "0:1"}
+{"owner": "juliaromberg", "repo": "methodshub-perspective-annotation-comparison", "name": "File Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "0:1"}
+{"owner": "juliaromberg", "repo": "methodshub-perspective-annotation-comparison", "name": "License Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "0:1"}
+{"owner": "juliaromberg", "repo": "methodshub-perspective-annotation-comparison", "name": "Readme Check", "passed": false, "warning_labels": [], "error_labels": ["Output Data", "Description", "Use Cases", "Environment Setup", "How to Use", "Contact Details", "Input Data", "Technical Details", "Hardware Requirements"], "Workflow Duration": "0:1"}
+{"owner": "juliaromberg", "repo": "methodshub-perspective-annotation-comparison", "name": "Binder Test", "passed": false, "warning_labels": [], "error_labels": ["repo2docker"], "Workflow Duration": "0:1"}
+{"owner": "juliaromberg", "repo": "methodshub-perspective-annotation-comparison", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "0:1"}
+{"owner": "BDA-KTS", "repo": "numeric-group-vis", "name": "Summary", "passed": false, "warning_labels": [], "error_labels": ["Critical"], "Workflow Duration": "4:22"}
+{"owner": "BDA-KTS", "repo": "numeric-group-vis", "name": "File Check", "passed": true, "warning_labels": ["postbuild"], "error_labels": [], "Workflow Duration": "4:22"}
+{"owner": "BDA-KTS", "repo": "numeric-group-vis", "name": "License Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "4:22"}
+{"owner": "BDA-KTS", "repo": "numeric-group-vis", "name": "Readme Check", "passed": false, "warning_labels": [], "error_labels": ["None", "Environment Setup", "How to Use", "Technical Details", "Input Data", "Contact Details", "Description", "Output Data", "Hardware Requirements"], "Workflow Duration": "4:22"}
+{"owner": "BDA-KTS", "repo": "numeric-group-vis", "name": "Binder Test", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "4:22"}
+{"owner": "BDA-KTS", "repo": "numeric-group-vis", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "4:22"}

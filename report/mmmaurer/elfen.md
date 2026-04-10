@@ -1,10 +1,10 @@
 # Report for mmmaurer of elfen
 
-## Report generated at 2026-04-08 14:28:19
+## Report generated at 2026-04-10 08:54:19
 
 ## Summary
 
-### Information ✅ 
+### Errors ⛔ 
 
 Major Flaws, Error in at least one Check
 
