@@ -67,7 +67,7 @@
 {"owner": "BDA-KTS", "repo": "NERD-Entity-Fishing", "name": "Summary", "passed": false, "warning_labels": [], "error_labels": ["Critical"], "Workflow Duration": "0:1"}
 {"owner": "BDA-KTS", "repo": "NERD-Entity-Fishing", "name": "File Check", "passed": true, "warning_labels": ["postbuild"], "error_labels": [], "Workflow Duration": "0:1"}
 {"owner": "BDA-KTS", "repo": "NERD-Entity-Fishing", "name": "License Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "0:1"}
-{"owner": "BDA-KTS", "repo": "NERD-Entity-Fishing", "name": "Readme Check", "passed": true, "warning_labels": [], "error_labels": ["Output Data", "Description", "Input Data", "How to Use", "Contact Details", "Hardware Requirements", "Technical Details"], "Workflow Duration": "0:1"}
+{"owner": "BDA-KTS", "repo": "NERD-Entity-Fishing", "name": "Readme Check", "passed": true, "warning_labels": [], "error_labels": ["Technical Details", "Input Data", "How to Use", "Description", "Output Data", "Contact Details", "Hardware Requirements"], "Workflow Duration": "0:1"}
 {"owner": "BDA-KTS", "repo": "NERD-Entity-Fishing", "name": "Binder Test", "passed": false, "warning_labels": [], "error_labels": ["repo2docker"], "Workflow Duration": "0:1"}
 {"owner": "BDA-KTS", "repo": "NERD-Entity-Fishing", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "0:1"}
 {"owner": "juliaromberg", "repo": "methodshub-perspective-annotation-comparison", "name": "Summary", "passed": false, "warning_labels": [], "error_labels": ["Critical"], "Workflow Duration": "0:1"}
@@ -144,29 +144,20 @@
 {"owner": "gesistsa", "repo": "rtoot", "name": "Readme Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "4:31"}
 {"owner": "gesistsa", "repo": "rtoot", "name": "Binder Test", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "4:31"}
 {"owner": "gesistsa", "repo": "rtoot", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "4:31"}
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
 {"owner": "Stephan-Linzbach", "repo": "Text-Classification-with-Pretrained-Language-Models", "name": "Summary", "passed": true, "warning_labels": [], "error_labels": ["Warning"], "Workflow Duration": "2:37"}
 {"owner": "Stephan-Linzbach", "repo": "Text-Classification-with-Pretrained-Language-Models", "name": "File Check", "passed": true, "warning_labels": ["postbuild"], "error_labels": [], "Workflow Duration": "2:37"}
 {"owner": "Stephan-Linzbach", "repo": "Text-Classification-with-Pretrained-Language-Models", "name": "License Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "2:37"}
 {"owner": "Stephan-Linzbach", "repo": "Text-Classification-with-Pretrained-Language-Models", "name": "Readme Check", "passed": true, "warning_labels": [], "error_labels": ["Hardware Requirements", "Description", "Input Data", "Output Data", "How to Use", "Technical Details"], "Workflow Duration": "2:37"}
 {"owner": "Stephan-Linzbach", "repo": "Text-Classification-with-Pretrained-Language-Models", "name": "Binder Test", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "2:37"}
 {"owner": "Stephan-Linzbach", "repo": "Text-Classification-with-Pretrained-Language-Models", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "2:37"}
->>>>>>> Stashed changes
-=======
 {"owner": "BDA-KTS", "repo": "detection-of-verified-claims", "name": "Summary", "passed": true, "warning_labels": [], "error_labels": ["Warning"], "Workflow Duration": "3:32"}
 {"owner": "BDA-KTS", "repo": "detection-of-verified-claims", "name": "File Check", "passed": true, "warning_labels": ["postbuild"], "error_labels": [], "Workflow Duration": "3:32"}
 {"owner": "BDA-KTS", "repo": "detection-of-verified-claims", "name": "License Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "3:32"}
 {"owner": "BDA-KTS", "repo": "detection-of-verified-claims", "name": "Readme Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "3:32"}
 {"owner": "BDA-KTS", "repo": "detection-of-verified-claims", "name": "Binder Test", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "3:32"}
 {"owner": "BDA-KTS", "repo": "detection-of-verified-claims", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "3:32"}
->>>>>>> Stashed changes
-=======
 {"owner": "chainsawriot", "repo": "methodshub-weat", "name": "Summary", "passed": false, "warning_labels": [], "error_labels": ["Critical"], "Workflow Duration": "4:15"}
 {"owner": "chainsawriot", "repo": "methodshub-weat", "name": "File Check", "passed": false, "warning_labels": ["postbuild"], "error_labels": ["license", "citation"], "Workflow Duration": "4:15"}
 {"owner": "chainsawriot", "repo": "methodshub-weat", "name": "Readme Check", "passed": false, "warning_labels": [], "error_labels": ["None", "Technical Details", "Description", "Input Data", "Contact Details", "Environment Setup", "Output Data", "How to Use", "Hardware Requirements", "Use Cases"], "Workflow Duration": "4:15"}
 {"owner": "chainsawriot", "repo": "methodshub-weat", "name": "Binder Test", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "4:15"}
 {"owner": "chainsawriot", "repo": "methodshub-weat", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "4:15"}
->>>>>>> Stashed changes
