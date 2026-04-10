@@ -144,3 +144,12 @@
 {"owner": "gesistsa", "repo": "rtoot", "name": "Readme Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "4:31"}
 {"owner": "gesistsa", "repo": "rtoot", "name": "Binder Test", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "4:31"}
 {"owner": "gesistsa", "repo": "rtoot", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "4:31"}
+<<<<<<< Updated upstream
+=======
+{"owner": "Stephan-Linzbach", "repo": "Text-Classification-with-Pretrained-Language-Models", "name": "Summary", "passed": true, "warning_labels": [], "error_labels": ["Warning"], "Workflow Duration": "2:37"}
+{"owner": "Stephan-Linzbach", "repo": "Text-Classification-with-Pretrained-Language-Models", "name": "File Check", "passed": true, "warning_labels": ["postbuild"], "error_labels": [], "Workflow Duration": "2:37"}
+{"owner": "Stephan-Linzbach", "repo": "Text-Classification-with-Pretrained-Language-Models", "name": "License Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "2:37"}
+{"owner": "Stephan-Linzbach", "repo": "Text-Classification-with-Pretrained-Language-Models", "name": "Readme Check", "passed": true, "warning_labels": [], "error_labels": ["Hardware Requirements", "Description", "Input Data", "Output Data", "How to Use", "Technical Details"], "Workflow Duration": "2:37"}
+{"owner": "Stephan-Linzbach", "repo": "Text-Classification-with-Pretrained-Language-Models", "name": "Binder Test", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "2:37"}
+{"owner": "Stephan-Linzbach", "repo": "Text-Classification-with-Pretrained-Language-Models", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "2:37"}
+>>>>>>> Stashed changes
