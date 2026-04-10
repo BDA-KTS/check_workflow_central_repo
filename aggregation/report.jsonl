@@ -26,15 +26,6 @@
 {"owner": "gesistsa", "repo": "grafzahl", "name": "Readme Check", "passed": true, "warning_labels": [], "error_labels": ["Output Data"], "Workflow Duration": "0:0"}
 {"owner": "gesistsa", "repo": "grafzahl", "name": "Binder Test", "passed": false, "warning_labels": [], "error_labels": [], "Workflow Duration": "0:0"}
 {"owner": "gesistsa", "repo": "grafzahl", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "0:0"}
-<<<<<<< Updated upstream
-{"owner": "schochastics", "repo": "paperwizard", "name": "Summary", "passed": true, "warning_labels": [], "error_labels": ["Warning"], "Workflow Duration": "5:2\n\n"}
-{"owner": "schochastics", "repo": "paperwizard", "name": "File Check", "passed": true, "warning_labels": ["license", "postbuild"], "error_labels": [], "Workflow Duration": "5:2\n\n"}
-{"owner": "schochastics", "repo": "paperwizard", "name": "License Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "5:2\n\n"}
-{"owner": "schochastics", "repo": "paperwizard", "name": "Readme Check", "passed": true, "warning_labels": [], "error_labels": ["Contact Details", "How to Use", "Technical Details", "Input Data", "Description", "Environment Setup", "Hardware Requirements", "Use Cases", "Output Data"], "Workflow Duration": "5:2\n\n"}
-{"owner": "schochastics", "repo": "paperwizard", "name": "Binder Test", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "5:2\n\n"}
-{"owner": "schochastics", "repo": "paperwizard", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "5:2\n\n"}
-{"owner": "gesistsa", "repo": "sweater", "name": "File Check", "passed": false, "warning_labels": [], "error_labels": ["requirements.txt"], "Workflow Duration": "0:0"}
-=======
 {"owner": "schochastics", "repo": "paperwizard", "name": "Summary", "passed": false, "warning_labels": [], "error_labels": ["Critical"], "Workflow Duration": "5:13"}
 {"owner": "schochastics", "repo": "paperwizard", "name": "File Check", "passed": true, "warning_labels": ["license", "postbuild"], "error_labels": [], "Workflow Duration": "5:13"}
 {"owner": "schochastics", "repo": "paperwizard", "name": "License Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "5:13"}
@@ -42,19 +33,18 @@
 {"owner": "schochastics", "repo": "paperwizard", "name": "Binder Test", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "5:13"}
 {"owner": "schochastics", "repo": "paperwizard", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "5:13"}
 {"owner": "gesistsa", "repo": "sweater", "name": "File Check", "passed": false, "warning_labels": [], "error_labels": ["requirements.txt"], "Workflow Duration": "0:1"}
->>>>>>> Stashed changes
 {"owner": "mmmaurer", "repo": "elfen", "name": "Summary", "passed": false, "warning_labels": [], "error_labels": ["Critical"], "Workflow Duration": "0:1"}
 {"owner": "mmmaurer", "repo": "elfen", "name": "File Check", "passed": false, "warning_labels": [], "error_labels": ["requirements.txt"], "Workflow Duration": "0:1"}
 {"owner": "mmmaurer", "repo": "elfen", "name": "License Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "0:1"}
 {"owner": "mmmaurer", "repo": "elfen", "name": "Readme Check", "passed": true, "warning_labels": [], "error_labels": ["Output Data"], "Workflow Duration": "0:1"}
 {"owner": "mmmaurer", "repo": "elfen", "name": "Binder Test", "passed": false, "warning_labels": [], "error_labels": [], "Workflow Duration": "0:1"}
 {"owner": "mmmaurer", "repo": "elfen", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "0:1"}
-{"owner": "BDA-KTS", "repo": "Telegram-Data-Collection", "name": "Summary", "passed": false, "warning_labels": [], "error_labels": ["Critical"], "Workflow Duration": "1:29"}
-{"owner": "BDA-KTS", "repo": "Telegram-Data-Collection", "name": "File Check", "passed": true, "warning_labels": ["postbuild"], "error_labels": [], "Workflow Duration": "1:29"}
-{"owner": "BDA-KTS", "repo": "Telegram-Data-Collection", "name": "License Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "1:29"}
-{"owner": "BDA-KTS", "repo": "Telegram-Data-Collection", "name": "Readme Check", "passed": false, "warning_labels": [], "error_labels": ["Input Data", "Contact Details"], "Workflow Duration": "1:29"}
-{"owner": "BDA-KTS", "repo": "Telegram-Data-Collection", "name": "Binder Test", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "1:29"}
-{"owner": "BDA-KTS", "repo": "Telegram-Data-Collection", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "1:29"}
+{"owner": "BDA-KTS", "repo": "Telegram-Data-Collection", "name": "Summary", "passed": false, "warning_labels": [], "error_labels": ["Critical"], "Workflow Duration": "1:32"}
+{"owner": "BDA-KTS", "repo": "Telegram-Data-Collection", "name": "File Check", "passed": true, "warning_labels": ["postbuild"], "error_labels": [], "Workflow Duration": "1:32"}
+{"owner": "BDA-KTS", "repo": "Telegram-Data-Collection", "name": "License Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "1:32"}
+{"owner": "BDA-KTS", "repo": "Telegram-Data-Collection", "name": "Readme Check", "passed": false, "warning_labels": [], "error_labels": ["Input Data", "Contact Details"], "Workflow Duration": "1:32"}
+{"owner": "BDA-KTS", "repo": "Telegram-Data-Collection", "name": "Binder Test", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "1:32"}
+{"owner": "BDA-KTS", "repo": "Telegram-Data-Collection", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "1:32"}
 {"owner": "gesistsa", "repo": "grafzahl", "name": "File Check", "passed": false, "warning_labels": [], "error_labels": ["requirements.txt"], "Workflow Duration": "0:0"}
 {"owner": "gesistsa", "repo": "oolong", "name": "Summary", "passed": false, "warning_labels": [], "error_labels": ["Critical"], "Workflow Duration": "0:1"}
 {"owner": "gesistsa", "repo": "oolong", "name": "File Check", "passed": false, "warning_labels": [], "error_labels": ["requirements.txt"], "Workflow Duration": "0:1"}
@@ -93,36 +83,27 @@
 {"owner": "BDA-KTS", "repo": "numeric-group-vis", "name": "Binder Test", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "4:22"}
 {"owner": "BDA-KTS", "repo": "numeric-group-vis", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "4:22"}
 {"owner": "BDA-KTS", "repo": "semantic-search-over_social-media-posts", "name": "File Check", "passed": true, "warning_labels": ["postbuild"], "error_labels": [], "Workflow Duration": "1:26"}
-<<<<<<< Updated upstream
 {"owner": "schochastics", "repo": "Rtumblr", "name": "Summary", "passed": true, "warning_labels": [], "error_labels": ["Warning"], "Workflow Duration": "3:52"}
 {"owner": "schochastics", "repo": "Rtumblr", "name": "File Check", "passed": true, "warning_labels": ["license", "postbuild"], "error_labels": [], "Workflow Duration": "3:52"}
 {"owner": "schochastics", "repo": "Rtumblr", "name": "License Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "3:52"}
 {"owner": "schochastics", "repo": "Rtumblr", "name": "Readme Check", "passed": true, "warning_labels": [], "error_labels": ["Hardware Requirements"], "Workflow Duration": "3:52"}
 {"owner": "schochastics", "repo": "Rtumblr", "name": "Binder Test", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "3:52"}
 {"owner": "schochastics", "repo": "Rtumblr", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "3:52"}
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
 {"owner": "gesistsa", "repo": "adaR", "name": "Summary", "passed": true, "warning_labels": [], "error_labels": ["Warning"], "Workflow Duration": "4:47"}
 {"owner": "gesistsa", "repo": "adaR", "name": "File Check", "passed": true, "warning_labels": ["license"], "error_labels": [], "Workflow Duration": "4:47"}
 {"owner": "gesistsa", "repo": "adaR", "name": "License Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "4:47"}
 {"owner": "gesistsa", "repo": "adaR", "name": "Readme Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "4:47"}
 {"owner": "gesistsa", "repo": "adaR", "name": "Binder Test", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "4:47"}
 {"owner": "gesistsa", "repo": "adaR", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "4:47"}
->>>>>>> Stashed changes
-=======
 {"owner": "YSKartal", "repo": "reference_disam", "name": "Summary", "passed": true, "warning_labels": [], "error_labels": ["Warning"], "Workflow Duration": "1:26"}
 {"owner": "YSKartal", "repo": "reference_disam", "name": "File Check", "passed": true, "warning_labels": ["postbuild"], "error_labels": [], "Workflow Duration": "1:26"}
 {"owner": "YSKartal", "repo": "reference_disam", "name": "License Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "1:26"}
 {"owner": "YSKartal", "repo": "reference_disam", "name": "Readme Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "1:26"}
 {"owner": "YSKartal", "repo": "reference_disam", "name": "Binder Test", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "1:26"}
 {"owner": "YSKartal", "repo": "reference_disam", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "1:26"}
->>>>>>> Stashed changes
-=======
 {"owner": "SEBSCHELLI", "repo": "MH_SciTweets_Heuristics", "name": "Summary", "passed": false, "warning_labels": [], "error_labels": ["Critical"], "Workflow Duration": "1:39"}
 {"owner": "SEBSCHELLI", "repo": "MH_SciTweets_Heuristics", "name": "File Check", "passed": true, "warning_labels": ["postbuild"], "error_labels": [], "Workflow Duration": "1:39"}
 {"owner": "SEBSCHELLI", "repo": "MH_SciTweets_Heuristics", "name": "License Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "1:39"}
 {"owner": "SEBSCHELLI", "repo": "MH_SciTweets_Heuristics", "name": "Readme Check", "passed": false, "warning_labels": [], "error_labels": [], "Workflow Duration": "1:39"}
 {"owner": "SEBSCHELLI", "repo": "MH_SciTweets_Heuristics", "name": "Binder Test", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "1:39"}
 {"owner": "SEBSCHELLI", "repo": "MH_SciTweets_Heuristics", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "1:39"}
->>>>>>> Stashed changes
