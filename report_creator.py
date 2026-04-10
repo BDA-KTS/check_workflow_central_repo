@@ -471,9 +471,10 @@ def write_report(checklists, report_file, owner, repo, elapsed_time):
                 f.write("### Warnings ⚠️ \n\n")
                 f.write("<br>".join(checklist.warnings))
                 f.write("\n\n")
-            f.write("### Information ✅ \n\n")
-            f.write("<br>".join(checklist.messages))
-            f.write("\n\n")
+            if checklist.messages:
+                f.write("### Information ✅ \n\n")
+                f.write("<br>".join(checklist.messages))
+                f.write("\n\n")
         total_seconds = int(elapsed_time.total_seconds())
         minutes, seconds = divmod(total_seconds, 60)
         f.write(f"Time to complete {minutes} min {seconds} sec\n\n")
