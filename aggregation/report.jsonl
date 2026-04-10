@@ -33,12 +33,12 @@
 {"owner": "schochastics", "repo": "paperwizard", "name": "Binder Test", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "5:2\n\n"}
 {"owner": "schochastics", "repo": "paperwizard", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "5:2\n\n"}
 {"owner": "gesistsa", "repo": "sweater", "name": "File Check", "passed": false, "warning_labels": [], "error_labels": ["requirements.txt"], "Workflow Duration": "0:1"}
-{"owner": "mmmaurer", "repo": "elfen", "name": "Summary", "passed": false, "warning_labels": [], "error_labels": ["Critical"], "Workflow Duration": "0:0"}
-{"owner": "mmmaurer", "repo": "elfen", "name": "File Check", "passed": false, "warning_labels": [], "error_labels": ["requirements.txt"], "Workflow Duration": "0:0"}
-{"owner": "mmmaurer", "repo": "elfen", "name": "License Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "0:0"}
-{"owner": "mmmaurer", "repo": "elfen", "name": "Readme Check", "passed": true, "warning_labels": [], "error_labels": ["Output Data"], "Workflow Duration": "0:0"}
-{"owner": "mmmaurer", "repo": "elfen", "name": "Binder Test", "passed": false, "warning_labels": [], "error_labels": [], "Workflow Duration": "0:0"}
-{"owner": "mmmaurer", "repo": "elfen", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "0:0"}
+{"owner": "mmmaurer", "repo": "elfen", "name": "Summary", "passed": false, "warning_labels": [], "error_labels": ["Critical"], "Workflow Duration": "0:1"}
+{"owner": "mmmaurer", "repo": "elfen", "name": "File Check", "passed": false, "warning_labels": [], "error_labels": ["requirements.txt"], "Workflow Duration": "0:1"}
+{"owner": "mmmaurer", "repo": "elfen", "name": "License Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "0:1"}
+{"owner": "mmmaurer", "repo": "elfen", "name": "Readme Check", "passed": true, "warning_labels": [], "error_labels": ["Output Data"], "Workflow Duration": "0:1"}
+{"owner": "mmmaurer", "repo": "elfen", "name": "Binder Test", "passed": false, "warning_labels": [], "error_labels": [], "Workflow Duration": "0:1"}
+{"owner": "mmmaurer", "repo": "elfen", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "0:1"}
 {"owner": "BDA-KTS", "repo": "Telegram-Data-Collection", "name": "Summary", "passed": false, "warning_labels": [], "error_labels": ["Critical"], "Workflow Duration": "1:31"}
 {"owner": "BDA-KTS", "repo": "Telegram-Data-Collection", "name": "File Check", "passed": true, "warning_labels": ["postbuild"], "error_labels": [], "Workflow Duration": "1:31"}
 {"owner": "BDA-KTS", "repo": "Telegram-Data-Collection", "name": "License Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "1:31"}
