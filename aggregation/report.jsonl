@@ -26,6 +26,7 @@
 {"owner": "gesistsa", "repo": "grafzahl", "name": "Readme Check", "passed": true, "warning_labels": [], "error_labels": ["Output Data"], "Workflow Duration": "0:0"}
 {"owner": "gesistsa", "repo": "grafzahl", "name": "Binder Test", "passed": false, "warning_labels": [], "error_labels": [], "Workflow Duration": "0:0"}
 {"owner": "gesistsa", "repo": "grafzahl", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "0:0"}
+<<<<<<< Updated upstream
 {"owner": "schochastics", "repo": "paperwizard", "name": "Summary", "passed": true, "warning_labels": [], "error_labels": ["Warning"], "Workflow Duration": "5:2\n\n"}
 {"owner": "schochastics", "repo": "paperwizard", "name": "File Check", "passed": true, "warning_labels": ["license", "postbuild"], "error_labels": [], "Workflow Duration": "5:2\n\n"}
 {"owner": "schochastics", "repo": "paperwizard", "name": "License Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "5:2\n\n"}
@@ -33,6 +34,15 @@
 {"owner": "schochastics", "repo": "paperwizard", "name": "Binder Test", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "5:2\n\n"}
 {"owner": "schochastics", "repo": "paperwizard", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "5:2\n\n"}
 {"owner": "gesistsa", "repo": "sweater", "name": "File Check", "passed": false, "warning_labels": [], "error_labels": ["requirements.txt"], "Workflow Duration": "0:0"}
+=======
+{"owner": "schochastics", "repo": "paperwizard", "name": "Summary", "passed": false, "warning_labels": [], "error_labels": ["Critical"], "Workflow Duration": "5:13"}
+{"owner": "schochastics", "repo": "paperwizard", "name": "File Check", "passed": true, "warning_labels": ["license", "postbuild"], "error_labels": [], "Workflow Duration": "5:13"}
+{"owner": "schochastics", "repo": "paperwizard", "name": "License Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "5:13"}
+{"owner": "schochastics", "repo": "paperwizard", "name": "Readme Check", "passed": false, "warning_labels": [], "error_labels": [], "Workflow Duration": "5:13"}
+{"owner": "schochastics", "repo": "paperwizard", "name": "Binder Test", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "5:13"}
+{"owner": "schochastics", "repo": "paperwizard", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "5:13"}
+{"owner": "gesistsa", "repo": "sweater", "name": "File Check", "passed": false, "warning_labels": [], "error_labels": ["requirements.txt"], "Workflow Duration": "0:1"}
+>>>>>>> Stashed changes
 {"owner": "mmmaurer", "repo": "elfen", "name": "Summary", "passed": false, "warning_labels": [], "error_labels": ["Critical"], "Workflow Duration": "0:1"}
 {"owner": "mmmaurer", "repo": "elfen", "name": "File Check", "passed": false, "warning_labels": [], "error_labels": ["requirements.txt"], "Workflow Duration": "0:1"}
 {"owner": "mmmaurer", "repo": "elfen", "name": "License Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "0:1"}
