@@ -46,10 +46,10 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          
-          # Use the environment variable or payload directly for the path
-          REPORT_PATH="report/${{ github.event.client_payload.repository_full_name }}.md"
+
           git pull origin main
+
+          REPORT_PATH="report/${{ github.event.client_payload.repository_full_name }}.md"
           if [ -f "$REPORT_PATH" ]; then
             git add "$REPORT_PATH"
             git commit -m "Add report for ${{ github.event.client_payload.repository_full_name }}" || echo "No changes to commit"
