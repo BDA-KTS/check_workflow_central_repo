@@ -114,7 +114,10 @@
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 =======
@@ -134,6 +137,7 @@
 {"owner": "BDA-KTS", "repo": "claim_similarity_retrieval", "name": "Readme Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "2:52"}
 {"owner": "BDA-KTS", "repo": "claim_similarity_retrieval", "name": "Binder Test", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "2:52"}
 {"owner": "BDA-KTS", "repo": "claim_similarity_retrieval", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "2:52"}
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
@@ -157,4 +161,12 @@
 {"owner": "Stephan-Linzbach", "repo": "Comparing-Keyword-Importance-Across-Texts", "name": "Readme Check", "passed": true, "warning_labels": [], "error_labels": ["Technical Details"], "Workflow Duration": "1:35"}
 {"owner": "Stephan-Linzbach", "repo": "Comparing-Keyword-Importance-Across-Texts", "name": "Binder Test", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "1:35"}
 {"owner": "Stephan-Linzbach", "repo": "Comparing-Keyword-Importance-Across-Texts", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "1:35"}
+>>>>>>> Stashed changes
+=======
+{"owner": "BDA-KTS", "repo": "academic_mobility_propensity_score", "name": "Summary", "passed": false, "warning_labels": [], "error_labels": ["Critical"], "Workflow Duration": "4:12"}
+{"owner": "BDA-KTS", "repo": "academic_mobility_propensity_score", "name": "File Check", "passed": true, "warning_labels": ["postbuild"], "error_labels": [], "Workflow Duration": "4:12"}
+{"owner": "BDA-KTS", "repo": "academic_mobility_propensity_score", "name": "License Check", "passed": false, "warning_labels": [], "error_labels": ["CC0-1.0"], "Workflow Duration": "4:12"}
+{"owner": "BDA-KTS", "repo": "academic_mobility_propensity_score", "name": "Readme Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "4:12"}
+{"owner": "BDA-KTS", "repo": "academic_mobility_propensity_score", "name": "Binder Test", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "4:12"}
+{"owner": "BDA-KTS", "repo": "academic_mobility_propensity_score", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "4:12"}
 >>>>>>> Stashed changes
