@@ -1,7 +1,9 @@
 name: Report Creator
 permissions:
   contents: write
-
+concurrency:
+  group: central-report-writer
+  cancel-in-progress: false
 
 on:
   repository_dispatch:
@@ -43,21 +45,21 @@ jobs:
 
       - name: Commit and Push the Report
         working-directory: central
+        shell: bash
         run: |
+          set -euo pipefail
+
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-          git pull origin main
-
           REPORT_PATH="report/${{ github.event.client_payload.repository_full_name }}.md"
-          if [ -f "$REPORT_PATH" ]; then
-            git add "$REPORT_PATH"
-            git commit -m "Add report for ${{ github.event.client_payload.repository_full_name }}" || echo "No changes to commit"
-            git push
-          else
-            echo "Report file not found: $REPORT_PATH"
-            exit 1
-          fi
+    
+          git add "$REPORT_PATH"
+          git diff --cached --quiet && { echo "No changes to commit"; exit 0; }
+
+          git commit -m "Add report for ${{ github.event.client_payload.repository_full_name }}"
+          git pull --rebase origin main
+          git push origin HEAD:main
 
       - name: Commit and Push the Aggregation
         working-directory: central
