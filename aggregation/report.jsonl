@@ -83,3 +83,9 @@
 {"owner": "BDA-KTS", "repo": "numeric-group-vis", "name": "Binder Test", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "4:22"}
 {"owner": "BDA-KTS", "repo": "numeric-group-vis", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "4:22"}
 {"owner": "BDA-KTS", "repo": "semantic-search-over_social-media-posts", "name": "File Check", "passed": true, "warning_labels": ["postbuild"], "error_labels": [], "Workflow Duration": "1:26"}
+{"owner": "schochastics", "repo": "Rtumblr", "name": "Summary", "passed": true, "warning_labels": [], "error_labels": ["Warning"], "Workflow Duration": "3:52"}
+{"owner": "schochastics", "repo": "Rtumblr", "name": "File Check", "passed": true, "warning_labels": ["license", "postbuild"], "error_labels": [], "Workflow Duration": "3:52"}
+{"owner": "schochastics", "repo": "Rtumblr", "name": "License Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "3:52"}
+{"owner": "schochastics", "repo": "Rtumblr", "name": "Readme Check", "passed": true, "warning_labels": [], "error_labels": ["Hardware Requirements"], "Workflow Duration": "3:52"}
+{"owner": "schochastics", "repo": "Rtumblr", "name": "Binder Test", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "3:52"}
+{"owner": "schochastics", "repo": "Rtumblr", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "3:52"}
