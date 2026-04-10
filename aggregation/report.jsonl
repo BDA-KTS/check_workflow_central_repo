@@ -110,6 +110,7 @@
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
 {"owner": "taimoorkhan-nlp", "repo": "text_edit_distance_similarity", "name": "File Check", "passed": true, "warning_labels": ["postbuild"], "error_labels": [], "Workflow Duration": "1:31"}
 >>>>>>> Stashed changes
@@ -128,4 +129,12 @@
 {"owner": "BDA-KTS", "repo": "claim_similarity_retrieval", "name": "Readme Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "2:52"}
 {"owner": "BDA-KTS", "repo": "claim_similarity_retrieval", "name": "Binder Test", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "2:52"}
 {"owner": "BDA-KTS", "repo": "claim_similarity_retrieval", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "2:52"}
+>>>>>>> Stashed changes
+=======
+{"owner": "gesistsa", "repo": "rang", "name": "Summary", "passed": false, "warning_labels": [], "error_labels": ["Critical"], "Workflow Duration": "4:40"}
+{"owner": "gesistsa", "repo": "rang", "name": "File Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "4:40"}
+{"owner": "gesistsa", "repo": "rang", "name": "License Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "4:40"}
+{"owner": "gesistsa", "repo": "rang", "name": "Readme Check", "passed": false, "warning_labels": [], "error_labels": ["How to Use"], "Workflow Duration": "4:40"}
+{"owner": "gesistsa", "repo": "rang", "name": "Binder Test", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "4:40"}
+{"owner": "gesistsa", "repo": "rang", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "4:40"}
 >>>>>>> Stashed changes
