@@ -555,8 +555,7 @@ def main():
     if any("binder" in result.statuses for result in checklists):
         checklists.append(repo2dockertest())
     else:
-        checklists.append(CheckResult("Binder Test",False,["Binder test skipped: Binder files not found or not valid"],[""],[""]))
-
+        checklists.append(CheckResult("Binder Test",False,[],[],["Binder test skipped: Binder files not found or not valid"],[],[],[]))
     checklists.insert(0,summary(checklists))
     checklists.append(predict_labels_with_probability(readme_path))
     time_end = datetime.now()
