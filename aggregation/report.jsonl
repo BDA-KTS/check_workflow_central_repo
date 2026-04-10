@@ -12,13 +12,13 @@
 {"owner": "BDA-KTS", "repo": "semantic-search-over_social-media-posts", "name": "Readme Check", "passed": true, "warning_labels": [], "error_labels": []}
 {"owner": "BDA-KTS", "repo": "semantic-search-over_social-media-posts", "name": "Binder Test", "passed": true, "warning_labels": [], "error_labels": []}
 {"owner": "BDA-KTS", "repo": "semantic-search-over_social-media-posts", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": []}
-{"owner": "gesistsa", "repo": "sweater", "name": "Summary", "passed": false, "warning_labels": [], "error_labels": ["Critical"], "Workflow Duration": "0:0"}
+{"owner": "gesistsa", "repo": "sweater", "name": "Summary", "passed": false, "warning_labels": [], "error_labels": ["Critical"], "Workflow Duration": "0:1"}
 {"owner": "gesistsa", "repo": "sweater", "name": "Formal Files", "passed": false, "warning_labels": [], "error_labels": ["postbuild"]}
 {"owner": "gesistsa", "repo": "sweater", "name": "Binder Files", "passed": false, "warning_labels": ["requirements.txt"], "error_labels": []}
-{"owner": "gesistsa", "repo": "sweater", "name": "License Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "0:0"}
-{"owner": "gesistsa", "repo": "sweater", "name": "Readme Check", "passed": false, "warning_labels": [], "error_labels": [], "Workflow Duration": "0:0"}
-{"owner": "gesistsa", "repo": "sweater", "name": "Binder Test", "passed": false, "warning_labels": [], "error_labels": [], "Workflow Duration": "0:0"}
-{"owner": "gesistsa", "repo": "sweater", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "0:0"}
+{"owner": "gesistsa", "repo": "sweater", "name": "License Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "0:1"}
+{"owner": "gesistsa", "repo": "sweater", "name": "Readme Check", "passed": false, "warning_labels": [], "error_labels": [], "Workflow Duration": "0:1"}
+{"owner": "gesistsa", "repo": "sweater", "name": "Binder Test", "passed": false, "warning_labels": [], "error_labels": [], "Workflow Duration": "0:1"}
+{"owner": "gesistsa", "repo": "sweater", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "0:1"}
 {"owner": "gesistsa", "repo": "grafzahl", "name": "Summary", "passed": false, "warning_labels": [], "error_labels": ["Critical"], "Workflow Duration": "0:1"}
 {"owner": "gesistsa", "repo": "grafzahl", "name": "Formal Files", "passed": false, "warning_labels": [], "error_labels": ["postbuild"]}
 {"owner": "gesistsa", "repo": "grafzahl", "name": "Binder Files", "passed": false, "warning_labels": ["requirements.txt"], "error_labels": []}
@@ -32,7 +32,7 @@
 {"owner": "schochastics", "repo": "paperwizard", "name": "Readme Check", "passed": true, "warning_labels": [], "error_labels": ["Contact Details", "How to Use", "Technical Details", "Input Data", "Description", "Environment Setup", "Hardware Requirements", "Use Cases", "Output Data"], "Workflow Duration": "5:2\n\n"}
 {"owner": "schochastics", "repo": "paperwizard", "name": "Binder Test", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "5:2\n\n"}
 {"owner": "schochastics", "repo": "paperwizard", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "5:2\n\n"}
-{"owner": "gesistsa", "repo": "sweater", "name": "File Check", "passed": false, "warning_labels": [], "error_labels": ["requirements.txt"], "Workflow Duration": "0:0"}
+{"owner": "gesistsa", "repo": "sweater", "name": "File Check", "passed": false, "warning_labels": [], "error_labels": ["requirements.txt"], "Workflow Duration": "0:1"}
 {"owner": "mmmaurer", "repo": "elfen", "name": "Summary", "passed": false, "warning_labels": [], "error_labels": ["Critical"], "Workflow Duration": "0:0"}
 {"owner": "mmmaurer", "repo": "elfen", "name": "File Check", "passed": false, "warning_labels": [], "error_labels": ["requirements.txt"], "Workflow Duration": "0:0"}
 {"owner": "mmmaurer", "repo": "elfen", "name": "License Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "0:0"}
