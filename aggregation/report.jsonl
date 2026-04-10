@@ -187,6 +187,7 @@
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
 {"owner": "Stephan-Linzbach", "repo": "Text-Pre-Processing", "name": "Summary", "passed": true, "warning_labels": [], "error_labels": ["Warning"], "Workflow Duration": "1:41"}
 {"owner": "Stephan-Linzbach", "repo": "Text-Pre-Processing", "name": "File Check", "passed": true, "warning_labels": ["postbuild"], "error_labels": [], "Workflow Duration": "1:41"}
@@ -210,4 +211,12 @@
 {"owner": "schochastics", "repo": "centrality", "name": "Readme Check", "passed": false, "warning_labels": ["Duplicated"], "error_labels": ["Technical Details", "Input Data", "Environment Setup", "Hardware Requirements", "How to Use", "Description", "Output Data", "Use Cases", "Contact Details"], "Workflow Duration": "5:21"}
 {"owner": "schochastics", "repo": "centrality", "name": "Binder Test", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "5:21"}
 {"owner": "schochastics", "repo": "centrality", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "5:21"}
+>>>>>>> Stashed changes
+=======
+{"owner": "gesiscss", "repo": "methodshub-bertclassification", "name": "Summary", "passed": false, "warning_labels": [], "error_labels": ["Critical"], "Workflow Duration": "6:54"}
+{"owner": "gesiscss", "repo": "methodshub-bertclassification", "name": "File Check", "passed": true, "warning_labels": ["postbuild"], "error_labels": ["install.R", "runtime.txt"], "Workflow Duration": "6:54"}
+{"owner": "gesiscss", "repo": "methodshub-bertclassification", "name": "License Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "6:54"}
+{"owner": "gesiscss", "repo": "methodshub-bertclassification", "name": "Readme Check", "passed": false, "warning_labels": [], "error_labels": ["Use Cases", "Description", "Input Data", "Output Data", "How to Use", "Technical Details", "Hardware Requirements", "Environment Setup", "Contact Details"], "Workflow Duration": "6:54"}
+{"owner": "gesiscss", "repo": "methodshub-bertclassification", "name": "Binder Test", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "6:54"}
+{"owner": "gesiscss", "repo": "methodshub-bertclassification", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "6:54"}
 >>>>>>> Stashed changes
