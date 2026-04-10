@@ -1,38 +1,38 @@
 # Report for juliaromberg of methodshub-perspective-annotation-comparison
 
-## Report generated at 2026-04-06 11:12:26
+## Report generated at 2026-04-10 09:19:24
 
 ## Summary
 
+### Errors ⛔ 
+
 Major Flaws, Error in at least one Check
 
-## Formal Files
+## File Check
 
-### Errors
+### Information ✅ 
 
-Missing required files: postbuild<br>For further information see: postbuild missing: https://github.com/GESIS-Methods-Hub/guidelines?tab=readme-ov-file#binder-environment
-
-Found required file: citation<br>Found required file: license<br>Missing required files
-
-## Binder Files
-
-All required binder files found
+Found required file: citation<br>Found required file: license<br>Found required file: postbuild<br>All required files found
 
 ## License Check
+
+### Information ✅ 
 
 Found MIT License, License accepted 
 
 ## Readme Check
 
-### Warnings
+### Errors ⛔ 
 
-Missing subtitles: Hardware Requirements<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#hardware-requirements<br>Missing subtitles: Contact Details<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#contact-detailsn <br>Missing subtitles: How to Use<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#how-to-use<br>Missing subtitles: Environment Setup<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#environment-setup<br>Missing subtitles: Output Data<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#output-data<br>Missing subtitles: Description<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#description<br>Missing subtitles: Input Data<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#input-data<br>Missing subtitles: Use Cases<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#use-cases<br>Missing subtitles: Technical Details<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#how-to-use
+Missing subtitles: Output Data<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#output-data<br>Missing subtitles: Description<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#description<br>Missing subtitles: Use Cases<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#use-cases<br>Missing subtitles: Environment Setup<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#environment-setup<br>Missing subtitles: How to Use<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#how-to-use<br>Missing subtitles: Contact Details<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#contact-detailsn <br>Missing subtitles: Input Data<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#input-data<br>Missing subtitles: Technical Details<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#how-to-use<br>Missing subtitles: Hardware Requirements<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#hardware-requirements
+
+### Information ✅ 
 
 Found too many titles: Count: 5<br>Found subtitle: Learning objectives<br>Found subtitle: Target audience<br>Found subtitle: Duration<br>Found subtitle: Use cases<br>Found subtitle: Setting up the computational environment<br>Found subtitle: Basic concepts you should know for this tutorial<br>Found subtitle: Which example tasks and datasets are we using?<br>Found subtitle: We employ Krippendorff’s Alpha for this analysis.<br>Found subtitle: We employ the Wasserstein distance for this analysis.
 
 ## Binder Test
 
-### Errors
+### Errors ⛔ 
 
 Repo2Docker build failed.<br> Repo2Docker Output:<br>[Repo2Docker] Looking for repo2docker_config in /home/runner/work/check_workflow_central_repo/check_workflow_central_repo
 Picked Local content provider.
@@ -56,9 +56,11 @@ Traceback (most recent call last):
 ValueError: PythonBuildPack.python_version must always be specified as 'x.y', e.g. '3.10', got 3.11.7.
 
 
-
-
 ## Taxonomie
 
+### Information ✅ 
+
 Predicted labels: Data Analysis<br>Probability: 66.65%
+
+Time to complete 0 min 1 sec
 
