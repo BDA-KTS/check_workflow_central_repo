@@ -1,6 +1,6 @@
 # Report for BDA-KTS of Telegram-Data-Collection
 
-## Report generated at 2026-04-10 09:00:42
+## Report generated at 2026-04-10 09:58:16
 
 ## Summary
 
@@ -28,7 +28,7 @@ Found Apache-2.0 License, License accepted
 
 ### Errors ⛔ 
 
-Missing subtitles: Contact Details<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#contact-detailsn <br>Missing subtitles: Input Data<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#input-data
+Missing subtitles: Input Data<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#input-data<br>Missing subtitles: Contact Details<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#contact-detailsn 
 
 ### Information ✅ 
 
@@ -46,5 +46,5 @@ Repo2Docker build successful. Binder environment is valid.
 
 No labels predicted with probability above threshold.
 
-Time to complete 1 min 31 sec
+Time to complete 1 min 29 sec
 

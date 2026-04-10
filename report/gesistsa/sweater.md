@@ -1,6 +1,6 @@
 # Report for gesistsa of sweater
 
-## Report generated at 2026-04-10 09:36:00
+## Report generated at 2026-04-10 09:46:52
 
 ## Summary
 
@@ -33,14 +33,6 @@ Found too many titles: Count: 2<br>Found subtitle: Description<br>Found subtitle
 ## Binder Test
 
 ### Errors ⛔ 
-
-
-
-### Warnings ⚠️ 
-
-
-
-### Information ✅ 
 
 Binder test skipped: Binder files not found or not valid
 

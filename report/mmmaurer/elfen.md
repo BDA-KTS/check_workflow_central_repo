@@ -1,6 +1,6 @@
 # Report for mmmaurer of elfen
 
-## Report generated at 2026-04-10 08:54:19
+## Report generated at 2026-04-10 09:51:51
 
 ## Summary
 
@@ -38,14 +38,6 @@ Found one title: Accepted<br>Found subtitle: Description<br>Found subtitle: Keyw
 
 ### Errors ⛔ 
 
-
-
-### Warnings ⚠️ 
-
-
-
-### Information ✅ 
-
 Binder test skipped: Binder files not found or not valid
 
 ## Taxonomie
@@ -54,5 +46,5 @@ Binder test skipped: Binder files not found or not valid
 
 Predicted labels: Data Analysis<br>Probability: 64.4%
 
-Time to complete 0 min 0 sec
+Time to complete 0 min 1 sec
 
