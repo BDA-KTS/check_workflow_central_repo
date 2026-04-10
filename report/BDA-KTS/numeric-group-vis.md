@@ -1,40 +1,50 @@
 # Report for BDA-KTS of numeric-group-vis
 
-## Report generated at 2026-04-06 11:21:17
+## Report generated at 2026-04-10 09:28:46
 
 ## Summary
 
+### Errors ⛔ 
+
 Major Flaws, Error in at least one Check
 
-## Formal Files
+## File Check
 
-Found required file: citation<br>Found required file: license<br>Found required file: postbuild<br>All required files found
+### Warnings ⚠️ 
 
-## Binder Files
+Warning: postbuild is duplicated.
 
-Found required file: install.R<br>Found required file: runtime.txt<br>All required binder files found
+### Information ✅ 
+
+Found required file: citation<br>Found required file: license<br>Found required file: postbuild<br>Found required file: postbuild<br>Found required file: install.R<br>Found required file: runtime.txt<br>All required files found
 
 ## License Check
+
+### Information ✅ 
 
 Found MIT License, License accepted 
 
 ## Readme Check
 
-### Errors
+### Errors ⛔ 
 
-No title found but one is required.
+No title found but one is required.<br>Missing subtitles: Environment Setup<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#environment-setup<br>Missing subtitles: How to Use<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#how-to-use<br>Missing subtitles: Technical Details<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#how-to-use<br>Missing subtitles: Input Data<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#input-data<br>Missing subtitles: Contact Details<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#contact-detailsn <br>Missing subtitles: Description<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#description<br>Missing subtitles: Output Data<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#output-data<br>Missing subtitles: Hardware Requirements<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#hardware-requirements
 
-### Warnings
-
-Missing subtitles: Environment Setup<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#environment-setup<br>Missing subtitles: Contact Details<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#contact-detailsn <br>Missing subtitles: Output Data<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#output-data<br>Missing subtitles: Input Data<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#input-data<br>Missing subtitles: How to Use<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#how-to-use<br>Missing subtitles: Description<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#description<br>Missing subtitles: Technical Details<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#how-to-use<br>Missing subtitles: Hardware Requirements<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#hardware-requirements
+### Information ✅ 
 
 Found subtitle: Learning Objective<br>Found subtitle: Target Audience<br>Found subtitle: Duration<br>Found subtitle: Use Cases<br>Found subtitle: Computational Environment Setup<br>Found subtitle: Data<br>Found subtitle: Plotting Histograms<br>Found subtitle: Plotting Density<br>Found subtitle: Plotting Points<br>Found subtitle: Plotting Box Plots<br>Found subtitle: Can I Look at the Data in Another Way?<br>Found subtitle: Conclusion<br>Found subtitle: Further reading:
 
 ## Binder Test
 
+### Information ✅ 
+
 Repo2Docker build successful. Binder environment is valid.
 
 ## Taxonomie
 
+### Information ✅ 
+
 Predicted labels: Data Analysis<br>Probability: 65.21%
+
+Time to complete 4 min 22 sec
 
