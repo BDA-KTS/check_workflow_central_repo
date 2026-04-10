@@ -184,3 +184,12 @@
 {"owner": "schochastics", "repo": "MH_netAnaR", "name": "Readme Check", "passed": false, "warning_labels": [], "error_labels": ["How to Use", "Environment Setup", "Hardware Requirements", "Use Cases", "Input Data", "Output Data", "Contact Details", "Description", "Technical Details"], "Workflow Duration": "5:52"}
 {"owner": "schochastics", "repo": "MH_netAnaR", "name": "Binder Test", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "5:52"}
 {"owner": "schochastics", "repo": "MH_netAnaR", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "5:52"}
+<<<<<<< Updated upstream
+=======
+{"owner": "Stephan-Linzbach", "repo": "Text-Pre-Processing", "name": "Summary", "passed": true, "warning_labels": [], "error_labels": ["Warning"], "Workflow Duration": "1:41"}
+{"owner": "Stephan-Linzbach", "repo": "Text-Pre-Processing", "name": "File Check", "passed": true, "warning_labels": ["postbuild"], "error_labels": [], "Workflow Duration": "1:41"}
+{"owner": "Stephan-Linzbach", "repo": "Text-Pre-Processing", "name": "License Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "1:41"}
+{"owner": "Stephan-Linzbach", "repo": "Text-Pre-Processing", "name": "Readme Check", "passed": true, "warning_labels": [], "error_labels": ["Hardware Requirements", "How to Use", "Technical Details", "Output Data", "Input Data", "Description", "Contact Details"], "Workflow Duration": "1:41"}
+{"owner": "Stephan-Linzbach", "repo": "Text-Pre-Processing", "name": "Binder Test", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "1:41"}
+{"owner": "Stephan-Linzbach", "repo": "Text-Pre-Processing", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "1:41"}
+>>>>>>> Stashed changes
