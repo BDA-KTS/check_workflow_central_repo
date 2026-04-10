@@ -70,3 +70,9 @@
 {"owner": "BDA-KTS", "repo": "NERD-Entity-Fishing", "name": "Readme Check", "passed": true, "warning_labels": [], "error_labels": ["Output Data", "Description", "Input Data", "How to Use", "Contact Details", "Hardware Requirements", "Technical Details"], "Workflow Duration": "0:1"}
 {"owner": "BDA-KTS", "repo": "NERD-Entity-Fishing", "name": "Binder Test", "passed": false, "warning_labels": [], "error_labels": ["repo2docker"], "Workflow Duration": "0:1"}
 {"owner": "BDA-KTS", "repo": "NERD-Entity-Fishing", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "0:1"}
+{"owner": "juliaromberg", "repo": "methodshub-perspective-annotation-comparison", "name": "Summary", "passed": false, "warning_labels": [], "error_labels": ["Critical"], "Workflow Duration": "0:1"}
+{"owner": "juliaromberg", "repo": "methodshub-perspective-annotation-comparison", "name": "File Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "0:1"}
+{"owner": "juliaromberg", "repo": "methodshub-perspective-annotation-comparison", "name": "License Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "0:1"}
+{"owner": "juliaromberg", "repo": "methodshub-perspective-annotation-comparison", "name": "Readme Check", "passed": false, "warning_labels": [], "error_labels": ["Output Data", "Description", "Use Cases", "Environment Setup", "How to Use", "Contact Details", "Input Data", "Technical Details", "Hardware Requirements"], "Workflow Duration": "0:1"}
+{"owner": "juliaromberg", "repo": "methodshub-perspective-annotation-comparison", "name": "Binder Test", "passed": false, "warning_labels": [], "error_labels": ["repo2docker"], "Workflow Duration": "0:1"}
+{"owner": "juliaromberg", "repo": "methodshub-perspective-annotation-comparison", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "0:1"}
