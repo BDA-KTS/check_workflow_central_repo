@@ -39,12 +39,12 @@
 {"owner": "mmmaurer", "repo": "elfen", "name": "Readme Check", "passed": true, "warning_labels": [], "error_labels": ["Output Data"], "Workflow Duration": "0:1"}
 {"owner": "mmmaurer", "repo": "elfen", "name": "Binder Test", "passed": false, "warning_labels": [], "error_labels": [], "Workflow Duration": "0:1"}
 {"owner": "mmmaurer", "repo": "elfen", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "0:1"}
-{"owner": "BDA-KTS", "repo": "Telegram-Data-Collection", "name": "Summary", "passed": false, "warning_labels": [], "error_labels": ["Critical"], "Workflow Duration": "1:31"}
-{"owner": "BDA-KTS", "repo": "Telegram-Data-Collection", "name": "File Check", "passed": true, "warning_labels": ["postbuild"], "error_labels": [], "Workflow Duration": "1:31"}
-{"owner": "BDA-KTS", "repo": "Telegram-Data-Collection", "name": "License Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "1:31"}
-{"owner": "BDA-KTS", "repo": "Telegram-Data-Collection", "name": "Readme Check", "passed": false, "warning_labels": [], "error_labels": ["Contact Details", "Input Data"], "Workflow Duration": "1:31"}
-{"owner": "BDA-KTS", "repo": "Telegram-Data-Collection", "name": "Binder Test", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "1:31"}
-{"owner": "BDA-KTS", "repo": "Telegram-Data-Collection", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "1:31"}
+{"owner": "BDA-KTS", "repo": "Telegram-Data-Collection", "name": "Summary", "passed": false, "warning_labels": [], "error_labels": ["Critical"], "Workflow Duration": "1:29"}
+{"owner": "BDA-KTS", "repo": "Telegram-Data-Collection", "name": "File Check", "passed": true, "warning_labels": ["postbuild"], "error_labels": [], "Workflow Duration": "1:29"}
+{"owner": "BDA-KTS", "repo": "Telegram-Data-Collection", "name": "License Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "1:29"}
+{"owner": "BDA-KTS", "repo": "Telegram-Data-Collection", "name": "Readme Check", "passed": false, "warning_labels": [], "error_labels": ["Input Data", "Contact Details"], "Workflow Duration": "1:29"}
+{"owner": "BDA-KTS", "repo": "Telegram-Data-Collection", "name": "Binder Test", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "1:29"}
+{"owner": "BDA-KTS", "repo": "Telegram-Data-Collection", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "1:29"}
 {"owner": "gesistsa", "repo": "grafzahl", "name": "File Check", "passed": false, "warning_labels": [], "error_labels": ["requirements.txt"], "Workflow Duration": "0:0"}
 {"owner": "gesistsa", "repo": "oolong", "name": "Summary", "passed": false, "warning_labels": [], "error_labels": ["Critical"], "Workflow Duration": "0:1"}
 {"owner": "gesistsa", "repo": "oolong", "name": "File Check", "passed": false, "warning_labels": [], "error_labels": ["requirements.txt"], "Workflow Duration": "0:1"}
