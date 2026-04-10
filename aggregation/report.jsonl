@@ -162,10 +162,19 @@
 {"owner": "chainsawriot", "repo": "methodshub-weat", "name": "Binder Test", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "4:15"}
 {"owner": "chainsawriot", "repo": "methodshub-weat", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "4:15"}
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
 {"owner": "schochastics", "repo": "git_intro", "name": "Summary", "passed": false, "warning_labels": [], "error_labels": ["Critical"], "Workflow Duration": "0:1"}
 {"owner": "schochastics", "repo": "git_intro", "name": "File Check", "passed": false, "warning_labels": ["postbuild"], "error_labels": ["citation", "license", "runtime.txt", "requirements.txt"], "Workflow Duration": "0:1"}
 {"owner": "schochastics", "repo": "git_intro", "name": "Readme Check", "passed": false, "warning_labels": [], "error_labels": ["None", "Input Data", "Use Cases", "Contact Details", "Hardware Requirements", "Output Data", "Description", "Technical Details", "Environment Setup", "How to Use"], "Workflow Duration": "0:1"}
 {"owner": "schochastics", "repo": "git_intro", "name": "Binder Test", "passed": false, "warning_labels": [], "error_labels": [], "Workflow Duration": "0:1"}
 {"owner": "schochastics", "repo": "git_intro", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "0:1"}
+>>>>>>> Stashed changes
+=======
+{"owner": "BDA-KTS", "repo": "Language_Detection_Tutorial", "name": "Summary", "passed": false, "warning_labels": [], "error_labels": ["Critical"], "Workflow Duration": "1:54"}
+{"owner": "BDA-KTS", "repo": "Language_Detection_Tutorial", "name": "File Check", "passed": true, "warning_labels": ["Multiple"], "error_labels": [], "Workflow Duration": "1:54"}
+{"owner": "BDA-KTS", "repo": "Language_Detection_Tutorial", "name": "License Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "1:54"}
+{"owner": "BDA-KTS", "repo": "Language_Detection_Tutorial", "name": "Readme Check", "passed": false, "warning_labels": [], "error_labels": ["None", "Contact Details", "Output Data", "Technical Details", "Hardware Requirements", "Description", "How to Use"], "Workflow Duration": "1:54"}
+{"owner": "BDA-KTS", "repo": "Language_Detection_Tutorial", "name": "Binder Test", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "1:54"}
+{"owner": "BDA-KTS", "repo": "Language_Detection_Tutorial", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "1:54"}
 >>>>>>> Stashed changes
