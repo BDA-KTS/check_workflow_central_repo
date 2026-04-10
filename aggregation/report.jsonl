@@ -115,7 +115,10 @@
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 =======
@@ -137,6 +140,7 @@
 {"owner": "BDA-KTS", "repo": "claim_similarity_retrieval", "name": "Readme Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "2:52"}
 {"owner": "BDA-KTS", "repo": "claim_similarity_retrieval", "name": "Binder Test", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "2:52"}
 {"owner": "BDA-KTS", "repo": "claim_similarity_retrieval", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "2:52"}
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
@@ -169,4 +173,12 @@
 {"owner": "BDA-KTS", "repo": "academic_mobility_propensity_score", "name": "Readme Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "4:12"}
 {"owner": "BDA-KTS", "repo": "academic_mobility_propensity_score", "name": "Binder Test", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "4:12"}
 {"owner": "BDA-KTS", "repo": "academic_mobility_propensity_score", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "4:12"}
+>>>>>>> Stashed changes
+=======
+{"owner": "gesistsa", "repo": "rtoot", "name": "Summary", "passed": true, "warning_labels": [], "error_labels": ["Warning"], "Workflow Duration": "4:31"}
+{"owner": "gesistsa", "repo": "rtoot", "name": "File Check", "passed": true, "warning_labels": ["license"], "error_labels": [], "Workflow Duration": "4:31"}
+{"owner": "gesistsa", "repo": "rtoot", "name": "License Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "4:31"}
+{"owner": "gesistsa", "repo": "rtoot", "name": "Readme Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "4:31"}
+{"owner": "gesistsa", "repo": "rtoot", "name": "Binder Test", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "4:31"}
+{"owner": "gesistsa", "repo": "rtoot", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "4:31"}
 >>>>>>> Stashed changes
