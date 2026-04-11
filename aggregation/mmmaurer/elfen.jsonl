@@ -1,0 +1,6 @@
+{"owner": "mmmaurer", "repo": "elfen", "name": "Summary", "passed": false, "warning_labels": [], "error_labels": ["Critical"], "Workflow Duration": "0:01"}
+{"owner": "mmmaurer", "repo": "elfen", "name": "File Check", "passed": false, "warning_labels": [], "error_labels": ["requirements.txt"], "Workflow Duration": "0:01"}
+{"owner": "mmmaurer", "repo": "elfen", "name": "License Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "0:01"}
+{"owner": "mmmaurer", "repo": "elfen", "name": "Readme Check", "passed": true, "warning_labels": [], "error_labels": ["Output Data"], "Workflow Duration": "0:01"}
+{"owner": "mmmaurer", "repo": "elfen", "name": "Binder Test", "passed": false, "warning_labels": [], "error_labels": [], "Workflow Duration": "0:01"}
+{"owner": "mmmaurer", "repo": "elfen", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "0:01"}
