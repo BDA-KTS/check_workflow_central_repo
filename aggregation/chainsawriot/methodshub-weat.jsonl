@@ -1,0 +1,5 @@
+{"owner": "chainsawriot", "repo": "methodshub-weat", "name": "Summary", "passed": false, "warning_labels": [], "error_labels": ["Critical"], "Workflow Duration": "4:06"}
+{"owner": "chainsawriot", "repo": "methodshub-weat", "name": "File Check", "passed": false, "warning_labels": ["postbuild"], "error_labels": ["citation", "license"], "Workflow Duration": "4:06"}
+{"owner": "chainsawriot", "repo": "methodshub-weat", "name": "Readme Check", "passed": false, "warning_labels": [], "error_labels": ["None", "Use Cases", "Output Data", "Hardware Requirements", "Environment Setup", "How to Use", "Input Data", "Technical Details", "Description", "Contact Details"], "Workflow Duration": "4:06"}
+{"owner": "chainsawriot", "repo": "methodshub-weat", "name": "Binder Test", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "4:06"}
+{"owner": "chainsawriot", "repo": "methodshub-weat", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "4:06"}
