@@ -1,6 +1,6 @@
 # Report for taimoorkhan-nlp of latent_dirichlet_allocation
 
-## Report generated at 2026-04-10 20:38:04
+## Report generated at 2026-04-11 13:43:13
 
 ## Summary
 
@@ -28,7 +28,7 @@ Found Apache-2.0 License, License accepted
 
 ### Errors ⛔ 
 
-Missing subtitles: Environment Setup<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#environment-setup<br>Missing subtitles: Contact Details<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#contact-detailsn 
+Missing subtitles: Contact Details<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#contact-detailsn <br>Missing subtitles: Environment Setup<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#environment-setup
 
 ### Information ✅ 
 
@@ -46,5 +46,5 @@ Repo2Docker build successful. Binder environment is valid.
 
 Predicted labels: Data Analysis<br>Probability: 63.44%
 
-Time to complete 1 min 26 sec
+Time to complete 1 min 32 sec
 
