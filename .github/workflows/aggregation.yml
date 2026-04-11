@@ -1,0 +1,10 @@
+name: aggregation.yml
+on: workflow_dispatch
+
+jobs:
+    aggregate-jsonl:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Checkout central repository
+          uses: actions/checkout@v6
+      

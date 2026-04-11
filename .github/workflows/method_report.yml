@@ -86,7 +86,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
       
-          AGGREGATION_PATH="aggregation/report.jsonl"
+          AGGREGATION_PATH="aggregation/${{ github.event.client_payload.repository_full_name }}.jsonl"
           [ -f "$AGGREGATION_PATH" ] || { echo "Report file not found: $AGGREGATION_PATH"; exit 1; }
       
           git add "$AGGREGATION_PATH"
