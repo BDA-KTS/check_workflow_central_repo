@@ -492,7 +492,7 @@ def write_macro(checklists, report_file, owner, repo, elapsed_time):
                 except json.JSONDecodeError:
                     continue
 
-    # Keep only one entry per (owner, repo, name)
+    # Keep only one entry per (owner, repo, name) d
     merged = {
         (entry.get("owner"), entry.get("repo"), entry.get("name")): entry
         for entry in existing_entries
