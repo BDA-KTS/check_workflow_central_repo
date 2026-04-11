@@ -1,36 +1,50 @@
 # Report for Stephan-Linzbach of Comparing-Keyword-Importance-Across-Texts
 
-## Report generated at 2026-04-06 10:58:57
+## Report generated at 2026-04-10 20:33:16
 
 ## Summary
 
+### Warnings ⚠️ 
+
 Passed but with warnings
 
-## Formal Files
+## File Check
 
-Found required file: citation<br>Found required file: license<br>Found required file: postbuild<br>All required files found
+### Warnings ⚠️ 
 
-## Binder Files
+Warning: postbuild is duplicated.
 
-Found required file: requirements.txt<br>All required binder files found
+### Information ✅ 
+
+Found required file: citation<br>Found required file: license<br>Found required file: postbuild<br>Found required file: postbuild<br>Found required file: requirements.txt<br>All required files found
 
 ## License Check
+
+### Information ✅ 
 
 Found MIT License, License accepted 
 
 ## Readme Check
 
-### Warnings
+### Errors ⛔ 
 
 Missing subtitles: Technical Details<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#how-to-use
+
+### Information ✅ 
 
 Found one title: Accepted<br>Found subtitle: Description<br>Found subtitle: Use Cases<br>Found subtitle: Input Data<br>Found subtitle: Output Data<br>Found subtitle: Hardware Requirements<br>Found subtitle: Environment Setup<br>Found subtitle: How to Use<br>Found subtitle: Example Commands and Parameters<br>Found subtitle: Contact Details
 
 ## Binder Test
 
+### Information ✅ 
+
 Repo2Docker build successful. Binder environment is valid.
 
 ## Taxonomie
 
+### Information ✅ 
+
 No labels predicted with probability above threshold.
+
+Time to complete 1 min 35 sec
 
