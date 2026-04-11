@@ -1,0 +1,6 @@
+{"owner": "BDA-KTS", "repo": "academic_mobility_propensity_score", "name": "Summary", "passed": false, "warning_labels": [], "error_labels": ["Critical"], "Workflow Duration": "4:14"}
+{"owner": "BDA-KTS", "repo": "academic_mobility_propensity_score", "name": "File Check", "passed": true, "warning_labels": ["postbuild"], "error_labels": [], "Workflow Duration": "4:14"}
+{"owner": "BDA-KTS", "repo": "academic_mobility_propensity_score", "name": "License Check", "passed": false, "warning_labels": [], "error_labels": ["CC0-1.0"], "Workflow Duration": "4:14"}
+{"owner": "BDA-KTS", "repo": "academic_mobility_propensity_score", "name": "Readme Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "4:14"}
+{"owner": "BDA-KTS", "repo": "academic_mobility_propensity_score", "name": "Binder Test", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "4:14"}
+{"owner": "BDA-KTS", "repo": "academic_mobility_propensity_score", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "4:14"}
