@@ -480,43 +480,22 @@ def write_report(checklists, report_file, owner, repo, elapsed_time):
         f.write(f"Time to complete {minutes} min {seconds} sec\n\n")
 
 def write_macro(checklists, report_file, owner, repo, elapsed_time):
-    existing_entries = []
-    if report_file.exists():
-        with open(report_file, "r", encoding="utf-8") as f:
-            for line in f:
-                line = line.strip()
-                if not line:
-                    continue
-                try:
-                    existing_entries.append(json.loads(line))
-                except json.JSONDecodeError:
-                    continue
-
-    # Keep only one entry per (owner, repo, name) d
-    merged = {
-        (entry.get("owner"), entry.get("repo"), entry.get("name")): entry
-        for entry in existing_entries
-        if entry.get("owner") and entry.get("repo") and entry.get("name")
-    }
     total_seconds = int(elapsed_time.total_seconds())
     minutes, seconds = divmod(total_seconds, 60)
-    times= f"{minutes}:{seconds}"
-    # New entries replace old ones with the same key
-    for checklist in checklists:
-        entry = {
-            "owner": owner,
-            "repo": repo,
-            "name": checklist.name,
-            "passed": checklist.passed,
-            "warning_labels": checklist.warning_labels,
-            "error_labels": checklist.error_labels,
-            "Workflow Duration": times
-        }
-        merged[(owner, repo, checklist.name)] = entry
+    times = f"{minutes}:{seconds:02d}"
 
-    with open(report_file, "w", encoding="utf-8") as f:
-        for entry in merged.values():
-            f.write(json.dumps(entry, ensure_ascii=False) + "\n")
+    with open(report_file, "a", encoding="utf-8") as f:
+        for checklist in checklists:
+            entry = {
+                "owner": owner,
+                "repo": repo,
+                "name": checklist.name,
+                "passed": checklist.passed,
+                "warning_labels": checklist.warning_labels,
+                "error_labels": checklist.error_labels,
+                "Workflow Duration": times,
+            }
+            f.write(json.dumps(entry) + "\n")
 
 def main():
     time_start = datetime.now()
@@ -527,9 +506,9 @@ def main():
     report_dir.mkdir(parents=True, exist_ok=True)
     report_file = report_dir / f"{repo}.md"
 
-    aggregated_dir=CENTRAL_PATH / "aggregation"
+    aggregated_dir = CENTRAL_PATH / "aggregation" / owner
     aggregated_dir.mkdir(parents=True, exist_ok=True)
-    aggregated=aggregated_dir / "report.jsonl"
+    aggregated = aggregated_dir / f"{repo}.jsonl"
     # File presence checks
     suffixes = get_file_extensions(TEST_PATH)
     required_binder = get_needed_files(suffixes)
@@ -549,7 +528,7 @@ def main():
     elif readme_path.suffix == ".qmd":
         checklists.append(convert_readme_md(readme_path))
     else:
-        checklists.append(CheckResult("Readme Check",False,["Readme check failed: Format not yet supported"],[""],[""]))
+        checklists.append(CheckResult("Readme Check",False,[],[],["Readme check failed: Format not yet supported"],[],[],[]))
 
     # Simulate Repo2Docker 2
     if any("binder" in result.statuses for result in checklists):
