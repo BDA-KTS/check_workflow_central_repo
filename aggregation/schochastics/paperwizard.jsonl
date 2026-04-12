@@ -1,6 +1,6 @@
-{"owner": "schochastics", "repo": "paperwizard", "name": "Summary", "passed": false, "warning_labels": [], "error_labels": ["Critical"], "Workflow Duration": "5:19"}
-{"owner": "schochastics", "repo": "paperwizard", "name": "File Check", "passed": true, "warning_labels": ["license"], "error_labels": [], "Workflow Duration": "5:19"}
-{"owner": "schochastics", "repo": "paperwizard", "name": "License Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "5:19"}
-{"owner": "schochastics", "repo": "paperwizard", "name": "Readme Check", "passed": false, "warning_labels": [], "error_labels": [], "Workflow Duration": "5:19"}
-{"owner": "schochastics", "repo": "paperwizard", "name": "Binder Test", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "5:19"}
-{"owner": "schochastics", "repo": "paperwizard", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "5:19"}
+{"owner": "schochastics", "repo": "paperwizard", "name": "Summary", "passed": false, "warning_labels": [], "error_labels": ["Critical"], "Workflow Duration": "4:51"}
+{"owner": "schochastics", "repo": "paperwizard", "name": "File Check", "passed": true, "warning_labels": ["license"], "error_labels": [], "Workflow Duration": "4:51"}
+{"owner": "schochastics", "repo": "paperwizard", "name": "License Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "4:51"}
+{"owner": "schochastics", "repo": "paperwizard", "name": "Readme Check", "passed": false, "warning_labels": [], "error_labels": ["Multiple Titles"], "Workflow Duration": "4:51"}
+{"owner": "schochastics", "repo": "paperwizard", "name": "Binder Test", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "4:51"}
+{"owner": "schochastics", "repo": "paperwizard", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "4:51"}
