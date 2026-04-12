@@ -287,12 +287,13 @@ def check_readme(titles,subtitles, error, error_labels) -> CheckResult:
     if len(titles) < 1:
         passed=False
         errors.append("No title found but one is required.")
-        error_labels.append("None")
+        error_labels.append("No Title")
     elif len(titles) == 1:
         message.append("Found one title: Accepted")
     else:
         passed=False
         message.append(f"Found too many titles: Count: {len(titles)}")
+        error_labels.append("Multiple Titles")
     if len(subtitles) < 1:
         passed=False
         errors.append("No subtitle found but one is required.")
