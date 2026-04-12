@@ -1,6 +1,6 @@
-{"owner": "BDA-KTS", "repo": "Telegram-Data-Collection", "name": "Summary", "passed": false, "warning_labels": [], "error_labels": ["Critical"], "Workflow Duration": "1:35"}
-{"owner": "BDA-KTS", "repo": "Telegram-Data-Collection", "name": "File Check", "passed": true, "warning_labels": ["postbuild"], "error_labels": [], "Workflow Duration": "1:35"}
-{"owner": "BDA-KTS", "repo": "Telegram-Data-Collection", "name": "License Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "1:35"}
-{"owner": "BDA-KTS", "repo": "Telegram-Data-Collection", "name": "Readme Check", "passed": false, "warning_labels": [], "error_labels": ["Input Data", "Contact Details"], "Workflow Duration": "1:35"}
-{"owner": "BDA-KTS", "repo": "Telegram-Data-Collection", "name": "Binder Test", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "1:35"}
-{"owner": "BDA-KTS", "repo": "Telegram-Data-Collection", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "1:35"}
+{"owner": "BDA-KTS", "repo": "Telegram-Data-Collection", "name": "Summary", "passed": false, "warning_labels": [], "error_labels": ["Critical"], "Workflow Duration": "1:30"}
+{"owner": "BDA-KTS", "repo": "Telegram-Data-Collection", "name": "File Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "1:30"}
+{"owner": "BDA-KTS", "repo": "Telegram-Data-Collection", "name": "License Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "1:30"}
+{"owner": "BDA-KTS", "repo": "Telegram-Data-Collection", "name": "Readme Check", "passed": false, "warning_labels": [], "error_labels": ["Contact Details", "Input Data"], "Workflow Duration": "1:30"}
+{"owner": "BDA-KTS", "repo": "Telegram-Data-Collection", "name": "Binder Test", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "1:30"}
+{"owner": "BDA-KTS", "repo": "Telegram-Data-Collection", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "1:30"}
