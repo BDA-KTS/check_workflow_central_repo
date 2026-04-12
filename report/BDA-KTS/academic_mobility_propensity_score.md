@@ -1,6 +1,6 @@
 # Report for BDA-KTS of academic_mobility_propensity_score
 
-## Report generated at 2026-04-11 13:40:50
+## Report generated at 2026-04-12 11:26:34
 
 ## Summary
 
@@ -42,5 +42,7 @@ Repo2Docker build successful. Binder environment is valid.
 
 Predicted labels: Data Analysis<br>Probability: 65.52%
 
-Time to complete 4 min 14 sec
+#### Duration 
+
+Time to complete 4 min 2 sec
 
