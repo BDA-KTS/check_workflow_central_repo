@@ -1,6 +1,6 @@
-{"owner": "BDA-KTS", "repo": "numeric-group-vis", "name": "Summary", "passed": false, "warning_labels": [], "error_labels": ["Critical"], "Workflow Duration": "3:56"}
-{"owner": "BDA-KTS", "repo": "numeric-group-vis", "name": "File Check", "passed": true, "warning_labels": ["postbuild"], "error_labels": [], "Workflow Duration": "3:56"}
-{"owner": "BDA-KTS", "repo": "numeric-group-vis", "name": "License Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "3:56"}
-{"owner": "BDA-KTS", "repo": "numeric-group-vis", "name": "Readme Check", "passed": false, "warning_labels": [], "error_labels": ["None", "Technical Details", "Environment Setup", "Input Data", "Contact Details", "Description", "Hardware Requirements", "Output Data", "How to Use"], "Workflow Duration": "3:56"}
-{"owner": "BDA-KTS", "repo": "numeric-group-vis", "name": "Binder Test", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "3:56"}
-{"owner": "BDA-KTS", "repo": "numeric-group-vis", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "3:56"}
+{"owner": "BDA-KTS", "repo": "numeric-group-vis", "name": "Summary", "passed": false, "warning_labels": [], "error_labels": ["Critical"], "Workflow Duration": "4:28"}
+{"owner": "BDA-KTS", "repo": "numeric-group-vis", "name": "File Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "4:28"}
+{"owner": "BDA-KTS", "repo": "numeric-group-vis", "name": "License Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "4:28"}
+{"owner": "BDA-KTS", "repo": "numeric-group-vis", "name": "Readme Check", "passed": false, "warning_labels": [], "error_labels": ["None", "Input Data", "Technical Details", "How to Use", "Output Data", "Contact Details", "Hardware Requirements", "Environment Setup", "Description"], "Workflow Duration": "4:28"}
+{"owner": "BDA-KTS", "repo": "numeric-group-vis", "name": "Binder Test", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "4:28"}
+{"owner": "BDA-KTS", "repo": "numeric-group-vis", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "4:28"}
