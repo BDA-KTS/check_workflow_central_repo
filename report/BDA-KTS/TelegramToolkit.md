@@ -1,6 +1,6 @@
 # Report for BDA-KTS of TelegramToolkit
 
-## Report generated at 2026-04-11 13:34:10
+## Report generated at 2026-04-12 11:19:45
 
 ## Summary
 
@@ -42,5 +42,7 @@ Repo2Docker build successful. Binder environment is valid.
 
 Predicted labels: Data Analysis<br>Probability: 61.29%
 
-Time to complete 2 min 7 sec
+#### Duration 
+
+Time to complete 1 min 53 sec
 
