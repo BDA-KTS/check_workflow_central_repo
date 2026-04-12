@@ -4,3 +4,9 @@
 {"owner": "Stephan-Linzbach", "repo": "Comparing-Keyword-Importance-Across-Texts", "name": "Readme Check", "passed": true, "warning_labels": [], "error_labels": ["Technical Details"], "Workflow Duration": "1:34"}
 {"owner": "Stephan-Linzbach", "repo": "Comparing-Keyword-Importance-Across-Texts", "name": "Binder Test", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "1:34"}
 {"owner": "Stephan-Linzbach", "repo": "Comparing-Keyword-Importance-Across-Texts", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "1:34"}
+{"owner": "Stephan-Linzbach", "repo": "Comparing-Keyword-Importance-Across-Texts", "name": "Summary", "passed": true, "warning_labels": [], "error_labels": ["Warning"], "Workflow Duration": "1:32"}
+{"owner": "Stephan-Linzbach", "repo": "Comparing-Keyword-Importance-Across-Texts", "name": "File Check", "passed": true, "warning_labels": ["postbuild"], "error_labels": [], "Workflow Duration": "1:32"}
+{"owner": "Stephan-Linzbach", "repo": "Comparing-Keyword-Importance-Across-Texts", "name": "License Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "1:32"}
+{"owner": "Stephan-Linzbach", "repo": "Comparing-Keyword-Importance-Across-Texts", "name": "Readme Check", "passed": true, "warning_labels": [], "error_labels": ["Technical Details"], "Workflow Duration": "1:32"}
+{"owner": "Stephan-Linzbach", "repo": "Comparing-Keyword-Importance-Across-Texts", "name": "Binder Test", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "1:32"}
+{"owner": "Stephan-Linzbach", "repo": "Comparing-Keyword-Importance-Across-Texts", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "1:32"}
