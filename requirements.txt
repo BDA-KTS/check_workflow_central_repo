@@ -6,3 +6,5 @@ chardet<6
 nbformat
 joblib
 scikit-learn
+pandas
+matplotlib
