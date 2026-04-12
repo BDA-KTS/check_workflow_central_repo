@@ -1,6 +1,6 @@
-{"owner": "gesiscss", "repo": "methodshub-bertclassification", "name": "Summary", "passed": false, "warning_labels": [], "error_labels": ["Critical"], "Workflow Duration": "7:01"}
-{"owner": "gesiscss", "repo": "methodshub-bertclassification", "name": "File Check", "passed": true, "warning_labels": [], "error_labels": ["install.R", "runtime.txt"], "Workflow Duration": "7:01"}
-{"owner": "gesiscss", "repo": "methodshub-bertclassification", "name": "License Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "7:01"}
-{"owner": "gesiscss", "repo": "methodshub-bertclassification", "name": "Readme Check", "passed": false, "warning_labels": [], "error_labels": ["Environment Setup", "Input Data", "Description", "Technical Details", "Hardware Requirements", "Output Data", "Use Cases", "How to Use", "Contact Details"], "Workflow Duration": "7:01"}
-{"owner": "gesiscss", "repo": "methodshub-bertclassification", "name": "Binder Test", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "7:01"}
-{"owner": "gesiscss", "repo": "methodshub-bertclassification", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "7:01"}
+{"owner": "gesiscss", "repo": "methodshub-bertclassification", "name": "Summary", "passed": false, "warning_labels": [], "error_labels": ["Critical"], "Workflow Duration": "7:03"}
+{"owner": "gesiscss", "repo": "methodshub-bertclassification", "name": "File Check", "passed": true, "warning_labels": [], "error_labels": ["install.R", "runtime.txt"], "Workflow Duration": "7:03"}
+{"owner": "gesiscss", "repo": "methodshub-bertclassification", "name": "License Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "7:03"}
+{"owner": "gesiscss", "repo": "methodshub-bertclassification", "name": "Readme Check", "passed": false, "warning_labels": [], "error_labels": ["Multiple Titles", "Hardware Requirements", "Description", "Output Data", "Technical Details", "Contact Details", "Input Data", "Environment Setup", "How to Use", "Use Cases"], "Workflow Duration": "7:03"}
+{"owner": "gesiscss", "repo": "methodshub-bertclassification", "name": "Binder Test", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "7:03"}
+{"owner": "gesiscss", "repo": "methodshub-bertclassification", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "7:03"}
