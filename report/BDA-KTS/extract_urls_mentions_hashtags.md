@@ -1,6 +1,6 @@
 # Report for BDA-KTS of extract_urls_mentions_hashtags
 
-## Report generated at 2026-04-11 13:28:23
+## Report generated at 2026-04-12 11:14:16
 
 ## Summary
 
@@ -28,7 +28,7 @@ Found Apache-2.0 License, License accepted
 
 ### Errors ⛔ 
 
-Missing subtitles: Technical Details<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#how-to-use<br>Missing subtitles: Contact Details<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#contact-detailsn 
+Missing subtitles: Contact Details<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#contact-detailsn <br>Missing subtitles: Technical Details<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#how-to-use
 
 ### Information ✅ 
 
@@ -46,5 +46,7 @@ Repo2Docker build successful. Binder environment is valid.
 
 No labels predicted with probability above threshold.
 
-Time to complete 1 min 47 sec
+#### Duration 
+
+Time to complete 1 min 43 sec
 
