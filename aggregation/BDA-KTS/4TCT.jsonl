@@ -1,0 +1,6 @@
+{"owner": "BDA-KTS", "repo": "4TCT", "name": "Summary", "passed": false, "warning_labels": [], "error_labels": ["Critical"], "Workflow Duration": "1:26"}
+{"owner": "BDA-KTS", "repo": "4TCT", "name": "File Check", "passed": true, "warning_labels": ["postbuild"], "error_labels": [], "Workflow Duration": "1:26"}
+{"owner": "BDA-KTS", "repo": "4TCT", "name": "License Check", "passed": false, "warning_labels": [], "error_labels": ["AGPL-3.0"], "Workflow Duration": "1:26"}
+{"owner": "BDA-KTS", "repo": "4TCT", "name": "Readme Check", "passed": true, "warning_labels": [], "error_labels": ["Technical Details"], "Workflow Duration": "1:26"}
+{"owner": "BDA-KTS", "repo": "4TCT", "name": "Binder Test", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "1:26"}
+{"owner": "BDA-KTS", "repo": "4TCT", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "1:26"}
