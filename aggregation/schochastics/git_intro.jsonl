@@ -1,0 +1,6 @@
+{"owner": "schochastics", "repo": "git_intro", "name": "Summary", "passed": false, "warning_labels": [], "error_labels": ["Critical"], "Workflow Duration": "0:01"}
+{"owner": "schochastics", "repo": "git_intro", "name": "File Check", "passed": false, "warning_labels": ["postbuild"], "error_labels": ["citation", "license", "requirements.txt", "runtime.txt"], "Workflow Duration": "0:01"}
+{"owner": "schochastics", "repo": "git_intro", "name": "License Check", "passed": false, "warning_labels": [], "error_labels": ["No license"], "Workflow Duration": "0:01"}
+{"owner": "schochastics", "repo": "git_intro", "name": "Readme Check", "passed": false, "warning_labels": [], "error_labels": ["None", "Use Cases", "Description", "Contact Details", "Environment Setup", "How to Use", "Input Data", "Technical Details", "Hardware Requirements", "Output Data"], "Workflow Duration": "0:01"}
+{"owner": "schochastics", "repo": "git_intro", "name": "Binder Test", "passed": false, "warning_labels": [], "error_labels": [], "Workflow Duration": "0:01"}
+{"owner": "schochastics", "repo": "git_intro", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "0:01"}
