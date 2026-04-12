@@ -1,6 +1,6 @@
 # Report for BDA-KTS of academic_mobility_propensity_score
 
-## Report generated at 2026-04-12 11:26:34
+## Report generated at 2026-04-12 12:58:35
 
 ## Summary
 
@@ -44,5 +44,5 @@ Predicted labels: Data Analysis<br>Probability: 65.52%
 
 #### Duration 
 
-Time to complete 4 min 2 sec
+Time to complete 4 min 35 sec
 
