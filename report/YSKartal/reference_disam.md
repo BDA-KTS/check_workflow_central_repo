@@ -1,22 +1,18 @@
 # Report for YSKartal of reference_disam
 
-## Report generated at 2026-04-12 19:34:44
+## Report generated at 2026-04-12 19:39:34
 
 ## Summary
 
-### Warnings ⚠️ 
+### Information ✅ 
 
-Passed but with warnings
+Passed perfectly
 
 ## File Check
 
-### Warnings ⚠️ 
-
-Warning: postbuild is duplicated.
-
 ### Information ✅ 
 
-Found required file: citation<br>Found required file: license<br>Found required file: postbuild<br>Found required file: postbuild<br>All required files found
+Found required file: citation<br>Found required file: license<br>Found required file: postbuild<br>All required files found
 
 ## License Check
 
@@ -44,5 +40,5 @@ Predicted labels: Data Analysis<br>Probability: 66.04%
 
 #### Duration 
 
-Time to complete 1 min 29 sec
+Time to complete 1 min 27 sec
 
