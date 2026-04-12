@@ -97,7 +97,7 @@ def get_files(path: Path):
 
 def check_for_files(repo_requirements,required_binder,root_files,extended_files):
     match = next((f for f in extended_files if f.casefold().split(".")[0] == "postbuild"), None)
-    if match is not None:
+    if match is not None and not any(f for f in root_files if f.casefold().split(".")[0] == "postbuild" ):
         extended_files.remove(match)
         root_files.append("postbuild")
     print(f"Root files are: {root_files}")
