@@ -1,6 +1,6 @@
 # Report for BDA-KTS of claim_similarity_retrieval
 
-## Report generated at 2026-04-12 11:20:32
+## Report generated at 2026-04-12 12:31:34
 
 ## Summary
 
@@ -44,5 +44,5 @@ Predicted labels: Data Analysis<br>Probability: 67.52%
 
 #### Duration 
 
-Time to complete 2 min 59 sec
+Time to complete 2 min 37 sec
 
