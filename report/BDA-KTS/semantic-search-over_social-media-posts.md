@@ -1,22 +1,18 @@
 # Report for BDA-KTS of semantic-search-over_social-media-posts
 
-## Report generated at 2026-04-12 18:21:33
+## Report generated at 2026-04-12 19:42:06
 
 ## Summary
 
-### Warnings ⚠️ 
+### Information ✅ 
 
-Passed but with warnings
+Passed perfectly
 
 ## File Check
 
-### Warnings ⚠️ 
-
-Warning: postbuild is duplicated.
-
 ### Information ✅ 
 
-Found required file: citation<br>Found required file: license<br>Found required file: postbuild<br>Found required file: postbuild<br>Found required file: requirements.txt<br>All required files found
+Found required file: citation<br>Found required file: license<br>Found required file: postbuild<br>Found required file: requirements.txt<br>All required files found
 
 ## License Check
 
@@ -44,5 +40,5 @@ Predicted labels: Data Analysis<br>Probability: 65.7%
 
 #### Duration 
 
-Time to complete 1 min 19 sec
+Time to complete 1 min 24 sec
 
