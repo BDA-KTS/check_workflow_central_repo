@@ -1,6 +1,6 @@
 # Report for taimoorkhan-nlp of latent_dirichlet_allocation
 
-## Report generated at 2026-04-12 20:02:27
+## Report generated at 2026-04-12 21:51:42
 
 ## Summary
 
@@ -24,7 +24,7 @@ Found Apache-2.0 License, License accepted
 
 ### Errors ⛔ 
 
-Missing subtitles: Environment Setup<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#environment-setup<br>Missing subtitles: Contact Details<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#contact-detailsn 
+Missing subtitles: Contact Details<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#contact-detailsn <br>Missing subtitles: Environment Setup<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#environment-setup
 
 ### Information ✅ 
 
@@ -44,5 +44,5 @@ Predicted labels: Data Analysis<br>Probability: 63.44%
 
 #### Duration 
 
-Time to complete 1 min 34 sec
+Time to complete 1 min 37 sec
 
