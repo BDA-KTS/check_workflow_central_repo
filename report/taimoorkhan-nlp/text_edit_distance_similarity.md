@@ -1,22 +1,18 @@
 # Report for taimoorkhan-nlp of text_edit_distance_similarity
 
-## Report generated at 2026-04-12 18:33:39
+## Report generated at 2026-04-12 19:54:01
 
 ## Summary
 
-### Warnings ⚠️ 
+### Information ✅ 
 
-Passed but with warnings
+Passed perfectly
 
 ## File Check
 
-### Warnings ⚠️ 
-
-Warning: postbuild is duplicated.
-
 ### Information ✅ 
 
-Found required file: citation<br>Found required file: license<br>Found required file: postbuild<br>Found required file: postbuild<br>Found required file: requirements.txt<br>All required files found
+Found required file: citation<br>Found required file: license<br>Found required file: postbuild<br>Found required file: requirements.txt<br>All required files found
 
 ## License Check
 
@@ -48,5 +44,5 @@ Predicted labels: Data Analysis<br>Probability: 65.87%
 
 #### Duration 
 
-Time to complete 1 min 23 sec
+Time to complete 1 min 19 sec
 
