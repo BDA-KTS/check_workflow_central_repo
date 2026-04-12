@@ -1,10 +1,62 @@
 name: aggregation.yml
-on: workflow_dispatch
+
+on:
+  workflow_dispatch:
+  repository_dispatch:
+    types: [aggregate_jsonl]
 
 jobs:
-    aggregate-jsonl:
-      runs-on: ubuntu-latest
-      steps:
-        - name: Checkout central repository
-          uses: actions/checkout@v6
-      
+  aggregate-jsonl:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout central repository
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: Merge JSONL files into report/report.jsonl
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          python - <<'PY'
+         
+          PY
+
+      - name: Commit and push report
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git add report/report.jsonl
+
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+            exit 0
+          fi
+
+          git commit -m "Update aggregated report"
+
+          for i in 1 2 3 4 5; do
+            echo "Push attempt $i"
+            if git pull --rebase --autostash origin main && git push origin HEAD:main; then
+              exit 0
+            fi
+
+            WAIT=$((i * 2))
+            echo "Push failed, retrying in ${WAIT}s..."
+            sleep "$WAIT"
+          done
+
+          echo "Push failed after 5 attempts"
+          git status --short
+          exit 1

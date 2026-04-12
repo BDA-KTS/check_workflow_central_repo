@@ -477,6 +477,7 @@ def write_report(checklists, report_file, owner, repo, elapsed_time):
                 f.write("\n\n")
         total_seconds = int(elapsed_time.total_seconds())
         minutes, seconds = divmod(total_seconds, 60)
+        f.write("#### Duration \n\n")
         f.write(f"Time to complete {minutes} min {seconds} sec\n\n")
 
 def write_macro(checklists, report_file, owner, repo, elapsed_time):
@@ -518,7 +519,8 @@ def main():
     # License check
     if any("license" in result.statuses for result in checklists):
         checklists.append(license_check())
-
+    else:
+        checklists.append(CheckResult("License Check",False,[],[],["License Check failed, no license file found"],[],[],["No license"]))
     # Readme check
     readme_path = TEST_PATH / readme_name
     if readme_path.suffix == ".ipynb":
