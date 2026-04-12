@@ -1,6 +1,6 @@
 # Report for gesistsa of webtrackR
 
-## Report generated at 2026-04-11 13:45:28
+## Report generated at 2026-04-12 11:31:42
 
 ## Summary
 
@@ -46,5 +46,7 @@ Repo2Docker build successful. Binder environment is valid.
 
 No labels predicted with probability above threshold.
 
-Time to complete 3 min 48 sec
+#### Duration 
+
+Time to complete 4 min 4 sec
 
