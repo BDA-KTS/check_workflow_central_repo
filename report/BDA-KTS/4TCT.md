@@ -1,6 +1,6 @@
 # Report for BDA-KTS of 4TCT
 
-## Report generated at 2026-04-11 13:38:00
+## Report generated at 2026-04-12 11:23:48
 
 ## Summary
 
@@ -46,5 +46,7 @@ Repo2Docker build successful. Binder environment is valid.
 
 No labels predicted with probability above threshold.
 
-Time to complete 1 min 24 sec
+#### Duration 
+
+Time to complete 1 min 18 sec
 
