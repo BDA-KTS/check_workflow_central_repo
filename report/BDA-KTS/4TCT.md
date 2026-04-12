@@ -1,6 +1,6 @@
 # Report for BDA-KTS of 4TCT
 
-## Report generated at 2026-04-12 18:37:42
+## Report generated at 2026-04-12 19:58:12
 
 ## Summary
 
@@ -10,13 +10,9 @@ Major Flaws, Error in at least one Check
 
 ## File Check
 
-### Warnings ⚠️ 
-
-Warning: postbuild is duplicated.
-
 ### Information ✅ 
 
-Found required file: citation<br>Found required file: license<br>Found required file: postbuild<br>Found required file: postbuild<br>Found required file: requirements.txt<br>All required files found
+Found required file: citation<br>Found required file: license<br>Found required file: postbuild<br>Found required file: requirements.txt<br>All required files found
 
 ## License Check
 
@@ -48,5 +44,5 @@ No labels predicted with probability above threshold.
 
 #### Duration 
 
-Time to complete 1 min 21 sec
+Time to complete 1 min 25 sec
 
