@@ -1,6 +1,6 @@
 # Report for schochastics of paperwizard
 
-## Report generated at 2026-04-12 18:25:43
+## Report generated at 2026-04-12 19:46:03
 
 ## Summary
 
@@ -12,11 +12,11 @@ Major Flaws, Error in at least one Check
 
 ### Warnings ⚠️ 
 
-Warning: license is duplicated.<br>Warning: postbuild is duplicated.
+Warning: license is duplicated.
 
 ### Information ✅ 
 
-Found required file: citation<br>Found required file: license<br>Found required file: license<br>Found required file: postbuild<br>Found required file: postbuild<br>Found required file: install.R<br>Found required file: runtime.txt<br>All required files found
+Found required file: citation<br>Found required file: license<br>Found required file: license<br>Found required file: postbuild<br>Found required file: install.R<br>Found required file: runtime.txt<br>All required files found
 
 ## License Check
 
@@ -44,5 +44,5 @@ No labels predicted with probability above threshold.
 
 #### Duration 
 
-Time to complete 5 min 28 sec
+Time to complete 5 min 19 sec
 
