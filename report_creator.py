@@ -174,7 +174,7 @@ def check_for_binder_files(required_binder,extended_files):
     if set(required_binder).issubset(set(found_files)):
         if passed:
             warnings.append("Multiple binder configs found")
-            warning_labels.append("Multiple")
+            warning_labels.append("Multiple Setups")
         else:
             passed=True
     else:
