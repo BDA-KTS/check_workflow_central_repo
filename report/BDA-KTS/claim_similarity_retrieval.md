@@ -1,22 +1,18 @@
 # Report for BDA-KTS of claim_similarity_retrieval
 
-## Report generated at 2026-04-12 18:31:11
+## Report generated at 2026-04-12 19:51:50
 
 ## Summary
 
-### Warnings ⚠️ 
+### Information ✅ 
 
-Passed but with warnings
+Passed perfectly
 
 ## File Check
 
-### Warnings ⚠️ 
-
-Warning: postbuild is duplicated.
-
 ### Information ✅ 
 
-Found required file: citation<br>Found required file: license<br>Found required file: postbuild<br>Found required file: postbuild<br>Found required file: requirements.txt<br>All required files found
+Found required file: citation<br>Found required file: license<br>Found required file: postbuild<br>Found required file: requirements.txt<br>All required files found
 
 ## License Check
 
@@ -44,5 +40,5 @@ Predicted labels: Data Analysis<br>Probability: 67.52%
 
 #### Duration 
 
-Time to complete 2 min 50 sec
+Time to complete 3 min 6 sec
 
