@@ -1,6 +1,6 @@
 # Report for gesistsa of adaR
 
-## Report generated at 2026-04-11 13:25:26
+## Report generated at 2026-04-12 11:12:32
 
 ## Summary
 
@@ -42,5 +42,7 @@ Repo2Docker build successful. Binder environment is valid.
 
 Predicted labels: Data Analysis<br>Probability: 60.83%
 
-Time to complete 3 min 51 sec
+#### Duration 
+
+Time to complete 5 min 1 sec
 
