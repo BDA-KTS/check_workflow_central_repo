@@ -1,22 +1,18 @@
 # Report for BDA-KTS of extract_urls_mentions_hashtags
 
-## Report generated at 2026-04-12 18:26:08
+## Report generated at 2026-04-12 19:46:27
 
 ## Summary
 
-### Warnings ⚠️ 
+### Information ✅ 
 
-Passed but with warnings
+Passed perfectly
 
 ## File Check
 
-### Warnings ⚠️ 
-
-Warning: postbuild is duplicated.
-
 ### Information ✅ 
 
-Found required file: citation<br>Found required file: license<br>Found required file: postbuild<br>Found required file: postbuild<br>Found required file: requirements.txt<br>All required files found
+Found required file: citation<br>Found required file: license<br>Found required file: postbuild<br>Found required file: requirements.txt<br>All required files found
 
 ## License Check
 
@@ -48,5 +44,5 @@ No labels predicted with probability above threshold.
 
 #### Duration 
 
-Time to complete 1 min 48 sec
+Time to complete 1 min 45 sec
 
