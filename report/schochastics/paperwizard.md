@@ -1,6 +1,6 @@
 # Report for schochastics of paperwizard
 
-## Report generated at 2026-04-11 13:27:21
+## Report generated at 2026-04-12 11:12:00
 
 ## Summary
 
@@ -42,5 +42,7 @@ Repo2Docker build successful. Binder environment is valid.
 
 No labels predicted with probability above threshold.
 
-Time to complete 5 min 47 sec
+#### Duration 
+
+Time to complete 4 min 35 sec
 
