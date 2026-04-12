@@ -96,9 +96,9 @@ def get_files(path: Path):
     return root_files , extended_files
 
 def check_for_files(repo_requirements,required_binder,root_files,extended_files):
-
-    if any(f.casefold().split(".")[0] == "postbuild" for f in extended_files):
-        extended_files.remove("postbuild")
+    match = next((f for f in extended_files if f.casefold().split(".")[0] == "postbuild"), None)
+    if match is not None:
+        extended_files.remove(match)
         root_files.append("postbuild")
     formal_files = check_for_formal_files(repo_requirements, root_files)
     binder_files=check_for_binder_files(required_binder,extended_files)
