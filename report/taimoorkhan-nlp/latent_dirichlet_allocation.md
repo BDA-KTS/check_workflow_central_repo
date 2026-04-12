@@ -1,6 +1,6 @@
 # Report for taimoorkhan-nlp of latent_dirichlet_allocation
 
-## Report generated at 2026-04-11 13:43:13
+## Report generated at 2026-04-12 11:29:12
 
 ## Summary
 
@@ -46,5 +46,7 @@ Repo2Docker build successful. Binder environment is valid.
 
 Predicted labels: Data Analysis<br>Probability: 63.44%
 
-Time to complete 1 min 32 sec
+#### Duration 
+
+Time to complete 1 min 35 sec
 
