@@ -1,0 +1,6 @@
+{"owner": "taimoorkhan-nlp", "repo": "latent_dirichlet_allocation", "name": "Summary", "passed": true, "warning_labels": [], "error_labels": ["Warning"], "Workflow Duration": "1:33"}
+{"owner": "taimoorkhan-nlp", "repo": "latent_dirichlet_allocation", "name": "File Check", "passed": true, "warning_labels": ["postbuild"], "error_labels": [], "Workflow Duration": "1:33"}
+{"owner": "taimoorkhan-nlp", "repo": "latent_dirichlet_allocation", "name": "License Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "1:33"}
+{"owner": "taimoorkhan-nlp", "repo": "latent_dirichlet_allocation", "name": "Readme Check", "passed": true, "warning_labels": [], "error_labels": ["Contact Details", "Environment Setup"], "Workflow Duration": "1:33"}
+{"owner": "taimoorkhan-nlp", "repo": "latent_dirichlet_allocation", "name": "Binder Test", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "1:33"}
+{"owner": "taimoorkhan-nlp", "repo": "latent_dirichlet_allocation", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "1:33"}
