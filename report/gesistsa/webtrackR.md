@@ -1,6 +1,6 @@
 # Report for gesistsa of webtrackR
 
-## Report generated at 2026-04-12 18:44:53
+## Report generated at 2026-04-12 20:04:46
 
 ## Summary
 
@@ -12,11 +12,11 @@ Major Flaws, Error in at least one Check
 
 ### Warnings ⚠️ 
 
-Warning: license is duplicated.<br>Warning: postbuild is duplicated.
+Warning: license is duplicated.
 
 ### Information ✅ 
 
-Found required file: citation<br>Found required file: license<br>Found required file: license<br>Found required file: postbuild<br>Found required file: postbuild<br>Found required file: install.R<br>Found required file: runtime.txt<br>All required files found
+Found required file: citation<br>Found required file: license<br>Found required file: license<br>Found required file: postbuild<br>Found required file: install.R<br>Found required file: runtime.txt<br>All required files found
 
 ## License Check
 
@@ -48,5 +48,5 @@ No labels predicted with probability above threshold.
 
 #### Duration 
 
-Time to complete 4 min 29 sec
+Time to complete 4 min 0 sec
 
