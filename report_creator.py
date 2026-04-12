@@ -485,7 +485,7 @@ def write_macro(checklists, report_file, owner, repo, elapsed_time):
     minutes, seconds = divmod(total_seconds, 60)
     times = f"{minutes}:{seconds:02d}"
 
-    with open(report_file, "a", encoding="utf-8") as f:
+    with open(report_file, "w", encoding="utf-8") as f:
         for checklist in checklists:
             entry = {
                 "owner": owner,
