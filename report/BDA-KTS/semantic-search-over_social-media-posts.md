@@ -1,6 +1,6 @@
 # Report for BDA-KTS of semantic-search-over_social-media-posts
 
-## Report generated at 2026-04-12 11:09:07
+## Report generated at 2026-04-12 12:26:04
 
 ## Summary
 
@@ -44,5 +44,5 @@ Predicted labels: Data Analysis<br>Probability: 65.7%
 
 #### Duration 
 
-Time to complete 1 min 34 sec
+Time to complete 1 min 26 sec
 
