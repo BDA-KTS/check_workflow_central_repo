@@ -1,6 +1,6 @@
 # Report for mmmaurer of elfen
 
-## Report generated at 2026-04-11 13:26:43
+## Report generated at 2026-04-12 11:12:35
 
 ## Summary
 
@@ -45,6 +45,8 @@ Binder test skipped: Binder files not found or not valid
 ### Information ✅ 
 
 Predicted labels: Data Analysis<br>Probability: 64.4%
+
+#### Duration 
 
 Time to complete 0 min 1 sec
 
