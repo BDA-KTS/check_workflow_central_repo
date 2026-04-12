@@ -60,6 +60,7 @@ def plot_summary_passed(df_sum):
 
     ax.set_ylim(0, counts.max() * 1.3)
     plt.tight_layout()
+    plt.savefig("plots/plotsummary_passed.png", dpi=300, bbox_inches="tight")
     plt.show()
 
 
@@ -99,6 +100,7 @@ def plot_summary_label_states(df_summary):
             va="bottom",
         )
     plt.tight_layout()
+    plt.savefig("plots/plotsummary_label_states.png", dpi=300, bbox_inches="tight")
     plt.show()
 
 def plot_filecheck_passed(df_filecheck):
@@ -118,6 +120,7 @@ def plot_filecheck_passed(df_filecheck):
 
     ax.set_ylim(0, counts.max() * 1.3)
     plt.tight_layout()
+    plt.savefig("plots/filecheck_passed.png", dpi=300, bbox_inches="tight")
     plt.show()
 
 def plot_filecheck_label_states(df_filecheck):
@@ -148,6 +151,7 @@ def plot_filecheck_label_states(df_filecheck):
                 ha="center", va="bottom")
 
     plt.tight_layout()
+    plt.savefig("plots/filecheck_label_state.png", dpi=300, bbox_inches="tight")
     plt.show()
 
 def plot_warning_labels(df_filecheck):
@@ -174,6 +178,7 @@ def plot_warning_labels(df_filecheck):
         plt.text(i, v + 0.05, str(v), ha="center", va="bottom")
 
     plt.tight_layout()
+    plt.savefig("plots/filecheck_warning_labels.png", dpi=300, bbox_inches="tight")
     plt.show()
 
 
@@ -201,6 +206,7 @@ def plot_error_labels(df_filecheck):
         plt.text(i, v + 0.05, str(v), ha="center", va="bottom")
 
     plt.tight_layout()
+    plt.savefig("plots/filecheck_error_labels.png", dpi=300, bbox_inches="tight")
     plt.show()
 
 def plot_licensecheck_passed(df_licensecheck):
@@ -220,6 +226,7 @@ def plot_licensecheck_passed(df_licensecheck):
 
     ax.set_ylim(0, counts.max() * 1.3)
     plt.tight_layout()
+    plt.savefig("plots/licensecheck_passed.png", dpi=300, bbox_inches="tight")
     plt.show()
 
 def plot_licensecheck_label_states(df_licensecheck):
@@ -258,6 +265,7 @@ def plot_licensecheck_label_states(df_licensecheck):
         )
 
     plt.tight_layout()
+    plt.savefig("plots/licensecheck_label_states.png", dpi=300, bbox_inches="tight")
     plt.show()
 
 def plot_licensecheck_warning_labels(df_licensecheck):
@@ -284,6 +292,7 @@ def plot_licensecheck_warning_labels(df_licensecheck):
         plt.text(i, v + 0.05, str(v), ha="center", va="bottom")
 
     plt.tight_layout()
+    plt.savefig("plots/licensecheck_warning_labels.png", dpi=300, bbox_inches="tight")
     plt.show()
 
 def plot_licensecheck_error_labels(df_licensecheck):
@@ -310,6 +319,7 @@ def plot_licensecheck_error_labels(df_licensecheck):
         plt.text(i, v + 0.05, str(v), ha="center", va="bottom")
 
     plt.tight_layout()
+    plt.savefig("plots/licensecheck_error_labels.png", dpi=300, bbox_inches="tight")
     plt.show()
 
 def plot_readmecheck_passed(df_readmecheck):
@@ -334,6 +344,7 @@ def plot_readmecheck_passed(df_readmecheck):
 
     ax.set_ylim(0, counts.max() * 1.3)
     plt.tight_layout()
+    plt.savefig("plots/readme_passed.png", dpi=300, bbox_inches="tight")
     plt.show()
 
 def plot_readmecheck_label_states(df_readmecheck):
@@ -372,6 +383,7 @@ def plot_readmecheck_label_states(df_readmecheck):
         )
 
     plt.tight_layout()
+    plt.savefig("plots/readme_label_states.png", dpi=300, bbox_inches="tight")
     plt.show()
 
 def plot_readmecheck_warning_labels(df_readmecheck):
@@ -398,6 +410,7 @@ def plot_readmecheck_warning_labels(df_readmecheck):
         plt.text(i, v + 0.05, str(v), ha="center", va="bottom")
 
     plt.tight_layout()
+    plt.savefig("plots/readme_warning_labels.png", dpi=300, bbox_inches="tight")
     plt.show()
 
 def plot_readmecheck_error_labels(df_readmecheck):
@@ -424,6 +437,49 @@ def plot_readmecheck_error_labels(df_readmecheck):
         plt.text(i, v + 0.05, str(v), ha="center", va="bottom")
 
     plt.tight_layout()
+    plt.savefig("plots/readme_error_labels.png", dpi=300, bbox_inches="tight")
+    plt.show()
+
+def plot_bindertest_passed(df_bindertest):
+    counts = df_bindertest["passed"].value_counts().sort_index()
+    total = counts.sum()
+
+    ax = counts.plot(kind="bar", color=["tab:red", "tab:green"])
+    ax.set_title("Binder Test: Passed vs Failed")
+    ax.set_xlabel("Passed")
+    ax.set_ylabel("Count")
+    ax.set_xticklabels(["False", "True"], rotation=0)
+
+    for i, count in enumerate(counts):
+        pct = count / total * 100
+        ax.text(
+            i,
+            count + 0.02 * counts.max(),
+            f"{count}\n({pct:.1f}%)",
+            ha="center",
+            va="bottom",
+        )
+
+    ax.set_ylim(0, counts.max() * 1.3)
+    plt.tight_layout()
+    plt.savefig("plots/bindertest_passed.png", dpi=300, bbox_inches="tight")
+    plt.show()
+
+def parse_duration_to_seconds(duration: str) -> int:
+    minutes, seconds = duration.split(":")
+    return int(minutes) * 60 + int(seconds)
+
+def plot_summary_duration(df):
+    df_summary = df[df["name"] == "Summary"].copy()
+    df_summary["duration_seconds"] = df_summary["Workflow Duration"].apply(parse_duration_to_seconds)
+
+    plt.figure(figsize=(8, 5))
+    plt.hist(df_summary["duration_seconds"], bins=10, color="tab:blue", edgecolor="black")
+    plt.title("Workflow Duration from Summary")
+    plt.xlabel("Duration (seconds)")
+    plt.ylabel("Number of repos")
+    plt.tight_layout()
+    plt.savefig("plots/average_duration.png", dpi=300, bbox_inches="tight")
     plt.show()
 
 df = load_jsonl(Path("report_jsonl/merged.jsonl"))
@@ -451,3 +507,7 @@ plot_readmecheck_passed(df_readmecheck)
 plot_readmecheck_label_states(df_readmecheck)
 plot_readmecheck_warning_labels(df_readmecheck)
 plot_readmecheck_error_labels(df_readmecheck)
+
+df_bindertest = df[df["name"] == "Binder Test"]
+plot_bindertest_passed(df_bindertest)
+plot_summary_duration(df)
