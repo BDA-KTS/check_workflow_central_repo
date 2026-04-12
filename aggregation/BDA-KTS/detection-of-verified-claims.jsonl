@@ -4,3 +4,9 @@
 {"owner": "BDA-KTS", "repo": "detection-of-verified-claims", "name": "Readme Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "3:45"}
 {"owner": "BDA-KTS", "repo": "detection-of-verified-claims", "name": "Binder Test", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "3:45"}
 {"owner": "BDA-KTS", "repo": "detection-of-verified-claims", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "3:45"}
+{"owner": "BDA-KTS", "repo": "detection-of-verified-claims", "name": "Summary", "passed": true, "warning_labels": [], "error_labels": ["Warning"], "Workflow Duration": "3:37"}
+{"owner": "BDA-KTS", "repo": "detection-of-verified-claims", "name": "File Check", "passed": true, "warning_labels": ["postbuild"], "error_labels": [], "Workflow Duration": "3:37"}
+{"owner": "BDA-KTS", "repo": "detection-of-verified-claims", "name": "License Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "3:37"}
+{"owner": "BDA-KTS", "repo": "detection-of-verified-claims", "name": "Readme Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "3:37"}
+{"owner": "BDA-KTS", "repo": "detection-of-verified-claims", "name": "Binder Test", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "3:37"}
+{"owner": "BDA-KTS", "repo": "detection-of-verified-claims", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "3:37"}
