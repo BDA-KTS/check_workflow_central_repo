@@ -1,6 +1,6 @@
-{"owner": "Stephan-Linzbach", "repo": "Text-Pre-Processing", "name": "Summary", "passed": true, "warning_labels": [], "error_labels": ["Warning"], "Workflow Duration": "1:38"}
-{"owner": "Stephan-Linzbach", "repo": "Text-Pre-Processing", "name": "File Check", "passed": true, "warning_labels": ["postbuild"], "error_labels": [], "Workflow Duration": "1:38"}
-{"owner": "Stephan-Linzbach", "repo": "Text-Pre-Processing", "name": "License Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "1:38"}
-{"owner": "Stephan-Linzbach", "repo": "Text-Pre-Processing", "name": "Readme Check", "passed": true, "warning_labels": [], "error_labels": ["Output Data", "Contact Details", "Description", "How to Use", "Input Data", "Hardware Requirements", "Technical Details"], "Workflow Duration": "1:38"}
-{"owner": "Stephan-Linzbach", "repo": "Text-Pre-Processing", "name": "Binder Test", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "1:38"}
-{"owner": "Stephan-Linzbach", "repo": "Text-Pre-Processing", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "1:38"}
+{"owner": "Stephan-Linzbach", "repo": "Text-Pre-Processing", "name": "Summary", "passed": true, "warning_labels": [], "error_labels": ["Warning"], "Workflow Duration": "1:36"}
+{"owner": "Stephan-Linzbach", "repo": "Text-Pre-Processing", "name": "File Check", "passed": true, "warning_labels": ["postbuild"], "error_labels": [], "Workflow Duration": "1:36"}
+{"owner": "Stephan-Linzbach", "repo": "Text-Pre-Processing", "name": "License Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "1:36"}
+{"owner": "Stephan-Linzbach", "repo": "Text-Pre-Processing", "name": "Readme Check", "passed": true, "warning_labels": [], "error_labels": ["Hardware Requirements", "How to Use", "Contact Details", "Input Data", "Technical Details", "Output Data", "Description"], "Workflow Duration": "1:36"}
+{"owner": "Stephan-Linzbach", "repo": "Text-Pre-Processing", "name": "Binder Test", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "1:36"}
+{"owner": "Stephan-Linzbach", "repo": "Text-Pre-Processing", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "1:36"}

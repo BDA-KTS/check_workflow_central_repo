@@ -1,6 +1,6 @@
-{"owner": "BDA-KTS", "repo": "TelegramToolkit", "name": "Summary", "passed": true, "warning_labels": [], "error_labels": ["Warning"], "Workflow Duration": "1:55"}
-{"owner": "BDA-KTS", "repo": "TelegramToolkit", "name": "File Check", "passed": true, "warning_labels": ["postbuild"], "error_labels": [], "Workflow Duration": "1:55"}
-{"owner": "BDA-KTS", "repo": "TelegramToolkit", "name": "License Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "1:55"}
-{"owner": "BDA-KTS", "repo": "TelegramToolkit", "name": "Readme Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "1:55"}
-{"owner": "BDA-KTS", "repo": "TelegramToolkit", "name": "Binder Test", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "1:55"}
-{"owner": "BDA-KTS", "repo": "TelegramToolkit", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "1:55"}
+{"owner": "BDA-KTS", "repo": "TelegramToolkit", "name": "Summary", "passed": true, "warning_labels": [], "error_labels": ["Warning"], "Workflow Duration": "2:00"}
+{"owner": "BDA-KTS", "repo": "TelegramToolkit", "name": "File Check", "passed": true, "warning_labels": ["postbuild"], "error_labels": [], "Workflow Duration": "2:00"}
+{"owner": "BDA-KTS", "repo": "TelegramToolkit", "name": "License Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "2:00"}
+{"owner": "BDA-KTS", "repo": "TelegramToolkit", "name": "Readme Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "2:00"}
+{"owner": "BDA-KTS", "repo": "TelegramToolkit", "name": "Binder Test", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "2:00"}
+{"owner": "BDA-KTS", "repo": "TelegramToolkit", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "2:00"}

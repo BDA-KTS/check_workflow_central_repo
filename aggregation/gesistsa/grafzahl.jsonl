@@ -1,6 +1,6 @@
-{"owner": "gesistsa", "repo": "grafzahl", "name": "Summary", "passed": false, "warning_labels": [], "error_labels": ["Critical"], "Workflow Duration": "0:00"}
-{"owner": "gesistsa", "repo": "grafzahl", "name": "File Check", "passed": false, "warning_labels": [], "error_labels": ["requirements.txt"], "Workflow Duration": "0:00"}
-{"owner": "gesistsa", "repo": "grafzahl", "name": "License Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "0:00"}
-{"owner": "gesistsa", "repo": "grafzahl", "name": "Readme Check", "passed": true, "warning_labels": [], "error_labels": ["Output Data"], "Workflow Duration": "0:00"}
-{"owner": "gesistsa", "repo": "grafzahl", "name": "Binder Test", "passed": false, "warning_labels": [], "error_labels": [], "Workflow Duration": "0:00"}
-{"owner": "gesistsa", "repo": "grafzahl", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "0:00"}
+{"owner": "gesistsa", "repo": "grafzahl", "name": "Summary", "passed": false, "warning_labels": [], "error_labels": ["Critical"], "Workflow Duration": "0:01"}
+{"owner": "gesistsa", "repo": "grafzahl", "name": "File Check", "passed": false, "warning_labels": [], "error_labels": ["requirements.txt"], "Workflow Duration": "0:01"}
+{"owner": "gesistsa", "repo": "grafzahl", "name": "License Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "0:01"}
+{"owner": "gesistsa", "repo": "grafzahl", "name": "Readme Check", "passed": true, "warning_labels": [], "error_labels": ["Output Data"], "Workflow Duration": "0:01"}
+{"owner": "gesistsa", "repo": "grafzahl", "name": "Binder Test", "passed": false, "warning_labels": [], "error_labels": [], "Workflow Duration": "0:01"}
+{"owner": "gesistsa", "repo": "grafzahl", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "0:01"}
