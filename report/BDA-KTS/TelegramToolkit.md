@@ -1,22 +1,18 @@
 # Report for BDA-KTS of TelegramToolkit
 
-## Report generated at 2026-04-12 18:34:41
+## Report generated at 2026-04-12 19:54:59
 
 ## Summary
 
-### Warnings ⚠️ 
+### Information ✅ 
 
-Passed but with warnings
+Passed perfectly
 
 ## File Check
 
-### Warnings ⚠️ 
-
-Warning: postbuild is duplicated.
-
 ### Information ✅ 
 
-Found required file: citation<br>Found required file: license<br>Found required file: postbuild<br>Found required file: postbuild<br>Found required file: requirements.txt<br>All required files found
+Found required file: citation<br>Found required file: license<br>Found required file: postbuild<br>Found required file: requirements.txt<br>All required files found
 
 ## License Check
 
@@ -44,5 +40,5 @@ Predicted labels: Data Analysis<br>Probability: 61.29%
 
 #### Duration 
 
-Time to complete 2 min 0 sec
+Time to complete 1 min 52 sec
 
