@@ -1,0 +1,6 @@
+{"owner": "gesistsa", "repo": "rtoot", "name": "Summary", "passed": true, "warning_labels": [], "error_labels": ["Warning"], "Workflow Duration": "4:13"}
+{"owner": "gesistsa", "repo": "rtoot", "name": "File Check", "passed": true, "warning_labels": ["license"], "error_labels": [], "Workflow Duration": "4:13"}
+{"owner": "gesistsa", "repo": "rtoot", "name": "License Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "4:13"}
+{"owner": "gesistsa", "repo": "rtoot", "name": "Readme Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "4:13"}
+{"owner": "gesistsa", "repo": "rtoot", "name": "Binder Test", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "4:13"}
+{"owner": "gesistsa", "repo": "rtoot", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "4:13"}
