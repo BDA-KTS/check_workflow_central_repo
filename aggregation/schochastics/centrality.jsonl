@@ -1,0 +1,6 @@
+{"owner": "schochastics", "repo": "centrality", "name": "Summary", "passed": false, "warning_labels": [], "error_labels": ["Critical"], "Workflow Duration": "6:00"}
+{"owner": "schochastics", "repo": "centrality", "name": "File Check", "passed": true, "warning_labels": ["postbuild"], "error_labels": [], "Workflow Duration": "6:00"}
+{"owner": "schochastics", "repo": "centrality", "name": "License Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "6:00"}
+{"owner": "schochastics", "repo": "centrality", "name": "Readme Check", "passed": false, "warning_labels": ["Duplicated"], "error_labels": ["Technical Details", "How to Use", "Hardware Requirements", "Description", "Use Cases", "Environment Setup", "Input Data", "Contact Details", "Output Data"], "Workflow Duration": "6:00"}
+{"owner": "schochastics", "repo": "centrality", "name": "Binder Test", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "6:00"}
+{"owner": "schochastics", "repo": "centrality", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "6:00"}
