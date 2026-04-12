@@ -1,6 +1,6 @@
 # Report for SEBSCHELLI of MH_SciTweets_Heuristics
 
-## Report generated at 2026-04-11 13:28:16
+## Report generated at 2026-04-12 11:14:03
 
 ## Summary
 
@@ -42,5 +42,7 @@ Repo2Docker build successful. Binder environment is valid.
 
 No labels predicted with probability above threshold.
 
-Time to complete 1 min 39 sec
+#### Duration 
+
+Time to complete 1 min 33 sec
 
