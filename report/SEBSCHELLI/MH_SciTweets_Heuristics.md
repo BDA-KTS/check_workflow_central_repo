@@ -1,6 +1,6 @@
 # Report for SEBSCHELLI of MH_SciTweets_Heuristics
 
-## Report generated at 2026-04-12 18:25:54
+## Report generated at 2026-04-12 19:46:13
 
 ## Summary
 
@@ -10,13 +10,9 @@ Major Flaws, Error in at least one Check
 
 ## File Check
 
-### Warnings ⚠️ 
-
-Warning: postbuild is duplicated.
-
 ### Information ✅ 
 
-Found required file: citation<br>Found required file: license<br>Found required file: postbuild<br>Found required file: postbuild<br>Found required file: requirements.txt<br>All required files found
+Found required file: citation<br>Found required file: license<br>Found required file: postbuild<br>Found required file: requirements.txt<br>All required files found
 
 ## License Check
 
@@ -44,5 +40,5 @@ No labels predicted with probability above threshold.
 
 #### Duration 
 
-Time to complete 1 min 37 sec
+Time to complete 1 min 31 sec
 
