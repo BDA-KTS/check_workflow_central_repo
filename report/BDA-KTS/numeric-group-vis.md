@@ -1,6 +1,6 @@
 # Report for BDA-KTS of numeric-group-vis
 
-## Report generated at 2026-04-12 20:17:26
+## Report generated at 2026-04-12 22:05:58
 
 ## Summary
 
@@ -24,7 +24,7 @@ Found MIT License, License accepted
 
 ### Errors ⛔ 
 
-No title found but one is required.<br>Missing subtitles: Input Data<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#input-data<br>Missing subtitles: Technical Details<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#how-to-use<br>Missing subtitles: How to Use<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#how-to-use<br>Missing subtitles: Output Data<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#output-data<br>Missing subtitles: Contact Details<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#contact-detailsn <br>Missing subtitles: Hardware Requirements<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#hardware-requirements<br>Missing subtitles: Environment Setup<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#environment-setup<br>Missing subtitles: Description<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#description
+No title found but one is required.<br>Missing subtitles: Input Data<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#input-data<br>Missing subtitles: Environment Setup<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#environment-setup<br>Missing subtitles: Technical Details<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#how-to-use<br>Missing subtitles: Description<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#description<br>Missing subtitles: Output Data<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#output-data<br>Missing subtitles: How to Use<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#how-to-use<br>Missing subtitles: Hardware Requirements<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#hardware-requirements<br>Missing subtitles: Contact Details<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#contact-detailsn 
 
 ### Information ✅ 
 
@@ -44,5 +44,5 @@ Predicted labels: Data Analysis<br>Probability: 65.21%
 
 #### Duration 
 
-Time to complete 4 min 28 sec
+Time to complete 3 min 51 sec
 
