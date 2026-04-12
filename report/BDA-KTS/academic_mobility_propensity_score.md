@@ -1,6 +1,6 @@
 # Report for BDA-KTS of academic_mobility_propensity_score
 
-## Report generated at 2026-04-12 18:40:58
+## Report generated at 2026-04-12 20:00:45
 
 ## Summary
 
@@ -10,13 +10,9 @@ Major Flaws, Error in at least one Check
 
 ## File Check
 
-### Warnings ⚠️ 
-
-Warning: postbuild is duplicated.
-
 ### Information ✅ 
 
-Found required file: citation<br>Found required file: license<br>Found required file: postbuild<br>Found required file: postbuild<br>Found required file: install.R<br>Found required file: runtime.txt<br>All required files found
+Found required file: citation<br>Found required file: license<br>Found required file: postbuild<br>Found required file: install.R<br>Found required file: runtime.txt<br>All required files found
 
 ## License Check
 
@@ -44,5 +40,5 @@ Predicted labels: Data Analysis<br>Probability: 65.52%
 
 #### Duration 
 
-Time to complete 4 min 39 sec
+Time to complete 3 min 59 sec
 
