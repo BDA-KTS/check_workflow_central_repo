@@ -1,6 +1,6 @@
 # Report for BDA-KTS of detection-of-verified-claims
 
-## Report generated at 2026-04-11 13:45:30
+## Report generated at 2026-04-12 11:31:16
 
 ## Summary
 
@@ -42,5 +42,7 @@ Repo2Docker build successful. Binder environment is valid.
 
 Predicted labels: Data Analysis<br>Probability: 67.24%
 
-Time to complete 3 min 45 sec
+#### Duration 
+
+Time to complete 3 min 37 sec
 
