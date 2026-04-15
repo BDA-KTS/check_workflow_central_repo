@@ -369,14 +369,14 @@ def make_report(df: pd.DataFrame, binder_after_filecheck: pd.DataFrame):
     ]
 
     df_summary = df[df["name"] == "Summary"].copy()
-    report.append('\n\n<img src="plots/plotsummary_passed.png" width="600">\n\n')
+    report.append('\n\n<img src="../plots/plotsummary_passed.png" width="600">\n\n')
     for _, row in df_summary.iterrows():
         if not row["passed"]:
             report.append(
                 f"The workflow [{row['owner']}/{row['repo']}](github.com/{row['owner']}/{row['repo']}) failed.\n\n"
             )
 
-    report.append('\n\n<img src="plots/plotsummary_label_states.png" width="600">\n\n')
+    report.append('\n\n<img src="../plots/plotsummary_label_states.png" width="600">\n\n')
     for _, row in df_summary.iterrows():
         if row["warning_labels"]:
             report.append(
@@ -384,7 +384,7 @@ def make_report(df: pd.DataFrame, binder_after_filecheck: pd.DataFrame):
             )
 
     report.append("## File Check Results\n\n")
-    report.append('\n\n<img src="plots/filecheck_passed.png" width="600">\n\n')
+    report.append('\n\n<img src="../plots/filecheck_passed.png" width="600">\n\n')
     df_filecheck = df[df["name"] == "File Check"].copy()
     for _, row in df_filecheck.iterrows():
         if not row["passed"]:
@@ -392,9 +392,9 @@ def make_report(df: pd.DataFrame, binder_after_filecheck: pd.DataFrame):
                 f"The workflow [{row['owner']}/{row['repo']}](github.com/{row['owner']}/{row['repo']}) failed.\n\n"
             )
     report.append("The following files are missing in the File Check:\n\n")
-    report.append('\n\n<img src="plots/filecheck_error_labels.png" width="600">\n\n')
+    report.append('\n\n<img src="../plots/filecheck_error_labels.png" width="600">\n\n')
     report.append("<br>")
-    report.append('\n\n<img src="plots/filecheck_label_state.png" width="600">\n\n')
+    report.append('\n\n<img src="../plots/filecheck_label_state.png" width="600">\n\n')
     for _, row in df_filecheck.iterrows():
         if row["warning_labels"]:
             report.append(
@@ -403,7 +403,7 @@ def make_report(df: pd.DataFrame, binder_after_filecheck: pd.DataFrame):
 
     report.append("\n\n")
     report.append("## License Check Results\n\n")
-    report.append('\n\n<img src="plots/licensecheck_passed.png" width="600">\n\n')
+    report.append('\n\n<img src="../plots/licensecheck_passed.png" width="600">\n\n')
     df_license = df[df["name"] == "License Check"].copy()
     for _, row in df_license.iterrows():
         if not row["passed"]:
@@ -411,9 +411,9 @@ def make_report(df: pd.DataFrame, binder_after_filecheck: pd.DataFrame):
                 f"The workflow [{row['owner']}/{row['repo']}](github.com/{row['owner']}/{row['repo']}) failed.\n\n"
             )
     report.append("Most Common Errors:\n\n")
-    report.append('\n\n<img src="plots/licensecheck_error_labels.png" width="600">\n\n')
+    report.append('\n\n<img src="../plots/licensecheck_error_labels.png" width="600">\n\n')
     report.append("<br>")
-    report.append('\n\n<img src="plots/licensecheck_label_states.png" width="600">\n\n')
+    report.append('\n\n<img src="../plots/licensecheck_label_states.png" width="600">\n\n')
     for _, row in df_license.iterrows():
         if row["warning_labels"]:
             report.append(
@@ -421,7 +421,7 @@ def make_report(df: pd.DataFrame, binder_after_filecheck: pd.DataFrame):
             )
 
     report.append("## Readme Check Results\n\n")
-    report.append('\n\n<img src="plots/readme_passed.png" width="600">\n\n')
+    report.append('\n\n<img src="../plots/readme_passed.png" width="600">\n\n')
     df_readme = df[df["name"] == "Readme Check"].copy()
     for _, row in df_readme.iterrows():
         if not row["passed"]:
@@ -429,11 +429,11 @@ def make_report(df: pd.DataFrame, binder_after_filecheck: pd.DataFrame):
                 f"The workflow [{row['owner']}/{row['repo']}](github.com/{row['owner']}/{row['repo']}) failed.\n\n"
             )
     report.append("Most Common Errors:\n\n")
-    report.append('\n\n<img src="plots/readme_error_labels.png" width="600">\n\n')
+    report.append('\n\n<img src="../plots/readme_error_labels.png" width="600">\n\n')
     report.append("Most Common Warnings:\n\n")
-    report.append('\n\n<img src="plots/readme_warning_labels.png" width="600">\n\n')
+    report.append('\n\n<img src="../plots/readme_warning_labels.png" width="600">\n\n')
     report.append("<br>")
-    report.append('\n\n<img src="plots/readme_label_states.png" width="600">\n\n')
+    report.append('\n\n<img src="../plots/readme_label_states.png" width="600">\n\n')
     for _, row in df_readme.iterrows():
         if row["warning_labels"]:
             report.append(
@@ -441,7 +441,7 @@ def make_report(df: pd.DataFrame, binder_after_filecheck: pd.DataFrame):
             )
 
     report.append("## Binder Test Results\n\n")
-    report.append('\n\n<img src="plots/bindertest_passed.png" width="600">\n\n')
+    report.append('\n\n<img src="../plots/bindertest_passed.png" width="600">\n\n')
     for _, row in binder_after_filecheck.iterrows():
         if not row["passed"]:
             report.append(
