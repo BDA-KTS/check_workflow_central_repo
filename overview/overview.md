@@ -8,7 +8,7 @@ The average workflow duration for successful workflows is 197.0 seconds.
 
 
 
-<img src="plots/plotsummary_passed.png" width="600">
+<img src="../plots/plotsummary_passed.png" width="600">
 
 The workflow [schochastics/MH_netAnaR](github.com/schochastics/MH_netAnaR) failed.
 
@@ -56,13 +56,13 @@ The workflow [SEBSCHELLI/MH_SciTweets_Heuristics](github.com/SEBSCHELLI/MH_SciTw
 
 
 
-<img src="plots/plotsummary_label_states.png" width="600">
+<img src="../plots/plotsummary_label_states.png" width="600">
 
 ## File Check Results
 
 
 
-<img src="plots/filecheck_passed.png" width="600">
+<img src="../plots/filecheck_passed.png" width="600">
 
 The workflow [schochastics/git_intro](github.com/schochastics/git_intro) failed.
 
@@ -80,11 +80,11 @@ The following files are missing in the File Check:
 
 
 
-<img src="plots/filecheck_error_labels.png" width="600">
+<img src="../plots/filecheck_error_labels.png" width="600">
 
 <br>
 
-<img src="plots/filecheck_label_state.png" width="600">
+<img src="../plots/filecheck_label_state.png" width="600">
 
 The workflow [schochastics/paperwizard](github.com/schochastics/paperwizard) has warnings.
 
@@ -104,7 +104,7 @@ The workflow [BDA-KTS/Language_Detection_Tutorial](github.com/BDA-KTS/Language_D
 
 
 
-<img src="plots/licensecheck_passed.png" width="600">
+<img src="../plots/licensecheck_passed.png" width="600">
 
 The workflow [schochastics/git_intro](github.com/schochastics/git_intro) failed.
 
@@ -122,17 +122,17 @@ Most Common Errors:
 
 
 
-<img src="plots/licensecheck_error_labels.png" width="600">
+<img src="../plots/licensecheck_error_labels.png" width="600">
 
 <br>
 
-<img src="plots/licensecheck_label_states.png" width="600">
+<img src="../plots/licensecheck_label_states.png" width="600">
 
 ## Readme Check Results
 
 
 
-<img src="plots/readme_passed.png" width="600">
+<img src="../plots/readme_passed.png" width="600">
 
 The workflow [schochastics/MH_netAnaR](github.com/schochastics/MH_netAnaR) failed.
 
@@ -170,17 +170,17 @@ Most Common Errors:
 
 
 
-<img src="plots/readme_error_labels.png" width="600">
+<img src="../plots/readme_error_labels.png" width="600">
 
 Most Common Warnings:
 
 
 
-<img src="plots/readme_warning_labels.png" width="600">
+<img src="../plots/readme_warning_labels.png" width="600">
 
 <br>
 
-<img src="plots/readme_label_states.png" width="600">
+<img src="../plots/readme_label_states.png" width="600">
 
 The workflow [schochastics/centrality](github.com/schochastics/centrality) has warnings.
 
@@ -188,7 +188,7 @@ The workflow [schochastics/centrality](github.com/schochastics/centrality) has w
 
 
 
-<img src="plots/bindertest_passed.png" width="600">
+<img src="../plots/bindertest_passed.png" width="600">
 
 The workflow [juliaromberg/methodshub-perspective-annotation-comparison](github.com/juliaromberg/methodshub-perspective-annotation-comparison) failed.
 
