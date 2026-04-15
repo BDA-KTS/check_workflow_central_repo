@@ -26,10 +26,10 @@ jobs:
           pip install -r requirements.txt
 
       - name: Run aggregation script
-        run: python central/aggregate_jsonl.py
+        run: python aggregation.py
 
       - name: Run Macro script
-        run: python central/macro_report.py
+        run: python macro_report.py
 
 
       - name: Commit and push report
