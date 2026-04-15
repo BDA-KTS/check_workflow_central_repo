@@ -11,12 +11,10 @@ from pathlib import Path
 from typing import Set, List, Counter, Any
 from licensename import from_text
 from datetime import datetime, timedelta
-import ast
-from importlib.metadata import packages_distributions
-from shutil import which
 
 
-from config import Settings
+
+from config import PublicSettings
 import time
 
 from jsons.Json_PreCooking import strip_markdown
