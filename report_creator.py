@@ -8,9 +8,12 @@ from dataclasses import dataclass, field
 import joblib
 import nbformat
 from pathlib import Path
-from typing import Set, List, Counter
+from typing import Set, List, Counter, Any
 from licensename import from_text
 from datetime import datetime, timedelta
+import ast
+from importlib.metadata import packages_distributions
+from shutil import which
 
 
 from config import Settings
@@ -78,7 +81,6 @@ def get_needed_files(suffixes: Set[str]) -> Set[str]:
         required_for_binder.add("requirements.txt")
 
     if ".r" in suffixes_lower:
-        required_for_binder.add("install.R")
         required_for_binder.add("runtime.txt")
 
     return required_for_binder

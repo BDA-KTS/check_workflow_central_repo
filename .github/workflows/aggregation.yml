@@ -20,14 +20,17 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Merge JSONL files into report/report.jsonl
-        shell: bash
+      - name: Install dependencies
         run: |
-          set -euo pipefail
+          python -m pip install --upgrade pip
+          pip install -r central/requirements.txt
 
-          python - <<'PY'
-         
-          PY
+      - name: Run aggregation script
+        run: python central/aggregate_jsonl.py
+
+      - name: Run Macro script
+        run: python central/macro_report.py
+
 
       - name: Commit and push report
         shell: bash
@@ -37,14 +40,14 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-          git add report/report.jsonl
+          git add overview/overview.md
 
           if git diff --cached --quiet; then
             echo "No changes to commit"
             exit 0
           fi
 
-          git commit -m "Update aggregated report"
+          git commit -m "Update overview report"
 
           for i in 1 2 3 4 5; do
             echo "Push attempt $i"
