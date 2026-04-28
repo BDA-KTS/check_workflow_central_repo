@@ -373,14 +373,14 @@ def make_report(df: pd.DataFrame, binder_after_filecheck: pd.DataFrame):
     for _, row in df_summary.iterrows():
         if not row["passed"]:
             report.append(
-                f"The workflow [https://{row['owner']}/{row['repo']}](github.com/{row['owner']}/{row['repo']}) failed.\n\n"
+                f"The workflow [{row['owner']}/{row['repo']}](https://github.com/{row['owner']}/{row['repo']}) failed.\n\n"
             )
 
     report.append('\n\n<img src="../plots/plotsummary_label_states.png" width="600">\n\n')
     for _, row in df_summary.iterrows():
         if row["warning_labels"]:
             report.append(
-                f"The workflow [https://{row['owner']}/{row['repo']}](github.com/{row['owner']}/{row['repo']}) has warnings.\n\n"
+                f"The workflow [{row['owner']}/{row['repo']}](https://github.com/{row['owner']}/{row['repo']}) has warnings.\n\n"
             )
 
     report.append("## File Check Results\n\n")
@@ -389,7 +389,7 @@ def make_report(df: pd.DataFrame, binder_after_filecheck: pd.DataFrame):
     for _, row in df_filecheck.iterrows():
         if not row["passed"]:
             report.append(
-                f"The workflow [https://{row['owner']}/{row['repo']}](github.com/{row['owner']}/{row['repo']}) failed.\n\n"
+                f"The workflow [{row['owner']}/{row['repo']}](https://github.com/{row['owner']}/{row['repo']}) failed.\n\n"
             )
     report.append("The following files are missing in the File Check:\n\n")
     report.append('\n\n<img src="../plots/filecheck_error_labels.png" width="600">\n\n')
@@ -398,7 +398,7 @@ def make_report(df: pd.DataFrame, binder_after_filecheck: pd.DataFrame):
     for _, row in df_filecheck.iterrows():
         if row["warning_labels"]:
             report.append(
-                f"The workflow [https://{row['owner']}/{row['repo']}](github.com/{row['owner']}/{row['repo']}) has warnings.\n\n"
+                f"The workflow [{row['owner']}/{row['repo']}](https://github.com/{row['owner']}/{row['repo']}) has warnings.\n\n"
             )
 
     report.append("\n\n")
@@ -408,7 +408,7 @@ def make_report(df: pd.DataFrame, binder_after_filecheck: pd.DataFrame):
     for _, row in df_license.iterrows():
         if not row["passed"]:
             report.append(
-                f"The workflow [https://{row['owner']}/{row['repo']}](github.com/{row['owner']}/{row['repo']}) failed.\n\n"
+                f"The workflow [{row['owner']}/{row['repo']}](https://github.com/{row['owner']}/{row['repo']}) failed.\n\n"
             )
     report.append("Most Common Errors:\n\n")
     report.append('\n\n<img src="../plots/licensecheck_error_labels.png" width="600">\n\n')
@@ -417,7 +417,7 @@ def make_report(df: pd.DataFrame, binder_after_filecheck: pd.DataFrame):
     for _, row in df_license.iterrows():
         if row["warning_labels"]:
             report.append(
-                f"The workflow [https://{row['owner']}/{row['repo']}](github.com/{row['owner']}/{row['repo']}) has warnings.\n\n"
+                f"The workflow [{row['owner']}/{row['repo']}](https://github.com/{row['owner']}/{row['repo']}) has warnings.\n\n"
             )
 
     report.append("## Readme Check Results\n\n")
@@ -426,7 +426,7 @@ def make_report(df: pd.DataFrame, binder_after_filecheck: pd.DataFrame):
     for _, row in df_readme.iterrows():
         if not row["passed"]:
             report.append(
-                f"The workflow [https://{row['owner']}/{row['repo']}](github.com/{row['owner']}/{row['repo']}) failed.\n\n"
+                f"The workflow [{row['owner']}/{row['repo']}](https://github.com/{row['owner']}/{row['repo']}) failed.\n\n"
             )
     report.append("Most Common Errors:\n\n")
     report.append('\n\n<img src="../plots/readme_error_labels.png" width="600">\n\n')
@@ -437,7 +437,7 @@ def make_report(df: pd.DataFrame, binder_after_filecheck: pd.DataFrame):
     for _, row in df_readme.iterrows():
         if row["warning_labels"]:
             report.append(
-                f"The workflow [https://{row['owner']}/{row['repo']}](github.com/{row['owner']}/{row['repo']}) has warnings.\n\n"
+                f"The workflow [{row['owner']}/{row['repo']}](https://github.com/{row['owner']}/{row['repo']}) has warnings.\n\n"
             )
 
     report.append("## Binder Test Results\n\n")
@@ -445,7 +445,7 @@ def make_report(df: pd.DataFrame, binder_after_filecheck: pd.DataFrame):
     for _, row in binder_after_filecheck.iterrows():
         if not row["passed"]:
             report.append(
-                f"The workflow [https://{row['owner']}/{row['repo']}](github.com/{row['owner']}/{row['repo']}) failed.\n\n"
+                f"The workflow [{row['owner']}/{row['repo']}](https://github.com/{row['owner']}/{row['repo']}) failed.\n\n"
             )
 
     return report
