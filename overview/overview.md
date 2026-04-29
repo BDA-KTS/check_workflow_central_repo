@@ -10,49 +10,49 @@ The average workflow duration for successful workflows is 197.0 seconds.
 
 <img src="../plots/plotsummary_passed.png" width="600">
 
-The workflow [mmmaurer/elfen](https://github.com/mmmaurer/elfen) failed.
+The workflow [mmmaurer/elfen](report/mmmaurer/elfen.md) failed.
 
-The workflow [BDA-KTS/academic_mobility_propensity_score](https://github.com/BDA-KTS/academic_mobility_propensity_score) failed.
+The workflow [BDA-KTS/academic_mobility_propensity_score](report/BDA-KTS/academic_mobility_propensity_score.md) failed.
 
-The workflow [BDA-KTS/NERD-Entity-Fishing](https://github.com/BDA-KTS/NERD-Entity-Fishing) failed.
+The workflow [BDA-KTS/NERD-Entity-Fishing](report/BDA-KTS/NERD-Entity-Fishing.md) failed.
 
-The workflow [BDA-KTS/4TCT](https://github.com/BDA-KTS/4TCT) failed.
+The workflow [BDA-KTS/4TCT](report/BDA-KTS/4TCT.md) failed.
 
-The workflow [BDA-KTS/numeric-group-vis](https://github.com/BDA-KTS/numeric-group-vis) failed.
+The workflow [BDA-KTS/numeric-group-vis](report/BDA-KTS/numeric-group-vis.md) failed.
 
-The workflow [BDA-KTS/Telegram-Data-Collection](https://github.com/BDA-KTS/Telegram-Data-Collection) failed.
+The workflow [BDA-KTS/Telegram-Data-Collection](report/BDA-KTS/Telegram-Data-Collection.md) failed.
 
-The workflow [BDA-KTS/Language_Detection_Tutorial](https://github.com/BDA-KTS/Language_Detection_Tutorial) failed.
+The workflow [BDA-KTS/Language_Detection_Tutorial](report/BDA-KTS/Language_Detection_Tutorial.md) failed.
 
-The workflow [SEBSCHELLI/MH_SciTweets_Heuristics](https://github.com/SEBSCHELLI/MH_SciTweets_Heuristics) failed.
+The workflow [SEBSCHELLI/MH_SciTweets_Heuristics](report/SEBSCHELLI/MH_SciTweets_Heuristics.md) failed.
 
-The workflow [lukasbirki/method_hub_linkage](https://github.com/lukasbirki/method_hub_linkage) failed.
+The workflow [lukasbirki/method_hub_linkage](report/lukasbirki/method_hub_linkage.md) failed.
 
-The workflow [schochastics/git_intro](https://github.com/schochastics/git_intro) failed.
+The workflow [schochastics/git_intro](report/schochastics/git_intro.md) failed.
 
-The workflow [schochastics/MH_netVizR](https://github.com/schochastics/MH_netVizR) failed.
+The workflow [schochastics/MH_netVizR](report/schochastics/MH_netVizR.md) failed.
 
-The workflow [schochastics/MH_netAnaR](https://github.com/schochastics/MH_netAnaR) failed.
+The workflow [schochastics/MH_netAnaR](report/schochastics/MH_netAnaR.md) failed.
 
-The workflow [schochastics/paperwizard](https://github.com/schochastics/paperwizard) failed.
+The workflow [schochastics/paperwizard](report/schochastics/paperwizard.md) failed.
 
-The workflow [schochastics/centrality](https://github.com/schochastics/centrality) failed.
+The workflow [schochastics/centrality](report/schochastics/centrality.md) failed.
 
-The workflow [chainsawriot/methodshub-weat](https://github.com/chainsawriot/methodshub-weat) failed.
+The workflow [chainsawriot/methodshub-weat](report/chainsawriot/methodshub-weat.md) failed.
 
-The workflow [gesistsa/grafzahl](https://github.com/gesistsa/grafzahl) failed.
+The workflow [gesistsa/grafzahl](report/gesistsa/grafzahl.md) failed.
 
-The workflow [gesistsa/webtrackR](https://github.com/gesistsa/webtrackR) failed.
+The workflow [gesistsa/webtrackR](report/gesistsa/webtrackR.md) failed.
 
-The workflow [gesistsa/oolong](https://github.com/gesistsa/oolong) failed.
+The workflow [gesistsa/oolong](report/gesistsa/oolong.md) failed.
 
-The workflow [gesistsa/rang](https://github.com/gesistsa/rang) failed.
+The workflow [gesistsa/rang](report/gesistsa/rang.md) failed.
 
-The workflow [gesistsa/sweater](https://github.com/gesistsa/sweater) failed.
+The workflow [gesistsa/sweater](report/gesistsa/sweater.md) failed.
 
-The workflow [gesiscss/methodshub-bertclassification](https://github.com/gesiscss/methodshub-bertclassification) failed.
+The workflow [gesiscss/methodshub-bertclassification](report/gesiscss/methodshub-bertclassification.md) failed.
 
-The workflow [juliaromberg/methodshub-perspective-annotation-comparison](https://github.com/juliaromberg/methodshub-perspective-annotation-comparison) failed.
+The workflow [juliaromberg/methodshub-perspective-annotation-comparison](report/juliaromberg/methodshub-perspective-annotation-comparison.md) failed.
 
 
 
@@ -64,17 +64,17 @@ The workflow [juliaromberg/methodshub-perspective-annotation-comparison](https:/
 
 <img src="../plots/filecheck_passed.png" width="600">
 
-The workflow [mmmaurer/elfen](https://github.com/mmmaurer/elfen) failed.
+The workflow [mmmaurer/elfen](report/mmmaurer/elfen.md) failed.
 
-The workflow [schochastics/git_intro](https://github.com/schochastics/git_intro) failed.
+The workflow [schochastics/git_intro](report/schochastics/git_intro.md) failed.
 
-The workflow [chainsawriot/methodshub-weat](https://github.com/chainsawriot/methodshub-weat) failed.
+The workflow [chainsawriot/methodshub-weat](report/chainsawriot/methodshub-weat.md) failed.
 
-The workflow [gesistsa/grafzahl](https://github.com/gesistsa/grafzahl) failed.
+The workflow [gesistsa/grafzahl](report/gesistsa/grafzahl.md) failed.
 
-The workflow [gesistsa/oolong](https://github.com/gesistsa/oolong) failed.
+The workflow [gesistsa/oolong](report/gesistsa/oolong.md) failed.
 
-The workflow [gesistsa/sweater](https://github.com/gesistsa/sweater) failed.
+The workflow [gesistsa/sweater](report/gesistsa/sweater.md) failed.
 
 The following files are missing in the File Check:
 
@@ -86,17 +86,17 @@ The following files are missing in the File Check:
 
 <img src="../plots/filecheck_label_state.png" width="600">
 
-The workflow [BDA-KTS/Language_Detection_Tutorial](https://github.com/BDA-KTS/Language_Detection_Tutorial) has warnings.
+The workflow [BDA-KTS/Language_Detection_Tutorial](report/BDA-KTS/Language_Detection_Tutorial.md) has warnings.
 
-The workflow [schochastics/Rtumblr](https://github.com/schochastics/Rtumblr) has warnings.
+The workflow [schochastics/Rtumblr](report/schochastics/Rtumblr.md) has warnings.
 
-The workflow [schochastics/paperwizard](https://github.com/schochastics/paperwizard) has warnings.
+The workflow [schochastics/paperwizard](report/schochastics/paperwizard.md) has warnings.
 
-The workflow [gesistsa/webtrackR](https://github.com/gesistsa/webtrackR) has warnings.
+The workflow [gesistsa/webtrackR](report/gesistsa/webtrackR.md) has warnings.
 
-The workflow [gesistsa/rtoot](https://github.com/gesistsa/rtoot) has warnings.
+The workflow [gesistsa/rtoot](report/gesistsa/rtoot.md) has warnings.
 
-The workflow [gesistsa/adaR](https://github.com/gesistsa/adaR) has warnings.
+The workflow [gesistsa/adaR](report/gesistsa/adaR.md) has warnings.
 
 
 
@@ -106,17 +106,17 @@ The workflow [gesistsa/adaR](https://github.com/gesistsa/adaR) has warnings.
 
 <img src="../plots/licensecheck_passed.png" width="600">
 
-The workflow [BDA-KTS/academic_mobility_propensity_score](https://github.com/BDA-KTS/academic_mobility_propensity_score) failed.
+The workflow [BDA-KTS/academic_mobility_propensity_score](report/BDA-KTS/academic_mobility_propensity_score.md) failed.
 
-The workflow [BDA-KTS/4TCT](https://github.com/BDA-KTS/4TCT) failed.
+The workflow [BDA-KTS/4TCT](report/BDA-KTS/4TCT.md) failed.
 
-The workflow [lukasbirki/method_hub_linkage](https://github.com/lukasbirki/method_hub_linkage) failed.
+The workflow [lukasbirki/method_hub_linkage](report/lukasbirki/method_hub_linkage.md) failed.
 
-The workflow [schochastics/git_intro](https://github.com/schochastics/git_intro) failed.
+The workflow [schochastics/git_intro](report/schochastics/git_intro.md) failed.
 
-The workflow [chainsawriot/methodshub-weat](https://github.com/chainsawriot/methodshub-weat) failed.
+The workflow [chainsawriot/methodshub-weat](report/chainsawriot/methodshub-weat.md) failed.
 
-The workflow [gesistsa/oolong](https://github.com/gesistsa/oolong) failed.
+The workflow [gesistsa/oolong](report/gesistsa/oolong.md) failed.
 
 Most Common Errors:
 
@@ -134,37 +134,37 @@ Most Common Errors:
 
 <img src="../plots/readme_passed.png" width="600">
 
-The workflow [BDA-KTS/numeric-group-vis](https://github.com/BDA-KTS/numeric-group-vis) failed.
+The workflow [BDA-KTS/numeric-group-vis](report/BDA-KTS/numeric-group-vis.md) failed.
 
-The workflow [BDA-KTS/Telegram-Data-Collection](https://github.com/BDA-KTS/Telegram-Data-Collection) failed.
+The workflow [BDA-KTS/Telegram-Data-Collection](report/BDA-KTS/Telegram-Data-Collection.md) failed.
 
-The workflow [BDA-KTS/Language_Detection_Tutorial](https://github.com/BDA-KTS/Language_Detection_Tutorial) failed.
+The workflow [BDA-KTS/Language_Detection_Tutorial](report/BDA-KTS/Language_Detection_Tutorial.md) failed.
 
-The workflow [SEBSCHELLI/MH_SciTweets_Heuristics](https://github.com/SEBSCHELLI/MH_SciTweets_Heuristics) failed.
+The workflow [SEBSCHELLI/MH_SciTweets_Heuristics](report/SEBSCHELLI/MH_SciTweets_Heuristics.md) failed.
 
-The workflow [lukasbirki/method_hub_linkage](https://github.com/lukasbirki/method_hub_linkage) failed.
+The workflow [lukasbirki/method_hub_linkage](report/lukasbirki/method_hub_linkage.md) failed.
 
-The workflow [schochastics/git_intro](https://github.com/schochastics/git_intro) failed.
+The workflow [schochastics/git_intro](report/schochastics/git_intro.md) failed.
 
-The workflow [schochastics/MH_netVizR](https://github.com/schochastics/MH_netVizR) failed.
+The workflow [schochastics/MH_netVizR](report/schochastics/MH_netVizR.md) failed.
 
-The workflow [schochastics/MH_netAnaR](https://github.com/schochastics/MH_netAnaR) failed.
+The workflow [schochastics/MH_netAnaR](report/schochastics/MH_netAnaR.md) failed.
 
-The workflow [schochastics/paperwizard](https://github.com/schochastics/paperwizard) failed.
+The workflow [schochastics/paperwizard](report/schochastics/paperwizard.md) failed.
 
-The workflow [schochastics/centrality](https://github.com/schochastics/centrality) failed.
+The workflow [schochastics/centrality](report/schochastics/centrality.md) failed.
 
-The workflow [chainsawriot/methodshub-weat](https://github.com/chainsawriot/methodshub-weat) failed.
+The workflow [chainsawriot/methodshub-weat](report/chainsawriot/methodshub-weat.md) failed.
 
-The workflow [gesistsa/webtrackR](https://github.com/gesistsa/webtrackR) failed.
+The workflow [gesistsa/webtrackR](report/gesistsa/webtrackR.md) failed.
 
-The workflow [gesistsa/rang](https://github.com/gesistsa/rang) failed.
+The workflow [gesistsa/rang](report/gesistsa/rang.md) failed.
 
-The workflow [gesistsa/sweater](https://github.com/gesistsa/sweater) failed.
+The workflow [gesistsa/sweater](report/gesistsa/sweater.md) failed.
 
-The workflow [gesiscss/methodshub-bertclassification](https://github.com/gesiscss/methodshub-bertclassification) failed.
+The workflow [gesiscss/methodshub-bertclassification](report/gesiscss/methodshub-bertclassification.md) failed.
 
-The workflow [juliaromberg/methodshub-perspective-annotation-comparison](https://github.com/juliaromberg/methodshub-perspective-annotation-comparison) failed.
+The workflow [juliaromberg/methodshub-perspective-annotation-comparison](report/juliaromberg/methodshub-perspective-annotation-comparison.md) failed.
 
 Most Common Errors:
 
@@ -182,7 +182,7 @@ Most Common Warnings:
 
 <img src="../plots/readme_label_states.png" width="600">
 
-The workflow [schochastics/centrality](https://github.com/schochastics/centrality) has warnings.
+The workflow [schochastics/centrality](report/schochastics/centrality.md) has warnings.
 
 ## Binder Test Results
 
@@ -190,7 +190,7 @@ The workflow [schochastics/centrality](https://github.com/schochastics/centralit
 
 <img src="../plots/bindertest_passed.png" width="600">
 
-The workflow [BDA-KTS/NERD-Entity-Fishing](https://github.com/BDA-KTS/NERD-Entity-Fishing) failed.
+The workflow [BDA-KTS/NERD-Entity-Fishing](report/BDA-KTS/NERD-Entity-Fishing.md) failed.
 
-The workflow [juliaromberg/methodshub-perspective-annotation-comparison](https://github.com/juliaromberg/methodshub-perspective-annotation-comparison) failed.
+The workflow [juliaromberg/methodshub-perspective-annotation-comparison](report/juliaromberg/methodshub-perspective-annotation-comparison.md) failed.
 
