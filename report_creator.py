@@ -469,6 +469,7 @@ def write_report(checklists, report_file, owner, repo, elapsed_time):
     with open(report_file, "w", encoding="utf-8") as f:
         f.write(f"# Report for {owner} of {repo}\n\n")
         f.write("## Report generated at {}\n\n".format(time.strftime("%Y-%m-%d %H:%M:%S")))
+        f.write(f"## Link to the repository: [GitHub Repository](https://github.com/{owner}/{repo})")
         for checklist in checklists:
             f.write("## {}\n\n".format(checklist.name))
             if checklist.errors:
