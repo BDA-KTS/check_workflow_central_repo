@@ -8,18 +8,22 @@ from dataclasses import dataclass, field
 import joblib
 import nbformat
 from pathlib import Path
-from typing import Set, List, Counter, Any
+from typing import Set, List, Counter
 from licensename import from_text
-from datetime import datetime, timedelta
-import ast
-from importlib.metadata import packages_distributions
-from shutil import which
-
-
-from config import Settings
+from datetime import datetime
 import time
-
 from jsons.Json_PreCooking import strip_markdown
+
+with open(os.environ["GITHUB_EVENT_PATH"], "r", encoding="utf-8") as payload_file:
+    payload = json.load(payload_file)
+
+event_type = payload.get("action")
+client_payload = payload.get("client_payload", {})
+if client_payload == "report_creator":
+    from config import Settings
+elif client_payload == "report_creator_tester":
+    from config import PublicSettings
+
 
 # Gets the configuration from the config.py file
 TEST_PATH = Settings.TEST_PATH
