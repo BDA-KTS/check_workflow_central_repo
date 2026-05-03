@@ -41,7 +41,7 @@ class PublicSettings:
         "Contact Details": "https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#contact-detailsn "}
     BINDER_DIRS: list[str] = ["", ".binder", "binder"]
     FREE_LICENSES: list[str] = ["Apache-2.0", "MIT", "BSD-2-Clause", "BSD-3-Clause", "ISC", "Zlib", "BSL-1.0", "GNU",
-                                "GPL-3.0","CCO-1.0","AGPL-3.0","EUPL-1.1","EUPL-1.2","LGPL-2.1"]
+                                "GPL-3.0","CC0-1.0","AGPL-3.0","EUPL-1.1","EUPL-1.2","LGPL-2.1"]
     REPO_REQUIREMENTS: dict = {
         "citation": "citation missing: https://github.com/GESIS-Methods-Hub/guidelines?tab=readme-ov-file#quality-criteria",
         "license": "license missing: https://github.com/GESIS-Methods-Hub/guidelines?tab=readme-ov-file#quality-criteria",
