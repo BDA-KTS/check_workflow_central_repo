@@ -1,6 +1,6 @@
 # Report for YSKartal of reference_disam
 
-## Report generated at 2026-05-03 17:42:45
+## Report generated at 2026-05-03 17:54:34
 
 ## Link to the repository: [GitHub Repository](https://github.com/YSKartal/reference_disam)
 
@@ -42,5 +42,5 @@ Predicted labels: Data Analysis<br>Probability: 66.04%
 
 #### Duration 
 
-Time to complete 1 min 39 sec
+Time to complete 1 min 23 sec
 
