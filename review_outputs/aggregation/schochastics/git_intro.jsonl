@@ -1,6 +1,6 @@
 {"owner": "schochastics", "repo": "git_intro", "name": "Summary", "passed": false, "warning_labels": [], "error_labels": ["Critical"], "Workflow Duration": "0:01"}
-{"owner": "schochastics", "repo": "git_intro", "name": "File Check", "passed": false, "warning_labels": [], "error_labels": ["citation", "license", "runtime.txt", "requirements.txt"], "Workflow Duration": "0:01"}
+{"owner": "schochastics", "repo": "git_intro", "name": "File Check", "passed": false, "warning_labels": [], "error_labels": ["license", "citation", "runtime.txt", "requirements.txt"], "Workflow Duration": "0:01"}
 {"owner": "schochastics", "repo": "git_intro", "name": "License Check", "passed": false, "warning_labels": [], "error_labels": ["No license"], "Workflow Duration": "0:01"}
-{"owner": "schochastics", "repo": "git_intro", "name": "Readme Check", "passed": false, "warning_labels": [], "error_labels": ["No Title", "Input Data", "Use Cases", "Environment Setup", "Output Data", "Technical Details", "Hardware Requirements", "Contact Details", "Description", "How to Use"], "Workflow Duration": "0:01"}
+{"owner": "schochastics", "repo": "git_intro", "name": "Readme Check", "passed": false, "warning_labels": [], "error_labels": ["No Title", "Environment Setup", "Hardware Requirements", "Output Data", "Input Data", "Use Cases", "Description", "Technical Details", "Contact Details", "How to Use"], "Workflow Duration": "0:01"}
 {"owner": "schochastics", "repo": "git_intro", "name": "Binder Test", "passed": false, "warning_labels": [], "error_labels": [], "Workflow Duration": "0:01"}
 {"owner": "schochastics", "repo": "git_intro", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "0:01"}
