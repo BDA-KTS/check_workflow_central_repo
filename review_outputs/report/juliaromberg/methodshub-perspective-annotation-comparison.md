@@ -1,6 +1,8 @@
 # Report for juliaromberg of methodshub-perspective-annotation-comparison
 
-## Report generated at 2026-04-12 22:02:08
+## Report generated at 2026-05-03 18:17:21
+
+## Link to the repository: [GitHub Repository](https://github.com/juliaromberg/methodshub-perspective-annotation-comparison)
 
 ## Summary
 
@@ -24,7 +26,7 @@ Found MIT License, License accepted
 
 ### Errors ⛔ 
 
-Missing subtitles: How to Use<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#how-to-use<br>Missing subtitles: Output Data<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#output-data<br>Missing subtitles: Description<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#description<br>Missing subtitles: Hardware Requirements<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#hardware-requirements<br>Missing subtitles: Technical Details<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#how-to-use<br>Missing subtitles: Input Data<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#input-data<br>Missing subtitles: Contact Details<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#contact-detailsn <br>Missing subtitles: Environment Setup<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#environment-setup<br>Missing subtitles: Use Cases<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#use-cases
+Missing subtitles: Description<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#description<br>Missing subtitles: Output Data<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#output-data<br>Missing subtitles: Input Data<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#input-data<br>Missing subtitles: Environment Setup<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#environment-setup<br>Missing subtitles: Use Cases<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#use-cases<br>Missing subtitles: Hardware Requirements<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#hardware-requirements<br>Missing subtitles: Contact Details<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#contact-detailsn <br>Missing subtitles: Technical Details<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#how-to-use<br>Missing subtitles: How to Use<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#how-to-use
 
 ### Information ✅ 
 
@@ -43,12 +45,12 @@ Traceback (most recent call last):
              ^^^^^^
   File "/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/site-packages/repo2docker/__main__.py", line 476, in main
     r2d.start()
-  File "/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/site-packages/repo2docker/app.py", line 846, in start
+  File "/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/site-packages/repo2docker/app.py", line 856, in start
     self.build()
-  File "/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/site-packages/repo2docker/app.py", line 790, in build
+  File "/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/site-packages/repo2docker/app.py", line 800, in build
     picked_buildpack.render(build_args),
     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/site-packages/repo2docker/buildpacks/base.py", line 522, in render
+  File "/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/site-packages/repo2docker/buildpacks/base.py", line 535, in render
     for k, v in self.get_build_script_files().items()
                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   File "/opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/site-packages/repo2docker/buildpacks/conda/__init__.py", line 174, in get_build_script_files

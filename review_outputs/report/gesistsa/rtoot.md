@@ -1,6 +1,8 @@
 # Report for gesistsa of rtoot
 
-## Report generated at 2026-04-12 21:46:44
+## Report generated at 2026-05-03 18:04:22
+
+## Link to the repository: [GitHub Repository](https://github.com/gesistsa/rtoot)
 
 ## Summary
 
@@ -16,7 +18,7 @@ Warning: license is duplicated.
 
 ### Information ✅ 
 
-Found required file: citation<br>Found required file: license<br>Found required file: license<br>Found required file: postbuild<br>Found required file: install.R<br>Found required file: runtime.txt<br>All required files found
+Found required file: citation<br>Found required file: license<br>Found required file: license<br>Found required file: postbuild<br>Found required file: runtime.txt<br>All required files found
 
 ## License Check
 
@@ -44,5 +46,5 @@ No labels predicted with probability above threshold.
 
 #### Duration 
 
-Time to complete 4 min 43 sec
+Time to complete 7 min 7 sec
 

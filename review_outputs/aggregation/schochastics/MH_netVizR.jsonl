@@ -1,6 +1,6 @@
-{"owner": "schochastics", "repo": "MH_netVizR", "name": "Summary", "passed": false, "warning_labels": [], "error_labels": ["Critical"], "Workflow Duration": "5:34"}
-{"owner": "schochastics", "repo": "MH_netVizR", "name": "File Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "5:34"}
-{"owner": "schochastics", "repo": "MH_netVizR", "name": "License Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "5:34"}
-{"owner": "schochastics", "repo": "MH_netVizR", "name": "Readme Check", "passed": false, "warning_labels": [], "error_labels": ["Multiple Titles", "Hardware Requirements", "Output Data", "Contact Details", "Technical Details", "Environment Setup", "Description", "Input Data", "How to Use", "Use Cases"], "Workflow Duration": "5:34"}
-{"owner": "schochastics", "repo": "MH_netVizR", "name": "Binder Test", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "5:34"}
-{"owner": "schochastics", "repo": "MH_netVizR", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "5:34"}
+{"owner": "schochastics", "repo": "MH_netVizR", "name": "Summary", "passed": false, "warning_labels": [], "error_labels": ["Critical"], "Workflow Duration": "5:46"}
+{"owner": "schochastics", "repo": "MH_netVizR", "name": "File Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "5:46"}
+{"owner": "schochastics", "repo": "MH_netVizR", "name": "License Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "5:46"}
+{"owner": "schochastics", "repo": "MH_netVizR", "name": "Readme Check", "passed": false, "warning_labels": [], "error_labels": ["Multiple Titles", "Environment Setup", "Use Cases", "Technical Details", "Input Data", "Description", "Hardware Requirements", "Contact Details", "Output Data", "How to Use"], "Workflow Duration": "5:46"}
+{"owner": "schochastics", "repo": "MH_netVizR", "name": "Binder Test", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "5:46"}
+{"owner": "schochastics", "repo": "MH_netVizR", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "5:46"}

@@ -1,6 +1,8 @@
 # Report for gesistsa of adaR
 
-## Report generated at 2026-04-12 21:33:40
+## Report generated at 2026-05-03 17:49:24
+
+## Link to the repository: [GitHub Repository](https://github.com/gesistsa/adaR)
 
 ## Summary
 
@@ -16,7 +18,7 @@ Warning: license is duplicated.
 
 ### Information ✅ 
 
-Found required file: citation<br>Found required file: license<br>Found required file: license<br>Found required file: postbuild<br>Found required file: install.R<br>Found required file: runtime.txt<br>All required files found
+Found required file: citation<br>Found required file: license<br>Found required file: license<br>Found required file: postbuild<br>Found required file: runtime.txt<br>All required files found
 
 ## License Check
 
@@ -44,5 +46,5 @@ Predicted labels: Data Analysis<br>Probability: 60.83%
 
 #### Duration 
 
-Time to complete 3 min 44 sec
+Time to complete 4 min 15 sec
 

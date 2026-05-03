@@ -1,6 +1,6 @@
-{"owner": "taimoorkhan-nlp", "repo": "text_edit_distance_similarity", "name": "Summary", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "1:24"}
-{"owner": "taimoorkhan-nlp", "repo": "text_edit_distance_similarity", "name": "File Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "1:24"}
-{"owner": "taimoorkhan-nlp", "repo": "text_edit_distance_similarity", "name": "License Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "1:24"}
-{"owner": "taimoorkhan-nlp", "repo": "text_edit_distance_similarity", "name": "Readme Check", "passed": true, "warning_labels": [], "error_labels": ["Hardware Requirements"], "Workflow Duration": "1:24"}
-{"owner": "taimoorkhan-nlp", "repo": "text_edit_distance_similarity", "name": "Binder Test", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "1:24"}
-{"owner": "taimoorkhan-nlp", "repo": "text_edit_distance_similarity", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "1:24"}
+{"owner": "taimoorkhan-nlp", "repo": "text_edit_distance_similarity", "name": "Summary", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "2:42"}
+{"owner": "taimoorkhan-nlp", "repo": "text_edit_distance_similarity", "name": "File Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "2:42"}
+{"owner": "taimoorkhan-nlp", "repo": "text_edit_distance_similarity", "name": "License Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "2:42"}
+{"owner": "taimoorkhan-nlp", "repo": "text_edit_distance_similarity", "name": "Readme Check", "passed": true, "warning_labels": [], "error_labels": ["Hardware Requirements"], "Workflow Duration": "2:42"}
+{"owner": "taimoorkhan-nlp", "repo": "text_edit_distance_similarity", "name": "Binder Test", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "2:42"}
+{"owner": "taimoorkhan-nlp", "repo": "text_edit_distance_similarity", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "2:42"}

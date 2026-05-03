@@ -1,6 +1,8 @@
 # Report for BDA-KTS of TelegramToolkit
 
-## Report generated at 2026-04-12 21:44:27
+## Report generated at 2026-05-03 18:00:36
+
+## Link to the repository: [GitHub Repository](https://github.com/BDA-KTS/TelegramToolkit)
 
 ## Summary
 
@@ -40,5 +42,5 @@ Predicted labels: Data Analysis<br>Probability: 61.29%
 
 #### Duration 
 
-Time to complete 2 min 3 sec
+Time to complete 2 min 56 sec
 
