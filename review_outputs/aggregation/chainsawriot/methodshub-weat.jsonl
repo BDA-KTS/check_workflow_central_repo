@@ -1,6 +1,6 @@
-{"owner": "chainsawriot", "repo": "methodshub-weat", "name": "Summary", "passed": false, "warning_labels": [], "error_labels": ["Critical"], "Workflow Duration": "4:27"}
-{"owner": "chainsawriot", "repo": "methodshub-weat", "name": "File Check", "passed": false, "warning_labels": [], "error_labels": ["license", "citation"], "Workflow Duration": "4:27"}
-{"owner": "chainsawriot", "repo": "methodshub-weat", "name": "License Check", "passed": false, "warning_labels": [], "error_labels": ["No license"], "Workflow Duration": "4:27"}
-{"owner": "chainsawriot", "repo": "methodshub-weat", "name": "Readme Check", "passed": false, "warning_labels": [], "error_labels": ["No Title", "How to Use", "Input Data", "Technical Details", "Use Cases", "Hardware Requirements", "Contact Details", "Environment Setup", "Description", "Output Data"], "Workflow Duration": "4:27"}
-{"owner": "chainsawriot", "repo": "methodshub-weat", "name": "Binder Test", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "4:27"}
-{"owner": "chainsawriot", "repo": "methodshub-weat", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "4:27"}
+{"owner": "chainsawriot", "repo": "methodshub-weat", "name": "Summary", "passed": false, "warning_labels": [], "error_labels": ["Critical"], "Workflow Duration": "11:26"}
+{"owner": "chainsawriot", "repo": "methodshub-weat", "name": "File Check", "passed": false, "warning_labels": [], "error_labels": ["license", "citation"], "Workflow Duration": "11:26"}
+{"owner": "chainsawriot", "repo": "methodshub-weat", "name": "License Check", "passed": false, "warning_labels": [], "error_labels": ["No license"], "Workflow Duration": "11:26"}
+{"owner": "chainsawriot", "repo": "methodshub-weat", "name": "Readme Check", "passed": false, "warning_labels": [], "error_labels": ["No Title", "Input Data", "Environment Setup", "Description", "Hardware Requirements", "Output Data", "Contact Details", "How to Use", "Technical Details", "Use Cases"], "Workflow Duration": "11:26"}
+{"owner": "chainsawriot", "repo": "methodshub-weat", "name": "Binder Test", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "11:26"}
+{"owner": "chainsawriot", "repo": "methodshub-weat", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "11:26"}
