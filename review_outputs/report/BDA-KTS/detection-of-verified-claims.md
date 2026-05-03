@@ -1,6 +1,8 @@
 # Report for BDA-KTS of detection-of-verified-claims
 
-## Report generated at 2026-04-12 21:53:57
+## Report generated at 2026-05-03 18:09:12
+
+## Link to the repository: [GitHub Repository](https://github.com/BDA-KTS/detection-of-verified-claims)
 
 ## Summary
 
@@ -40,5 +42,5 @@ Predicted labels: Data Analysis<br>Probability: 67.24%
 
 #### Duration 
 
-Time to complete 3 min 48 sec
+Time to complete 3 min 55 sec
 
