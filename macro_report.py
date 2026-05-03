@@ -16,7 +16,7 @@ REQUIRED_COLUMNS = {
     "Workflow Duration",
 }
 
-PLOT_DIR = Path("plots")
+PLOT_DIR = Path("review_outputs/plots")
 
 
 def load_jsonl(path: Path) -> pd.DataFrame:
@@ -459,7 +459,7 @@ def save_report(report, path: Path):
         print(f"Error saving report to {path}: {e}")
 
 
-df = load_jsonl(Path("report_jsonl/merged.jsonl"))
+df = load_jsonl(Path("review_outputs/report_jsonl/merged.jsonl"))
 
 sections = {
     "Summary": df[df["name"] == "Summary"],
@@ -494,6 +494,6 @@ plot_summary_duration(df)
 
 report = make_report(df, binder_after_filecheck)
 
-overview_dir = Path("overview")
+overview_dir = Path("review_outputs/overview")
 overview_dir.mkdir(parents=True, exist_ok=True)
-save_report(report, Path("overview/overview.md"))
+save_report(report, Path("review_outputs/overview/overview.md"))

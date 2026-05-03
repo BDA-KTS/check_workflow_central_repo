@@ -4,7 +4,7 @@ from pathlib import Path
 # Configuration
 class Settings:
     TEST_PATH: Path = Path("testee")
-    CENTRAL_PATH: Path = Path("central")
+    CENTRAL_PATH: Path = Path("central/review_outputs")
     REPORT_PATH: Path = CENTRAL_PATH / "report"
     AGGREGATION_PATH: Path = CENTRAL_PATH / "aggregation"
     NECESSARY_SUBTITLES: dict = {
@@ -25,9 +25,9 @@ class Settings:
 
 class PublicSettings:
     TEST_PATH: Path = Path("testee")
-    CENTRAL_PATH: Path = Path("central")
-    REPORT_PATH: Path = CENTRAL_PATH / "Public Testing" / "report"
-    AGGREGATION_PATH: Path = CENTRAL_PATH / "Public Testing" / "aggregation"
+    CENTRAL_PATH: Path = Path("central/public_outputs")
+    REPORT_PATH: Path = CENTRAL_PATH  / "report"
+    AGGREGATION_PATH: Path = CENTRAL_PATH / "aggregation"
     NECESSARY_SUBTITLES: dict = {
         "Description": "https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#description",
         "Use Cases": "https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#use-cases",

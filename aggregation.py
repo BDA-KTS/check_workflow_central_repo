@@ -1,8 +1,8 @@
 import json
 from pathlib import Path
 
-aggregation_dir = Path("aggregation")
-output_dir = Path("report_jsonl")
+aggregation_dir = Path("review_outputs/aggregation")
+output_dir = Path("review_outputs/report_jsonl")
 output_dir.mkdir(parents=True, exist_ok=True)
 output_file = output_dir / "merged.jsonl"
 
