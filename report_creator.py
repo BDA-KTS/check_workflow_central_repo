@@ -19,6 +19,7 @@ with open(os.environ["GITHUB_EVENT_PATH"], "r", encoding="utf-8") as payload_fil
 
 event_type = payload.get("action")
 client_payload = payload.get("client_payload", {})
+print(client_payload)
 if client_payload == "report_creator":
     from config import Settings
 elif client_payload == "report_creator_tester":
