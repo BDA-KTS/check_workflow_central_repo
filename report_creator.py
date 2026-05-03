@@ -415,8 +415,8 @@ def extract_text_from_content(path: Path) -> str:
 
 def load_ml_artifacts():
     model = joblib.load(ML_PATH/"model.joblib")
-    vectorizer = joblib.load(ML_PATH/ "models/vectorizer.joblib")
-    mlb = joblib.load(ML_PATH / "models/mlb.joblib")
+    vectorizer = joblib.load(ML_PATH/ "vectorizer.joblib")
+    mlb = joblib.load(ML_PATH / "mlb.joblib")
     return model, vectorizer, mlb
 
 def predict_labels_with_probability(path: Path ,threshold: float = 0.5):
