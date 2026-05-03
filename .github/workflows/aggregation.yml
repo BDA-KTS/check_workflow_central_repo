@@ -41,7 +41,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-          git add overview/overview.md plots/
+          git add review_outputs/overview/overview.md review_outputs/plots/
 
           if git diff --cached --quiet; then
             echo "No changes to commit"
