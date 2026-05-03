@@ -1,12 +1,14 @@
 # Report for BDA-KTS of 4TCT
 
-## Report generated at 2026-04-12 21:47:27
+## Report generated at 2026-05-03 18:03:51
+
+## Link to the repository: [GitHub Repository](https://github.com/BDA-KTS/4TCT)
 
 ## Summary
 
-### Errors ⛔ 
+### Information ✅ 
 
-Major Flaws, Error in at least one Check
+Passed perfectly
 
 ## File Check
 
@@ -16,9 +18,9 @@ Found required file: citation<br>Found required file: license<br>Found required 
 
 ## License Check
 
-### Errors ⛔ 
+### Information ✅ 
 
-Found AGPL-3.0 License denied 
+Found AGPL-3.0 License, License accepted 
 
 ## Readme Check
 
@@ -44,5 +46,5 @@ No labels predicted with probability above threshold.
 
 #### Duration 
 
-Time to complete 1 min 23 sec
+Time to complete 2 min 37 sec
 
