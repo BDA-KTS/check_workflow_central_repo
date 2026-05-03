@@ -23,7 +23,7 @@ class Settings:
     REPO_REQUIREMENTS:dict = {"citation":"citation missing: https://github.com/GESIS-Methods-Hub/guidelines?tab=readme-ov-file#quality-criteria",
                          "license":"license missing: https://github.com/GESIS-Methods-Hub/guidelines?tab=readme-ov-file#quality-criteria",
                                    "postbuild":"postbuild missing: https://github.com/GESIS-Methods-Hub/guidelines?tab=readme-ov-file#binder-environment"}
-
+    ML_PATH: Path = Path("central/models")
 class PublicSettings:
     TEST_PATH: Path = Path("testee")
     CENTRAL_PATH: Path = Path("central/public_outputs")
@@ -46,3 +46,4 @@ class PublicSettings:
         "citation": "citation missing: https://github.com/GESIS-Methods-Hub/guidelines?tab=readme-ov-file#quality-criteria",
         "license": "license missing: https://github.com/GESIS-Methods-Hub/guidelines?tab=readme-ov-file#quality-criteria",
         "postbuild": "postbuild missing: https://github.com/GESIS-Methods-Hub/guidelines?tab=readme-ov-file#binder-environment"}
+    ML_PATH: Path = Path("central/models")

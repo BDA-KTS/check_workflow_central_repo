@@ -35,6 +35,7 @@ NECESSARY_SUBTITLES = Settings.NECESSARY_SUBTITLES
 FREE_LICENSES = Settings.FREE_LICENSES
 REPO_REQUIREMENTS = Settings.REPO_REQUIREMENTS
 BINDER_DIRS = Settings.BINDER_DIRS
+ML_PATH = Settings.ML_PATH
 report = []
 
 
@@ -413,9 +414,9 @@ def extract_text_from_content(path: Path) -> str:
         return strip_markdown(f.read())
 
 def load_ml_artifacts():
-    model = joblib.load(CENTRAL_PATH / "models/model.joblib")
-    vectorizer = joblib.load(CENTRAL_PATH / "models/vectorizer.joblib")
-    mlb = joblib.load(CENTRAL_PATH / "models/mlb.joblib")
+    model = joblib.load(ML_PATH/"model.joblib")
+    vectorizer = joblib.load(ML_PATH/ "models/vectorizer.joblib")
+    mlb = joblib.load(ML_PATH / "models/mlb.joblib")
     return model, vectorizer, mlb
 
 def predict_labels_with_probability(path: Path ,threshold: float = 0.5):
