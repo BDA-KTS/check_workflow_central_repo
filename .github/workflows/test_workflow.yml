@@ -49,7 +49,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           
-          REPORT_PATH="report/${{ github.event.client_payload.repository_full_name }}.md"
+          REPORT_PATH="review_outputs/report/${{ github.event.client_payload.repository_full_name }}.md"
           [ -f "$REPORT_PATH" ] || { echo "Report file not found: $REPORT_PATH"; exit 1; }
           
           git add "$REPORT_PATH"
@@ -86,7 +86,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
       
-          AGGREGATION_PATH="aggregation/${{ github.event.client_payload.repository_full_name }}.jsonl"
+          AGGREGATION_PATH="review_outputs/aggregation/${{ github.event.client_payload.repository_full_name }}.jsonl"
           [ -f "$AGGREGATION_PATH" ] || { echo "Report file not found: $AGGREGATION_PATH"; exit 1; }
       
           git add "$AGGREGATION_PATH"
