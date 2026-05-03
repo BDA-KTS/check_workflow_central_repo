@@ -1,6 +1,8 @@
 # Report for mmmaurer of elfen
 
-## Report generated at 2026-04-12 21:38:05
+## Report generated at 2026-05-03 17:53:16
+
+## Link to the repository: [GitHub Repository](https://github.com/mmmaurer/elfen)
 
 ## Summary
 
