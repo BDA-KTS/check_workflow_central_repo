@@ -1,6 +1,8 @@
 # Report for gesistsa of webtrackR
 
-## Report generated at 2026-04-12 21:54:13
+## Report generated at 2026-05-03 18:09:38
+
+## Link to the repository: [GitHub Repository](https://github.com/gesistsa/webtrackR)
 
 ## Summary
 
@@ -16,7 +18,7 @@ Warning: license is duplicated.
 
 ### Information ✅ 
 
-Found required file: citation<br>Found required file: license<br>Found required file: license<br>Found required file: postbuild<br>Found required file: install.R<br>Found required file: runtime.txt<br>All required files found
+Found required file: citation<br>Found required file: license<br>Found required file: license<br>Found required file: postbuild<br>Found required file: runtime.txt<br>All required files found
 
 ## License Check
 
@@ -48,5 +50,5 @@ No labels predicted with probability above threshold.
 
 #### Duration 
 
-Time to complete 4 min 8 sec
+Time to complete 4 min 22 sec
 
