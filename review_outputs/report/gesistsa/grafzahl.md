@@ -1,6 +1,8 @@
 # Report for gesistsa of grafzahl
 
-## Report generated at 2026-04-12 21:33:56
+## Report generated at 2026-05-03 17:49:13
+
+## Link to the repository: [GitHub Repository](https://github.com/gesistsa/grafzahl)
 
 ## Summary
 
@@ -16,7 +18,7 @@ Missing required files: requirements.txt
 
 ### Information ✅ 
 
-Found required file: citation<br>Found required file: license<br>Found required file: postbuild<br>Found required file: install.R<br>Found required file: runtime.txt<br>Missing required files
+Found required file: citation<br>Found required file: license<br>Found required file: postbuild<br>Found required file: runtime.txt<br>Missing required files
 
 ## License Check
 
