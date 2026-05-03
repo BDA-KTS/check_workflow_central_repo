@@ -1,6 +1,6 @@
-{"owner": "BDA-KTS", "repo": "Language_Detection_Tutorial", "name": "Summary", "passed": false, "warning_labels": [], "error_labels": ["Critical"], "Workflow Duration": "1:44"}
-{"owner": "BDA-KTS", "repo": "Language_Detection_Tutorial", "name": "File Check", "passed": true, "warning_labels": ["Multiple Setups"], "error_labels": [], "Workflow Duration": "1:44"}
-{"owner": "BDA-KTS", "repo": "Language_Detection_Tutorial", "name": "License Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "1:44"}
-{"owner": "BDA-KTS", "repo": "Language_Detection_Tutorial", "name": "Readme Check", "passed": false, "warning_labels": [], "error_labels": ["No Title", "How to Use", "Technical Details", "Description", "Contact Details", "Output Data", "Hardware Requirements"], "Workflow Duration": "1:44"}
-{"owner": "BDA-KTS", "repo": "Language_Detection_Tutorial", "name": "Binder Test", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "1:44"}
-{"owner": "BDA-KTS", "repo": "Language_Detection_Tutorial", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "1:44"}
+{"owner": "BDA-KTS", "repo": "Language_Detection_Tutorial", "name": "Summary", "passed": false, "warning_labels": [], "error_labels": ["Critical"], "Workflow Duration": "1:42"}
+{"owner": "BDA-KTS", "repo": "Language_Detection_Tutorial", "name": "File Check", "passed": true, "warning_labels": ["Multiple Setups"], "error_labels": [], "Workflow Duration": "1:42"}
+{"owner": "BDA-KTS", "repo": "Language_Detection_Tutorial", "name": "License Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "1:42"}
+{"owner": "BDA-KTS", "repo": "Language_Detection_Tutorial", "name": "Readme Check", "passed": false, "warning_labels": [], "error_labels": ["No Title", "Contact Details", "Technical Details", "Output Data", "How to Use", "Description", "Hardware Requirements"], "Workflow Duration": "1:42"}
+{"owner": "BDA-KTS", "repo": "Language_Detection_Tutorial", "name": "Binder Test", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "1:42"}
+{"owner": "BDA-KTS", "repo": "Language_Detection_Tutorial", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "1:42"}
