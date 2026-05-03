@@ -1,6 +1,8 @@
 # Report for BDA-KTS of academic_mobility_propensity_score
 
-## Report generated at 2026-04-12 21:50:24
+## Report generated at 2026-05-03 18:07:30
+
+## Link to the repository: [GitHub Repository](https://github.com/BDA-KTS/academic_mobility_propensity_score)
 
 ## Summary
 
@@ -12,7 +14,7 @@ Major Flaws, Error in at least one Check
 
 ### Information ✅ 
 
-Found required file: citation<br>Found required file: license<br>Found required file: postbuild<br>Found required file: install.R<br>Found required file: runtime.txt<br>All required files found
+Found required file: citation<br>Found required file: license<br>Found required file: postbuild<br>Found required file: runtime.txt<br>All required files found
 
 ## License Check
 
@@ -40,5 +42,5 @@ Predicted labels: Data Analysis<br>Probability: 65.52%
 
 #### Duration 
 
-Time to complete 4 min 21 sec
+Time to complete 6 min 10 sec
 
