@@ -1,6 +1,8 @@
 # Report for gesistsa of oolong
 
-## Report generated at 2026-04-12 21:46:01
+## Report generated at 2026-05-03 18:01:15
+
+## Link to the repository: [GitHub Repository](https://github.com/gesistsa/oolong)
 
 ## Summary
 
@@ -16,13 +18,13 @@ Missing required files: requirements.txt
 
 ### Information ✅ 
 
-Found required file: citation<br>Found required file: license<br>Found required file: postbuild<br>Found required file: install.R<br>Found required file: runtime.txt<br>Missing required files
+Found required file: citation<br>Found required file: license<br>Found required file: postbuild<br>Found required file: runtime.txt<br>Missing required files
 
 ## License Check
 
-### Errors ⛔ 
+### Information ✅ 
 
-Found LGPL-2.1 License denied 
+Found LGPL-2.1 License, License accepted 
 
 ## Readme Check
 
