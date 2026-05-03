@@ -1,6 +1,8 @@
 # Report for SEBSCHELLI of MH_SciTweets_Heuristics
 
-## Report generated at 2026-04-12 21:35:31
+## Report generated at 2026-05-03 17:52:20
+
+## Link to the repository: [GitHub Repository](https://github.com/SEBSCHELLI/MH_SciTweets_Heuristics)
 
 ## Summary
 
@@ -40,5 +42,5 @@ No labels predicted with probability above threshold.
 
 #### Duration 
 
-Time to complete 1 min 36 sec
+Time to complete 3 min 5 sec
 
