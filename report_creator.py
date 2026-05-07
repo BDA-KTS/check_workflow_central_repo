@@ -105,8 +105,6 @@ def check_for_files(repo_requirements,required_binder,root_files,extended_files)
     if match is not None and not any(f for f in root_files if f.casefold().split(".")[0] == "postbuild" ):
         extended_files.remove(match)
         root_files.append("postbuild")
-    print(f"Root files are: {root_files}")
-    print(f"Extended files are: {extended_files}")
     formal_files = check_for_formal_files(repo_requirements, root_files)
     binder_files=check_for_binder_files(required_binder,extended_files)
     passed=formal_files.passed and binder_files.passed
