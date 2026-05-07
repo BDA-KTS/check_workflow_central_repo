@@ -1,6 +1,6 @@
 # Report for juliaromberg of methodshub-perspective-annotation-comparison
 
-## Report generated at 2026-05-03 20:10:58
+## Report generated at 2026-05-07 12:20:42
 
 ## Link to the repository: [GitHub Repository](https://github.com/juliaromberg/methodshub-perspective-annotation-comparison)
 
@@ -26,11 +26,11 @@ Found MIT License, License accepted
 
 ### Errors ⛔ 
 
-Missing subtitles: Environment Setup<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#environment-setup<br>Missing subtitles: Input Data<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#input-data<br>Missing subtitles: Description<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#description<br>Missing subtitles: Technical Details<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#how-to-use<br>Missing subtitles: Use Cases<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#use-cases<br>Missing subtitles: Contact Details<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#contact-detailsn <br>Missing subtitles: Output Data<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#output-data<br>Missing subtitles: Hardware Requirements<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#hardware-requirements<br>Missing subtitles: How to Use<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#how-to-use
+Found too many titles: Count: 5<br>Missing subtitles: Output Data<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#output-data<br>Missing subtitles: Technical Details<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#how-to-use<br>Missing subtitles: How to Use<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#how-to-use<br>Missing subtitles: Input Data<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#input-data<br>Missing subtitles: Contact Details<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#contact-detailsn <br>Missing subtitles: Description<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#description<br>Missing subtitles: Hardware Requirements<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#hardware-requirements<br>Missing subtitles: Environment Setup<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#environment-setup<br>Missing subtitles: Use Cases<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#use-cases
 
 ### Information ✅ 
 
-Found too many titles: Count: 5<br>Found subtitle: Learning objectives<br>Found subtitle: Target audience<br>Found subtitle: Duration<br>Found subtitle: Use cases<br>Found subtitle: Setting up the computational environment<br>Found subtitle: Basic concepts you should know for this tutorial<br>Found subtitle: Which example tasks and datasets are we using?<br>Found subtitle: We employ Krippendorff’s Alpha for this analysis.<br>Found subtitle: We employ the Wasserstein distance for this analysis.
+Found subtitle: Learning objectives<br>Found subtitle: Target audience<br>Found subtitle: Duration<br>Found subtitle: Use cases<br>Found subtitle: Setting up the computational environment<br>Found subtitle: Basic concepts you should know for this tutorial<br>Found subtitle: Which example tasks and datasets are we using?<br>Found subtitle: We employ Krippendorff’s Alpha for this analysis.<br>Found subtitle: We employ the Wasserstein distance for this analysis.
 
 ## Binder Test
 
