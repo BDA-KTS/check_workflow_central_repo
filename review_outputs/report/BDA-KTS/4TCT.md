@@ -1,14 +1,14 @@
 # Report for BDA-KTS of 4TCT
 
-## Report generated at 2026-05-03 19:55:40
+## Report generated at 2026-05-07 12:05:43
 
 ## Link to the repository: [GitHub Repository](https://github.com/BDA-KTS/4TCT)
 
 ## Summary
 
-### Information ✅ 
+### Errors ⛔ 
 
-Passed perfectly
+Major Flaws, Error in at least one Check
 
 ## File Check
 
@@ -46,5 +46,5 @@ No labels predicted with probability above threshold.
 
 #### Duration 
 
-Time to complete 1 min 22 sec
+Time to complete 1 min 17 sec
 
