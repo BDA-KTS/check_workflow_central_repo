@@ -1,6 +1,6 @@
-{"owner": "schochastics", "repo": "MH_netAnaR", "name": "Summary", "passed": false, "warning_labels": [], "error_labels": ["Critical"], "Workflow Duration": "6:13"}
-{"owner": "schochastics", "repo": "MH_netAnaR", "name": "File Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "6:13"}
-{"owner": "schochastics", "repo": "MH_netAnaR", "name": "License Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "6:13"}
-{"owner": "schochastics", "repo": "MH_netAnaR", "name": "Readme Check", "passed": false, "warning_labels": [], "error_labels": ["Multiple Titles", "Output Data", "Description", "Use Cases", "Contact Details", "Technical Details", "How to Use", "Input Data", "Environment Setup", "Hardware Requirements"], "Workflow Duration": "6:13"}
-{"owner": "schochastics", "repo": "MH_netAnaR", "name": "Binder Test", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "6:13"}
-{"owner": "schochastics", "repo": "MH_netAnaR", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "6:13"}
+{"owner": "schochastics", "repo": "MH_netAnaR", "name": "Summary", "passed": false, "warning_labels": [], "error_labels": ["Critical"], "Workflow Duration": "5:24"}
+{"owner": "schochastics", "repo": "MH_netAnaR", "name": "File Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "5:24"}
+{"owner": "schochastics", "repo": "MH_netAnaR", "name": "License Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "5:24"}
+{"owner": "schochastics", "repo": "MH_netAnaR", "name": "Readme Check", "passed": false, "warning_labels": [], "error_labels": ["Multiple Titles", "Use Cases", "Contact Details", "Description", "How to Use", "Environment Setup", "Input Data", "Technical Details", "Hardware Requirements", "Output Data"], "Workflow Duration": "5:24"}
+{"owner": "schochastics", "repo": "MH_netAnaR", "name": "Binder Test", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "5:24"}
+{"owner": "schochastics", "repo": "MH_netAnaR", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "5:24"}
