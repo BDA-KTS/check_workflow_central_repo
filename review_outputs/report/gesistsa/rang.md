@@ -1,6 +1,6 @@
 # Report for gesistsa of rang
 
-## Report generated at 2026-05-03 19:54:17
+## Report generated at 2026-05-07 12:04:32
 
 ## Link to the repository: [GitHub Repository](https://github.com/gesistsa/rang)
 
@@ -26,11 +26,11 @@ Found GPL-3.0 License, License accepted
 
 ### Errors ⛔ 
 
-Missing subtitles: How to Use<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#how-to-use
+Found too many titles: Count: 4<br>Missing subtitles: How to Use<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#how-to-use
 
 ### Information ✅ 
 
-Found too many titles: Count: 4<br>Found subtitle: Description<br>Found subtitle: Keywords<br>Found subtitle: Use Cases<br>Found subtitle: Input Data<br>Found subtitle: Output Data<br>Found subtitle: Hardware Requirements<br>Found subtitle: Environment Setup<br>Found subtitle: How to Use {#sec-touse}<br>Found subtitle: Technical Details<br>Found subtitle: References<br>Found subtitle: Contact Details
+Found subtitle: Description<br>Found subtitle: Keywords<br>Found subtitle: Use Cases<br>Found subtitle: Input Data<br>Found subtitle: Output Data<br>Found subtitle: Hardware Requirements<br>Found subtitle: Environment Setup<br>Found subtitle: How to Use {#sec-touse}<br>Found subtitle: Technical Details<br>Found subtitle: References<br>Found subtitle: Contact Details
 
 ## Binder Test
 
@@ -46,5 +46,5 @@ No labels predicted with probability above threshold.
 
 #### Duration 
 
-Time to complete 8 min 3 sec
+Time to complete 8 min 2 sec
 
