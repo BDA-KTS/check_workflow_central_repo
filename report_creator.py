@@ -12,6 +12,7 @@ from typing import Set, List, Counter
 from licensename import from_text
 from datetime import datetime
 import time
+from config import Settings
 from jsons.Json_PreCooking import strip_markdown
 
 with open(os.environ["GITHUB_EVENT_PATH"], "r", encoding="utf-8") as payload_file:
@@ -19,16 +20,10 @@ with open(os.environ["GITHUB_EVENT_PATH"], "r", encoding="utf-8") as payload_fil
 
 event_type = payload.get("action")
 client_payload = payload.get("client_payload", {})
-print(event_type)
-if event_type == "report_creator":
-    from config import Settings
-elif event_type == "report_creator_tester":
-    from config import PublicSettings
-
-
 # Gets the configuration from the config.py file
 TEST_PATH = Settings.TEST_PATH
 CENTRAL_PATH = Settings.CENTRAL_PATH
+OUTPUT_PATH = Path(Settings.OUTPUT_PATH[event_type])
 REPORT_PATH = Settings.REPORT_PATH
 AGGREGATION_PATH = Settings.AGGREGATION_PATH
 NECESSARY_SUBTITLES = Settings.NECESSARY_SUBTITLES
@@ -302,7 +297,7 @@ def check_readme(titles,subtitles, error, error_labels) -> CheckResult:
         message.append("Found one title: Accepted")
     else:
         passed=False
-        message.append(f"Found too many titles: Count: {len(titles)}")
+        errors.append(f"Found too many titles: Count: {len(titles)}")
         error_labels.append("Multiple Titles")
     if len(subtitles) < 1:
         passed=False
@@ -312,6 +307,7 @@ def check_readme(titles,subtitles, error, error_labels) -> CheckResult:
     for subtitle in subtitles:
         message.append(f"Found subtitle: {subtitle}")
     for item in missing:
+        passed = False
         error.append(f"Missing subtitles: {item}")
         error.append(f"For further information see: {NECESSARY_SUBTITLES[item]}")
         error_labels.append(f"{item}")
@@ -518,11 +514,11 @@ def main():
     checklists: list[CheckResult] = []
     full_name, readme_name = get_event_data()
     owner, repo = full_name.split("/", 1)
-    report_dir = REPORT_PATH / owner
+    report_dir = OUTPUT_PATH / REPORT_PATH / owner
     report_dir.mkdir(parents=True, exist_ok=True)
     report_file = report_dir / f"{repo}.md"
 
-    aggregated_dir = AGGREGATION_PATH / owner
+    aggregated_dir = OUTPUT_PATH / AGGREGATION_PATH / owner
     aggregated_dir.mkdir(parents=True, exist_ok=True)
     aggregated = aggregated_dir / f"{repo}.jsonl"
     # File presence checks

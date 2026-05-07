@@ -4,7 +4,7 @@ permissions:
 
 on:
   repository_dispatch:
-    types: [report_creator]
+    types: [report_creator, public_report_creator]
 
 
 jobs:
@@ -40,76 +40,32 @@ jobs:
         env:
           GITHUB_EVENT_PATH: ${{ github.event_path }}
 
-      - name: Commit and Push the Report
+      - name: Commit and Push Report Outputs
         working-directory: central
         shell: bash
         run: |
           set -euo pipefail
-          
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          
-          REPORT_PATH="review_outputs/report/${{ github.event.client_payload.repository_full_name }}.md"
-          [ -f "$REPORT_PATH" ] || { echo "Report file not found: $REPORT_PATH"; exit 1; }
-          
-          git add "$REPORT_PATH"
-          
-          if git diff --cached --quiet; then
-            echo "No changes to commit"
-            exit 0
-          fi
-          
-          git commit -m "Add report for ${{ github.event.client_payload.repository_full_name }}"
-          
-          for i in 1 2 3 4 5; do
-            echo "Push attempt $i"
-          
-            if git pull --rebase --autostash origin main && git push origin HEAD:main; then
-              exit 0
-            fi
-          
-            WAIT=$((i * 2))
-            echo "Push failed, retrying in ${WAIT}s..."
-            sleep "$WAIT"
-          done
-          
-          echo "Push failed after 5 attempts"
-          git status --short
-          exit 1
 
-      - name: Commit and Push the Aggregation
-        working-directory: central
-        shell: bash
-        run: |
-          set -euo pipefail
-      
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-      
-          AGGREGATION_PATH="review_outputs/aggregation/${{ github.event.client_payload.repository_full_name }}.jsonl"
-          [ -f "$AGGREGATION_PATH" ] || { echo "Report file not found: $AGGREGATION_PATH"; exit 1; }
-      
-          git add "$AGGREGATION_PATH"
-      
+
+          if [ "${{ github.event.action }}" = "public_report_creator" ]; then
+            OUTPUT_DIR="public_outputs"
+          else
+            OUTPUT_DIR="review_outputs"
+          fi
+
+          REPORT_PATH="${OUTPUT_DIR}/report/${{ github.event.client_payload.repository_full_name }}.md"
+          AGGREGATION_PATH="${OUTPUT_DIR}/aggregation/${{ github.event.client_payload.repository_full_name }}.jsonl"
+
+          [ -f "$REPORT_PATH" ] || { echo "Report file not found: $REPORT_PATH"; exit 1; }
+          [ -f "$AGGREGATION_PATH" ] || { echo "Aggregation file not found: $AGGREGATION_PATH"; exit 1; }
+
+          git add "$REPORT_PATH" "$AGGREGATION_PATH"
+
           if git diff --cached --quiet; then
             echo "No changes to commit"
             exit 0
           fi
-      
-          git commit -m "Update report aggregation"
-      
-          for i in 1 2 3 4 5; do
-            echo "Push attempt $i"
-      
-            if git pull --rebase --autostash origin main && git push origin HEAD:main; then
-              exit 0
-            fi
-      
-            WAIT=$((i * 2))
-            echo "Push failed, retrying in ${WAIT}s..."
-            sleep "$WAIT"
-          done
-      
-          echo "Push failed after 5 attempts"
-          git status --short
-          exit 1
+
+          git commit -m "Update report outputs for ${{ github.event.client_payload.repository_full_name }}"
