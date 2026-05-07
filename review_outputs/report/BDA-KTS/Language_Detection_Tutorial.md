@@ -1,6 +1,6 @@
 # Report for BDA-KTS of Language_Detection_Tutorial
 
-## Report generated at 2026-05-03 20:08:26
+## Report generated at 2026-05-07 12:18:31
 
 ## Link to the repository: [GitHub Repository](https://github.com/BDA-KTS/Language_Detection_Tutorial)
 
@@ -30,7 +30,7 @@ Found Apache-2.0 License, License accepted
 
 ### Errors ⛔ 
 
-No title found but one is required.<br>Missing subtitles: Contact Details<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#contact-detailsn <br>Missing subtitles: Technical Details<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#how-to-use<br>Missing subtitles: Output Data<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#output-data<br>Missing subtitles: How to Use<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#how-to-use<br>Missing subtitles: Description<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#description<br>Missing subtitles: Hardware Requirements<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#hardware-requirements
+No title found but one is required.<br>Missing subtitles: Output Data<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#output-data<br>Missing subtitles: Description<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#description<br>Missing subtitles: Hardware Requirements<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#hardware-requirements<br>Missing subtitles: Technical Details<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#how-to-use<br>Missing subtitles: Contact Details<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#contact-detailsn <br>Missing subtitles: How to Use<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#how-to-use
 
 ### Information ✅ 
 
@@ -50,5 +50,5 @@ Predicted labels: Data Analysis<br>Probability: 65.94%
 
 #### Duration 
 
-Time to complete 1 min 42 sec
+Time to complete 1 min 49 sec
 
