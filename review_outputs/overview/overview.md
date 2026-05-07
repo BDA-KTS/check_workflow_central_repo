@@ -4,7 +4,7 @@
 
 The total number of workflows is 36.0.
 
-The average workflow duration for successful workflows is 271.0 seconds.
+The average workflow duration for successful workflows is 230.0 seconds.
 
 
 
