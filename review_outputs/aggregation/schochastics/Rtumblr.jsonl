@@ -1,6 +1,6 @@
-{"owner": "schochastics", "repo": "Rtumblr", "name": "Summary", "passed": true, "warning_labels": [], "error_labels": ["Warning"], "Workflow Duration": "7:00"}
-{"owner": "schochastics", "repo": "Rtumblr", "name": "File Check", "passed": true, "warning_labels": ["license"], "error_labels": [], "Workflow Duration": "7:00"}
-{"owner": "schochastics", "repo": "Rtumblr", "name": "License Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "7:00"}
-{"owner": "schochastics", "repo": "Rtumblr", "name": "Readme Check", "passed": true, "warning_labels": [], "error_labels": ["Hardware Requirements"], "Workflow Duration": "7:00"}
-{"owner": "schochastics", "repo": "Rtumblr", "name": "Binder Test", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "7:00"}
-{"owner": "schochastics", "repo": "Rtumblr", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "7:00"}
+{"owner": "schochastics", "repo": "Rtumblr", "name": "Summary", "passed": true, "warning_labels": [], "error_labels": ["Warning"], "Workflow Duration": "4:27"}
+{"owner": "schochastics", "repo": "Rtumblr", "name": "File Check", "passed": true, "warning_labels": ["license"], "error_labels": [], "Workflow Duration": "4:27"}
+{"owner": "schochastics", "repo": "Rtumblr", "name": "License Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "4:27"}
+{"owner": "schochastics", "repo": "Rtumblr", "name": "Readme Check", "passed": true, "warning_labels": [], "error_labels": ["Hardware Requirements"], "Workflow Duration": "4:27"}
+{"owner": "schochastics", "repo": "Rtumblr", "name": "Binder Test", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "4:27"}
+{"owner": "schochastics", "repo": "Rtumblr", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "4:27"}

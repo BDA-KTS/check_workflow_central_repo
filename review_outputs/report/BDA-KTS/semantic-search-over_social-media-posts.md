@@ -1,6 +1,6 @@
 # Report for BDA-KTS of semantic-search-over_social-media-posts
 
-## Report generated at 2026-05-03 17:46:50
+## Report generated at 2026-05-03 19:16:00
 
 ## Link to the repository: [GitHub Repository](https://github.com/BDA-KTS/semantic-search-over_social-media-posts)
 
@@ -42,5 +42,5 @@ Predicted labels: Data Analysis<br>Probability: 65.7%
 
 #### Duration 
 
-Time to complete 1 min 36 sec
+Time to complete 1 min 17 sec
 

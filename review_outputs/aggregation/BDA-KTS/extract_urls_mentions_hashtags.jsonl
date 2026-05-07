@@ -1,6 +1,6 @@
-{"owner": "BDA-KTS", "repo": "extract_urls_mentions_hashtags", "name": "Summary", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "3:57"}
-{"owner": "BDA-KTS", "repo": "extract_urls_mentions_hashtags", "name": "File Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "3:57"}
-{"owner": "BDA-KTS", "repo": "extract_urls_mentions_hashtags", "name": "License Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "3:57"}
-{"owner": "BDA-KTS", "repo": "extract_urls_mentions_hashtags", "name": "Readme Check", "passed": true, "warning_labels": [], "error_labels": ["Technical Details", "Contact Details"], "Workflow Duration": "3:57"}
-{"owner": "BDA-KTS", "repo": "extract_urls_mentions_hashtags", "name": "Binder Test", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "3:57"}
-{"owner": "BDA-KTS", "repo": "extract_urls_mentions_hashtags", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "3:57"}
+{"owner": "BDA-KTS", "repo": "extract_urls_mentions_hashtags", "name": "Summary", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "1:32"}
+{"owner": "BDA-KTS", "repo": "extract_urls_mentions_hashtags", "name": "File Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "1:32"}
+{"owner": "BDA-KTS", "repo": "extract_urls_mentions_hashtags", "name": "License Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "1:32"}
+{"owner": "BDA-KTS", "repo": "extract_urls_mentions_hashtags", "name": "Readme Check", "passed": true, "warning_labels": [], "error_labels": ["Contact Details", "Technical Details"], "Workflow Duration": "1:32"}
+{"owner": "BDA-KTS", "repo": "extract_urls_mentions_hashtags", "name": "Binder Test", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "1:32"}
+{"owner": "BDA-KTS", "repo": "extract_urls_mentions_hashtags", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "1:32"}
