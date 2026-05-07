@@ -1,6 +1,6 @@
-{"owner": "lukasbirki", "repo": "method_hub_linkage", "name": "Summary", "passed": false, "warning_labels": [], "error_labels": ["Critical"], "Workflow Duration": "5:00"}
-{"owner": "lukasbirki", "repo": "method_hub_linkage", "name": "File Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "5:00"}
-{"owner": "lukasbirki", "repo": "method_hub_linkage", "name": "License Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "5:00"}
-{"owner": "lukasbirki", "repo": "method_hub_linkage", "name": "Readme Check", "passed": false, "warning_labels": [], "error_labels": ["Multiple Titles", "Description", "How to Use", "Output Data", "Contact Details", "Input Data", "Use Cases", "Environment Setup", "Technical Details", "Hardware Requirements"], "Workflow Duration": "5:00"}
-{"owner": "lukasbirki", "repo": "method_hub_linkage", "name": "Binder Test", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "5:00"}
-{"owner": "lukasbirki", "repo": "method_hub_linkage", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "5:00"}
+{"owner": "lukasbirki", "repo": "method_hub_linkage", "name": "Summary", "passed": false, "warning_labels": [], "error_labels": ["Critical"], "Workflow Duration": "5:02"}
+{"owner": "lukasbirki", "repo": "method_hub_linkage", "name": "File Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "5:02"}
+{"owner": "lukasbirki", "repo": "method_hub_linkage", "name": "License Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "5:02"}
+{"owner": "lukasbirki", "repo": "method_hub_linkage", "name": "Readme Check", "passed": false, "warning_labels": [], "error_labels": ["Multiple Titles", "Hardware Requirements", "Input Data", "Use Cases", "Contact Details", "Description", "Technical Details", "Environment Setup", "Output Data", "How to Use"], "Workflow Duration": "5:02"}
+{"owner": "lukasbirki", "repo": "method_hub_linkage", "name": "Binder Test", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "5:02"}
+{"owner": "lukasbirki", "repo": "method_hub_linkage", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "5:02"}
