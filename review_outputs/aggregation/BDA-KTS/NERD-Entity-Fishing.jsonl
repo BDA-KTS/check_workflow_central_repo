@@ -1,6 +1,6 @@
-{"owner": "BDA-KTS", "repo": "NERD-Entity-Fishing", "name": "Summary", "passed": false, "warning_labels": [], "error_labels": ["Critical"], "Workflow Duration": "0:02"}
-{"owner": "BDA-KTS", "repo": "NERD-Entity-Fishing", "name": "File Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "0:02"}
-{"owner": "BDA-KTS", "repo": "NERD-Entity-Fishing", "name": "License Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "0:02"}
-{"owner": "BDA-KTS", "repo": "NERD-Entity-Fishing", "name": "Readme Check", "passed": true, "warning_labels": [], "error_labels": ["Description", "Output Data", "How to Use", "Contact Details", "Input Data", "Technical Details", "Hardware Requirements"], "Workflow Duration": "0:02"}
-{"owner": "BDA-KTS", "repo": "NERD-Entity-Fishing", "name": "Binder Test", "passed": false, "warning_labels": [], "error_labels": ["repo2docker"], "Workflow Duration": "0:02"}
-{"owner": "BDA-KTS", "repo": "NERD-Entity-Fishing", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "0:02"}
+{"owner": "BDA-KTS", "repo": "NERD-Entity-Fishing", "name": "Summary", "passed": false, "warning_labels": [], "error_labels": ["Critical"], "Workflow Duration": "0:01"}
+{"owner": "BDA-KTS", "repo": "NERD-Entity-Fishing", "name": "File Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "0:01"}
+{"owner": "BDA-KTS", "repo": "NERD-Entity-Fishing", "name": "License Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "0:01"}
+{"owner": "BDA-KTS", "repo": "NERD-Entity-Fishing", "name": "Readme Check", "passed": false, "warning_labels": [], "error_labels": ["Input Data", "Output Data", "Description", "Contact Details", "How to Use", "Technical Details", "Hardware Requirements"], "Workflow Duration": "0:01"}
+{"owner": "BDA-KTS", "repo": "NERD-Entity-Fishing", "name": "Binder Test", "passed": false, "warning_labels": [], "error_labels": ["repo2docker"], "Workflow Duration": "0:01"}
+{"owner": "BDA-KTS", "repo": "NERD-Entity-Fishing", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "0:01"}

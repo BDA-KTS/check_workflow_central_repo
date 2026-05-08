@@ -1,6 +1,6 @@
 # Report for gesistsa of webtrackR
 
-## Report generated at 2026-05-03 20:02:07
+## Report generated at 2026-05-07 12:12:21
 
 ## Link to the repository: [GitHub Repository](https://github.com/gesistsa/webtrackR)
 
@@ -30,11 +30,11 @@ Found MIT License, License accepted
 
 ### Errors ⛔ 
 
-Missing subtitles: Hardware Requirements<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#hardware-requirements
+Found too many titles: Count: 11<br>Missing subtitles: Hardware Requirements<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#hardware-requirements
 
 ### Information ✅ 
 
-Found too many titles: Count: 11<br>Found subtitle: Description<br>Found subtitle: Keywords<br>Found subtitle: Use Cases<br>Found subtitle: Input Data<br>Found subtitle: Output Data<br>Found subtitle: Environment Setup<br>Found subtitle: How to Use<br>Found subtitle: Technical Details<br>Found subtitle: Contact Details
+Found subtitle: Description<br>Found subtitle: Keywords<br>Found subtitle: Use Cases<br>Found subtitle: Input Data<br>Found subtitle: Output Data<br>Found subtitle: Environment Setup<br>Found subtitle: How to Use<br>Found subtitle: Technical Details<br>Found subtitle: Contact Details
 
 ## Binder Test
 
@@ -50,5 +50,5 @@ No labels predicted with probability above threshold.
 
 #### Duration 
 
-Time to complete 3 min 57 sec
+Time to complete 3 min 52 sec
 

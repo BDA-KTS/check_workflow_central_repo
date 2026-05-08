@@ -1,6 +1,6 @@
 # Report for gesistsa of sweater
 
-## Report generated at 2026-05-03 19:14:44
+## Report generated at 2026-05-07 11:48:28
 
 ## Link to the repository: [GitHub Repository](https://github.com/gesistsa/sweater)
 
@@ -28,9 +28,13 @@ Found GPL-3.0 License, License accepted
 
 ## Readme Check
 
+### Errors ⛔ 
+
+Found too many titles: Count: 2
+
 ### Information ✅ 
 
-Found too many titles: Count: 2<br>Found subtitle: Description<br>Found subtitle: Keywords<br>Found subtitle: Use Cases<br>Found subtitle: Input Data<br>Found subtitle: Output Data<br>Found subtitle: Hardware Requirements<br>Found subtitle: Environment Setup<br>Found subtitle: How to Use<br>Found subtitle: Technical Details<br>Found subtitle: References<br>Found subtitle: Contact Details
+Found subtitle: Description<br>Found subtitle: Keywords<br>Found subtitle: Use Cases<br>Found subtitle: Input Data<br>Found subtitle: Output Data<br>Found subtitle: Hardware Requirements<br>Found subtitle: Environment Setup<br>Found subtitle: How to Use<br>Found subtitle: Technical Details<br>Found subtitle: References<br>Found subtitle: Contact Details
 
 ## Binder Test
 

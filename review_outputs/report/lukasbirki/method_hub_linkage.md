@@ -1,6 +1,6 @@
 # Report for lukasbirki of method_hub_linkage
 
-## Report generated at 2026-05-03 20:12:01
+## Report generated at 2026-05-07 12:21:41
 
 ## Link to the repository: [GitHub Repository](https://github.com/lukasbirki/method_hub_linkage)
 
@@ -26,11 +26,11 @@ Found EUPL-1.1 License, License accepted
 
 ### Errors ⛔ 
 
-Missing subtitles: Description<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#description<br>Missing subtitles: How to Use<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#how-to-use<br>Missing subtitles: Output Data<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#output-data<br>Missing subtitles: Contact Details<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#contact-detailsn <br>Missing subtitles: Input Data<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#input-data<br>Missing subtitles: Use Cases<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#use-cases<br>Missing subtitles: Environment Setup<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#environment-setup<br>Missing subtitles: Technical Details<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#how-to-use<br>Missing subtitles: Hardware Requirements<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#hardware-requirements
+Found too many titles: Count: 20<br>Missing subtitles: Hardware Requirements<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#hardware-requirements<br>Missing subtitles: Input Data<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#input-data<br>Missing subtitles: Use Cases<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#use-cases<br>Missing subtitles: Contact Details<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#contact-detailsn <br>Missing subtitles: Description<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#description<br>Missing subtitles: Technical Details<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#how-to-use<br>Missing subtitles: Environment Setup<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#environment-setup<br>Missing subtitles: Output Data<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#output-data<br>Missing subtitles: How to Use<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#how-to-use
 
 ### Information ✅ 
 
-Found too many titles: Count: 20<br>Found subtitle: Learning Objectives<br>Found subtitle: Target audience<br>Found subtitle: Setting up the computational environment<br>Found subtitle: Duration<br>Found subtitle: Social Science Usecase(s)<br>Found subtitle: Dataset Preparation<br>Found subtitle: Quality Controls<br>Found subtitle: References
+Found subtitle: Learning Objectives<br>Found subtitle: Target audience<br>Found subtitle: Setting up the computational environment<br>Found subtitle: Duration<br>Found subtitle: Social Science Usecase(s)<br>Found subtitle: Dataset Preparation<br>Found subtitle: Quality Controls<br>Found subtitle: References
 
 ## Binder Test
 
@@ -46,5 +46,5 @@ Predicted labels: Data Analysis<br>Probability: 66.49%
 
 #### Duration 
 
-Time to complete 5 min 0 sec
+Time to complete 5 min 2 sec
 

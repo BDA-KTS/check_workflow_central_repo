@@ -1,14 +1,14 @@
 # Report for Stephan-Linzbach of Comparing-Keyword-Importance-Across-Texts
 
-## Report generated at 2026-05-03 19:55:39
+## Report generated at 2026-05-07 12:06:02
 
 ## Link to the repository: [GitHub Repository](https://github.com/Stephan-Linzbach/Comparing-Keyword-Importance-Across-Texts)
 
 ## Summary
 
-### Information ✅ 
+### Errors ⛔ 
 
-Passed perfectly
+Major Flaws, Error in at least one Check
 
 ## File Check
 
@@ -46,5 +46,5 @@ No labels predicted with probability above threshold.
 
 #### Duration 
 
-Time to complete 1 min 29 sec
+Time to complete 1 min 32 sec
 

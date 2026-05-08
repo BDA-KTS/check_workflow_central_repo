@@ -1,6 +1,6 @@
 # Report for schochastics of paperwizard
 
-## Report generated at 2026-05-03 19:20:32
+## Report generated at 2026-05-07 11:54:06
 
 ## Link to the repository: [GitHub Repository](https://github.com/schochastics/paperwizard)
 
@@ -28,9 +28,13 @@ Found MIT License, License accepted
 
 ## Readme Check
 
+### Errors ⛔ 
+
+Found too many titles: Count: 6
+
 ### Information ✅ 
 
-Found too many titles: Count: 6<br>Found subtitle: Description<br>Found subtitle: Keywords<br>Found subtitle: Use Cases<br>Found subtitle: Input Data<br>Found subtitle: Output Data<br>Found subtitle: Hardware Requirements<br>Found subtitle: Environment Setup<br>Found subtitle: How to Use<br>Found subtitle: Technical Details<br>Found subtitle: Contact Details
+Found subtitle: Description<br>Found subtitle: Keywords<br>Found subtitle: Use Cases<br>Found subtitle: Input Data<br>Found subtitle: Output Data<br>Found subtitle: Hardware Requirements<br>Found subtitle: Environment Setup<br>Found subtitle: How to Use<br>Found subtitle: Technical Details<br>Found subtitle: Contact Details
 
 ## Binder Test
 
@@ -46,5 +50,5 @@ No labels predicted with probability above threshold.
 
 #### Duration 
 
-Time to complete 5 min 50 sec
+Time to complete 5 min 33 sec
 
