@@ -72,7 +72,10 @@ def get_event_data() -> tuple:
     if not full_name:
         print("Error: repository_full_name missing in payload.")
         sys.exit(1)
-    readme_name = payload.get("readme") or "README.md"
+    readme_name = payload.get("readme")
+    if not readme_name:
+        print("Error: readme missing in payload.")
+        sys.exit(1)
     return full_name, readme_name
 
 
