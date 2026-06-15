@@ -1,4 +1,4 @@
-# Readme of the Methodshub QA Tes workflow
+# Methods Hub Quality Assurance Workflow
 
 ## Description
 This repostiory contains the Quality Assurance workflow for the methodhub platform.
@@ -102,4 +102,4 @@ revision, generates a report, stores the result, and updates aggregation data fo
 
 ## Contact Details
 
-For further inquiries, please contact Taimoor Khan (taimoor.khan@methodshub.org).
+For further inquiries, please contact Taimoor Khan (methodshub@gesis.org).
