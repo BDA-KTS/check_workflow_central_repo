@@ -1,14 +1,14 @@
 # Report for BDA-KTS of Telegram-Data-Collection
 
-## Report generated at 2026-05-07 12:02:07
+## Report generated at 2026-07-13 11:59:19
 
 ## Link to the repository: [GitHub Repository](https://github.com/BDA-KTS/Telegram-Data-Collection)
 
 ## Summary
 
-### Errors ⛔ 
+### Information ✅ 
 
-Major Flaws, Error in at least one Check
+Passed perfectly
 
 ## File Check
 
@@ -24,13 +24,9 @@ Found Apache-2.0 License, License accepted
 
 ## Readme Check
 
-### Errors ⛔ 
-
-Found too many titles: Count: 2<br>Missing subtitles: Input Data<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#input-data<br>Missing subtitles: Contact Details<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#contact-detailsn 
-
 ### Information ✅ 
 
-Found subtitle: Description<br>Found subtitle: Use Cases<br>Found subtitle: Input data<br>Found subtitle: Output Data<br>Found subtitle: Hardware Requirements<br>Found subtitle: Environment Setup<br>Found subtitle: How to Use<br>Found subtitle: Technical Details
+Found one title: Accepted<br>Found subtitle: Description<br>Found subtitle: Use Cases<br>Found subtitle: Input Data<br>Found subtitle: Output Data<br>Found subtitle: Hardware Requirements<br>Found subtitle: Environment Setup<br>Found subtitle: How to Use<br>Found subtitle: Technical Details<br>Found subtitle: Contact Details
 
 ## Binder Test
 
@@ -46,5 +42,5 @@ No labels predicted with probability above threshold.
 
 #### Duration 
 
-Time to complete 1 min 33 sec
+Time to complete 1 min 40 sec
 
