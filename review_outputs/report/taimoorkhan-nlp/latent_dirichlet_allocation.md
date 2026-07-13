@@ -1,6 +1,6 @@
 # Report for taimoorkhan-nlp of latent_dirichlet_allocation
 
-## Report generated at 2026-05-07 12:10:06
+## Report generated at 2026-07-13 11:10:04
 
 ## Link to the repository: [GitHub Repository](https://github.com/taimoorkhan-nlp/latent_dirichlet_allocation)
 
@@ -26,11 +26,11 @@ Found Apache-2.0 License, License accepted
 
 ### Errors ⛔ 
 
-Missing subtitles: Environment Setup<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#environment-setup<br>Missing subtitles: Contact Details<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#contact-detailsn 
+Missing subtitles: Contact Details<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#contact-detailsn 
 
 ### Information ✅ 
 
-Found one title: Accepted<br>Found subtitle: Description<br>Found subtitle: Use Cases<br>Found subtitle: Input Data<br>Found subtitle: Output Data<br>Found subtitle: Hardware Requirements<br>Found subtitle: Environment setup<br>Found subtitle: How to Use<br>Found subtitle: Technical Details<br>Found subtitle: Contact details
+Found one title: Accepted<br>Found subtitle: Description<br>Found subtitle: Use Cases<br>Found subtitle: Input Data<br>Found subtitle: Output Data<br>Found subtitle: Hardware Requirements<br>Found subtitle: Environment Setup<br>Found subtitle: How to Use<br>Found subtitle: Technical Details<br>Found subtitle: References<br>Found subtitle: Contact details
 
 ## Binder Test
 
@@ -42,9 +42,9 @@ Repo2Docker build successful. Binder environment is valid.
 
 ### Information ✅ 
 
-Predicted labels: Data Analysis<br>Probability: 63.44%
+Predicted labels: Data Analysis<br>Probability: 63.4%
 
 #### Duration 
 
-Time to complete 1 min 28 sec
+Time to complete 1 min 41 sec
 
