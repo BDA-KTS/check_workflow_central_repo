@@ -1,14 +1,14 @@
 # Report for BDA-KTS of extract_urls_mentions_hashtags
 
-## Report generated at 2026-05-07 11:53:45
+## Report generated at 2026-07-15 10:52:57
 
 ## Link to the repository: [GitHub Repository](https://github.com/BDA-KTS/extract_urls_mentions_hashtags)
 
 ## Summary
 
-### Errors ⛔ 
+### Information ✅ 
 
-Major Flaws, Error in at least one Check
+Passed perfectly
 
 ## File Check
 
@@ -24,13 +24,9 @@ Found Apache-2.0 License, License accepted
 
 ## Readme Check
 
-### Errors ⛔ 
-
-Missing subtitles: Technical Details<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#how-to-use<br>Missing subtitles: Contact Details<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#contact-detailsn 
-
 ### Information ✅ 
 
-Found one title: Accepted<br>Found subtitle: Description<br>Found subtitle: Use Cases<br>Found subtitle: Input Data<br>Found subtitle: Output Data<br>Found subtitle: Hardware Requirements<br>Found subtitle: Environment Setup<br>Found subtitle: How to Use<br>Found subtitle: Contact
+Found one title: Accepted<br>Found subtitle: Description<br>Found subtitle: Use Cases<br>Found subtitle: Input Data<br>Found subtitle: Output Data<br>Found subtitle: Hardware Requirements<br>Found subtitle: Environment Setup<br>Found subtitle: How to Use<br>Found subtitle: Technical Details<br>Found subtitle: Contact Details<br>Found subtitle: References<br>Found subtitle: Contact
 
 ## Binder Test
 
@@ -46,5 +42,5 @@ No labels predicted with probability above threshold.
 
 #### Duration 
 
-Time to complete 1 min 25 sec
+Time to complete 1 min 52 sec
 
