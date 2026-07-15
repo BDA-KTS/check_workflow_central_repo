@@ -1,14 +1,14 @@
 # Report for Stephan-Linzbach of Comparing-Keyword-Importance-Across-Texts
 
-## Report generated at 2026-05-07 12:06:02
+## Report generated at 2026-07-15 10:35:41
 
 ## Link to the repository: [GitHub Repository](https://github.com/Stephan-Linzbach/Comparing-Keyword-Importance-Across-Texts)
 
 ## Summary
 
-### Errors ⛔ 
+### Information ✅ 
 
-Major Flaws, Error in at least one Check
+Passed perfectly
 
 ## File Check
 
@@ -24,13 +24,9 @@ Found MIT License, License accepted
 
 ## Readme Check
 
-### Errors ⛔ 
-
-Missing subtitles: Technical Details<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#how-to-use
-
 ### Information ✅ 
 
-Found one title: Accepted<br>Found subtitle: Description<br>Found subtitle: Use Cases<br>Found subtitle: Input Data<br>Found subtitle: Output Data<br>Found subtitle: Hardware Requirements<br>Found subtitle: Environment Setup<br>Found subtitle: How to Use<br>Found subtitle: Example Commands and Parameters<br>Found subtitle: Contact Details
+Found one title: Accepted<br>Found subtitle: Description<br>Found subtitle: Use Cases<br>Found subtitle: Input Data<br>Found subtitle: Output Data<br>Found subtitle: Hardware Requirements<br>Found subtitle: Environment Setup<br>Found subtitle: How to Use<br>Found subtitle: Example Commands and Parameters<br>Found subtitle: Technical Details<br>Found subtitle: Contact Details
 
 ## Binder Test
 
