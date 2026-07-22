@@ -1,0 +1,6 @@
+{"owner": "arnim", "repo": "spear-algorithm-methodshub", "name": "Summary", "passed": false, "warning_labels": [], "error_labels": ["Critical"], "Workflow Duration": "1:32"}
+{"owner": "arnim", "repo": "spear-algorithm-methodshub", "name": "File Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "1:32"}
+{"owner": "arnim", "repo": "spear-algorithm-methodshub", "name": "License Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "1:32"}
+{"owner": "arnim", "repo": "spear-algorithm-methodshub", "name": "Readme Check", "passed": false, "warning_labels": [], "error_labels": ["Technical Details"], "Workflow Duration": "1:32"}
+{"owner": "arnim", "repo": "spear-algorithm-methodshub", "name": "Binder Test", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "1:32"}
+{"owner": "arnim", "repo": "spear-algorithm-methodshub", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "1:32"}
