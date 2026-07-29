@@ -1,0 +1,6 @@
+{"owner": "GESIS-Methods-Hub", "repo": "minimal-example-qmd-rstats-units", "name": "Summary", "passed": false, "warning_labels": [], "error_labels": ["Critical"], "Workflow Duration": "12:43"}
+{"owner": "GESIS-Methods-Hub", "repo": "minimal-example-qmd-rstats-units", "name": "File Check", "passed": false, "warning_labels": [], "error_labels": ["citation"], "Workflow Duration": "12:43"}
+{"owner": "GESIS-Methods-Hub", "repo": "minimal-example-qmd-rstats-units", "name": "License Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "12:43"}
+{"owner": "GESIS-Methods-Hub", "repo": "minimal-example-qmd-rstats-units", "name": "Readme Check", "passed": false, "warning_labels": [], "error_labels": ["Technical Details", "Description", "How to Use", "Contact Details", "Use Cases", "Input Data", "Output Data", "Hardware Requirements", "Environment Setup"], "Workflow Duration": "12:43"}
+{"owner": "GESIS-Methods-Hub", "repo": "minimal-example-qmd-rstats-units", "name": "Binder Test", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "12:43"}
+{"owner": "GESIS-Methods-Hub", "repo": "minimal-example-qmd-rstats-units", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "12:43"}
