@@ -1,6 +1,6 @@
-{"owner": "SEBSCHELLI", "repo": "MH_SciTweets_Heuristics", "name": "Summary", "passed": false, "warning_labels": [], "error_labels": ["Critical"], "Workflow Duration": "1:34"}
-{"owner": "SEBSCHELLI", "repo": "MH_SciTweets_Heuristics", "name": "File Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "1:34"}
-{"owner": "SEBSCHELLI", "repo": "MH_SciTweets_Heuristics", "name": "License Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "1:34"}
-{"owner": "SEBSCHELLI", "repo": "MH_SciTweets_Heuristics", "name": "Readme Check", "passed": false, "warning_labels": [], "error_labels": ["Multiple Titles"], "Workflow Duration": "1:34"}
-{"owner": "SEBSCHELLI", "repo": "MH_SciTweets_Heuristics", "name": "Binder Test", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "1:34"}
-{"owner": "SEBSCHELLI", "repo": "MH_SciTweets_Heuristics", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "1:34"}
+{"owner": "SEBSCHELLI", "repo": "MH_SciTweets_Heuristics", "name": "Summary", "passed": false, "warning_labels": [], "error_labels": ["Critical"], "Workflow Duration": "1:54"}
+{"owner": "SEBSCHELLI", "repo": "MH_SciTweets_Heuristics", "name": "File Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "1:54"}
+{"owner": "SEBSCHELLI", "repo": "MH_SciTweets_Heuristics", "name": "License Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "1:54"}
+{"owner": "SEBSCHELLI", "repo": "MH_SciTweets_Heuristics", "name": "Readme Check", "passed": false, "warning_labels": [], "error_labels": ["Multiple Titles"], "Workflow Duration": "1:54"}
+{"owner": "SEBSCHELLI", "repo": "MH_SciTweets_Heuristics", "name": "Binder Test", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "1:54"}
+{"owner": "SEBSCHELLI", "repo": "MH_SciTweets_Heuristics", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "1:54"}
