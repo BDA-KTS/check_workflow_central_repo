@@ -1,0 +1,6 @@
+{"owner": "gesiscss", "repo": "WebBot", "name": "Summary", "passed": false, "warning_labels": [], "error_labels": ["Critical"], "Workflow Duration": "0:01"}
+{"owner": "gesiscss", "repo": "WebBot", "name": "File Check", "passed": false, "warning_labels": [], "error_labels": ["citation", "requirements.txt"], "Workflow Duration": "0:01"}
+{"owner": "gesiscss", "repo": "WebBot", "name": "License Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "0:01"}
+{"owner": "gesiscss", "repo": "WebBot", "name": "Readme Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "0:01"}
+{"owner": "gesiscss", "repo": "WebBot", "name": "Binder Test", "passed": false, "warning_labels": [], "error_labels": [], "Workflow Duration": "0:01"}
+{"owner": "gesiscss", "repo": "WebBot", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "0:01"}
