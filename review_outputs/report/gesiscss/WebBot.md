@@ -1,6 +1,6 @@
 # Report for gesiscss of WebBot
 
-## Report generated at 2026-08-04 10:59:48
+## Report generated at 2026-08-05 11:35:33
 
 ## Link to the repository: [GitHub Repository](https://github.com/gesiscss/WebBot)
 
@@ -30,7 +30,7 @@ Found AGPL-3.0 License, License accepted
 
 ### Information ✅ 
 
-Found one title: Accepted<br>Found subtitle: Description<br>Found subtitle: Use Cases<br>Found subtitle: Input Data<br>Found subtitle: Output Data<br>Found subtitle: Hardware Requirements<br>Found subtitle: Environment Setup<br>Found subtitle: How to Use<br>Found subtitle: Technical Details<br>Found subtitle: Contact Details<br>Found subtitle: Citation<br>Found subtitle: Advanced
+Found one title: Accepted<br>Found subtitle: Description<br>Found subtitle: Use Cases<br>Found subtitle: Input Data<br>Found subtitle: Output Data<br>Found subtitle: Hardware Requirements<br>Found subtitle: Environment Setup<br>Found subtitle: How to Use<br>Found subtitle: Advanced<br>Found subtitle: Technical Details<br>Found subtitle: Contact Details<br>Found subtitle: Citation
 
 ## Binder Test
 
@@ -42,7 +42,7 @@ Binder test skipped: Binder files not found or not valid
 
 ### Information ✅ 
 
-Predicted labels: Data Analysis<br>Probability: 56.89%
+Predicted labels: Data Analysis<br>Probability: 56.88%
 
 #### Duration 
 
