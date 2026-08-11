@@ -1,6 +1,6 @@
 # Report for GESIS-Methods-Hub of minimal-example-qmd-rstats-units
 
-## Report generated at 2026-08-11 07:39:03
+## Report generated at 2026-08-11 16:18:31
 
 ## Link to the repository: [GitHub Repository](https://github.com/GESIS-Methods-Hub/minimal-example-qmd-rstats-units)
 
@@ -30,7 +30,7 @@ Found AGPL-3.0 License, License accepted
 
 ### Errors ⛔ 
 
-Missing subtitles: Description<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#description<br>Missing subtitles: Contact Details<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#contact-detailsn <br>Missing subtitles: Technical Details<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#how-to-use<br>Missing subtitles: Hardware Requirements<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#hardware-requirements<br>Missing subtitles: Environment Setup<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#environment-setup<br>Missing subtitles: Use Cases<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#use-cases<br>Missing subtitles: Output Data<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#output-data<br>Missing subtitles: Input Data<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#input-data<br>Missing subtitles: How to Use<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#how-to-use
+Missing subtitles: Hardware Requirements<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#hardware-requirements<br>Missing subtitles: Technical Details<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#how-to-use<br>Missing subtitles: Description<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#description<br>Missing subtitles: Contact Details<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#contact-detailsn <br>Missing subtitles: Environment Setup<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#environment-setup<br>Missing subtitles: Use Cases<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#use-cases<br>Missing subtitles: Input Data<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#input-data<br>Missing subtitles: How to Use<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#how-to-use<br>Missing subtitles: Output Data<br>For further information see: https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#output-data
 
 ### Information ✅ 
 
@@ -50,5 +50,5 @@ Predicted labels: Data Analysis<br>Probability: 56.55%
 
 #### Duration 
 
-Time to complete 11 min 34 sec
+Time to complete 12 min 42 sec
 
