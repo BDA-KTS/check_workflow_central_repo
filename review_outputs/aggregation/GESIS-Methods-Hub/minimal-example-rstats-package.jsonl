@@ -1,6 +1,6 @@
-{"owner": "GESIS-Methods-Hub", "repo": "minimal-example-rstats-package", "name": "Summary", "passed": false, "warning_labels": [], "error_labels": ["Critical"], "Workflow Duration": "11:48"}
-{"owner": "GESIS-Methods-Hub", "repo": "minimal-example-rstats-package", "name": "File Check", "passed": false, "warning_labels": [], "error_labels": ["citation"], "Workflow Duration": "11:48"}
-{"owner": "GESIS-Methods-Hub", "repo": "minimal-example-rstats-package", "name": "License Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "11:48"}
-{"owner": "GESIS-Methods-Hub", "repo": "minimal-example-rstats-package", "name": "Readme Check", "passed": false, "warning_labels": [], "error_labels": ["Description", "Technical Details", "How to Use", "Input Data", "Hardware Requirements", "Output Data", "Use Cases", "Environment Setup", "Contact Details"], "Workflow Duration": "11:48"}
-{"owner": "GESIS-Methods-Hub", "repo": "minimal-example-rstats-package", "name": "Binder Test", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "11:48"}
-{"owner": "GESIS-Methods-Hub", "repo": "minimal-example-rstats-package", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "11:48"}
+{"owner": "GESIS-Methods-Hub", "repo": "minimal-example-rstats-package", "name": "Summary", "passed": false, "warning_labels": [], "error_labels": ["Critical"], "Workflow Duration": "9:43"}
+{"owner": "GESIS-Methods-Hub", "repo": "minimal-example-rstats-package", "name": "File Check", "passed": false, "warning_labels": [], "error_labels": ["citation"], "Workflow Duration": "9:43"}
+{"owner": "GESIS-Methods-Hub", "repo": "minimal-example-rstats-package", "name": "License Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "9:43"}
+{"owner": "GESIS-Methods-Hub", "repo": "minimal-example-rstats-package", "name": "Readme Check", "passed": false, "warning_labels": [], "error_labels": ["How to Use", "Environment Setup", "Output Data", "Description", "Technical Details", "Input Data", "Hardware Requirements", "Use Cases", "Contact Details"], "Workflow Duration": "9:43"}
+{"owner": "GESIS-Methods-Hub", "repo": "minimal-example-rstats-package", "name": "Binder Test", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "9:43"}
+{"owner": "GESIS-Methods-Hub", "repo": "minimal-example-rstats-package", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "9:43"}
