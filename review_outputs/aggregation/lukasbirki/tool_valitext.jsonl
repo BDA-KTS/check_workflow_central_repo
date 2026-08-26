@@ -1,0 +1,6 @@
+{"owner": "lukasbirki", "repo": "tool_valitext", "name": "Summary", "passed": false, "warning_labels": [], "error_labels": ["Critical"], "Workflow Duration": "5:30"}
+{"owner": "lukasbirki", "repo": "tool_valitext", "name": "File Check", "passed": false, "warning_labels": [], "error_labels": ["citation", "license"], "Workflow Duration": "5:30"}
+{"owner": "lukasbirki", "repo": "tool_valitext", "name": "License Check", "passed": false, "warning_labels": [], "error_labels": ["No license"], "Workflow Duration": "5:30"}
+{"owner": "lukasbirki", "repo": "tool_valitext", "name": "Readme Check", "passed": false, "warning_labels": [], "error_labels": ["Multiple Titles", "Contact Details", "How to Use", "Technical Details", "Use Cases", "Output Data", "Input Data", "Environment Setup", "Hardware Requirements", "Description"], "Workflow Duration": "5:30"}
+{"owner": "lukasbirki", "repo": "tool_valitext", "name": "Binder Test", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "5:30"}
+{"owner": "lukasbirki", "repo": "tool_valitext", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "5:30"}
