@@ -1,0 +1,6 @@
+{"owner": "ValueEval", "repo": "pyvalues-tutorial", "name": "Summary", "passed": false, "warning_labels": [], "error_labels": ["Critical"], "Workflow Duration": "1:35"}
+{"owner": "ValueEval", "repo": "pyvalues-tutorial", "name": "File Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "1:35"}
+{"owner": "ValueEval", "repo": "pyvalues-tutorial", "name": "License Check", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "1:35"}
+{"owner": "ValueEval", "repo": "pyvalues-tutorial", "name": "Readme Check", "passed": false, "warning_labels": [], "error_labels": ["Contact Details", "Technical Details", "Environment Setup", "Input Data", "Description", "Output Data", "Hardware Requirements", "How to Use"], "Workflow Duration": "1:35"}
+{"owner": "ValueEval", "repo": "pyvalues-tutorial", "name": "Binder Test", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "1:35"}
+{"owner": "ValueEval", "repo": "pyvalues-tutorial", "name": "Taxonomie", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "1:35"}
