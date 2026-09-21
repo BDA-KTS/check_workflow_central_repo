@@ -1,9 +1,25 @@
 name: Update contact information
-description: Please update your contact ID for the following method/tutorial as the existing one is not reachable. Potential queries about the method/tutorial should be responded through this ID.  
-method/tutorial title: 
-method/tutorial link:
+description: Please update your contact ID for the following method/tutorial as the existing one is not reachable. Potential queries about the method/tutorial should be responded through this ID.
 
-* contact-information
-  new email ID: "Example: [new@example.org](mailto:new@example.org)"
-  organization (optional):
-  
+body:
+
+* type: input
+  id: method-tutorial-title
+  attributes:
+  label: Method/tutorial title
+
+* type: input
+  id: method-tutorial-link
+  attributes:
+  label: Method/tutorial link
+
+* type: input
+  id: new-email
+  attributes:
+  label: New email ID
+  placeholder: "Example: [new@example.org](mailto:new@example.org)"
+
+* type: input
+  id: organization
+  attributes:
+  label: Organization (optional)
