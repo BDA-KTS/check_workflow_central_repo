@@ -1,7 +1,7 @@
 name: Update contact information
-description: Your contact information (email address) for the following method/tutorial is not reachable. Please update it so potential queries about the method/tutorial can reach you and be responded.
-labels:
-  - contact-information
+description: Please update the contact information for the following method/tutorial to receive and respond to the user queries.
+
+title: "[Contact Info Update] "
 
 body:
   - type: input
@@ -10,6 +10,13 @@ body:
       label: Method/tutorial title
 
   - type: input
-    id: repository-link
+    id: github-repository-link
     attributes:
       label: Method/tutorial link
+      description: Provide the GitHub repository link where the method/tutorial contact id is outdated.
+      placeholder: "https://github.com/organization/repository"
+
+   - type: markdown
+    attributes:
+      value: |
+        Once the contact information has been updated and this issue has been linked in the relevant GitHub repository, please close this issue.
