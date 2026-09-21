@@ -4,12 +4,12 @@ description: Please update your contact ID for the following method/tutorial as 
 body:
 
 * type: input
-  id: method-tutorial-title
+  id: method-title
   attributes:
   label: Method/tutorial title
 
 * type: input
-  id: method-tutorial-link
+  id: method-link
   attributes:
   label: Method/tutorial link
 
