@@ -19,16 +19,18 @@ body:
     validations:
       required: true
 
-  - type: markdown
+  - type: textarea
+    id: reviewer
     attributes:
+      label: Reviewer
       value: |
-        ## Reviewer
+        Link this issue in the method/tutorial repository issue with the outdated contact information.
+      render: markdown
 
-        Please link this issue in the method/tutorial repository issue for the outdated contact information.
-
-  - type: markdown
+  - type: textarea
+    id: developer
     attributes:
+      label: Developer
       value: |
-        ## Developer
-
-        Please update the contact information in the method/tutorial repository, close its repository issue, and also respond to the main issue linked there.
+        Update the contact information in the method/tutorial repository, close the repository issue, and respond to the main issue linked there.
+      render: markdown
