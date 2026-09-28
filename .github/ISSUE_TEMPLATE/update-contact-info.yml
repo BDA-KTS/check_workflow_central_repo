@@ -19,6 +19,8 @@ body:
     validations:
       required: true
 
-## **Reviewer:** Link this issue in the method/tutorial repository issue with outdated contact information.
+## **Reviewer:** 
+<!-- Link this issue in the method/tutorial repository issue with outdated contact information. -->
 
-## **Developer:** Update contact information in the method/tutorial repository, close your repository issue, and respond to the the main issue linked in there.  
+## **Developer:** 
+<!-- Update contact information in the method/tutorial repository, close your repository issue, and respond to the the main issue linked in there. -->  
