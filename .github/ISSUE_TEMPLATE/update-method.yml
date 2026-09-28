@@ -23,7 +23,7 @@ body:
     id: report
     attributes:
       label: Method technical review report URL
-      description: Provide link for the technical review report to fix the issues.
+      description: Provide URL for the technical review report to fix the issues.
       placeholder: "https://github.com/BDA-KTS/check_workflow_central_repo/tree/main/review_outputs/report/[owner]/[method-repo]"
     validations:
       required: true
