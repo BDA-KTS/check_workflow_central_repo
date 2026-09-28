@@ -23,10 +23,12 @@ body:
     attributes:
       value: |
         ## Reviewer
-        <!-- Link this issue in the method/tutorial repository issue with the outdated contact information. -->
+
+        Link this issue in the method/tutorial repository issue with the outdated contact information.
 
   - type: markdown
     attributes:
       value: |
         ## Developer
-        <!-- Update the contact information in the method/tutorial repository, close the repository issue, and respond to the main issue linked there. -->
+
+        Update the contact information in the method/tutorial repository, close the repository issue, and respond to the main issue linked there.
