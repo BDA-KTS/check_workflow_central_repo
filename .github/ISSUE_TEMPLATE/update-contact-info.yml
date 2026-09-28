@@ -27,10 +27,3 @@ body:
         Link this issue in the method/tutorial repository issue with the outdated contact information.
       render: markdown
 
-  - type: textarea
-    id: developer
-    attributes:
-      label: Developer
-      value: |
-        Update the contact information in the method/tutorial repository, close the repository issue, and respond to the main issue linked there.
-      render: markdown
