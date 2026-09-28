@@ -1,6 +1,6 @@
 name: Update contact information
-description: Please update the contact information for the following method/tutorial, as the existing contact is not reachable.
-title: "Contact update"
+description: Request an update to the contact information for a method/tutorial when the existing contact is no longer reachable.
+title: "Update contact information"
 
 body:
   - type: input
@@ -19,8 +19,14 @@ body:
     validations:
       required: true
 
-## **Reviewer:** 
-<!-- Link this issue in the method/tutorial repository issue with outdated contact information. -->
+  - type: markdown
+    attributes:
+      value: |
+        ## Reviewer
+        <!-- Link this issue in the method/tutorial repository issue with the outdated contact information. -->
 
-## **Developer:** 
-<!-- Update contact information in the method/tutorial repository, close your repository issue, and respond to the the main issue linked in there. -->  
+  - type: markdown
+    attributes:
+      value: |
+        ## Developer
+        <!-- Update the contact information in the method/tutorial repository, close the repository issue, and respond to the main issue linked there. -->
