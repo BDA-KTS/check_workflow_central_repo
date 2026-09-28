@@ -1,0 +1,29 @@
+name: Update method
+description: Method update request to address the issues highlighted in the technical review.
+title: "Update contact information"
+
+body:
+  - type: input
+    id: title
+    attributes:
+      label: Methods Hub method title
+    validations:
+      required: true
+
+  - type: input
+    id: url
+    attributes:
+      label: Methods Hub method URL
+      description: Provide GitHub repository link for the method.
+      placeholder: "https://github.com/organization/repository"
+    validations:
+      required: true
+
+  - type: input
+    id: report
+    attributes:
+      label: Method technical review report URL
+      description: Provide link for the technical review report to fix the issues.
+      placeholder: "https://github.com/BDA-KTS/check_workflow_central_repo/tree/main/review_outputs/report/[owner]/[method-repo]"
+    validations:
+      required: true
