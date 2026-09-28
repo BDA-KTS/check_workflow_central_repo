@@ -14,7 +14,7 @@ body:
     id: url
     attributes:
       label: Methods Hub method URL
-      description: Provide GitHub repository link for the method.
+      description: Provide GitHub repository URL for the method.
       placeholder: "https://github.com/organization/repository"
     validations:
       required: true
