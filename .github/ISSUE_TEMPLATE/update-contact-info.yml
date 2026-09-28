@@ -24,11 +24,11 @@ body:
       value: |
         ## Reviewer
 
-        Link this issue in the method/tutorial repository issue with the outdated contact information.
+        Please link this issue in the method/tutorial repository issue for the outdated contact information.
 
   - type: markdown
     attributes:
       value: |
         ## Developer
 
-        Update the contact information in the method/tutorial repository, close the repository issue, and respond to the main issue linked there.
+        Please update the contact information in the method/tutorial repository, close its repository issue, and also respond to the main issue linked there.
