@@ -512,7 +512,7 @@ def write_report(checklists, report_file, owner, repo, elapsed_time):
     with open(report_file, "w", encoding="utf-8") as f:
         total_seconds = int(elapsed_time.total_seconds())
         minutes, seconds = divmod(total_seconds, 60)
-        f.write(f"# Report: [{owner}/{repo}](https://github.com/{owner}/{repo}) on {}\n\n".format(time.strftime("%Y-%m-%d %H:%M:%S")), generated in {minutes}:{seconds}")
+        f.write(f"# Report: [{owner}/{repo}](https://github.com/{owner}/{repo}) on {}\n\n".format(time.strftime("%Y-%m-%d %H:%M:%S")), {minutes}:{seconds} (min/sec) taken")
         #f.write("## Report generated at {}\n\n".format(time.strftime("%Y-%m-%d %H:%M:%S")))
         #f.write(f"## Link to the repository: [GitHub Repository](https://github.com/{owner}/{repo})\n\n")
         for checklist in checklists:
