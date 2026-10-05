@@ -1,56 +1,17 @@
-# Report for SEBSCHELLI of MH_SciTweets_Heuristics
-
-## Report generated at 2026-10-05 10:40:17
-
-## Link to the repository: [GitHub Repository](https://github.com/SEBSCHELLI/MH_SciTweets_Heuristics)
+# Report: [SEBSCHELLI/MH_SciTweets_Heuristics](https://github.com/SEBSCHELLI/MH_SciTweets_Heuristics) on 2026-10-05 11:30:12, 1:27 (min/sec) taken
 
 ## Summary
 
-### Errors ⛔ 
+Major Flaws, Error in at least one Check## File Check
 
-Major Flaws, Error in at least one Check
+Found required file: citation### ✅ Information: <br>Found required file: license### ✅ Information: <br>Found required file: postbuild### ✅ Information: <br>Found required file: requirements.txt### ✅ Information: <br>All required files found## Python Environment
 
-## File Check
+Python version is not explicitly specified in the repository.## License Check
 
-### Information ✅ 
+Found MIT License, License accepted ## Readme Check
 
-Found required file: citation<br>Found required file: license<br>Found required file: postbuild<br>Found required file: requirements.txt<br>All required files found
+Found too many titles: Count: 5Found subtitle: Description### ✅ Information: <br>Found subtitle: Use Cases### ✅ Information: <br>Found subtitle: Input Data### ✅ Information: <br>Found subtitle: Output Data### ✅ Information: <br>Found subtitle: Hardware Requirements### ✅ Information: <br>Found subtitle: Environment Setup### ✅ Information: <br>Found subtitle: How to Use### ✅ Information: <br>Found subtitle: Technical Details### ✅ Information: <br>Found subtitle: References### ✅ Information: <br>Found subtitle: Contact Details## Binder Test
 
-## Python Environment
-
-### Warnings ⚠️ 
-
-Python version is not explicitly specified in the repository.
-
-## License Check
-
-### Information ✅ 
-
-Found MIT License, License accepted 
-
-## Readme Check
-
-### Errors ⛔ 
-
-Found too many titles: Count: 5
-
-### Information ✅ 
-
-Found subtitle: Description<br>Found subtitle: Use Cases<br>Found subtitle: Input Data<br>Found subtitle: Output Data<br>Found subtitle: Hardware Requirements<br>Found subtitle: Environment Setup<br>Found subtitle: How to Use<br>Found subtitle: Technical Details<br>Found subtitle: References<br>Found subtitle: Contact Details
-
-## Binder Test
-
-### Information ✅ 
-
-Repo2Docker build successful. Binder environment is valid.
-
-## Taxonomy
-
-### Information ✅ 
+Repo2Docker build successful. Binder environment is valid.## Taxonomy
 
 No labels predicted with probability above threshold.
-
-#### Duration 
-
-Time to complete 1 min 34 sec
-
