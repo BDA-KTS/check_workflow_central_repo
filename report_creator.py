@@ -173,9 +173,11 @@ def check_for_formal_files(repo_requirements,root_files):
     required = {r.casefold() for r in repo_requirements}
 
     repo_sorted= [f for f in repo_sorted if f in required]
-
+    str = "Found mandatory files: "
     for f in repo_sorted:
-        messages.append(f"Found required file: {f}")
+        str += str(f)
+    messages.append(str)
+    
     if "license" in repo_sorted:
         statuses.append("license")
     counter=Counter(repo_sorted)
