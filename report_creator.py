@@ -554,11 +554,10 @@ def write_report(checklists, report_file, owner, repo, elapsed_time):
             f"on {time.strftime('%Y-%m-%d %H:%M:%S')}, "
             f"{minutes}:{seconds:02d} (min/sec) taken\n\n"
         )
-        flag = False
+
         for checklist in checklists:
-            flag = checklist.passed
-        if !flag:
-            [![Report Failed](https://github.com/BDA-KTS/check_workflow_central_repo/actions/workflows/test_workflow.yml/badge.svg)](https://github.com/BDA-KTS/check_workflow_central_repo/actions/workflows/test_workflow.yml)
+            if not checklist.passed:
+                [![Report Failed](https://github.com/BDA-KTS/check_workflow_central_repo/actions/workflows/test_workflow.yml/badge.svg)](https://github.com/BDA-KTS/check_workflow_central_repo/actions/workflows/test_workflow.yml)
 
         
         #f.write("## Report generated at {}\n\n".format(time.strftime("%Y-%m-%d %H:%M:%S")))
