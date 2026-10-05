@@ -548,12 +548,15 @@ def write_report(checklists, report_file, owner, repo, elapsed_time):
         total_seconds = int(elapsed_time.total_seconds())
         minutes, seconds = divmod(total_seconds, 60)
         f.write(
-    f"# Report: [{owner}/{repo}](https://github.com/{owner}/{repo}) "
-    f"on {time.strftime('%Y-%m-%d %H:%M:%S')}, "
-    f"{minutes}:{seconds:02d} (min/sec) taken\n\n"
-)
+            f"# Report: [{owner}/{repo}](https://github.com/{owner}/{repo}) "
+            f"on {time.strftime('%Y-%m-%d %H:%M:%S')}, "
+            f"{minutes}:{seconds:02d} (min/sec) taken\n\n"
+        )
         #f.write("## Report generated at {}\n\n".format(time.strftime("%Y-%m-%d %H:%M:%S")))
         #f.write(f"## Link to the repository: [GitHub Repository](https://github.com/{owner}/{repo})\n\n")
+        required_binder = get_needed_files(suffixes)
+        f.write(f"### Files: {required_binder}")
+    
         for checklist in checklists:
             f.write("## {}\n\n".format(checklist.name))
             if checklist.errors:
@@ -595,7 +598,7 @@ def main():
     aggregated = aggregated_dir / f"{repo}.jsonl"
     # File presence checks
     suffixes = get_file_extensions(TEST_PATH)
-    required_binder = get_needed_files(suffixes)
+    #required_binder = get_needed_files(suffixes)
     root_files, extended_files=get_files(TEST_PATH)
     checklists.append(check_for_files(REPO_REQUIREMENTS,required_binder,root_files,extended_files))
     checklists.append(get_python_environment(TEST_PATH))
@@ -621,8 +624,8 @@ def main():
         checklists.append(repo2dockertest())
     else:
         checklists.append(CheckResult("Binder Test",False,[],[],["Binder test skipped: Binder files not found or not valid"],[],[],[]))
-    checklists.insert(0,summary(checklists))
-    checklists.append(predict_labels_with_probability(readme_path))
+    #checklists.insert(0,summary(checklists))
+    #checklists.append(predict_labels_with_probability(readme_path))
     time_end = datetime.now()
     elapsed_time = time_end - time_start
     # Write the report
