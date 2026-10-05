@@ -161,42 +161,61 @@ def get_python_environment(path: Path) -> CheckResult:
         [],
     )
     
-def check_for_formal_files(repo_requirements,root_files):
-    passed=False
-    messages=[]
-    warnings=[]
-    errors=[]
-    statuses=[]
-    warning_labels=[]
-    error_labels=[]
-    repo_sorted = sorted([f.casefold().split(".")[0] for f in root_files])
+def check_for_formal_files(repo_requirements, root_files):
+    passed = False
+    messages = []
+    warnings = []
+    errors = []
+    statuses = []
+    warning_labels = []
+    error_labels = []
+
+    repo_sorted = sorted(
+        [f.casefold().split(".")[0] for f in root_files]
+    )
     required = {r.casefold() for r in repo_requirements}
 
-    repo_sorted= [f for f in repo_sorted if f in required]
-    str = "Found mandatory files: "
+    repo_sorted = [f for f in repo_sorted if f in required]
+
+    # Required files
     for f in repo_sorted:
-        str += str(f)
-    messages.append(str)
-    
+        messages.append(f"- ✅ {f}")
+
+    # License status
     if "license" in repo_sorted:
         statuses.append("license")
-    counter=Counter(repo_sorted)
-    duplicates=[f for f, count in counter.items() if count > 1]
-    if duplicates:
-        for f in duplicates:
-            warnings.append(f"Warning: {f} is duplicated.")
-            warning_labels.append(f"{f}")
-    missing = required - set(repo_sorted)
-    if missing:
-        for item in missing:
-            errors.append(f"Missing required files: {item}")
-            errors.append(f"For further information see: {REPO_REQUIREMENTS[item]}")
-            error_labels.append(f"{item}")
-        messages.append("Missing required files")
-    else:
-        passed=True
-    return CheckResult("Formal Files", passed, messages, warnings, errors, statuses,warning_labels,error_labels)
 
+    # Duplicate files
+    counter = Counter(repo_sorted)
+    duplicates = [f for f, count in counter.items() if count > 1]
+
+    for f in duplicates:
+        warnings.append(f"- ⚠️ {f} — duplicated")
+        warning_labels.append(f)
+
+    # Missing files
+    missing = required - set(repo_sorted)
+
+    if missing:
+        for item in sorted(missing):
+            errors.append(f"- ❌ {item}")
+            errors.append(
+                f"  - [Further information]({REPO_REQUIREMENTS[item]})"
+            )
+            error_labels.append(item)
+    else:
+        passed = True
+
+    return CheckResult(
+        "Formal Files",
+        passed,
+        messages,
+        warnings,
+        errors,
+        statuses,
+        warning_labels,
+        error_labels
+    )
 
 def check_for_binder_files(required_binder,extended_files):
     passed=False
