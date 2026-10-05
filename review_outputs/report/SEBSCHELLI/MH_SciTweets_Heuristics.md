@@ -1,10 +1,10 @@
-# Report: [SEBSCHELLI/MH_SciTweets_Heuristics](https://github.com/SEBSCHELLI/MH_SciTweets_Heuristics) on 2026-10-05 11:30:12, 1:27 (min/sec) taken
+# Report: [SEBSCHELLI/MH_SciTweets_Heuristics](https://github.com/SEBSCHELLI/MH_SciTweets_Heuristics) on 2026-10-05 15:17:53, 1:38 (min/sec) taken
 
 ## Summary
 
 Major Flaws, Error in at least one Check## File Check
 
-Found required file: citation### ✅ Information: <br>Found required file: license### ✅ Information: <br>Found required file: postbuild### ✅ Information: <br>Found required file: requirements.txt### ✅ Information: <br>All required files found## Python Environment
+- ✅ citation### ✅ Information: <br>- ✅ license### ✅ Information: <br>- ✅ postbuild### ✅ Information: <br>Found required file: requirements.txt### ✅ Information: <br>All required files found## Python Environment
 
 Python version is not explicitly specified in the repository.## License Check
 
