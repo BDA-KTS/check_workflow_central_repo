@@ -555,7 +555,9 @@ def write_report(checklists, report_file, owner, repo, elapsed_time):
         #f.write("## Report generated at {}\n\n".format(time.strftime("%Y-%m-%d %H:%M:%S")))
         #f.write(f"## Link to the repository: [GitHub Repository](https://github.com/{owner}/{repo})\n\n")
         required_binder = get_needed_files(suffixes)
-        f.write(f"### Files: {required_binder}")
+        env = get_python_environment(TEST_PATH)
+        root_files, extended_files=get_files(TEST_PATH)
+        f.write(f"### Working Environment:", f"{env}", f"{required_binder}", f"{root_files}", f"{extended_files}")
     
         for checklist in checklists:
             f.write("## {}\n\n".format(checklist.name))
@@ -599,9 +601,9 @@ def main():
     # File presence checks
     suffixes = get_file_extensions(TEST_PATH)
     #required_binder = get_needed_files(suffixes)
-    root_files, extended_files=get_files(TEST_PATH)
-    checklists.append(check_for_files(REPO_REQUIREMENTS,required_binder,root_files,extended_files))
-    checklists.append(get_python_environment(TEST_PATH))
+    #root_files, extended_files=get_files(TEST_PATH)
+    #checklists.append(check_for_files(REPO_REQUIREMENTS,required_binder,root_files,extended_files))
+    #checklists.append(get_python_environment(TEST_PATH))
 
     # License check
     if any("license" in result.statuses for result in checklists):
