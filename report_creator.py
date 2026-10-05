@@ -294,7 +294,7 @@ def license_check():
             error_labels.append(f"Loading")
     licenses = [license_ for license_ in licenses if license_ is not None]
     if len(licenses) > 1:
-        errors.append(" Too many licenses found, try choosing just one ")
+        errors.append("More than one license files found")
         error_labels.append("Multiple")
     elif len(licenses) == 1:
         if licenses[0] in FREE_LICENSES:
@@ -550,15 +550,13 @@ def write_report(checklists, report_file, owner, repo, elapsed_time):
         total_seconds = int(elapsed_time.total_seconds())
         minutes, seconds = divmod(total_seconds, 60)
         f.write(
-            f"# Report: [{owner}/{repo}](https://github.com/{owner}/{repo})\n"
-            f"<small>created on {time.strftime('%Y-%m-%d %H:%M:%S')}, taking {minutes}:{seconds:02d} (min/sec)\n"
+            f"# Report: [{owner} / {repo}](https://github.com/{owner}/{repo})\n\n"
+            f"<small>created on {time.strftime('%Y-%m-%d %H:%M:%S')}, taking {minutes}:{seconds:02d} (min/sec)\n\n"
         )
 
-        for checklist in checklists:
-            if not checklist.passed:
-               f.write("[![Report Failed](https://github.com/BDA-KTS/check_workflow_central_repo/actions/workflows/test_workflow.yml/badge.svg)](https://github.com/BDA-KTS/check_workflow_central_repo/actions/workflows/test_workflow.yml)\n\n")
+        f.write("[![Report Creator](https://github.com/BDA-KTS/check_workflow_central_repo/actions/workflows/test_workflow.yml/badge.svg)](https://github.com/BDA-KTS/check_workflow_central_repo/actions/workflows/test_workflow.yml)\n\n")
 
-        
+        #[![Report Creator](https://github.com/BDA-KTS/check_workflow_central_repo/actions/workflows/test_workflow.yml/badge.svg)](https://github.com/BDA-KTS/check_workflow_central_repo/actions/workflows/test_workflow.yml)
         #f.write("## Report generated at {}\n\n".format(time.strftime("%Y-%m-%d %H:%M:%S")))
         #f.write(f"## Link to the repository: [GitHub Repository](https://github.com/{owner}/{repo})\n\n")
         
@@ -568,11 +566,11 @@ def write_report(checklists, report_file, owner, repo, elapsed_time):
         for checklist in checklists:
             f.write("### {}\n\n".format(checklist.name))
             if checklist.errors:
-                f.write("### ⛔ Errors:  <br>".join(checklist.errors))
+                f.write("⛔ Errors:  <br>".join(checklist.errors))
             if checklist.warnings:
-                f.write("### ⚠️ Warnings: <br>".join(checklist.warnings))
+                f.write("⚠️ Warnings: <br>".join(checklist.warnings))
             if checklist.messages:
-                f.write("### ✅ Information: <br>".join(checklist.messages))
+                f.write("✅ Information: <br>".join(checklist.messages))
             f.write("\n\n")
 
 
