@@ -121,6 +121,29 @@ def check_for_files(repo_requirements,required_binder,root_files,extended_files)
         messages.append("All required files found")
     return CheckResult("File Check",passed=passed,messages=messages,warnings=warnings,errors=errors,statuses=statuses,warning_labels=warning_labels,error_labels=error_labels)
 
+def get_python_environment(path: Path) -> CheckResult:
+    PYTHON_VERSION_PATTERNS = {
+        "environment.yml": r"python\s*=\s*[\"']?([0-9]+(?:\.[0-9]+){0,2})",
+        "runtime.txt": r"python[-=]?([0-9]+(?:\.[0-9]+){0,2})",
+        "pyproject.toml": r"requires-python\s*=\s*[\"']([^\"']+)[\"']",
+        "setup.py": r"python_requires\s*=\s*[\"']([^\"']+)[\"']",
+        "setup.cfg": r"python_requires\s*=\s*([^\n]+)",
+    }
+    for filename in PYTHON_VERSION_PATTERNS:
+        file_path = path / filename
+        if file_path.exists():
+            filename = file_path.name
+            pattern = PYTHON_VERSION_PATTERNS.get(filename)
+            text = file_path.read_text(encoding="utf-8")
+            match = re.search(pattern, text, re.IGNORECASE) if pattern else None
+            messages = []
+            warnings = []
+            if match:
+                messages.append(f"Python version: {match.group(1)} (from {filename})")
+            else:
+                warnings.append(f"Python version could not be determined from {filename}.")
+            return CheckResult("Python Version", True, messages, warnings, [], [], [], [],)
+
 def check_for_formal_files(repo_requirements,root_files):
     passed=False
     messages=[]
@@ -527,6 +550,7 @@ def main():
     required_binder = get_needed_files(suffixes)
     root_files, extended_files=get_files(TEST_PATH)
     checklists.append(check_for_files(REPO_REQUIREMENTS,required_binder,root_files,extended_files))
+    checklists.append(get_python_environment(TEST_PATH)
 
     # License check
     if any("license" in result.statuses for result in checklists):
