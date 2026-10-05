@@ -119,7 +119,7 @@ def check_for_files(repo_requirements,required_binder,root_files,extended_files)
     error_labels=formal_files.error_labels + binder_files.error_labels
     if passed:
         messages.append("All required files found")
-    return CheckResult("File Check",passed=passed,messages=messages,warnings=warnings,errors=errors,statuses=statuses,warning_labels=warning_labels,error_labels=error_labels)
+    return CheckResult("Documentation",passed=passed,messages=messages,warnings=warnings,errors=errors,statuses=statuses,warning_labels=warning_labels,error_labels=error_labels)
 
 def get_python_environment(path: Path) -> CheckResult:
     PYTHON_VERSION_PATTERNS = {
@@ -240,9 +240,11 @@ def check_for_binder_files(required_binder,extended_files):
     warning_labels=[]
     error_labels=[]
     found_files = extended_files
+    output = ""
     if "environment.yml" in found_files:
         passed=True
         messages.append("Found required file: environment.yml")
+        
     found_files = sorted([f for f in found_files if f in required_binder])
     counter=Counter(found_files)
     duplicates=[f for f, count in counter.items() if count > 1]
@@ -267,7 +269,7 @@ def check_for_binder_files(required_binder,extended_files):
         messages.append("Missing required files")
     if passed:
         statuses.append("binder")
-    return CheckResult("Binder Files", passed, messages, warnings, errors, statuses, warning_labels, error_labels)
+    return CheckResult("Working Environment", passed, messages, warnings, errors, statuses, warning_labels, error_labels)
 
 def license_check():
     passed=False
@@ -554,20 +556,20 @@ def write_report(checklists, report_file, owner, repo, elapsed_time):
         )
         #f.write("## Report generated at {}\n\n".format(time.strftime("%Y-%m-%d %H:%M:%S")))
         #f.write(f"## Link to the repository: [GitHub Repository](https://github.com/{owner}/{repo})\n\n")
-        required_binder = get_needed_files(suffixes)
-        env = get_python_environment(TEST_PATH)
-        root_files, extended_files=get_files(TEST_PATH)
-        f.write(f"### Working Environment:", f"{env}", f"{required_binder}", f"{root_files}", f"{extended_files}")
+        
+        
+        #f.write(f"### Working Environment:", f"{env}", f"{required_binder}", f"{root_files}", f"{extended_files}")
     
         for checklist in checklists:
-            f.write("## {}\n\n".format(checklist.name))
+            f.write("### {}\n\n".format(checklist.name))
             if checklist.errors:
                 f.write("### ⛔ Errors:  <br>".join(checklist.errors))
             if checklist.warnings:
                 f.write("### ⚠️ Warnings: <br>".join(checklist.warnings))
             if checklist.messages:
                 f.write("### ✅ Information: <br>".join(checklist.messages))
-        
+
+
 def write_macro(checklists, report_file, owner, repo, elapsed_time):
     total_seconds = int(elapsed_time.total_seconds())
     minutes, seconds = divmod(total_seconds, 60)
@@ -600,10 +602,11 @@ def main():
     aggregated = aggregated_dir / f"{repo}.jsonl"
     # File presence checks
     suffixes = get_file_extensions(TEST_PATH)
-    #required_binder = get_needed_files(suffixes)
-    #root_files, extended_files=get_files(TEST_PATH)
-    #checklists.append(check_for_files(REPO_REQUIREMENTS,required_binder,root_files,extended_files))
-    #checklists.append(get_python_environment(TEST_PATH))
+    required_binder = get_needed_files(suffixes)
+    root_files, extended_files=get_files(TEST_PATH)
+    checklists.append(get_python_environment(TEST_PATH))
+    checklists.append(check_for_files(REPO_REQUIREMENTS,required_binder,root_files,extended_files))
+    
 
     # License check
     if any("license" in result.statuses for result in checklists):
