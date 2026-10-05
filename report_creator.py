@@ -142,7 +142,7 @@ def get_python_environment(path: Path) -> CheckResult:
                 return CheckResult(
                     "Python Environment",
                     True,
-                    [f"Python version: {match.group(1)} (from {filename})"],
+                    [f"✅ Python version: {match.group(1)} (from {filename})"],
                     [],
                     [],
                     [],
@@ -154,7 +154,7 @@ def get_python_environment(path: Path) -> CheckResult:
         "Python Environment",
         True,
         [],
-        ["Python version is not explicitly specified in the repository."],
+        ["⚠️ Python version is not explicitly specified in the repository."],
         [],
         [],
         [],
@@ -182,8 +182,8 @@ def check_for_formal_files(repo_requirements, root_files):
         messages.append(
             f"Found: {', '.join(repo_sorted)}"
         )
-    else:
-        messages.append("Found: —")
+    #else:
+        #messages.append("Found: —")
 
     # License status
     if "license" in repo_sorted:
@@ -214,14 +214,14 @@ def check_for_formal_files(repo_requirements, root_files):
             )
             error_labels.append(item)
     else:
-        errors.append("Missing: —")
+        #errors.append("Missing: —")
         passed = True
 
-    if not duplicates:
-        warnings.append("Duplicated: —")
+    #if not duplicates:
+        #warnings.append("Duplicated: —")
 
     return CheckResult(
-        "Formal Files",
+        "Mandatory Files",
         passed,
         messages,
         warnings,
@@ -307,7 +307,7 @@ def license_check():
         errors.append("No valid License found.")
         error_labels.append("None")
 
-    return CheckResult("License Check",passed,messages,warnings,errors,statuses,warning_labels,error_labels)
+    return CheckResult("License",passed,messages,warnings,errors,statuses,warning_labels,error_labels)
 
 
 def convert_readme_md(readme_path: Path) :
@@ -554,6 +554,13 @@ def write_report(checklists, report_file, owner, repo, elapsed_time):
             f"on {time.strftime('%Y-%m-%d %H:%M:%S')}, "
             f"{minutes}:{seconds:02d} (min/sec) taken\n\n"
         )
+        flag = False
+        for checklist in checklists:
+            flag = checklist.passed
+        if !flag:
+            [![Report Failed](https://github.com/BDA-KTS/check_workflow_central_repo/actions/workflows/test_workflow.yml/badge.svg)](https://github.com/BDA-KTS/check_workflow_central_repo/actions/workflows/test_workflow.yml)
+
+        
         #f.write("## Report generated at {}\n\n".format(time.strftime("%Y-%m-%d %H:%M:%S")))
         #f.write(f"## Link to the repository: [GitHub Repository](https://github.com/{owner}/{repo})\n\n")
         
@@ -568,6 +575,7 @@ def write_report(checklists, report_file, owner, repo, elapsed_time):
                 f.write("### ⚠️ Warnings: <br>".join(checklist.warnings))
             if checklist.messages:
                 f.write("### ✅ Information: <br>".join(checklist.messages))
+            f.write("\n\n")
 
 
 def write_macro(checklists, report_file, owner, repo, elapsed_time):
@@ -604,15 +612,16 @@ def main():
     suffixes = get_file_extensions(TEST_PATH)
     required_binder = get_needed_files(suffixes)
     root_files, extended_files=get_files(TEST_PATH)
-    checklists.append(get_python_environment(TEST_PATH))
-    checklists.append(check_for_files(REPO_REQUIREMENTS,required_binder,root_files,extended_files))
-    
 
     # License check
     if any("license" in result.statuses for result in checklists):
         checklists.append(license_check())
     else:
-        checklists.append(CheckResult("License Check",False,[],[],["License Check failed, no license file found"],[],[],["No license"]))
+        checklists.append(CheckResult("License",False,[],[],["License Check failed, no license file found"],[],[],["No license"]))
+
+    checklists.append(get_python_environment(TEST_PATH))
+    checklists.append(check_for_files(REPO_REQUIREMENTS,required_binder,root_files,extended_files))
+    
     # Readme check
     readme_path = TEST_PATH / readme_name
     if readme_path.suffix == ".ipynb":
