@@ -177,9 +177,13 @@ def check_for_formal_files(repo_requirements, root_files):
 
     repo_sorted = [f for f in repo_sorted if f in required]
 
-    # Required files
-    for f in repo_sorted:
-        messages.append(f"- ✅ {f}")
+    # Found files
+    if repo_sorted:
+        messages.append(
+            f"Found: {', '.join(repo_sorted)}"
+        )
+    else:
+        messages.append("Found: —")
 
     # License status
     if "license" in repo_sorted:
@@ -189,22 +193,32 @@ def check_for_formal_files(repo_requirements, root_files):
     counter = Counter(repo_sorted)
     duplicates = [f for f, count in counter.items() if count > 1]
 
-    for f in duplicates:
-        warnings.append(f"- ⚠️ {f} — duplicated")
-        warning_labels.append(f)
+    if duplicates:
+        warnings.append(
+            f"Duplicated: {', '.join(sorted(duplicates))}"
+        )
+        for f in duplicates:
+            warning_labels.append(f)
 
     # Missing files
     missing = required - set(repo_sorted)
 
     if missing:
+        errors.append(
+            f"Missing: {', '.join(sorted(missing))}"
+        )
+
         for item in sorted(missing):
-            errors.append(f"- ❌ {item}")
             errors.append(
-                f"  - [Further information]({REPO_REQUIREMENTS[item]})"
+                f"[{item}]({REPO_REQUIREMENTS[item]})"
             )
             error_labels.append(item)
     else:
+        errors.append("Missing: —")
         passed = True
+
+    if not duplicates:
+        warnings.append("Duplicated: —")
 
     return CheckResult(
         "Formal Files",
