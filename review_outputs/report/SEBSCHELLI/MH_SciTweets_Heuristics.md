@@ -1,6 +1,6 @@
 # Report for SEBSCHELLI of MH_SciTweets_Heuristics
 
-## Report generated at 2026-10-05 09:16:14
+## Report generated at 2026-10-05 10:40:17
 
 ## Link to the repository: [GitHub Repository](https://github.com/SEBSCHELLI/MH_SciTweets_Heuristics)
 
@@ -15,6 +15,12 @@ Major Flaws, Error in at least one Check
 ### Information ✅ 
 
 Found required file: citation<br>Found required file: license<br>Found required file: postbuild<br>Found required file: requirements.txt<br>All required files found
+
+## Python Environment
+
+### Warnings ⚠️ 
+
+Python version is not explicitly specified in the repository.
 
 ## License Check
 
@@ -38,7 +44,7 @@ Found subtitle: Description<br>Found subtitle: Use Cases<br>Found subtitle: Inpu
 
 Repo2Docker build successful. Binder environment is valid.
 
-## Taxonomie
+## Taxonomy
 
 ### Information ✅ 
 
@@ -46,5 +52,5 @@ No labels predicted with probability above threshold.
 
 #### Duration 
 
-Time to complete 1 min 44 sec
+Time to complete 1 min 34 sec
 
