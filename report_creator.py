@@ -460,7 +460,7 @@ def predict_labels_with_probability(path: Path ,threshold: float = 0.5):
     else:
         messages = ["No labels predicted with probability above threshold."]
     return CheckResult(
-        name="Taxonomie",
+        name="Taxonomy",
         passed=True,
         messages=messages,
         warnings=[],
@@ -550,7 +550,7 @@ def main():
     required_binder = get_needed_files(suffixes)
     root_files, extended_files=get_files(TEST_PATH)
     checklists.append(check_for_files(REPO_REQUIREMENTS,required_binder,root_files,extended_files))
-    checklists.append(get_python_environment(TEST_PATH)
+    checklists.append(get_python_environment(TEST_PATH))
 
     # License check
     if any("license" in result.statuses for result in checklists):
