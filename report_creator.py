@@ -139,11 +139,28 @@ def get_python_environment(path: Path) -> CheckResult:
             messages = []
             warnings = []
             if match:
-                messages.append(f"Python version: {match.group(1)} (from {filename})")
-            else:
-                warnings.append(f"Python version could not be determined from {filename}.")
-            return CheckResult("Python Version", True, messages, warnings, [], [], [], [],)
-
+                return CheckResult(
+                    "Python Environment",
+                    True,
+                    [f"Python version: {match.group(1)} (from {filename})"],
+                    [],
+                    [],
+                    [],
+                    [],
+                    [],
+                )
+            
+    return CheckResult(
+        "Python Environment",
+        True,
+        [],
+        ["Python version is not explicitly specified in the repository."],
+        [],
+        [],
+        [],
+        [],
+    )
+    
 def check_for_formal_files(repo_requirements,root_files):
     passed=False
     messages=[]
