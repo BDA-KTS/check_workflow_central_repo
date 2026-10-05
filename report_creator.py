@@ -510,28 +510,20 @@ def summary(checklists: list[CheckResult]):
 
 def write_report(checklists, report_file, owner, repo, elapsed_time):
     with open(report_file, "w", encoding="utf-8") as f:
-        f.write(f"# Report for {owner} of {repo}\n\n")
-        f.write("## Report generated at {}\n\n".format(time.strftime("%Y-%m-%d %H:%M:%S")))
-        f.write(f"## Link to the repository: [GitHub Repository](https://github.com/{owner}/{repo})\n\n")
+        total_seconds = int(elapsed_time.total_seconds())
+        minutes, seconds = divmod(total_seconds, 60)
+        f.write(f"# Report: [{owner}/{repo}](https://github.com/{owner}/{repo}) on {}\n\n".format(time.strftime("%Y-%m-%d %H:%M:%S")), generated in {minutes}:{seconds}")
+        #f.write("## Report generated at {}\n\n".format(time.strftime("%Y-%m-%d %H:%M:%S")))
+        #f.write(f"## Link to the repository: [GitHub Repository](https://github.com/{owner}/{repo})\n\n")
         for checklist in checklists:
             f.write("## {}\n\n".format(checklist.name))
             if checklist.errors:
-                f.write("### Errors ⛔ \n\n")
-                f.write("<br>".join(checklist.errors))
-                f.write("\n\n")
+                f.write("### ⛔ Errors:  <br>".join(checklist.errors))
             if checklist.warnings:
-                f.write("### Warnings ⚠️ \n\n")
-                f.write("<br>".join(checklist.warnings))
-                f.write("\n\n")
+                f.write("### ⚠️ Warnings: <br>".join(checklist.warnings))
             if checklist.messages:
-                f.write("### Information ✅ \n\n")
-                f.write("<br>".join(checklist.messages))
-                f.write("\n\n")
-        total_seconds = int(elapsed_time.total_seconds())
-        minutes, seconds = divmod(total_seconds, 60)
-        f.write("#### Duration \n\n")
-        f.write(f"Time to complete {minutes} min {seconds} sec\n\n")
-
+                f.write("### ✅ Information: <br>".join(checklist.messages))
+        
 def write_macro(checklists, report_file, owner, repo, elapsed_time):
     total_seconds = int(elapsed_time.total_seconds())
     minutes, seconds = divmod(total_seconds, 60)
