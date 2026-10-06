@@ -121,40 +121,52 @@ def check_for_files(repo_requirements,required_binder,root_files,extended_files)
         messages.append("All required files found")
     return CheckResult("Documentation",passed=passed,messages=messages,warnings=warnings,errors=errors,statuses=statuses,warning_labels=warning_labels,error_labels=error_labels)
 
-def get_python_environment(path: Path) -> CheckResult:
-    PYTHON_VERSION_PATTERNS = {
-        "environment.yml": r"python\s*=\s*[\"']?([0-9]+(?:\.[0-9]+){0,2})",
-        "runtime.txt": r"python[-=]?([0-9]+(?:\.[0-9]+){0,2})",
-        "pyproject.toml": r"requires-python\s*=\s*[\"']([^\"']+)[\"']",
-        "setup.py": r"python_requires\s*=\s*[\"']([^\"']+)[\"']",
-        "setup.cfg": r"python_requires\s*=\s*([^\n]+)",
+def get_language_version(path: Path) -> CheckResult:
+    ENVIRONMENT_PATTERNS = {
+        "Python": {
+            "environment.yml": r"python\s*=\s*[\"']?([0-9]+(?:\.[0-9]+){0,2})",
+            "runtime.txt": r"python[-=]?([0-9]+(?:\.[0-9]+){0,2})",
+            "pyproject.toml": r"requires-python\s*=\s*[\"']([^\"']+)[\"']",
+            "setup.py": r"python_requires\s*=\s*[\"']([^\"']+)[\"']",
+            "setup.cfg": r"python_requires\s*=\s*([^\n]+)",
+        },
+        "R": {
+            "DESCRIPTION": r"R\s*\(>=\s*([0-9]+(?:\.[0-9]+){0,2})\)",
+            "renv.lock": r'"R"\s*:\s*\{[^}]*"Version"\s*:\s*"([0-9]+(?:\.[0-9]+){0,2})"',
+            "environment.yml": r"r-base\s*=\s*[\"']?([0-9]+(?:\.[0-9]+){0,2})",
+        },
     }
-    for filename in PYTHON_VERSION_PATTERNS:
-        file_path = path / filename
-        if file_path.exists():
-            filename = file_path.name
-            pattern = PYTHON_VERSION_PATTERNS.get(filename)
+
+    for language, patterns in ENVIRONMENT_PATTERNS.items():
+        for filename, pattern in patterns.items():
+            file_path = path / filename
+
+            if not file_path.exists():
+                continue
+
             text = file_path.read_text(encoding="utf-8")
-            match = re.search(pattern, text, re.IGNORECASE) if pattern else None
-            messages = []
-            warnings = []
+            match = re.search(pattern, text, re.IGNORECASE)
+
             if match:
                 return CheckResult(
-                    "Python Environment",
+                    f"Programming Language",
                     True,
-                    [f"✅ Python version: {match.group(1)} (from {filename})"],
+                    [
+                        f"{language} version: "
+                        f"{match.group(1)} (from {filename})"
+                    ],
                     [],
                     [],
                     [],
                     [],
                     [],
                 )
-            
+
     return CheckResult(
-        "Python Environment",
+        "Programming Language",
         True,
         [],
-        ["⚠️ Python version is not explicitly specified in the repository."],
+        ["Python/R version is not explicitly specified in the repository."],
         [],
         [],
         [],
@@ -554,7 +566,7 @@ def write_report(checklists, report_file, owner, repo, elapsed_time):
             f"<small>created on {time.strftime('%Y-%m-%d %H:%M:%S')}, taking {minutes}:{seconds:02d} (min/sec)\n\n"
         )
 
-        f.write("[![Report Creator](https://github.com/BDA-KTS/check_workflow_central_repo/actions/workflows/test_workflow.yml/badge.svg)](https://github.com/BDA-KTS/check_workflow_central_repo/actions/workflows/test_workflow.yml)\n\n")
+        #f.write("[![Report Creator](https://github.com/BDA-KTS/check_workflow_central_repo/actions/workflows/test_workflow.yml/badge.svg)](https://github.com/BDA-KTS/check_workflow_central_repo/actions/workflows/test_workflow.yml)\n\n")
 
         #[![Report Creator](https://github.com/BDA-KTS/check_workflow_central_repo/actions/workflows/test_workflow.yml/badge.svg)](https://github.com/BDA-KTS/check_workflow_central_repo/actions/workflows/test_workflow.yml)
         #f.write("## Report generated at {}\n\n".format(time.strftime("%Y-%m-%d %H:%M:%S")))
@@ -565,13 +577,15 @@ def write_report(checklists, report_file, owner, repo, elapsed_time):
     
         for checklist in checklists:
             f.write("### {}\n\n".format(checklist.name))
+        
             if checklist.errors:
-                f.write("⛔ Errors:  <br>".join(checklist.errors))
+                f.write(f"**⛔ Errors:** {checklist.errors}\n\n")
+
             if checklist.warnings:
-                f.write("⚠️ Warnings: <br>".join(checklist.warnings))
+                f.write(f"**⚠️ Warnings:** {checklist.warnings}\n\n")
+
             if checklist.messages:
-                f.write("✅ Information: <br>".join(checklist.messages))
-            f.write("\n\n")
+                f.write(f"**✅ Information:** {checklist.messages}\n\n")
 
 
 def write_macro(checklists, report_file, owner, repo, elapsed_time):
@@ -614,9 +628,16 @@ def main():
         checklists.append(license_check())
     else:
         checklists.append(CheckResult("License",False,[],[],["License Check failed, no license file found"],[],[],["No license"]))
-
-    checklists.append(get_python_environment(TEST_PATH))
+    # Working language
+    checklists.append(get_language_version(TEST_PATH))
+    # Binder environment
     checklists.append(check_for_files(REPO_REQUIREMENTS,required_binder,root_files,extended_files))
+     # Simulate Repo2Docker 2
+    if any("binder" in result.statuses for result in checklists):
+        checklists.append(repo2dockertest())
+    else:
+        checklists.append(CheckResult("Binder Test",False,[],[],["Binder test skipped: Binder files not found or not valid"],[],[],[]))
+
     
     # Readme check
     readme_path = TEST_PATH / readme_name
@@ -627,13 +648,8 @@ def main():
     elif readme_path.suffix == ".qmd":
         checklists.append(convert_readme_md(readme_path))
     else:
-        checklists.append(CheckResult("Readme Check",False,[],[],["Readme check failed: Format not yet supported"],[],[],[]))
+        checklists.append(CheckResult("README",False,[],[],["Readme check failed: Format not yet supported"],[],[],[]))
 
-    # Simulate Repo2Docker 2
-    if any("binder" in result.statuses for result in checklists):
-        checklists.append(repo2dockertest())
-    else:
-        checklists.append(CheckResult("Binder Test",False,[],[],["Binder test skipped: Binder files not found or not valid"],[],[],[]))
     #checklists.insert(0,summary(checklists))
     #checklists.append(predict_labels_with_probability(readme_path))
     time_end = datetime.now()
