@@ -597,9 +597,12 @@ def write_report(checklists, report_file, owner, repo, elapsed_time):
             report[0] = checklists[0].messages + ["Citation file exists"]
 
 
-        f.write(f"| {badge_reuse[reuse]} Reusability and Attribution |\n")
+        f.write(f"### {badge_reuse[reuse]} Reusability and Attribution \n\n")
+        f.write(f"|  |\n")
         f.write("|---|\n")
-        f.write(f"| {label[reuse]} {' '.join(report[reuse])} |\n")
+        for item in report[reuse]:
+            f.write(f"| {label[reuse]} {item} |\n")
+            
 
          # Reporting transparencyy
         trans = 0
@@ -614,10 +617,11 @@ def write_report(checklists, report_file, owner, repo, elapsed_time):
             trans = 0
             report[trans] = checklists[2].messages + checklists[4].messages
             
-       
-        f.write(f"|{badge_trans[trans]} Reporting transparency |\n")
+        f.write(f"### {badge_trans[trans]} Reporting transparency \n\n")
+        f.write(f"|  |\n")
         f.write("|---|\n")
-        f.write(f"| {label[trans]} {' '.join(report[trans])} |\n")
+        for item in report[trans]:
+            f.write(f"| {label[trans]} {item} |\n")
 
         # Computational reproducibility
         repro = 0
@@ -632,9 +636,11 @@ def write_report(checklists, report_file, owner, repo, elapsed_time):
             repro = 0
             report[repro] = checklists[3].messages + checklists[1].messages
 
-        f.write(f"|{badge_repro[repro]} Computational reproducibility |\n")
+        f.write(f"### {badge_repro[repro]} Computational reproducibility \n\n")
+        f.write(f"| |\n")
         f.write("|---|\n")
-        f.write(f"| {label[repro]} {' '.join(report[repro])}|\n")
+        for item in report[repro]:
+            f.write(f"| {label[repro]} {item}|\n")
         
 
 def write_macro(checklists, report_file, owner, repo, elapsed_time):
