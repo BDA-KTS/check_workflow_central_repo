@@ -596,20 +596,10 @@ def write_report(checklists, report_file, owner, repo, elapsed_time):
             reuse = 0
             report[0] = checklists[0].messages + ["Citation file exists"]
 
-        f.write("| Reusability and Attribution | Report |\n")
-        f.write("|---|---|\n")
-        f.write(f"| {badge_reuse[reuse]} | {label[reuse]} {' '.join(report[reuse])} |\n")
+        f.write(f"| {badge_reuse[reuse]} Reusability and Attribution |\n")
+        f.write("|---|\n")
+        f.write(f"| {label[reuse]} {' '.join(report[reuse])} |\n")
 
-
-
-        f.write(f"| {badge_reuse[reuse]} Reusability and Attribution |")
-        f.write("|--------------------------------------------------|")
-        f.write(f"| {label[reuse]} {' '.join(report[reuse])} |")
-        f.write(f"| {label[reuse]} {' '.join(report[reuse])} |")
-        f.write("|--------------------------------------------------|")
-            
-        
-        
         for checklist in checklists:
             f.write("### {}\n\n".format(checklist.name))
         
