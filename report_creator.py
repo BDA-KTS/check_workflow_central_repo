@@ -192,7 +192,7 @@ def check_for_formal_files(repo_requirements, root_files):
     # Found files
     if repo_sorted:
         messages.append(
-            f"Found: {', '.join(repo_sorted)}"
+            f"{', '.join(repo_sorted)}"
         )
     #else:
         #messages.append("Found: —")
@@ -255,7 +255,7 @@ def check_for_binder_files(required_binder,extended_files):
     output = ""
     if "environment.yml" in found_files:
         passed=True
-        messages.append("Found required file: environment.yml")
+        messages.append("environment.yml")
         
     found_files = sorted([f for f in found_files if f in required_binder])
     counter=Counter(found_files)
@@ -265,7 +265,7 @@ def check_for_binder_files(required_binder,extended_files):
             warnings.append(f"Warning: {f} is duplicated.")
             warning_labels.append(f"{f}")
     for f in found_files:
-            messages.append(f"Found required file: {f}")
+            messages.append(f"{f}")
     if set(required_binder).issubset(set(found_files)):
         if passed:
             warnings.append("Multiple binder configs found")
@@ -311,9 +311,9 @@ def license_check():
     elif len(licenses) == 1:
         if licenses[0] in FREE_LICENSES:
             passed=True
-            messages.append(f"Found {licenses[0]} License, License accepted ")
+            messages.append(f"{licenses[0]} License, License accepted ")
         else:
-            errors.append(f"Found {licenses[0]} License denied ")
+            errors.append(f"{licenses[0]} License denied ")
             error_labels.append(f"{licenses[0]}")
     else:
         errors.append("No valid License found.")
@@ -579,14 +579,16 @@ def write_report(checklists, report_file, owner, repo, elapsed_time):
             f.write("### {}\n\n".format(checklist.name))
         
             if checklist.errors:
-                f.write(f"**⛔ Errors:** {checklist.errors}\n\n")
+                err = '\n'.join(checklist.errors)
+                f.write(f"**⛔ Errors:** {err}\n\n")
 
             if checklist.warnings:
-                f.write(f"**⚠️ Warnings:** {checklist.warnings}\n\n")
+                wr = '\n'.join(checklist.warnings)
+                f.write(f"**⚠️ Warnings:** {wr}\n\n")
 
             if checklist.messages:
-                f.write(f"**✅ Information:** {checklist.messages}\n\n")
-
+                mg = '\n'.join(checklist.messages)
+                f.write(f"**✅ Information:** {mg}\n\n")
 
 def write_macro(checklists, report_file, owner, repo, elapsed_time):
     total_seconds = int(elapsed_time.total_seconds())
