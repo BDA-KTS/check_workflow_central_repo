@@ -395,7 +395,7 @@ def check_readme(titles,subtitles, error, error_labels) -> CheckResult:
         error_labels.append("Subtitles")
     missing = set(NECESSARY_SUBTITLES) - set(subtitles)
     for subtitle in subtitles:
-        message.append(f"Found subtitle: {subtitle}")
+        message.append(f"{subtitle}")
     for item in missing:
         passed = False
         error.append(f"Missing subtitles: {item}")
@@ -579,15 +579,15 @@ def write_report(checklists, report_file, owner, repo, elapsed_time):
             f.write("### {}\n\n".format(checklist.name))
         
             if checklist.errors:
-                err = '\n'.join(checklist.errors)
+                err = '<br>'.join(checklist.errors)
                 f.write(f"**⛔ Errors:** {err}\n\n")
 
             if checklist.warnings:
-                wr = '\n'.join(checklist.warnings)
+                wr = '<br>'.join(checklist.warnings)
                 f.write(f"**⚠️ Warnings:** {wr}\n\n")
 
             if checklist.messages:
-                mg = '\n'.join(checklist.messages)
+                mg = '<br>'.join(checklist.messages)
                 f.write(f"**✅ Information:** {mg}\n\n")
 
 def write_macro(checklists, report_file, owner, repo, elapsed_time):
