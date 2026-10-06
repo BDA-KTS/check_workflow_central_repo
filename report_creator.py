@@ -577,11 +577,11 @@ def write_report(checklists, report_file, owner, repo, elapsed_time):
 
         ![Python](https://img.shields.io/badge/Python-supported-orange)
         ![R](https://img.shields.io/badge/R-supported-orange)
-        badge_reuse = ["![Reusability](https://img.shields.io/badge/Reusability-supported-green)", "![Reusability](https://img.shields.io/badge/Reusability-supported-yellow)", "![Reusability](https://img.shields.io/badge/Reusability-supported-orange)"]
-        badge_trans = ["![Transparency](https://img.shields.io/badge/Transparency-supported-green)", "![Transparency](https://img.shields.io/badge/Transparency-supported-yellow)", "![Transparency](https://img.shields.io/badge/Transparency-supported-orange)"]
-        badge_repro = ["![Reproducibility](https://img.shields.io/badge/Reproducibility-supported-green)", "![Reproducibility](https://img.shields.io/badge/Reproducibility-supported-yellow)", "![Reproducibility](https://img.shields.io/badge/Reproducibility-supported-orange)"]
+        badge_reuse = ["""![Reusability](https://img.shields.io/badge/Reusability-supported-green)""", """![Reusability](https://img.shields.io/badge/Reusability-supported-yellow)""", """![Reusability](https://img.shields.io/badge/Reusability-supported-orange)"""]
+        badge_trans = ["""![Transparency](https://img.shields.io/badge/Transparency-supported-green)""", """![Transparency](https://img.shields.io/badge/Transparency-supported-yellow)""", """![Transparency](https://img.shields.io/badge/Transparency-supported-orange)"""]
+        badge_repro = ["""![Reproducibility](https://img.shields.io/badge/Reproducibility-supported-green)""", """![Reproducibility](https://img.shields.io/badge/Reproducibility-supported-yellow)""", """![Reproducibility](https://img.shields.io/badge/Reproducibility-supported-orange)"""]
         
-        others = ["![Python](https://img.shields.io/badge/Python-supported-yellow)", "![R](https://img.shields.io/badge/R-supported-yellow)", "![Python](https://img.shields.io/badge/Python-supported-green)", "![R](https://img.shields.io/badge/R-supported-green)"]
+        #others = ["![Python](https://img.shields.io/badge/Python-supported-yellow)", "![R](https://img.shields.io/badge/R-supported-yellow)", "![Python](https://img.shields.io/badge/Python-supported-green)", "![R](https://img.shields.io/badge/R-supported-green)"]
         
         label = [" ✅ **Information:**", " ⚠️ **Warnings:**", " ⛔ **Errors:**"]
         
