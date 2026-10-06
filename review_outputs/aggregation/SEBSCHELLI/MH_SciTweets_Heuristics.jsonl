@@ -1,5 +1,5 @@
-{"owner": "SEBSCHELLI", "repo": "MH_SciTweets_Heuristics", "name": "License", "passed": false, "warning_labels": [], "error_labels": ["No license"], "Workflow Duration": "1:44"}
-{"owner": "SEBSCHELLI", "repo": "MH_SciTweets_Heuristics", "name": "Programming Language", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "1:44"}
-{"owner": "SEBSCHELLI", "repo": "MH_SciTweets_Heuristics", "name": "Documentation", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "1:44"}
-{"owner": "SEBSCHELLI", "repo": "MH_SciTweets_Heuristics", "name": "Binder Test", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "1:44"}
-{"owner": "SEBSCHELLI", "repo": "MH_SciTweets_Heuristics", "name": "Readme Check", "passed": false, "warning_labels": [], "error_labels": ["Multiple Titles"], "Workflow Duration": "1:44"}
+{"owner": "SEBSCHELLI", "repo": "MH_SciTweets_Heuristics", "name": "License", "passed": false, "warning_labels": [], "error_labels": ["No license"], "Workflow Duration": "1:36"}
+{"owner": "SEBSCHELLI", "repo": "MH_SciTweets_Heuristics", "name": "Programming Language", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "1:36"}
+{"owner": "SEBSCHELLI", "repo": "MH_SciTweets_Heuristics", "name": "Documentation", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "1:36"}
+{"owner": "SEBSCHELLI", "repo": "MH_SciTweets_Heuristics", "name": "Binder Test", "passed": true, "warning_labels": [], "error_labels": [], "Workflow Duration": "1:36"}
+{"owner": "SEBSCHELLI", "repo": "MH_SciTweets_Heuristics", "name": "Readme Check", "passed": false, "warning_labels": [], "error_labels": ["Multiple Titles"], "Workflow Duration": "1:36"}
