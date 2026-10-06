@@ -575,9 +575,9 @@ def write_report(checklists, report_file, owner, repo, elapsed_time):
         
         #f.write(f"### Working Environment:", f"{env}", f"{required_binder}", f"{root_files}", f"{extended_files}")
 
-        badge_reuse = ["![Reusability](https://img.shields.io/badge/Reusability-supported-green)", "![Reusability](https://img.shields.io/badge/Reusability-supported-yellow)", "![Reusability](https://img.shields.io/badge/Reusability-supported-orange)"]
-        badge_trans = ["![Transparency](https://img.shields.io/badge/Transparency-supported-green)", "![Transparency](https://img.shields.io/badge/Transparency-supported-yellow)", "![Transparency](https://img.shields.io/badge/Transparency-supported-orange)"]
-        badge_repro = ["![Reproducibility](https://img.shields.io/badge/Reproducibility-supported-green)", "![Reproducibility](https://img.shields.io/badge/Reproducibility-supported-yellow)", "![Reproducibility](https://img.shields.io/badge/Reproducibility-supported-orange)"]
+        badge_reuse = ["![Reusability](https://img.shields.io/badge/Reusability-supported-green)", "![Reusability](https://img.shields.io/badge/Reusability-partially%20supported-yellow)", "![Reusability](https://img.shields.io/badge/Reusability-not%20supported-orange)"]
+        badge_trans = ["![Transparency](https://img.shields.io/badge/Transparency-supported-green)", "![Transparency](https://img.shields.io/badge/Transparency-partially%20supported-yellow)", "![Transparency](https://img.shields.io/badge/Transparency-not%20supported-orange)"]
+        badge_repro = ["![Reproducibility](https://img.shields.io/badge/Reproducibility-supported-green)", "![Reproducibility](https://img.shields.io/badge/Reproducibility-partially%20supported-yellow)", "![Reproducibility](https://img.shields.io/badge/Reproducibility-not%20supported-orange)"]
         
         #others = ["![Python](https://img.shields.io/badge/Python-supported-yellow)", "![R](https://img.shields.io/badge/R-supported-yellow)", "![Python](https://img.shields.io/badge/Python-supported-green)", "![R](https://img.shields.io/badge/R-supported-green)","![Python](https://img.shields.io/badge/Python-supported-orange)", "![R](https://img.shields.io/badge/R-supported-orange)"]
         
@@ -595,6 +595,12 @@ def write_report(checklists, report_file, owner, repo, elapsed_time):
         else:
             reuse = 0
             report[0] = checklists[0].messages + ["Citation file exists"]
+
+        f.write("| Reusability and Attribution | Report |\n")
+        f.write("|---|---|\n")
+        f.write(f"| {badge_reuse[reuse]} | {label[reuse]} {' '.join(report[reuse])} |\n")
+
+
 
         f.write(f"| {badge_reuse[reuse]} Reusability and Attribution |")
         f.write("|--------------------------------------------------|")
