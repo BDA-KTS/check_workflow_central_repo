@@ -583,7 +583,7 @@ def write_report(checklists, report_file, owner, repo, elapsed_time):
         
         label = [" ✅ **Information:**", " ⚠️ **Warnings:**", " ⛔ **Errors:**"]
         
-        
+        # Reusability and attribution
         reuse = 0
         report = {}
         if checklists[0].errors or 'citation' in checklist[2].errors: 
@@ -596,24 +596,46 @@ def write_report(checklists, report_file, owner, repo, elapsed_time):
             reuse = 0
             report[0] = checklists[0].messages + ["Citation file exists"]
 
+
         f.write(f"| {badge_reuse[reuse]} Reusability and Attribution |\n")
         f.write("|---|\n")
         f.write(f"| {label[reuse]} {' '.join(report[reuse])} |\n")
 
-        for checklist in checklists:
-            f.write("### {}\n\n".format(checklist.name))
+         # Reporting transparencyy
+        trans = 0
+        report = {}
+        if checklists[2].errors or checklists[4].errors:
+            trans = 2
+            report[trans] = checklists[2].errors + checklists[4].errors
+        elif checklists[2].warnings or checklists[4].warnings:
+            trans = 1
+            report[trans] = checklists[2].warnings + checklists[4].warnings
+        else:
+            trans = 0
+            report[trans] = checklists[2].messages + checklists[4].messages
+            
+       
+        f.write(f"|{badge_trans[trans]} Reporting transparency |\n")
+        f.write("|---|\n")
+        f.write(f"| {label[trans]} {' '.join(report[trans])} |\n")
+
+        # Computational reproducibility
+        repro = 0
+        report = {}
+        if checklist[3].errors or checklists[1].errors:
+            repro = 2
+            report[repro] = checklists[3].errors + checklists[1].errors
+        elif checklists[3].warnings or checklists[1].warnings:
+            repro = 1
+            report[repro] = checklists[3].warnings + checklists[1].warnings
+        else:
+            repro = 0
+            report[repro] = checklists[3].messages + checklists[1].messages
+
+        f.write(f"|{badge_repro[repro]} Computational reproducibility |\n")
+        f.write("|---|\n")
+        f.write(f"| {label[repro]} {' '.join(report[repro])}|\n")
         
-            if checklist.errors:
-                err = '<br>'.join(checklist.errors)
-                f.write(f"**⛔ Errors:** {err}\n\n")
-
-            if checklist.warnings:
-                wr = '<br>'.join(checklist.warnings)
-                f.write(f"**⚠️ Warnings:** {wr}\n\n")
-
-            if checklist.messages:
-                mg = '<br>'.join(checklist.messages)
-                f.write(f"**✅ Information:** {mg}\n\n")
 
 def write_macro(checklists, report_file, owner, repo, elapsed_time):
     total_seconds = int(elapsed_time.total_seconds())
