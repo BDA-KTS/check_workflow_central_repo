@@ -1,11 +1,11 @@
 # Report: [SEBSCHELLI / MH_SciTweets_Heuristics](https://github.com/SEBSCHELLI/MH_SciTweets_Heuristics)
 
-<small>created on 2026-10-06 22:32:52, taking 1:37 (min/sec)
+<small>created on 2026-10-06 22:44:29, taking 1:45 (min/sec)
 
-| Reusability and Attribution | Report |
-|---|---|
-| ![Reusability](https://img.shields.io/badge/Reusability-not%20supported-orange) |  ⛔ **Errors:** License Check failed, no license file found Citation file missing |
-| ![Reusability](https://img.shields.io/badge/Reusability-not%20supported-orange) Reusability and Attribution ||--------------------------------------------------||  ⛔ **Errors:** License Check failed, no license file found Citation file missing ||  ⛔ **Errors:** License Check failed, no license file found Citation file missing ||--------------------------------------------------|### License
+| ![Reusability](https://img.shields.io/badge/Reusability-not%20supported-orange) Reusability and Attribution |
+|---|
+|  ⛔ **Errors:** License Check failed, no license file found Citation file missing |
+### License
 
 **⛔ Errors:** License Check failed, no license file found
 
