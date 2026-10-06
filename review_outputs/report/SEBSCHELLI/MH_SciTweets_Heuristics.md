@@ -1,6 +1,6 @@
 # Report: [SEBSCHELLI / MH_SciTweets_Heuristics](https://github.com/SEBSCHELLI/MH_SciTweets_Heuristics)
 
-<small>created on 2026-10-06 09:02:17, taking 1:36 (min/sec)
+<small>created on 2026-10-06 09:17:12, taking 1:38 (min/sec)
 
 ### License
 
@@ -12,9 +12,7 @@
 
 ### Documentation
 
-**✅ Information:** citation, license, postbuild
-requirements.txt
-All required files found
+**✅ Information:** citation, license, postbuild<br>requirements.txt<br>All required files found
 
 ### Binder Test
 
@@ -24,14 +22,5 @@ All required files found
 
 **⛔ Errors:** Found too many titles: Count: 5
 
-**✅ Information:** Found subtitle: Description
-Found subtitle: Use Cases
-Found subtitle: Input Data
-Found subtitle: Output Data
-Found subtitle: Hardware Requirements
-Found subtitle: Environment Setup
-Found subtitle: How to Use
-Found subtitle: Technical Details
-Found subtitle: References
-Found subtitle: Contact Details
+**✅ Information:** Description<br>Use Cases<br>Input Data<br>Output Data<br>Hardware Requirements<br>Environment Setup<br>How to Use<br>Technical Details<br>References<br>Contact Details
 
