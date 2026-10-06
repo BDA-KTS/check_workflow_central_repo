@@ -1,26 +1,26 @@
-# Report: [SEBSCHELLI/MH_SciTweets_Heuristics](https://github.com/SEBSCHELLI/MH_SciTweets_Heuristics)
-<small>created on 2026-10-05 22:09:47, taking 1:35 (min/sec)
-[![Report Failed](https://github.com/BDA-KTS/check_workflow_central_repo/actions/workflows/test_workflow.yml/badge.svg)](https://github.com/BDA-KTS/check_workflow_central_repo/actions/workflows/test_workflow.yml)
+# Report: [SEBSCHELLI / MH_SciTweets_Heuristics](https://github.com/SEBSCHELLI/MH_SciTweets_Heuristics)
 
-[![Report Failed](https://github.com/BDA-KTS/check_workflow_central_repo/actions/workflows/test_workflow.yml/badge.svg)](https://github.com/BDA-KTS/check_workflow_central_repo/actions/workflows/test_workflow.yml)
+<small>created on 2026-10-06 08:49:45, taking 1:44 (min/sec)
 
 ### License
 
-License Check failed, no license file found
+**⛔ Errors:** ['License Check failed, no license file found']
 
-### Python Environment
+### Programming Language
 
-⚠️ Python version is not explicitly specified in the repository.
+**⚠️ Warnings:** ['Python/R version is not explicitly specified in the repository.']
 
 ### Documentation
 
-Found: citation, license, postbuild### ✅ Information: <br>Found required file: requirements.txt### ✅ Information: <br>All required files found
-
-### Readme Check
-
-Found too many titles: Count: 5Found subtitle: Description### ✅ Information: <br>Found subtitle: Use Cases### ✅ Information: <br>Found subtitle: Input Data### ✅ Information: <br>Found subtitle: Output Data### ✅ Information: <br>Found subtitle: Hardware Requirements### ✅ Information: <br>Found subtitle: Environment Setup### ✅ Information: <br>Found subtitle: How to Use### ✅ Information: <br>Found subtitle: Technical Details### ✅ Information: <br>Found subtitle: References### ✅ Information: <br>Found subtitle: Contact Details
+**✅ Information:** ['Found: citation, license, postbuild', 'Found required file: requirements.txt', 'All required files found']
 
 ### Binder Test
 
-Repo2Docker build successful. Binder environment is valid.
+**✅ Information:** ['Repo2Docker build successful. Binder environment is valid.']
+
+### Readme Check
+
+**⛔ Errors:** ['Found too many titles: Count: 5']
+
+**✅ Information:** ['Found subtitle: Description', 'Found subtitle: Use Cases', 'Found subtitle: Input Data', 'Found subtitle: Output Data', 'Found subtitle: Hardware Requirements', 'Found subtitle: Environment Setup', 'Found subtitle: How to Use', 'Found subtitle: Technical Details', 'Found subtitle: References', 'Found subtitle: Contact Details']
 
