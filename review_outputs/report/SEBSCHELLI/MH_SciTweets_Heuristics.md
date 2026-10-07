@@ -1,6 +1,6 @@
 # Report: [SEBSCHELLI / MH_SciTweets_Heuristics](https://github.com/SEBSCHELLI/MH_SciTweets_Heuristics)
 
-<small>created on 2026-10-07 17:56:00, taking 6:37 (min/sec)
+<small>created on 2026-10-07 19:03:36, taking 9:30 (min/sec)
 
 ### Reusability and Attribution 
 
@@ -18,3 +18,10 @@
 | ![Reproducibility](https://img.shields.io/badge/Reproducibility-partially%20supported-yellow) |
 |---|
 |  ⚠️ **Warnings:** Python/R version is not explicitly specified in the repository.|
+### Sustainability 
+
+| |
+|---|
+| [] |
+| [] |
+| ['Repo2Docker build successful. Repository environment was built successfully.'] |
