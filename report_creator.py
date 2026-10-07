@@ -118,7 +118,7 @@ def check_for_files(repo_requirements,required_binder,root_files,extended_files)
     warning_labels=formal_files.warning_labels + binder_files.warning_labels
     error_labels=formal_files.error_labels + binder_files.error_labels
     if passed:
-        messages.append("All required files found")
+        messages.append("All required documents found")
     return CheckResult("Documentation",passed=passed,messages=messages,warnings=warnings,errors=errors,statuses=statuses,warning_labels=warning_labels,error_labels=error_labels)
 
 def get_language_version(path: Path) -> CheckResult:
@@ -262,13 +262,13 @@ def check_for_binder_files(required_binder,extended_files):
     duplicates=[f for f, count in counter.items() if count > 1]
     if duplicates:
         for f in duplicates:
-            warnings.append(f"Warning: {f} is duplicated.")
+            warnings.append(f"File {f} is duplicated.")
             warning_labels.append(f"{f}")
     for f in found_files:
             messages.append(f"{f}")
     if set(required_binder).issubset(set(found_files)):
         if passed:
-            warnings.append("Multiple binder configs found")
+            warnings.append("Multiple binder configs found.")
             warning_labels.append("Multiple Setups")
         else:
             passed=True
@@ -307,13 +307,13 @@ def license_check():
     licenses = [license_ for license_ in licenses if license_ is not None]
     if len(licenses) > 1:
         errors.append("More than one license files found")
-        error_labels.append("Multiple")
+        error_labels.append("Multiple license")
     elif len(licenses) == 1:
         if licenses[0] in FREE_LICENSES:
             passed=True
-            messages.append(f"{licenses[0]} License, License accepted ")
+            messages.append(f"License {licenses[0]} accepted.")
         else:
-            errors.append(f"{licenses[0]} License denied ")
+            errors.append(f"License {licenses[0]} not accepted.")
             error_labels.append(f"{licenses[0]}")
     else:
         errors.append("No valid License found.")
@@ -381,29 +381,28 @@ def check_readme(titles,subtitles, error, error_labels) -> CheckResult:
     error_labels = error_labels
     if len(titles) < 1:
         passed=False
-        errors.append("No title found but one is required.")
-        error_labels.append("No Title")
+        errors.append("Method title not defined.")
+        error_labels.append("Title case")
     elif len(titles) == 1:
-        message.append("Found one title: Accepted")
+        message.append("Method title accepted.")
     else:
         passed=False
-        errors.append(f"Found too many titles: Count: {len(titles)}")
+        errors.append(f"Method has {len(titles)}, more than 1 titles.")
         error_labels.append("Multiple Titles")
     if len(subtitles) < 1:
         passed=False
-        errors.append("No subtitle found but one is required.")
-        error_labels.append("Subtitles")
+        errors.append("Method README has no section headings defined.")
+        error_labels.append("Section headings")
     missing = set(NECESSARY_SUBTITLES) - set(subtitles)
     for subtitle in subtitles:
         message.append(f"{subtitle}")
     for item in missing:
         passed = False
-        error.append(f"Missing subtitles: {item}")
-        error.append(f"For further information see: {NECESSARY_SUBTITLES[item]}")
+        error.append(f"Method README has {item} section heading missing, {NECESSARY_SUBTITLES[item]}")
         error_labels.append(f"{item}")
     if len(subtitles) != len(set(subtitles)):
-        warnings.append("Warning: Some subtitles are duplicated.")
-        waring_labels.append("Duplicated")
+        warnings.append("Method README has duplicate section headings.")
+        waring_labels.append("Duplicate headings")
     return CheckResult("Readme Check",passed,message,warnings,errors,statuses, waring_labels,error_labels)
 
 def repo2dockertest():
@@ -434,7 +433,6 @@ def repo2dockertest():
             passed=True
         else:
             errors.append("Repo2Docker build failed.")
-            errors.append(" Repo2Docker Output:")
             combined_output = "".join(
                 part for part in [result.stdout, result.stderr] if part
             )
@@ -597,11 +595,12 @@ def write_report(checklists, report_file, owner, repo, elapsed_time):
             report[0] = checklists[0].messages + ["Citation file exists"]
 
 
-        f.write(f"### {badge_reuse[reuse]} Reusability and Attribution \n\n")
-        f.write(f"|  |\n")
+        f.write(f"### Reusability and Attribution \n\n")
+        f.write(f"| {badge_reuse[reuse]} |\n")
         f.write("|---|\n")
         for item in report[reuse]:
             f.write(f"| {label[reuse]} {item} |\n")
+            
             
 
          # Reporting transparencyy
@@ -617,8 +616,8 @@ def write_report(checklists, report_file, owner, repo, elapsed_time):
             trans = 0
             report[trans] = checklists[2].messages + checklists[4].messages
             
-        f.write(f"### {badge_trans[trans]} Reporting transparency \n\n")
-        f.write(f"|  |\n")
+        f.write(f"### Reporting transparency \n\n")
+        f.write(f"| {badge_trans[trans]} |\n")
         f.write("|---|\n")
         for item in report[trans]:
             f.write(f"| {label[trans]} {item} |\n")
@@ -636,8 +635,8 @@ def write_report(checklists, report_file, owner, repo, elapsed_time):
             repro = 0
             report[repro] = checklists[3].messages + checklists[1].messages
 
-        f.write(f"### {badge_repro[repro]} Computational reproducibility \n\n")
-        f.write(f"| |\n")
+        f.write(f"### Computational reproducibility \n\n")
+        f.write(f"| {badge_repro[repro]} |\n")
         f.write("|---|\n")
         for item in report[repro]:
             f.write(f"| {label[repro]} {item}|\n")
