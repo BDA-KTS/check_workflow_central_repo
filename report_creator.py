@@ -446,6 +446,175 @@ def repo2dockertest():
         errors.append(f"Repo2Docker test failed with unexpected error: {e}")
     return CheckResult("Binder Test",passed,message,warnings,errors,statuses,warning_labels,error_labels)
 
+def repo2dockertest_sustainability():
+    """Build the repository with repo2docker and report environment/sustainability status."""
+    passed = False
+    message = []
+    warnings = []
+    errors = []
+    statuses = []
+    warning_labels = []
+    error_labels = []
+
+    environment_validation = "FAIL"
+
+    # Sustainability metrics.
+    # These are PENDING because --no-run only builds the environment.
+    execution_status = "PENDING"
+    execution_time = None
+    peak_ram = None
+    cpu_utilization = None
+    energy_consumption = None
+    co2_emissions = None
+
+    try:
+        result = subprocess.run(
+            [
+                "repo2docker",
+                "--no-run",
+                "--debug",
+                str(TEST_PATH),
+            ],
+            capture_output=True,
+            text=True,
+            check=False,
+        )
+
+        if result.returncode == 0:
+            passed = True
+            environment_validation = "PASS"
+
+            message.append(
+                "Repo2Docker build successful. "
+                "Repository environment was built successfully."
+            )
+
+            # Environment validation
+            statuses.append(
+                "Environment validation: PASS"
+            )
+
+            # Sustainability assessment
+            statuses.append(
+                "Sustainability Assessment:"
+            )
+            statuses.append(
+                "Environment validation: PASS"
+            )
+            statuses.append(
+                "Execution: PENDING"
+            )
+            statuses.append(
+                "Execution time: —"
+            )
+            statuses.append(
+                "Peak RAM: —"
+            )
+            statuses.append(
+                "CPU utilization: —"
+            )
+            statuses.append(
+                "Energy: —"
+            )
+            statuses.append(
+                "CO₂e: —"
+            )
+
+        else:
+            errors.append("Repo2Docker build failed.")
+
+            combined_output = "\n".join(
+                part
+                for part in (result.stdout, result.stderr)
+                if part
+            )
+
+            if combined_output:
+                errors.append(combined_output[-4000:])
+
+            error_labels.append("repo2docker")
+
+            statuses.append(
+                "Environment validation: FAIL"
+            )
+
+            statuses.append(
+                "Sustainability Assessment:"
+            )
+            statuses.append(
+                "Environment validation: FAIL"
+            )
+            statuses.append(
+                "Execution: NOT RUN"
+            )
+            statuses.append(
+                "Execution time: —"
+            )
+            statuses.append(
+                "Peak RAM: —"
+            )
+            statuses.append(
+                "CPU utilization: —"
+            )
+            statuses.append(
+                "Energy: —"
+            )
+            statuses.append(
+                "CO₂e: —"
+            )
+
+    except FileNotFoundError:
+        errors.append(
+            "Repo2Docker test failed: repo2docker is not installed "
+            "in the environment."
+        )
+        error_labels.append("repo2docker")
+
+        statuses.append(
+            "Environment validation: FAIL"
+        )
+
+        statuses.append(
+            "Sustainability Assessment:"
+        )
+        statuses.append(
+            "Environment validation: FAIL"
+        )
+        statuses.append(
+            "Execution: NOT RUN"
+        )
+
+    except Exception as e:
+        errors.append(
+            f"Repo2Docker test failed with unexpected error: {e}"
+        )
+        error_labels.append("repo2docker")
+
+        statuses.append(
+            "Environment validation: FAIL"
+        )
+
+        statuses.append(
+            "Sustainability Assessment:"
+        )
+        statuses.append(
+            "Environment validation: FAIL"
+        )
+        statuses.append(
+            "Execution: NOT RUN"
+        )
+
+    return CheckResult(
+        "Binder Test",
+        passed,
+        message,
+        warnings,
+        errors,
+        statuses,
+        warning_labels,
+        error_labels,
+    )
+
 def strip_markdown(text: str) -> str:
     text = html.unescape(text)
 
@@ -641,7 +810,14 @@ def write_report(checklists, report_file, owner, repo, elapsed_time):
         for item in report[repro]:
             f.write(f"| {label[repro]} {item}|\n")
         
-
+        x = repo2dockertest_sustainability()
+        f.write(f"### Sustainability \n\n")
+        f.write(f"| |\n")
+        f.write("|---|\n")
+        f.write(f"| {x.errors} |\n")
+        f.write(f"| {x.warnings} |\n")
+        f.write(f"| {x.messages} |\n")
+        
 def write_macro(checklists, report_file, owner, repo, elapsed_time):
     total_seconds = int(elapsed_time.total_seconds())
     minutes, seconds = divmod(total_seconds, 60)
