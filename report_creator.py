@@ -649,15 +649,15 @@ def write_report(checklists, report_file, owner, repo, elapsed_time):
         if checklists[0].errors:  
             reuse = 2
             report[reuse] = checklists[0].errors
-        elif 'citation' in checklist[2].errors:
+        if 'citation' in checklist[2].errors:
             reuse = 2
             report[reuse] += ['Citation file missing'] 
         
         if checklists[0].warnings:
             reuse = 1
             report[reuse] = checklists[0].warnings
-        elif 'citation' in checklists[2].warnings:
-            reuse = 1
+        if 'citation' in checklists[2].warnings:
+            reuse = 1  
             report[reuse] += ['Citation file not formatted properly']
 
         reuse = 0
@@ -689,6 +689,7 @@ def write_report(checklists, report_file, owner, repo, elapsed_time):
         for item in report[trans]:
             f.write(f" - {label[trans]} {item} \n")
 
+        sus = repo2dockertest_sustainability()
         # Computational reproducibility
         repro = 0
         report = {}
@@ -705,9 +706,15 @@ def write_report(checklists, report_file, owner, repo, elapsed_time):
         f.write(f"### {badge_repro[repro]} \n\n")
         for item in report[repro]:
             f.write(f" - {label[repro]} {item} \n")
+        f.write(f" {sus[0].name} \n")
+        if sus[0].errors:
+            f.write(f" {label[2]} {sus[0].errors} \n")
+        if sus[0].warnings:
+            f.write(f" {label[1]} {sus[0].warnings} \n")
         
-        result = repo2dockertest_sustainability()
-        f.write(f"Method sustainability: {result}")
+        f.write(f"### Method sustainability \n\n")
+        for key, value in sus[0].statuses:
+            f.write(f"**{key}:** {value}")
         
         
 def write_macro(checklists, report_file, owner, repo, elapsed_time):
