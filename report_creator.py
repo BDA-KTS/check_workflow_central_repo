@@ -15,6 +15,9 @@ import time
 from config import Settings
 from jsons.Json_PreCooking import strip_markdown
 
+import resource
+
+
 with open(os.environ["GITHUB_EVENT_PATH"], "r", encoding="utf-8") as payload_file:
     payload = json.load(payload_file)
 
@@ -446,13 +449,15 @@ def repo2dockertest():
         errors.append(f"Repo2Docker test failed with unexpected error: {e}")
     return CheckResult("Binder Test",passed,message,warnings,errors,statuses,warning_labels,error_labels)
 
-import subprocess
-import time
-import resource
-
-
 def repo2dockertest_sustainability():
     """Build the repository and report basic sustainability metrics."""
+    passed=False
+    message=[]
+    warnings=[]
+    errors=[]
+    statuses=[]
+    warning_labels=[]
+    error_labels=[]
     start_time = time.perf_counter()
 
     try:
