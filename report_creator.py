@@ -707,7 +707,7 @@ def write_report(checklists, report_file, owner, repo, elapsed_time):
             f.write(f" - {label[repro]} {item} \n")
         
         result = repo2dockertest_sustainability()
-        f.write("Method sustainability:", result)
+        f.write(f"Method sustainability: {result}")
         
         
 def write_macro(checklists, report_file, owner, repo, elapsed_time):
