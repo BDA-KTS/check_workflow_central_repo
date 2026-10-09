@@ -706,14 +706,14 @@ def write_report(checklists, report_file, owner, repo, elapsed_time):
         f.write(f"### {badge_repro[repro]} \n\n")
         for item in report[repro]:
             f.write(f" - {label[repro]} {item} \n")
-        f.write(f" {sus[0].name} \n")
-        if sus[0].errors:
-            f.write(f" {label[2]} {sus[0].errors} \n")
+        f.write(f" {sus.name} \n")
+        if sus.errors:
+            f.write(f" {label[2]} {sus.errors} \n")
         if sus[0].warnings:
-            f.write(f" {label[1]} {sus[0].warnings} \n")
+            f.write(f" {label[1]} {sus.warnings} \n")
         
         f.write(f"### Method sustainability \n\n")
-        for key, value in sus[0].statuses:
+        for key, value in sus.statuses:
             f.write(f"**{key}:** {value}")
         
         
