@@ -649,7 +649,7 @@ def write_report(checklists, report_file, owner, repo, elapsed_time):
         if checklists[0].errors:  
             reuse = 2
             report[reuse] = checklists[0].errors
-        if 'citation' in checklist[2].errors:
+        if 'citation' in checklists[2].errors:
             reuse = 2
             report[reuse] += ['Citation file missing'] 
         
