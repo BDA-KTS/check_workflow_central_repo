@@ -712,9 +712,9 @@ def write_report(checklists, report_file, owner, repo, elapsed_time):
         if sus.warnings:
             f.write(f" {label[1]} {sus.warnings} \n")
         
-        f.write(f"### Method sustainability \n\n")
-        for key, value in sus.statuses:
-            f.write(f"**{key}:** {value}")
+        f.write(f"### Resource Consumption \n\n")
+        for item in sus.statuses:
+            f.write(f"{item}")
         
         
 def write_macro(checklists, report_file, owner, repo, elapsed_time):
