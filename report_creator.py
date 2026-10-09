@@ -446,33 +446,19 @@ def repo2dockertest():
         errors.append(f"Repo2Docker test failed with unexpected error: {e}")
     return CheckResult("Binder Test",passed,message,warnings,errors,statuses,warning_labels,error_labels)
 
+import subprocess
+import time
+import resource
+
+
 def repo2dockertest_sustainability():
-    """Build the repository with repo2docker and report environment/sustainability status."""
-    passed = False
-    message = []
-    warnings = []
-    errors = []
-    statuses = []
-    warning_labels = []
-    error_labels = []
-
-    environment_validation = "FAIL"
-
-    # Sustainability metrics.
-    # These are PENDING because --no-run only builds the environment.
-    execution_status = "PENDING"
-    execution_time = None
-    peak_ram = None
-    cpu_utilization = None
-    energy_consumption = None
-    co2_emissions = None
+    """Build the repository and report basic sustainability metrics."""
+    start_time = time.perf_counter()
 
     try:
-        result = subprocess.run(
-            [
+        result = subprocess.run([
                 "repo2docker",
                 "--no-run",
-                "--debug",
                 str(TEST_PATH),
             ],
             capture_output=True,
@@ -480,140 +466,42 @@ def repo2dockertest_sustainability():
             check=False,
         )
 
+        execution_time = time.perf_counter() - start_time
+
+        # Peak memory usage of this Python process (not necessarily Docker).
+        peak_ram = resource.getrusage(
+            resource.RUSAGE_SELF
+        ).ru_maxrss
+
         if result.returncode == 0:
             passed = True
-            environment_validation = "PASS"
-
-            message.append(
-                "Repo2Docker build successful. "
-                "Repository environment was built successfully."
-            )
-
-            # Environment validation
-            statuses.append(
-                "Environment validation: PASS"
-            )
-
-            # Sustainability assessment
-            statuses.append(
-                "Sustainability Assessment:"
-            )
-            statuses.append(
-                "Environment validation: PASS"
-            )
-            statuses.append(
-                "Execution: PENDING"
-            )
-            statuses.append(
-                "Execution time: —"
-            )
-            statuses.append(
-                "Peak RAM: —"
-            )
-            statuses.append(
-                "CPU utilization: —"
-            )
-            statuses.append(
-                "Energy: —"
-            )
-            statuses.append(
-                "CO₂e: —"
-            )
-
+            message.append("Repo2Docker build successful.")
+            statuses.append("Environment validation: PASS")
         else:
             errors.append("Repo2Docker build failed.")
-
-            combined_output = "\n".join(
-                part
-                for part in (result.stdout, result.stderr)
-                if part
-            )
-
-            if combined_output:
-                errors.append(combined_output[-4000:])
-
+            errors.append(result.stderr[-2000:])
             error_labels.append("repo2docker")
+            statuses.append("Environment validation: FAIL")
 
-            statuses.append(
-                "Environment validation: FAIL"
-            )
-
-            statuses.append(
-                "Sustainability Assessment:"
-            )
-            statuses.append(
-                "Environment validation: FAIL"
-            )
-            statuses.append(
-                "Execution: NOT RUN"
-            )
-            statuses.append(
-                "Execution time: —"
-            )
-            statuses.append(
-                "Peak RAM: —"
-            )
-            statuses.append(
-                "CPU utilization: —"
-            )
-            statuses.append(
-                "Energy: —"
-            )
-            statuses.append(
-                "CO₂e: —"
-            )
+        statuses.extend([
+            f"Build time: {execution_time:.2f} seconds",
+            f"Peak Python process memory: {peak_ram}",
+            "CPU utilization: Not measured",
+            "Energy consumption: Not measured",
+            "CO₂ emissions: Not measured",
+        ])
 
     except FileNotFoundError:
-        errors.append(
-            "Repo2Docker test failed: repo2docker is not installed "
-            "in the environment."
-        )
+        errors.append("repo2docker is not installed.")
         error_labels.append("repo2docker")
-
-        statuses.append(
-            "Environment validation: FAIL"
-        )
-
-        statuses.append(
-            "Sustainability Assessment:"
-        )
-        statuses.append(
-            "Environment validation: FAIL"
-        )
-        statuses.append(
-            "Execution: NOT RUN"
-        )
+        statuses.append("Environment validation: FAIL")
 
     except Exception as e:
-        errors.append(
-            f"Repo2Docker test failed with unexpected error: {e}"
-        )
+        errors.append(f"Unexpected error: {e}")
         error_labels.append("repo2docker")
+        statuses.append("Environment validation: FAIL")
 
-        statuses.append(
-            "Environment validation: FAIL"
-        )
-
-        statuses.append(
-            "Sustainability Assessment:"
-        )
-        statuses.append(
-            "Environment validation: FAIL"
-        )
-        statuses.append(
-            "Execution: NOT RUN"
-        )
-
-    return CheckResult(
-        "Binder Test",
-        passed,
-        message,
-        warnings,
-        errors,
-        statuses,
-        warning_labels,
-        error_labels,
-    )
+    return CheckResult("Binder Test", passed, message, warnings, errors, statuses, warning_labels, error_labels,)
 
 def strip_markdown(text: str) -> str:
     text = html.unescape(text)
@@ -753,22 +641,29 @@ def write_report(checklists, report_file, owner, repo, elapsed_time):
         # Reusability and attribution
         reuse = 0
         report = {}
-        if checklists[0].errors or 'citation' in checklist[2].errors: 
+        if checklists[0].errors:  
             reuse = 2
-            report[reuse] = checklists[0].errors + ["Citation file missing"]
-        elif checklists[0].warnings or 'citation' in checklist[2].warnings:
+            report[reuse] = checklists[0].errors
+        elif 'citation' in checklist[2].errors:
+            reuse = 2
+            report[reuse] += ['Citation file missing'] 
+        
+        if checklists[0].warnings:
             reuse = 1
             report[reuse] = checklists[0].warnings
-        else:
-            reuse = 0
-            report[0] = checklists[0].messages + ["Citation file exists"]
+        elif 'citation' in checklist[2].warnings:
+            reuse = 1
+            report[reuse] += ['Citation file not formatted properly']
+
+        reuse = 0
+        report[reuse] = checklists[0].messages
+        if ('citation' not in checklists[2].errors) and ('citation' not in checklists[2].warnings):
+            report[reuse] += ["Citation file exists"]
 
 
-        f.write(f"### Reusability and Attribution \n\n")
-        f.write(f"| {badge_reuse[reuse]} |\n")
-        f.write("|---|\n")
+        f.write(f"### {badge_reuse[reuse]} \n\n")
         for item in report[reuse]:
-            f.write(f"| {label[reuse]} {item} |\n")
+            f.write(f" - {label[reuse]} {item} \n")
             
             
 
@@ -785,11 +680,9 @@ def write_report(checklists, report_file, owner, repo, elapsed_time):
             trans = 0
             report[trans] = checklists[2].messages + checklists[4].messages
             
-        f.write(f"### Reporting transparency \n\n")
-        f.write(f"| {badge_trans[trans]} |\n")
-        f.write("|---|\n")
+        f.write(f"### {badge_trans[trans]} \n\n")
         for item in report[trans]:
-            f.write(f"| {label[trans]} {item} |\n")
+            f.write(f" - {label[trans]} {item} \n")
 
         # Computational reproducibility
         repro = 0
@@ -804,19 +697,13 @@ def write_report(checklists, report_file, owner, repo, elapsed_time):
             repro = 0
             report[repro] = checklists[3].messages + checklists[1].messages
 
-        f.write(f"### Computational reproducibility \n\n")
-        f.write(f"| {badge_repro[repro]} |\n")
-        f.write("|---|\n")
+        f.write(f"### {badge_repro[repro]} \n\n")
         for item in report[repro]:
-            f.write(f"| {label[repro]} {item}|\n")
+            f.write(f" - {label[repro]} {item} \n")
         
-        x = repo2dockertest_sustainability()
-        f.write(f"### Sustainability \n\n")
-        f.write(f"| |\n")
-        f.write("|---|\n")
-        f.write(f"| {x.errors} |\n")
-        f.write(f"| {x.warnings} |\n")
-        f.write(f"| {x.messages} |\n")
+        result = repo2dockertest_sustainability()
+        f.write("Method sustainability:", result)
+        
         
 def write_macro(checklists, report_file, owner, repo, elapsed_time):
     total_seconds = int(elapsed_time.total_seconds())
