@@ -1,27 +1,14 @@
 # Report: [SEBSCHELLI / MH_SciTweets_Heuristics](https://github.com/SEBSCHELLI/MH_SciTweets_Heuristics)
 
-<small>created on 2026-10-07 19:03:36, taking 9:30 (min/sec)
+<small>created on 2026-10-09 20:35:16, taking 1:39 (min/sec)
 
-### Reusability and Attribution 
+### ![Reusability](https://img.shields.io/badge/Reusability-supported-green) 
 
-| ![Reusability](https://img.shields.io/badge/Reusability-not%20supported-orange) |
-|---|
-|  ⛔ **Errors:** License Check failed, no license file found |
-|  ⛔ **Errors:** Citation file missing |
-### Reporting transparency 
+ -  ✅ **Information:** Citation file exists 
+### ![Transparency](https://img.shields.io/badge/Transparency-not%20supported-orange) 
 
-| ![Transparency](https://img.shields.io/badge/Transparency-not%20supported-orange) |
-|---|
-|  ⛔ **Errors:** Method has 5, more than 1 titles. |
-### Computational reproducibility 
+ -  ⛔ **Errors:** Method has 5, more than 1 titles. 
+### ![Reproducibility](https://img.shields.io/badge/Reproducibility-partially%20supported-yellow) 
 
-| ![Reproducibility](https://img.shields.io/badge/Reproducibility-partially%20supported-yellow) |
-|---|
-|  ⚠️ **Warnings:** Python/R version is not explicitly specified in the repository.|
-### Sustainability 
-
-| |
-|---|
-| [] |
-| [] |
-| ['Repo2Docker build successful. Repository environment was built successfully.'] |
+ -  ⚠️ **Warnings:** Python/R version is not explicitly specified in the repository. 
+Method sustainability: CheckResult(name='Binder Test', passed=True, messages=['Repo2Docker build successful.'], warnings=[], errors=[], statuses=['Environment validation: PASS', 'Build time: 0.78 seconds', 'Peak Python process memory: 58560', 'CPU utilization: Not measured', 'Energy consumption: Not measured', 'CO₂ emissions: Not measured'], warning_labels=[], error_labels=[])
