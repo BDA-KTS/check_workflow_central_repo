@@ -709,7 +709,7 @@ def write_report(checklists, report_file, owner, repo, elapsed_time):
         f.write(f" {sus.name} \n")
         if sus.errors:
             f.write(f" {label[2]} {sus.errors} \n")
-        if sus[0].warnings:
+        if sus.warnings:
             f.write(f" {label[1]} {sus.warnings} \n")
         
         f.write(f"### Method sustainability \n\n")
