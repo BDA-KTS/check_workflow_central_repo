@@ -651,7 +651,7 @@ def write_report(checklists, report_file, owner, repo, elapsed_time):
         if checklists[0].warnings:
             reuse = 1
             report[reuse] = checklists[0].warnings
-        elif 'citation' in checklist[2].warnings:
+        elif 'citation' in checklists[2].warnings:
             reuse = 1
             report[reuse] += ['Citation file not formatted properly']
 
