@@ -563,7 +563,7 @@ def write_report(checklists, report_file, owner, repo, elapsed_time):
             
             f.write(f"### {badge_trans[trans]} \n\n")
             for item in report[trans]:
-            f.write(f" - {label[trans]} {item} \n")
+                f.write(f" - {label[trans]} {item} \n")
 
             # Computational reproducibility
             repro = 0
