@@ -106,11 +106,11 @@ def check_for_files(repo_requirements,required_binder,root_files,extended_files)
     formal_files = check_for_formal_files(repo_requirements, root_files)
     binder_files=check_for_binder_files(required_binder,extended_files)
     result = {}
-    result['ifpassed'] = formal_files.ifpassed and binder_files.ifpassed
-    result['messages'] = formal_files.messages + binder_files.messages
-    result['warnings'] = formal_files.warnings + binder_files.warnings
-    result['errors'] = formal_files.errors + binder_files.errors
-    result['messages'] = formal_files.statuses + binder_files.statuses
+    result['ifpassed'] = formal_files['ifpassed'] and binder_files['ifpassed']
+    result['messages'] = formal_files['messages'] + binder_files['messages']
+    result['warnings'] = formal_files['warnings'] + binder_files['warnings']
+    result['errors'] = formal_files['errors'] + binder_files['errors']
+    #result['messages'] = formal_files.statuses + binder_files.statuses
     #warning_labels=formal_files.warning_labels + binder_files.warning_labels
     #error_labels=formal_files.error_labels + binder_files.error_labels
     if result['ifpassed']:
