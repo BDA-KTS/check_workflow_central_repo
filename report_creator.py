@@ -707,7 +707,7 @@ def write_report(checklists, report_file, owner, repo, elapsed_time):
         # Computational reproducibility
         repro = 0
         report = {}
-        if checklists['files'].errors or checklists[1].errors:
+        if checklists['files'].errors or checklists['language'].errors:
             repro = 2
             report[repro] = checklists[3].errors + checklists[1].errors
         elif checklists[3].warnings or checklists[1].warnings:
