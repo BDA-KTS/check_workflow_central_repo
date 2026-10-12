@@ -644,6 +644,20 @@ def write_report(checklists, report_file, owner, repo, elapsed_time):
         label = [" ✅ **Information:**", " ⚠️ **Warnings:**", " ⛔ **Errors:**"]
         
         # Reusability and attribution
+
+        print(checklists['license'])
+        print('---')
+        print(checklists['language'])
+        print('---')
+        print(checklists['binder'])
+        print('---')
+        print(checklists['repo2docker'])
+        print('---')
+        print(checklists['readme'])
+        print('---')
+        print(checklists['sustainability'])
+        print('---')
+        
         reuse = 0
         report = {}
         if checklists[0].errors:  
@@ -689,7 +703,6 @@ def write_report(checklists, report_file, owner, repo, elapsed_time):
         for item in report[trans]:
             f.write(f" - {label[trans]} {item} \n")
 
-        sus = repo2dockertest_sustainability()
         # Computational reproducibility
         repro = 0
         report = {}
@@ -737,7 +750,8 @@ def write_macro(checklists, report_file, owner, repo, elapsed_time):
 
 def main():
     time_start = datetime.now()
-    checklists: list[CheckResult] = []
+    #checklists: list[CheckResult] = []
+    checklists = {}
     full_name, readme_name = get_event_data()
     owner, repo = full_name.split("/", 1)
     report_dir = OUTPUT_PATH / REPORT_PATH / owner
@@ -754,30 +768,33 @@ def main():
 
     # License check
     if any("license" in result.statuses for result in checklists):
-        checklists.append(license_check())
+        checklists['license'] = license_check()
     else:
-        checklists.append(CheckResult("License",False,[],[],["License Check failed, no license file found"],[],[],["No license"]))
+        checklists['license'] = CheckResult("License",False,[],[],["License Check failed, no license file found"],[],[],["No license"])
     # Working language
-    checklists.append(get_language_version(TEST_PATH))
+    checklists['language'] = get_language_version(TEST_PATH)
     # Binder environment
-    checklists.append(check_for_files(REPO_REQUIREMENTS,required_binder,root_files,extended_files))
+    checklists['binder'] = check_for_files(REPO_REQUIREMENTS,required_binder,root_files,extended_files)
      # Simulate Repo2Docker 2
     if any("binder" in result.statuses for result in checklists):
-        checklists.append(repo2dockertest())
+        checklists['repo2docker'] = repo2dockertest()
     else:
-        checklists.append(CheckResult("Binder Test",False,[],[],["Binder test skipped: Binder files not found or not valid"],[],[],[]))
+        checklists['repo2docker'] = CheckResult("Binder Test",False,[],[],["Binder test skipped: Binder files not found or not valid"],[],[],[])
 
     
     # Readme check
     readme_path = TEST_PATH / readme_name
     if readme_path.suffix == ".ipynb":
-        checklists.append(convert_readme_ipynb(readme_path))
+        checklists['readme'] = convert_readme_ipynb(readme_path)
     elif readme_path.suffix == ".md":
-        checklists.append(convert_readme_md(readme_path))
+        checklists['readme'] = convert_readme_md(readme_path)
     elif readme_path.suffix == ".qmd":
-        checklists.append(convert_readme_md(readme_path))
+        checklists['readme'] = convert_readme_md(readme_path)
     else:
-        checklists.append(CheckResult("README",False,[],[],["Readme check failed: Format not yet supported"],[],[],[]))
+        checklists['readme'] = CheckResult("README",False,[],[],["Readme check failed: Format not yet supported"],[],[],[])
+
+    #sutainability
+    checklists['sustainability'] = repo2dockertest_sustainability()
 
     #checklists.insert(0,summary(checklists))
     #checklists.append(predict_labels_with_probability(readme_path))
