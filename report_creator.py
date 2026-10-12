@@ -599,10 +599,10 @@ def write_macro(checklists, report_file, owner, repo, elapsed_time):
     minutes, seconds = divmod(total_seconds, 60)
     times = f"{minutes}:{seconds:02d}"
 
-    with open(report_file, "w", encoding="utf-8") as f:
-        for name, checklist in checklists.items():
-            entry = {"owner": owner, "repo": repo, "name": name, "passed": checklist.ifpassed, "warnings": checklist.warnings, "errors": checklist.errors, "Workflow Duration": times, }
-            f.write(json.dumps(entry) + "\n")
+    #with open(report_file, "w", encoding="utf-8") as f:
+    #    for name, checklist in checklists.items():
+    #        entry = {"owner": owner, "repo": repo, "name": name, "passed": checklist.ifpassed, "warnings": checklist.warnings, "errors": checklist.errors, "Workflow Duration": times, }
+    #        f.write(json.dumps(entry) + "\n")
 
 def main():
     time_start = datetime.now()
