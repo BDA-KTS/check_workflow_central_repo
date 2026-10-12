@@ -504,18 +504,29 @@ def write_report(checklists, report_file, owner, repo, elapsed_time):
         label = [" ✅ **Information:**", " ⚠️ **Warnings:**", " ⛔ **Errors:**"]
         
         # Reusability and attribution
-
-        f.write(' '.join(checklists['license'].values()))
+        for key in checklists['license']:
+            if key != 'ifpassed':
+                f.write(' '.join(checklists['license'][key]))
         f.write('\n---\n')
-        f.write(' '.join(checklists['language'].values()))
+        for key in checklists['language']:
+            if key != 'ifpassed':
+                f.write(' '.join(checklists['language'][key]))
         f.write('\n---\n')
-        f.write(' '.join(checklists['files'].values()))
+        for key in checklists['files']:
+            if key != 'ifpassed':
+                f.write(' '.join(checklists['files'][key]))
         f.write('\n---\n')
-        f.write(' '.join(checklists['repo2docker'].values()))
+        for key in checklists['repo2docker']:
+            if key != 'ifpassed':
+                f.write(' '.join(checklists['repo2docker'][key]))
         f.write('\n---\n')
-        f.write(' '.join(checklists['readme'].values()))
+        for key in checklists['readme']:
+            if key != 'ifpassed':
+                f.write(' '.join(checklists['readme'][key]))
         f.write('\n---\n')
-        f.write(' '.join(checklists['sustainability'].values()))
+        for key in checklists['sustainability']:
+            if key != 'ifpassed':
+                f.write(' '.join(checklists['sustainability'][key]))
         f.write('\n---\n')
 
         if False:
