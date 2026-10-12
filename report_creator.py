@@ -484,7 +484,7 @@ def write_report(checklists, report_file, owner, repo, elapsed_time):
     with open(report_file, "w", encoding="utf-8") as f:
         total_seconds = int(elapsed_time.total_seconds())
         minutes, seconds = divmod(total_seconds, 60)
-        f.write(f"# Report: [{owner} / {repo}](https://github.com/{owner}/{repo})\n\n" f"<small>created on {time.strftime('%Y-%m-%d %H:%M:%S')}, taking {minutes}:{seconds:02d} (min/sec)\n\n")
+        f.write(f"# Report: [{owner} / {repo}](https://github.com/{owner}/{repo})\n\n" f"<small>created on {time.strftime('%Y-%m-%d %H:%M:%S')}, \n Review time: {minutes}:{seconds:02d} (min/sec)\n\n")
 
         #f.write("[![Report Creator](https://github.com/BDA-KTS/check_workflow_central_repo/actions/workflows/test_workflow.yml/badge.svg)](https://github.com/BDA-KTS/check_workflow_central_repo/actions/workflows/test_workflow.yml)\n\n")
 
@@ -505,18 +505,18 @@ def write_report(checklists, report_file, owner, repo, elapsed_time):
         
         # Reusability and attribution
 
-        print(checklists['license'])
-        print('---')
-        print(checklists['language'])
-        print('---')
-        print(checklists['files'])
-        print('---')
-        print(checklists['repo2docker'])
-        print('---')
-        print(checklists['readme'])
-        print('---')
-        print(checklists['sustainability'])
-        print('---')
+        f.write(checklists['license'])
+        f.write('\n---\n')
+        f.write(checklists['language'])
+        f.write('\n---\n')
+        f.write(checklists['files'])
+        f.write('\n---\n')
+        f.write(checklists['repo2docker'])
+        f.write('\n---\n')
+        f.write(checklists['readme'])
+        f.write('\n---\n')
+        f.write(checklists['sustainability'])
+        f.write('\n---\n')
 
         if False:
             reuse = 0
