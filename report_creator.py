@@ -37,9 +37,6 @@ ML_PATH = Settings.ML_PATH
 report = []
 
 
-@dataclass(frozen=True)
-class CheckResult:
-
 def get_file_extensions(path: Path) -> Set[str]:
     #Get all file extensions in the given directory recursively.
     return {path.suffix for path in path.rglob("*") if path.is_file()}
