@@ -103,9 +103,12 @@ def check_for_files(repo_requirements,required_binder,root_files,extended_files)
     if match is not None and not any(f for f in root_files if f.casefold().split(".")[0] == "postbuild" ):
         extended_files.remove(match)
         root_files.append("postbuild")
+    
     formal_files = check_for_formal_files(repo_requirements, root_files)
     binder_files=check_for_binder_files(required_binder,extended_files)
+    
     result = {'ifpassed': False, 'messages': [], 'warnings': [], 'errors': []}
+    
     result['ifpassed'] = formal_files['ifpassed'] and binder_files['ifpassed']
     result['messages'] = formal_files['messages'] + binder_files['messages']
     result['warnings'] = formal_files['warnings'] + binder_files['warnings']
@@ -628,10 +631,10 @@ def main():
     # Binder environment
     checklists['files'] = check_for_files(REPO_REQUIREMENTS,required_binder,root_files,extended_files)
      # Simulate Repo2Docker 2
-    if "binder" in checklists['files'].messages:
-        checklists['repo2docker'] = repo2dockertest()
-    else:
-        checklists['repo2docker'] = {'ifpassed': False, 'messages': [], 'warnings': [], 'messages': ["Binder test skipped: Binder files not found or not valid"]}
+    #if "binder" in checklists['files'].messages:
+    checklists['repo2docker'] = repo2dockertest()
+    #else:
+    #checklists['repo2docker'] = {'ifpassed': False, 'messages': [], 'warnings': [], 'messages': ["Binder test skipped: Binder files not found or not valid"]}
 
     
     # Readme check
