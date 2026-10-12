@@ -463,7 +463,7 @@ def predict_labels_with_probability(path: Path ,threshold: float = 0.5):
     result['ifpassed'] = True
     return result
 
-def summary(checklists):
+#def summary(checklists):
     #if any(not checklist.passed for checklist in checklists):
     #    passed = False
     #    errors.append("Major Flaws, Error in at least one Check")
