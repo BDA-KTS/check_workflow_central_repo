@@ -39,14 +39,6 @@ report = []
 
 @dataclass(frozen=True)
 class CheckResult:
-    name: str
-    passed: bool
-    messages: List[str] = field(default_factory=list)
-    warnings: List[str] = field(default_factory=list)
-    errors: List[str] = field(default_factory=list)
-    statuses: List[str] = field(default_factory=list)
-    warning_labels: List[str] = field(default_factory=list)
-    error_labels:  List[str] = field(default_factory=list)
 
 def get_file_extensions(path: Path) -> Set[str]:
     #Get all file extensions in the given directory recursively.
@@ -92,6 +84,9 @@ def get_needed_files(suffixes: Set[str]) -> Set[str]:
     if ".r" in suffixes_lower:
         required_for_binder.add("runtime.txt")
 
+    if '.yml' in suffixes_lower:
+        required_for_binder.add('environment.yml')
+
     return required_for_binder
 
 def get_files(path: Path):
@@ -113,18 +108,19 @@ def check_for_files(repo_requirements,required_binder,root_files,extended_files)
         root_files.append("postbuild")
     formal_files = check_for_formal_files(repo_requirements, root_files)
     binder_files=check_for_binder_files(required_binder,extended_files)
-    passed=formal_files.passed and binder_files.passed
-    messages=formal_files.messages + binder_files.messages
-    warnings=formal_files.warnings + binder_files.warnings
-    errors=formal_files.errors + binder_files.errors
-    statuses=formal_files.statuses + binder_files.statuses
-    warning_labels=formal_files.warning_labels + binder_files.warning_labels
-    error_labels=formal_files.error_labels + binder_files.error_labels
+    result = {}
+    result['ifpassed'] = formal_files.passed and binder_files.passed
+    result['messages'] = formal_files.messages + binder_files.messages
+    result['warnings'] = formal_files.warnings + binder_files.warnings
+    result['errors'] = formal_files.errors + binder_files.errors
+    result['messages'] = formal_files.statuses + binder_files.statuses
+    #warning_labels=formal_files.warning_labels + binder_files.warning_labels
+    #error_labels=formal_files.error_labels + binder_files.error_labels
     if passed:
-        messages.append("All required documents found")
-    return CheckResult("Documentation",passed=passed,messages=messages,warnings=warnings,errors=errors,statuses=statuses,warning_labels=warning_labels,error_labels=error_labels)
-
-def get_language_version(path: Path) -> CheckResult:
+        result['messages'].append("All required documents found")
+    return result
+    
+def get_language_version(path: Path):
     ENVIRONMENT_PATTERNS = {
         "Python": {
             "environment.yml": r"python\s*=\s*[\"']?([0-9]+(?:\.[0-9]+){0,2})",
@@ -151,149 +147,88 @@ def get_language_version(path: Path) -> CheckResult:
             match = re.search(pattern, text, re.IGNORECASE)
 
             if match:
-                return CheckResult(
-                    f"Programming Language",
-                    True,
-                    [
-                        f"{language} version: "
-                        f"{match.group(1)} (from {filename})"
-                    ],
-                    [],
-                    [],
-                    [],
-                    [],
-                    [],
-                )
-
-    return CheckResult(
-        "Programming Language",
-        True,
-        [],
-        ["Python/R version is not explicitly specified in the repository."],
-        [],
-        [],
-        [],
-        [],
-    )
+                return {'ifpassed': True, 'messages': f"{language} version: "f"{match.group(1)} (from {filename})", 'warnings': [], 'errors': []} 
+    return {'ifpassed': False, 'messages': [], 'warnings': ['Python/R version is not specified for the method'], 'errors': []}
     
 def check_for_formal_files(repo_requirements, root_files):
-    passed = False
-    messages = []
-    warnings = []
-    errors = []
-    statuses = []
-    warning_labels = []
-    error_labels = []
-
-    repo_sorted = sorted(
-        [f.casefold().split(".")[0] for f in root_files]
-    )
+    repo_sorted = sorted([f.casefold().split(".")[0] for f in root_files])
     required = {r.casefold() for r in repo_requirements}
 
     repo_sorted = [f for f in repo_sorted if f in required]
 
+    result = {'ifpassed': False, 'messages': [], 'warnings': [], 'errors': []}
     # Found files
     if repo_sorted:
-        messages.append(
-            f"{', '.join(repo_sorted)}"
-        )
+        result['messages'].append(f"{', '.join(repo_sorted)}")
     #else:
         #messages.append("Found: —")
 
     # License status
-    if "license" in repo_sorted:
-        statuses.append("license")
+    flag = False
+    for file in repo_sorted:
+        if "license" in file:
+            result['messages'].append('license:' + file)
+            flag = True
+    if not flag:
+        result['errors'].append('A valid open license not found')
 
     # Duplicate files
     counter = Counter(repo_sorted)
     duplicates = [f for f, count in counter.items() if count > 1]
 
     if duplicates:
-        warnings.append(
-            f"Duplicated: {', '.join(sorted(duplicates))}"
-        )
-        for f in duplicates:
-            warning_labels.append(f)
+        result['warnings'].append(f"Duplicated: {', '.join(sorted(duplicates))}")
 
     # Missing files
     missing = required - set(repo_sorted)
 
     if missing:
-        errors.append(
-            f"Missing: {', '.join(sorted(missing))}"
-        )
+        result['errors'].append(f"Missing: {', '.join(sorted(missing))}")
 
         for item in sorted(missing):
-            errors.append(
-                f"[{item}]({REPO_REQUIREMENTS[item]})"
-            )
-            error_labels.append(item)
+            result['errors'].append(f"[{item}]({REPO_REQUIREMENTS[item]})")
     else:
         #errors.append("Missing: —")
-        passed = True
+        result['ifpassed'] = True
 
     #if not duplicates:
         #warnings.append("Duplicated: —")
 
-    return CheckResult(
-        "Mandatory Files",
-        passed,
-        messages,
-        warnings,
-        errors,
-        statuses,
-        warning_labels,
-        error_labels
-    )
+    return result
 
 def check_for_binder_files(required_binder,extended_files):
-    passed=False
-    messages=[]
-    warnings=[]
-    errors=[]
-    statuses=[]
-    warning_labels=[]
-    error_labels=[]
     found_files = extended_files
+    result = {'ifpassed': False, 'messages': [], 'warnings': [], 'errors': []}
     output = ""
     if "environment.yml" in found_files:
-        passed=True
-        messages.append("environment.yml")
+        result['ifpassed'] = True
+        result['messages'].append("environment.yml")
         
     found_files = sorted([f for f in found_files if f in required_binder])
     counter=Counter(found_files)
     duplicates=[f for f, count in counter.items() if count > 1]
     if duplicates:
         for f in duplicates:
-            warnings.append(f"File {f} is duplicated.")
-            warning_labels.append(f"{f}")
+            result['warnings'].append(f"File {f} is duplicated.")
     for f in found_files:
-            messages.append(f"{f}")
+            result['messages'].append(f"{f}")
     if set(required_binder).issubset(set(found_files)):
         if passed:
-            warnings.append("Multiple binder configs found.")
-            warning_labels.append("Multiple Setups")
+            result['warnings'].append("Multiple binder configs found.")
         else:
-            passed=True
+            result['ifpassed'] = True
     else:
         missing = set(required_binder) - set(found_files)
         if missing:
             for item in missing:
-                errors.append(f"Missing required files: {item}")
-                error_labels.append(f"{item}")
-        messages.append("Missing required files")
+                result['errors'].append(f"Missing required files: {item}")
+        result['messages'].append("Missing required files")
     if passed:
-        statuses.append("binder")
-    return CheckResult("Working Environment", passed, messages, warnings, errors, statuses, warning_labels, error_labels)
-
+        result['messages'].append("binder")
+    return result
+    
 def license_check():
-    passed=False
-    messages=[]
-    warnings=[]
-    errors=[]
-    statuses=[]
-    warning_labels=[]
-    error_labels=[]
+    result = {'ifpassed': False, 'messages':[], 'warnings':[], 'errors':[]}
     license_files = [
         f for f in TEST_PATH.iterdir()
         if f.is_file() and f.name.casefold().startswith("license")
@@ -305,34 +240,31 @@ def license_check():
             license_name = from_text(license_text)
             licenses.append(license_name)
         except Exception as e:
-            errors.append(f"License file could not be read or parsed: Error {e}")
-            error_labels.append(f"Loading")
+            result['errors'].append(f"License file could not be read or parsed: Error {e}")
+
     licenses = [license_ for license_ in licenses if license_ is not None]
     if len(licenses) > 1:
-        errors.append("More than one license files found")
-        error_labels.append("Multiple license")
+        result['errors'].append("More than one license files found")
+
     elif len(licenses) == 1:
         if licenses[0] in FREE_LICENSES:
-            passed=True
-            messages.append(f"License {licenses[0]} accepted.")
+            result['ifpassed'] = True
+            result['messages'].append(f"License {licenses[0]} accepted.")
         else:
-            errors.append(f"License {licenses[0]} not accepted.")
-            error_labels.append(f"{licenses[0]}")
+            result['errors'].append(f"License {licenses[0]} not accepted.")
     else:
-        errors.append("No valid License found.")
-        error_labels.append("None")
+        result['errors'].append("No valid License found.")
 
-    return CheckResult("License",passed,messages,warnings,errors,statuses,warning_labels,error_labels)
+    return result
 
 
 def convert_readme_md(readme_path: Path) :
     """Analyze the README for required titles and subtitles."""
-    errors=[]
-    error_labels=[]
+    result = {'ifpassed': False, 'messages': [], 'warnings': [], 'errors': []}
+
     if not readme_path.exists():
-        errors.append(f"Readme check failed: {readme_path} not found")
-        error_labels.append("Path")
-        return check_readme([],[],errors, error_labels)
+        result['errors'].append(f"Readme check failed: {readme_path} not found")
+        return result
     titles = []
     subtitles = []
     try:
@@ -343,24 +275,21 @@ def convert_readme_md(readme_path: Path) :
                 elif line.startswith("## "):
                     subtitles.append(line[3:].strip())
     except Exception as e:
-        errors.append(f"Readme check failed: Error reading file ({e})")
-        error_labels.append("Loading")
-        return check_readme([],[],errors, error_labels)
-    return check_readme(titles, subtitles, errors, error_labels)
+        result['errors'].append(f"Readme check failed: Error reading file ({e})")
+        return result
+    return check_readme(titles, subtitles, result)
 
 def convert_readme_ipynb(readme_path: Path)  :
-    errors = []
-    error_labels=[]
+    result = {'ifpassed': False, 'messages': [], 'warnings': [], 'errors':[]}
+
     if not readme_path.exists():
-        errors.append(f"Readme check failed: {readme_path} not found")
-        error_labels.append("Path")
-        return check_readme([],[],errors, error_labels)
+        result['errors'].append(f"Readme check failed: {readme_path} not found")
+        return result
     try:
         nb=nbformat.read(readme_path, as_version=4)
     except Exception as e:
-        errors.append(f"Readme check failed: Error reading file ({e})")
-        error_labels.append("Loading")
-        return check_readme([],[],errors, error_labels)
+        result['errors'].append(f"Readme check failed: Error reading file ({e})")
+        return result
     titles = []
     subtitles = []
     for cell in nb.cells:
@@ -372,141 +301,90 @@ def convert_readme_ipynb(readme_path: Path)  :
                     titles.append(line[2:].strip())
                 elif line.startswith("## "):
                     subtitles.append(line[3:].strip())
-    return check_readme(titles, subtitles, errors, error_labels)
+    return check_readme(titles, subtitles, result)
 
-def check_readme(titles,subtitles, error, error_labels) -> CheckResult:
-    passed=True
-    message=[]
-    warnings=[]
-    errors=error
-    statuses=[]
-    waring_labels=[]
-    error_labels = error_labels
+def check_readme(titles,subtitles, result):
     if len(titles) < 1:
-        passed=False
-        errors.append("Method title not defined.")
-        error_labels.append("Title case")
+        result['ifpassed'] = False
+        result['errors'].append("Method title not defined.")
     elif len(titles) == 1:
-        message.append("Method title accepted.")
+        result['message'].append("Method title accepted.")
     else:
-        passed=False
-        errors.append(f"Method has {len(titles)}, more than 1 titles.")
-        error_labels.append("Multiple Titles")
+        result['ifpassed'] = False
+        result['errors'].append(f"Method has {len(titles)}, i.e., more than 1 title cases.")
     if len(subtitles) < 1:
-        passed=False
-        errors.append("Method README has no section headings defined.")
-        error_labels.append("Section headings")
+        result['ifpassed'] = False
+        result['errors'].append("Method README has no section headings defined.")
     missing = set(NECESSARY_SUBTITLES) - set(subtitles)
     for subtitle in subtitles:
-        message.append(f"{subtitle}")
+        result['messages'].append(f"{subtitle}")
     for item in missing:
-        passed = False
-        error.append(f"Method README has {item} section heading missing, {NECESSARY_SUBTITLES[item]}")
-        error_labels.append(f"{item}")
+        result['ifpassed'] = False
+        reslt['errors'].append(f"Method README has {item} section heading missing, {NECESSARY_SUBTITLES[item]}")
+
     if len(subtitles) != len(set(subtitles)):
-        warnings.append("Method README has duplicate section headings.")
-        waring_labels.append("Duplicate headings")
-    return CheckResult("Readme Check",passed,message,warnings,errors,statuses, waring_labels,error_labels)
+        result['warnings'].append("Method README has duplicate section headings.")
+    
+    return result
 
 def repo2dockertest():
     """Simulate a repo2docker build to verify Binder compatibility."""
-    passed=False
-    message=[]
-    warnings=[]
-    errors=[]
-    statuses=[]
-    warning_labels=[]
-    error_labels=[]
+    result = {'ifpassed': False, 'messages': [], 'warnings': [], 'errors': []}
 
     try:
-        result = subprocess.run(
-            [
-                "repo2docker",
-                "--no-run",
-                "--debug",
-                str(TEST_PATH)
-            ],
-            capture_output=True,
-            text=True,
-            check=False,
-        )
+        result = subprocess.run(["repo2docker", "--no-run", "--debug", tr(TEST_PATH)], capture_output=True, text=True, check=False, )
 
         if result.returncode == 0:
-            message.append("Repo2Docker build successful. Binder environment is valid.")
-            passed=True
+            result['messages'].append("Repo2Docker build successful. Binder environment is valid.")
+            result['ifpassed'] = True
         else:
-            errors.append("Repo2Docker build failed.")
+            result['errors'].append("Repo2Docker build failed.")
             combined_output = "".join(
                 part for part in [result.stdout, result.stderr] if part
             )
-            errors.append(combined_output[-4000:] + "")
-            error_labels.append("repo2docker")
+            result['errors'].append(combined_output[-4000:] + "")
 
     except FileNotFoundError:
-        errors.append("Repo2Docker test failed: repo2docker is not installed in the environment.")
+        result['errors'].append("Repo2Docker test failed: repo2docker is not installed in the environment.")
 
     except Exception as e:
-        errors.append(f"Repo2Docker test failed with unexpected error: {e}")
-    return CheckResult("Binder Test",passed,message,warnings,errors,statuses,warning_labels,error_labels)
+        result['errors'].append(f"Repo2Docker test failed with unexpected error: {e}")
+    return result
 
 def repo2dockertest_sustainability():
     """Build the repository and report basic sustainability metrics."""
-    passed=False
-    message=[]
-    warnings=[]
-    errors=[]
-    statuses=[]
-    warning_labels=[]
-    error_labels=[]
+    result = {'ifpassed': False, 'messages': [], 'warnings': [], 'errors': []}
     start_time = time.perf_counter()
 
     try:
-        result = subprocess.run([
-                "repo2docker",
-                "--no-run",
-                str(TEST_PATH),
-            ],
-            capture_output=True,
-            text=True,
-            check=False,
-        )
+        process = subprocess.run(["repo2docker", "--no-run", str(TEST_PATH), ], capture_output=True, text=True, check=False, )
 
         execution_time = time.perf_counter() - start_time
 
         # Peak memory usage of this Python process (not necessarily Docker).
-        peak_ram = resource.getrusage(
-            resource.RUSAGE_SELF
-        ).ru_maxrss
+        peak_ram = resource.getrusage(resource.RUSAGE_SELF).ru_maxrss
 
-        if result.returncode == 0:
-            passed = True
-            message.append("Repo2Docker build successful.")
-            statuses.append("Environment validation: PASS")
+        if process.returncode == 0:
+            result['ifpassed'] = True
+            result['messages'].append("Repo2Docker build successful.")
+            result['messages'].append("Environment validation: PASS")
         else:
-            errors.append("Repo2Docker build failed.")
-            errors.append(result.stderr[-2000:])
+            result['errors'].append("Repo2Docker build failed.")
+            result['errors'].append(result.stderr[-2000:])
             error_labels.append("repo2docker")
-            statuses.append("Environment validation: FAIL")
+            result['messages'].append("Environment validation: FAIL")
 
-        statuses.extend([
-            f"Build time: {execution_time:.2f} seconds",
-            f"Peak Python process memory: {peak_ram}",
-            "CPU utilization: Not measured",
-            "Energy consumption: Not measured",
-            "CO₂ emissions: Not measured",
-        ])
+        result['messages'].extend([f"Build time: {execution_time:.2f} seconds", f"Peak Python process memory: {peak_ram}", "CPU utilization: Not measured", "Energy consumption: Not measured", "CO₂ emissions: Not measured", ])
 
     except FileNotFoundError:
-        errors.append("repo2docker is not installed.")
-        error_labels.append("repo2docker")
-        statuses.append("Environment validation: FAIL")
+        result['errors'].append("repo2docker is not installed.")
+        result['messages'].append("Environment validation: FAIL")
 
     except Exception as e:
-        errors.append(f"Unexpected error: {e}")
-        error_labels.append("repo2docker")
-        statuses.append("Environment validation: FAIL")
+        result['errors'].append(f"Unexpected error: {e}")
+        result['messages'].append("Environment validation: FAIL")
 
-    return CheckResult("Binder Test", passed, message, warnings, errors, statuses, warning_labels, error_labels,)
+    return result
 
 def strip_markdown(text: str) -> str:
     text = html.unescape(text)
@@ -709,26 +587,28 @@ def write_report(checklists, report_file, owner, repo, elapsed_time):
         report = {}
         if checklists['files'].errors or checklists['language'].errors:
             repro = 2
-            report[repro] = checklists[3].errors + checklists[1].errors
-        elif checklists[3].warnings or checklists[1].warnings:
+            report[repro] = checklists['files'].errors + checklists['language'].errors
+        elif checklists['files'].warnings or checklists['language'].warnings:
             repro = 1
-            report[repro] = checklists[3].warnings + checklists[1].warnings
+            report[repro] = checklists['files'].warnings + checklists['language'].warnings
         else:
             repro = 0
-            report[repro] = checklists[3].messages + checklists[1].messages
+            report[repro] = checklists['files'].messages + checklists['language'].messages
 
         f.write(f"### {badge_repro[repro]} \n\n")
         for item in report[repro]:
             f.write(f" - {label[repro]} {item} \n")
-        f.write(f" {sus.name} \n")
-        if sus.errors:
-            f.write(f" {label[2]} {sus.errors} \n")
-        if sus.warnings:
-            f.write(f" {label[1]} {sus.warnings} \n")
+
+        # Sustainability / Resource consumption
+        f.write(f" {checklists['sustainability'].name} \n")
+        if checklists['sustainability'].errors:
+            f.write(f" {label[2]} {checklists['sustainability'].errors} \n")
+        if checklists['sustainability'].warnings:
+            f.write(f" {label[1]} {checklists['sustainability'].warnings} \n")
         
         f.write(f"### Resource Consumption \n\n")
-        for item in sus.statuses:
-            f.write(f"{item}")
+        for item in checklists['sustainability'].statuses:
+            f.write(f"{item} \n")
         
         
 def write_macro(checklists, report_file, owner, repo, elapsed_time):
@@ -738,15 +618,7 @@ def write_macro(checklists, report_file, owner, repo, elapsed_time):
 
     with open(report_file, "w", encoding="utf-8") as f:
         for checklist in checklists:
-            entry = {
-                "owner": owner,
-                "repo": repo,
-                "name": checklist.name,
-                "passed": checklist.passed,
-                "warning_labels": checklist.warning_labels,
-                "error_labels": checklist.error_labels,
-                "Workflow Duration": times,
-            }
+            entry = {"owner": owner, "repo": repo, "name": checklist.name, "passed": checklist.passed, "warning_labels": checklist.warning_labels, "error_labels": checklist.error_labels, "Workflow Duration": times, }
             f.write(json.dumps(entry) + "\n")
 
 def main():
@@ -768,10 +640,10 @@ def main():
     root_files, extended_files=get_files(TEST_PATH)
 
     # License check
-    if any("license" in result.statuses for result in checklists):
+    if 'license' in root_files or 'license' in extended_files:
         checklists['license'] = license_check()
     else:
-        checklists['license'] = CheckResult("License",False,[],[],["License Check failed, no license file found"],[],[],["No license"])
+        checklists['license'] = {'ifpassed': False, 'messages': [], 'warnings': [], 'errors': ["License Check failed, no license file found"]}
     # Working language
     checklists['language'] = get_language_version(TEST_PATH)
     # Binder environment
@@ -780,7 +652,7 @@ def main():
     if "binder" in checklists['files'].statuses:
         checklists['repo2docker'] = repo2dockertest()
     else:
-        checklists['repo2docker'] = CheckResult("Binder Test",False,[],[],["Binder test skipped: Binder files not found or not valid"],[],[],[])
+        checklists['repo2docker'] = {'ifpassed': False, 'messages': [], 'warnings': [], 'messages': ["Binder test skipped: Binder files not found or not valid"]}
 
     
     # Readme check
@@ -792,7 +664,7 @@ def main():
     elif readme_path.suffix == ".qmd":
         checklists['readme'] = convert_readme_md(readme_path)
     else:
-        checklists['readme'] = CheckResult("README",False,[],[],["Readme check failed: Format not yet supported"],[],[],[])
+        checklists['readme'] = {'ifpassed': False, 'messages': [], 'warnings': [], 'errors': ["Readme check failed: Format not yet supported"]}
 
     #sutainability
     checklists['sustainability'] = repo2dockertest_sustainability()
