@@ -203,14 +203,14 @@ def check_for_binder_files(required_binder,extended_files):
         
     found_files = sorted([f for f in found_files if f in required_binder])
     counter=Counter(found_files)
-    duplicates=[f for f, count in counter.items() if count > 1]
+    duplicates = [f for f, count in counter.items() if count > 1]
     if duplicates:
         for f in duplicates:
             result['warnings'].append(f"File {f} is duplicated.")
     for f in found_files:
             result['messages'].append(f"{f}")
     if set(required_binder).issubset(set(found_files)):
-        if passed:
+        if result['ifpassed']:
             result['warnings'].append("Multiple binder configs found.")
         else:
             result['ifpassed'] = True
@@ -220,7 +220,7 @@ def check_for_binder_files(required_binder,extended_files):
             for item in missing:
                 result['errors'].append(f"Missing required files: {item}")
         result['messages'].append("Missing required files")
-    if passed:
+    if result['ifpassed']:
         result['messages'].append("binder")
     return result
     
