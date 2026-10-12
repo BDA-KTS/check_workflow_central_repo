@@ -517,80 +517,81 @@ def write_report(checklists, report_file, owner, repo, elapsed_time):
         print('---')
         print(checklists['sustainability'])
         print('---')
+
+        if False:
+            reuse = 0
+            report = {}
+            if checklists['license'].errors:  
+                reuse = 2
+                report[reuse] = checklists['license'].errors
+            if 'citation' in checklists['files'].errors:
+                reuse = 2
+                report[reuse] += ['Citation file missing'] 
         
-        reuse = 0
-        report = {}
-        if checklists['license'].errors:  
-            reuse = 2
-            report[reuse] = checklists['license'].errors
-        if 'citation' in checklists['files'].errors:
-            reuse = 2
-            report[reuse] += ['Citation file missing'] 
-        
-        if checklists['license'].warnings:
-            reuse = 1
-            report[reuse] = checklists['license'].warnings
-        if 'citation' in checklists['files'].warnings:
-            reuse = 1  
-            report[reuse] += ['Citation file not formatted properly']
+            if checklists['license'].warnings:
+                reuse = 1
+                report[reuse] = checklists['license'].warnings
+            if 'citation' in checklists['files'].warnings:
+                reuse = 1  
+                report[reuse] += ['Citation file not formatted properly']
 
-        reuse = 0
-        report[reuse] = checklists['license'].messages
-        #report[reuse] += checklists['files'].messages
-        if ('citation' not in checklists['files'].errors) and ('citation' not in checklists['files'].warnings):
-            report[reuse] += ["Citation file exists"]
+            reuse = 0
+            report[reuse] = checklists['license'].messages
+            #report[reuse] += checklists['files'].messages
+            if ('citation' not in checklists['files'].errors) and ('citation' not in checklists['files'].warnings):
+                report[reuse] += ["Citation file exists"]
 
 
-        f.write(f"### {badge_reuse[reuse]} \n\n")
-        for item in report[reuse]:
-            f.write(f" - {label[reuse]} {item} \n")
+            f.write(f"### {badge_reuse[reuse]} \n\n")
+            for item in report[reuse]:
+                f.write(f" - {label[reuse]} {item} \n")
             
             
 
-         # Reporting transparency
-        trans = 0
-        report = {}
-        if checklists['files'].errors or checklists['readme'].errors:
-            trans = 2
-            report[trans] = checklists['files'].errors + checklists['readme'].errors
-        elif checklists['files'].warnings or checklists['readme'].warnings:
-            trans = 1
-            report[trans] = checklists['files'].warnings + checklists['readme'].warnings
-        else:
+            # Reporting transparency
             trans = 0
-            report[trans] = checklists['files'].messages + checklists['readme'].messages
+            report = {}
+            if checklists['files'].errors or checklists['readme'].errors:
+                trans = 2
+                report[trans] = checklists['files'].errors + checklists['readme'].errors
+            elif checklists['files'].warnings or checklists['readme'].warnings:
+                trans = 1
+                report[trans] = checklists['files'].warnings + checklists['readme'].warnings
+            else:
+                trans = 0
+                report[trans] = checklists['files'].messages + checklists['readme'].messages
             
-        f.write(f"### {badge_trans[trans]} \n\n")
-        for item in report[trans]:
+            f.write(f"### {badge_trans[trans]} \n\n")
+            for item in report[trans]:
             f.write(f" - {label[trans]} {item} \n")
 
-        # Computational reproducibility
-        repro = 0
-        report = {}
-        if checklists['files'].errors or checklists['language'].errors:
-            repro = 2
-            report[repro] = checklists['files'].errors + checklists['language'].errors
-        elif checklists['files'].warnings or checklists['language'].warnings:
-            repro = 1
-            report[repro] = checklists['files'].warnings + checklists['language'].warnings
-        else:
+            # Computational reproducibility
             repro = 0
-            report[repro] = checklists['files'].messages + checklists['language'].messages
+            report = {}
+            if checklists['files'].errors or checklists['language'].errors:
+                repro = 2
+                report[repro] = checklists['files'].errors + checklists['language'].errors
+            elif checklists['files'].warnings or checklists['language'].warnings:
+                repro = 1
+                report[repro] = checklists['files'].warnings + checklists['language'].warnings
+            else:
+                repro = 0
+                report[repro] = checklists['files'].messages + checklists['language'].messages
 
-        f.write(f"### {badge_repro[repro]} \n\n")
-        for item in report[repro]:
-            f.write(f" - {label[repro]} {item} \n")
+            f.write(f"### {badge_repro[repro]} \n\n")
+            for item in report[repro]:
+                f.write(f" - {label[repro]} {item} \n")
 
-        # Sustainability / Resource consumption
-        f.write(f" {checklists['sustainability'].name} \n")
-        if checklists['sustainability'].errors:
-            f.write(f" {label[2]} {checklists['sustainability'].errors} \n")
-        if checklists['sustainability'].warnings:
-            f.write(f" {label[1]} {checklists['sustainability'].warnings} \n")
+            # Sustainability / Resource consumption
+            f.write(f" {checklists['sustainability'].name} \n")
+            if checklists['sustainability'].errors:
+                f.write(f" {label[2]} {checklists['sustainability'].errors} \n")
+            if checklists['sustainability'].warnings:
+                f.write(f" {label[1]} {checklists['sustainability'].warnings} \n")
         
-        f.write(f"### Resource Consumption \n\n")
-        for item in checklists['sustainability'].messages:
-            f.write(f"{item} \n")
+            f.write(f"### Resource Consumption \n\n")
+            for item in checklists['sustainability'].messages:
+                f.write(f"{item} \n")
         
         
 def write_macro(checklists, report_file, owner, repo, elapsed_time):
