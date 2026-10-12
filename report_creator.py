@@ -505,17 +505,17 @@ def write_report(checklists, report_file, owner, repo, elapsed_time):
         
         # Reusability and attribution
 
-        f.write(checklists['license'])
+        f.write(' '.join(checklists['license'].values()))
         f.write('\n---\n')
-        f.write(checklists['language'])
+        f.write(' '.join(checklists['language'].values()))
         f.write('\n---\n')
-        f.write(checklists['files'])
+        f.write(' '.join(checklists['files'].values()))
         f.write('\n---\n')
-        f.write(checklists['repo2docker'])
+        f.write(' '.join(checklists['repo2docker'].values()))
         f.write('\n---\n')
-        f.write(checklists['readme'])
+        f.write(' '.join(checklists['readme'].values()))
         f.write('\n---\n')
-        f.write(checklists['sustainability'])
+        f.write(' '.join(checklists['sustainability'].values()))
         f.write('\n---\n')
 
         if False:
