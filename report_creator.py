@@ -586,7 +586,7 @@ def write_report(checklists, report_file, owner, repo, elapsed_time):
             f.write(f" {label[1]} {checklists['sustainability'].warnings} \n")
         
         f.write(f"### Resource Consumption \n\n")
-        for item in checklists['sustainability'].statuses:
+        for item in checklists['sustainability'].messages:
             f.write(f"{item} \n")
         
         
@@ -628,7 +628,7 @@ def main():
     # Binder environment
     checklists['files'] = check_for_files(REPO_REQUIREMENTS,required_binder,root_files,extended_files)
      # Simulate Repo2Docker 2
-    if "binder" in checklists['files'].statuses:
+    if "binder" in checklists['files'].messages:
         checklists['repo2docker'] = repo2dockertest()
     else:
         checklists['repo2docker'] = {'ifpassed': False, 'messages': [], 'warnings': [], 'messages': ["Binder test skipped: Binder files not found or not valid"]}
