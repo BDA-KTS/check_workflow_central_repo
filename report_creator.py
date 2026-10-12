@@ -776,7 +776,7 @@ def main():
     # Binder environment
     checklists['binder'] = check_for_files(REPO_REQUIREMENTS,required_binder,root_files,extended_files)
      # Simulate Repo2Docker 2
-    if any("binder" in result.statuses for result in checklists):
+    if "binder" checklists['binder'].statuses):
         checklists['repo2docker'] = repo2dockertest()
     else:
         checklists['repo2docker'] = CheckResult("Binder Test",False,[],[],["Binder test skipped: Binder files not found or not valid"],[],[],[])
