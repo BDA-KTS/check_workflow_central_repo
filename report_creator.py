@@ -649,7 +649,7 @@ def write_report(checklists, report_file, owner, repo, elapsed_time):
         print('---')
         print(checklists['language'])
         print('---')
-        print(checklists['binder'])
+        print(checklists['files'])
         print('---')
         print(checklists['repo2docker'])
         print('---')
@@ -660,23 +660,24 @@ def write_report(checklists, report_file, owner, repo, elapsed_time):
         
         reuse = 0
         report = {}
-        if checklists[0].errors:  
+        if checklists['license'].errors:  
             reuse = 2
-            report[reuse] = checklists[0].errors
-        if 'citation' in checklists[2].errors:
+            report[reuse] = checklists['license'].errors
+        if 'citation' in checklists['files'].errors:
             reuse = 2
             report[reuse] += ['Citation file missing'] 
         
-        if checklists[0].warnings:
+        if checklists['license'].warnings:
             reuse = 1
-            report[reuse] = checklists[0].warnings
-        if 'citation' in checklists[2].warnings:
+            report[reuse] = checklists['license'].warnings
+        if 'citation' in checklists['files'].warnings:
             reuse = 1  
             report[reuse] += ['Citation file not formatted properly']
 
         reuse = 0
-        report[reuse] = checklists[0].messages
-        if ('citation' not in checklists[2].errors) and ('citation' not in checklists[2].warnings):
+        report[reuse] = checklists['license'].messages
+        #report[reuse] += checklists['files'].messages
+        if ('citation' not in checklists['files'].errors) and ('citation' not in checklists['files'].warnings):
             report[reuse] += ["Citation file exists"]
 
 
@@ -686,18 +687,18 @@ def write_report(checklists, report_file, owner, repo, elapsed_time):
             
             
 
-         # Reporting transparencyy
+         # Reporting transparency
         trans = 0
         report = {}
-        if checklists[2].errors or checklists[4].errors:
+        if checklists['files'].errors or checklists['readme'].errors:
             trans = 2
-            report[trans] = checklists[2].errors + checklists[4].errors
-        elif checklists[2].warnings or checklists[4].warnings:
+            report[trans] = checklists['files'].errors + checklists['readme'].errors
+        elif checklists['files'].warnings or checklists['readme'].warnings:
             trans = 1
-            report[trans] = checklists[2].warnings + checklists[4].warnings
+            report[trans] = checklists['files'].warnings + checklists['readme'].warnings
         else:
             trans = 0
-            report[trans] = checklists[2].messages + checklists[4].messages
+            report[trans] = checklists['files'].messages + checklists['readme'].messages
             
         f.write(f"### {badge_trans[trans]} \n\n")
         for item in report[trans]:
@@ -706,7 +707,7 @@ def write_report(checklists, report_file, owner, repo, elapsed_time):
         # Computational reproducibility
         repro = 0
         report = {}
-        if checklists[3].errors or checklists[1].errors:
+        if checklists['files'].errors or checklists[1].errors:
             repro = 2
             report[repro] = checklists[3].errors + checklists[1].errors
         elif checklists[3].warnings or checklists[1].warnings:
@@ -774,9 +775,9 @@ def main():
     # Working language
     checklists['language'] = get_language_version(TEST_PATH)
     # Binder environment
-    checklists['binder'] = check_for_files(REPO_REQUIREMENTS,required_binder,root_files,extended_files)
+    checklists['files'] = check_for_files(REPO_REQUIREMENTS,required_binder,root_files,extended_files)
      # Simulate Repo2Docker 2
-    if "binder" in checklists['binder'].statuses:
+    if "binder" in checklists['files'].statuses:
         checklists['repo2docker'] = repo2dockertest()
     else:
         checklists['repo2docker'] = CheckResult("Binder Test",False,[],[],["Binder test skipped: Binder files not found or not valid"],[],[],[])
