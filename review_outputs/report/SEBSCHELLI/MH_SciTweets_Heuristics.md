@@ -1,17 +1,4 @@
 # Report: [SEBSCHELLI / MH_SciTweets_Heuristics](https://github.com/SEBSCHELLI/MH_SciTweets_Heuristics)
 
-<small>created on 2026-10-12 10:47:21, taking 1:35 (min/sec)
+<small>created on 2026-10-12 23:30:10, taking 1:33 (min/sec)
 
-### ![Reusability](https://img.shields.io/badge/Reusability-supported-green) 
-
- -  ✅ **Information:** Citation file exists 
-### ![Transparency](https://img.shields.io/badge/Transparency-not%20supported-orange) 
-
- -  ⛔ **Errors:** Method has 5, more than 1 titles. 
-### ![Reproducibility](https://img.shields.io/badge/Reproducibility-partially%20supported-yellow) 
-
- -  ⚠️ **Warnings:** Python/R version is not explicitly specified in the repository. 
- Binder Test 
-### Resource Consumption 
-
-Environment validation: PASSBuild time: 0.69 secondsPeak Python process memory: 58784CPU utilization: Not measuredEnergy consumption: Not measuredCO₂ emissions: Not measured
