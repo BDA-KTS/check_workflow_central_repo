@@ -502,15 +502,50 @@ def write_report(checklists, report_file, owner, repo, elapsed_time):
         #others = ["![Python](https://img.shields.io/badge/Python-supported-yellow)", "![R](https://img.shields.io/badge/R-supported-yellow)", "![Python](https://img.shields.io/badge/Python-supported-green)", "![R](https://img.shields.io/badge/R-supported-green)","![Python](https://img.shields.io/badge/Python-supported-orange)", "![R](https://img.shields.io/badge/R-supported-orange)"]
 
         f.write("### Summary \n")
-        f.write("| Category | Level | \n")
+        f.write("| Category | Level Attained | \n")
         f.write("| --- | --- | \n")
         if checklists['license']['ifpassed'] and 'citation' in checklists['files']['messages']:
             f.write(f"| Reusability and attribution | {badge_reuse[0]} |\n")
+            f.write(f"| | both license and citation file accepted |\n")
         elif checklists['license']['warnings']:
             f.write(f" | Reusability and attribution | {badge_reuse[1]} | \n")
+            f.write(f"| | License file is not accepted |\n")
         else:
             f.write(f"| Reusability and attribution | {badge_reuse[2]} | \n")
+            if not checklists['license']['ifpassed']:
+                f.write("| | No license, or license not supported |\n")
+            if 'citation' not in checklists['files']['messages']:
+                f.write("| | Citation file not found |")
         f.write("| --- | --- | \n")
+        if checklists['readme']['ifpassed'] and checklists['files']['ifpassed']:
+            f.write(f"| Transparency | {badge_trans[0]} |\n")
+            f.write("| | Required files provided and README in template | \n")
+        elif checklists['readme']['warnings'] or checklists['files']['warnings']:
+            f.write(f"| Transparency | {badge_trans[1]} |\n")
+            f.write("| | Duplicate files, or README formatting inconsistencies |")
+        else:
+            f.write(f"| Transparency | {badge_trans[2]} |\n")
+            if not checklists['readme']['errors']:
+                f.write("| | README missing sections | \n")
+            if checklists['files']['errors']:
+                f.write("| | Mandatory files missing | \n")                        
+        f.write("| --- | --- |\n")
+        if checklists['binder']['ifpassed'] and checklists['language']['ifpassed']:
+            f.write(f"| Computational reproducibility | {badge_repro[0]} | \n")
+            f.write("| | Binder file exists and language version specified | \n")
+        elif checklists['binder']['warnings'] or checklists['language']['warnings']:
+            f.write(f"| Computational reproducibility | {badge_repro[1]} | \n")
+            f.write(f"| | Binder files duplicated or language version not specified | \n")
+        else:
+            f.write(f"| Computational reproducibility | {badge_repro[2]} | \n")
+            if checklists['binder']['errors']:
+                f.write("| | Binder environment not correctly specified | \n")
+            if checklists['language']['errors']:
+                f.write("| | Language version has errors | \n")
+        f.write("| --- | --- |\n")
+        f.write("\n\n")
+
+        f.write("## Detailed Report\n")
 
         
         label = [" ✅ **Information:**", " ⚠️ **Warnings:**", " ⛔ **Errors:**"]
