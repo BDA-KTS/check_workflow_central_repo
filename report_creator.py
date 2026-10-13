@@ -505,44 +505,41 @@ def write_report(checklists, report_file, owner, repo, elapsed_time):
         f.write("| Category | Level Attained | \n")
         f.write("| --- | --- | \n")
         if checklists['license']['ifpassed'] and 'citation' in checklists['files']['messages']:
-            f.write(f"| Reusability and attribution | {badge_reuse[0]} |\n")
-            f.write(f"| | both license and citation file accepted |\n")
+            f.write(f"| Reusability and attribution | {badge_reuse[0]} <br> both license and citation file accepted |\n")
         elif checklists['license']['warnings']:
-            f.write(f" | Reusability and attribution | {badge_reuse[1]} | \n")
-            f.write(f"| | License file is not accepted |\n")
+            f.write(f" | Reusability and attribution | {badge_reuse[1]} <br> License file is not accepted | \n")
         else:
-            f.write(f"| Reusability and attribution | {badge_reuse[2]} | \n")
+            f.write(f"| Reusability and attribution | {badge_reuse[2]} <br>")
             if not checklists['license']['ifpassed']:
-                f.write("| | No license, or license not supported |\n")
+                f.write("No license, or license not supported <br>")
             if 'citation' not in checklists['files']['messages']:
-                f.write("| | Citation file not found |")
-        f.write("| --- | --- | \n")
+                f.write("Citation file not found <br>")
+        f.write("| \n")
+
         if checklists['readme']['ifpassed'] and checklists['files']['ifpassed']:
-            f.write(f"| Transparency | {badge_trans[0]} |\n")
-            f.write("| | Required files provided and README in template | \n")
+            f.write(f"| Transparency | {badge_trans[0]} <br> Required files provided and README in template |\n")
         elif checklists['readme']['warnings'] or checklists['files']['warnings']:
-            f.write(f"| Transparency | {badge_trans[1]} |\n")
-            f.write("| | Duplicate files, or README formatting inconsistencies |")
+            f.write(f"| Transparency | {badge_trans[1]} <br> Duplicate files, or README formatting inconsistencies |\n")
         else:
-            f.write(f"| Transparency | {badge_trans[2]} |\n")
+            f.write(f"| Transparency | {badge_trans[2]} <br>")
             if not checklists['readme']['errors']:
-                f.write("| | README missing sections | \n")
+                f.write("README missing sections <br>")
             if checklists['files']['errors']:
-                f.write("| | Mandatory files missing | \n")                        
-        f.write("| --- | --- |\n")
+                f.write("Mandatory files missing <br>")                        
+        f.write("| \n")
+        
         if checklists['repo2docker']['ifpassed'] and checklists['language']['ifpassed']:
-            f.write(f"| Computational reproducibility | {badge_repro[0]} | \n")
-            f.write("| | Repo2docker works and language version specified | \n")
+            f.write(f"| Computational reproducibility | {badge_repro[0]} <br> Repo2docker works and language version specified | \n")
         elif checklists['repo2docker']['warnings'] or checklists['language']['warnings']:
-            f.write(f"| Computational reproducibility | {badge_repro[1]} | \n")
-            f.write(f"| | Language version not specified | \n")
+            f.write(f"| Computational reproducibility | {badge_repro[1]} <br> Language version not specified | \n")
         else:
-            f.write(f"| Computational reproducibility | {badge_repro[2]} | \n")
+            f.write(f"| Computational reproducibility | {badge_repro[2]} <br>")
             if checklists['repo2docker']['errors']:
-                f.write("| | Repo2docker has errors | \n")
+                f.write("Repo2docker has errors <br>")
             if checklists['language']['errors']:
-                f.write("| | Language version has errors | \n")
-        f.write("| --- | --- |\n")
+                f.write("Language version has errors <br>")
+        f.write("| \n")
+        
         f.write("| Resource consumption | |")
         if checklists['repo2docker']['ifpassed']:
             for message in checklists['repo2docker']['messages']:
