@@ -495,11 +495,23 @@ def write_report(checklists, report_file, owner, repo, elapsed_time):
         
         #f.write(f"### Working Environment:", f"{env}", f"{required_binder}", f"{root_files}", f"{extended_files}")
 
-        badge_reuse = ["![Reusability](https://img.shields.io/badge/Reusability-supported-green)", "![Reusability](https://img.shields.io/badge/Reusability-partially%20supported-yellow)", "![Reusability](https://img.shields.io/badge/Reusability-not%20supported-orange)"]
-        badge_trans = ["![Transparency](https://img.shields.io/badge/Transparency-supported-green)", "![Transparency](https://img.shields.io/badge/Transparency-partially%20supported-yellow)", "![Transparency](https://img.shields.io/badge/Transparency-not%20supported-orange)"]
-        badge_repro = ["![Reproducibility](https://img.shields.io/badge/Reproducibility-supported-green)", "![Reproducibility](https://img.shields.io/badge/Reproducibility-partially%20supported-yellow)", "![Reproducibility](https://img.shields.io/badge/Reproducibility-not%20supported-orange)"]
+        badge_reuse = ["![Reusability](https://img.shields.io/badge/Reusable-green)", "![Reusability](https://img.shields.io/badge/Reusability-partially%20reusable-yellow)", "![Reusability](https://img.shields.io/badge/Reusability-not%20reusable-orange)"]
+        badge_trans = ["![Transparency](https://img.shields.io/badge/full%20documentation-green)", "![Transparency](https://img.shields.io/badge/inconsistent%20formatting-yellow)", "![Transparency](https://img.shields.io/badge/incomplete%20documentation-orange)"]
+        badge_repro = ["![Reproducibility](https://img.shields.io/badge/single%20click%20reproducible-green)", "![Reproducibility](https://img.shields.io/badge/partially%20reproducible%20code-yellow)", "![Reproducibility](https://img.shields.io/badge/not%20single%20click%20reproducible-orange)"]
         
         #others = ["![Python](https://img.shields.io/badge/Python-supported-yellow)", "![R](https://img.shields.io/badge/R-supported-yellow)", "![Python](https://img.shields.io/badge/Python-supported-green)", "![R](https://img.shields.io/badge/R-supported-green)","![Python](https://img.shields.io/badge/Python-supported-orange)", "![R](https://img.shields.io/badge/R-supported-orange)"]
+
+        f.write("### Summary \n")
+        f.write("| Category | Level | \n")
+        f.write("| --- | --- | \n")
+        if checklists['license'].ifpassed and 'citation' in checklists['files']:
+            f.write(f"| Reusability and attribution | {badge_reuse[0]} |\n")
+        elif checklists['license'].warnings:
+            f.write(f" | Reusability and attribution | {badge_reuse[1]} | \n")
+        else:
+            f.write(f"| Reusability and attribution | {badge_reuse[2]} | \n")
+        f.write("| --- | --- | \n")
+
         
         label = [" ✅ **Information:**", " ⚠️ **Warnings:**", " ⛔ **Errors:**"]
         
@@ -634,10 +646,10 @@ def main():
     root_files, extended_files=get_files(TEST_PATH)
 
     # License check
-    if 'license' in root_files or 'license' in extended_files:
-        checklists['license'] = license_check()
-    else:
-        checklists['license'] = {'ifpassed': False, 'messages': [], 'warnings': [], 'errors': ["License Check failed, no license file found"]}
+    #if 'license' in root_files or 'license' in extended_files:
+    checklists['license'] = license_check()
+    #else:
+    #    checklists['license'] = {'ifpassed': False, 'messages': [], 'warnings': [], 'errors': ["License Check failed, no license file found"]}
     # Working language
     checklists['language'] = get_language_version(TEST_PATH)
     # Binder environment
