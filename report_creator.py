@@ -504,9 +504,9 @@ def write_report(checklists, report_file, owner, repo, elapsed_time):
         f.write("### Summary \n")
         f.write("| Category | Level | \n")
         f.write("| --- | --- | \n")
-        if checklists['license'].ifpassed and 'citation' in checklists['files']:
+        if checklists['license']['ifpassed'] and 'citation' in checklists['files']['messages']:
             f.write(f"| Reusability and attribution | {badge_reuse[0]} |\n")
-        elif checklists['license'].warnings:
+        elif checklists['license']['warnings']:
             f.write(f" | Reusability and attribution | {badge_reuse[1]} | \n")
         else:
             f.write(f"| Reusability and attribution | {badge_reuse[2]} | \n")
