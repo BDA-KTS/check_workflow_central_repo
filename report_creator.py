@@ -530,19 +530,25 @@ def write_report(checklists, report_file, owner, repo, elapsed_time):
             if checklists['files']['errors']:
                 f.write("| | Mandatory files missing | \n")                        
         f.write("| --- | --- |\n")
-        if checklists['binder']['ifpassed'] and checklists['language']['ifpassed']:
+        if checklists['repo2docker']['ifpassed'] and checklists['language']['ifpassed']:
             f.write(f"| Computational reproducibility | {badge_repro[0]} | \n")
-            f.write("| | Binder file exists and language version specified | \n")
-        elif checklists['binder']['warnings'] or checklists['language']['warnings']:
+            f.write("| | Repo2docker works and language version specified | \n")
+        elif checklists['repo2docker']['warnings'] or checklists['language']['warnings']:
             f.write(f"| Computational reproducibility | {badge_repro[1]} | \n")
-            f.write(f"| | Binder files duplicated or language version not specified | \n")
+            f.write(f"| | Language version not specified | \n")
         else:
             f.write(f"| Computational reproducibility | {badge_repro[2]} | \n")
-            if checklists['binder']['errors']:
-                f.write("| | Binder environment not correctly specified | \n")
+            if checklists['repo2docker']['errors']:
+                f.write("| | Repo2docker has errors | \n")
             if checklists['language']['errors']:
                 f.write("| | Language version has errors | \n")
         f.write("| --- | --- |\n")
+        f.write("| Resource consumption | |")
+        if checklists['repo2docker']['ifpassed']:
+            for message in checklists['repo2docker']['messages']:
+                f.write(f"| | {message} | \n")
+        else:
+            f.write("| | Resource consumption could not be computed due to Repo2docker failure | \n")
         f.write("\n\n")
 
         f.write("## Detailed Report\n")
