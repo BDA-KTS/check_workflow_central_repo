@@ -332,9 +332,9 @@ def repo2dockertest():
     result = {'ifpassed': False, 'messages': [], 'warnings': [], 'errors': []}
 
     try:
-        result = subprocess.run(["repo2docker", "--no-run", "--debug", str(TEST_PATH)], capture_output=True, text=True, check=False, )
+        output = subprocess.run(["repo2docker", "--no-run", "--debug", str(TEST_PATH)], capture_output=True, text=True, check=False, )
 
-        if result.returncode == 0:
+        if output.returncode == 0:
             result['messages'].append("Repo2Docker build successful. Binder environment is valid.")
             result['ifpassed'] = True
         else:
@@ -348,8 +348,7 @@ def repo2dockertest():
         result['errors'].append("Repo2Docker test failed: repo2docker is not installed in the environment.")
 
     except Exception as e:
-        #result['errors'].append(f"Repo2Docker test failed with unexpected error: {e}")
-        result['errors'].append(f"Repo2Docker test failed with unexpected error")
+        result['errors'].append(f"Repo2Docker test failed with unexpected error: {e}")
     return result
 
 def repo2dockertest_sustainability():
