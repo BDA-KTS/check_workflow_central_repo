@@ -332,7 +332,7 @@ def repo2dockertest():
     result = {'ifpassed': False, 'messages': [], 'warnings': [], 'errors': []}
 
     try:
-        result = subprocess.run(["repo2docker", "--no-run", "--debug", tr(TEST_PATH)], capture_output=True, text=True, check=False, )
+        result = subprocess.run(["repo2docker", "--no-run", "--debug", str(TEST_PATH)], capture_output=True, text=True, check=False, )
 
         if result.returncode == 0:
             result['messages'].append("Repo2Docker build successful. Binder environment is valid.")
