@@ -348,7 +348,8 @@ def repo2dockertest():
         result['errors'].append("Repo2Docker test failed: repo2docker is not installed in the environment.")
 
     except Exception as e:
-        result['errors'].append(f"Repo2Docker test failed with unexpected error: {e}")
+        #result['errors'].append(f"Repo2Docker test failed with unexpected error: {e}")
+        result['errors'].append(f"Repo2Docker test failed with unexpected error")
     return result
 
 def repo2dockertest_sustainability():
