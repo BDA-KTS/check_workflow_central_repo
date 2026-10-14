@@ -526,10 +526,12 @@ def write_report(checklists, report_file, owner, repo, elapsed_time):
             f.write(f"| Computational reproducibility | {badge_repro[2]} | \n")
         
         if checklists['sustainability']['ifpassed']:
-            f.write(f"| Resource consumption | {'| | \n'.join(checklists['sustainability']['messages'])} | \n")
+            f.write("| Resource consumption | | \n")
+            for message in checklists['sustainability']['messages']:
+                f.write(f"| | {message} | \n")
         else:
-            f.write("| Resource consumption | Resource consumption could not be computed due to Repo2docker failure | \n")
-
+            f.write("|  | Resource consumption could not be computed due to Repo2docker failure | \n")
+        f.write("\n\n")
         
         f.write("## Detailed Report \n\n")
         
@@ -537,8 +539,6 @@ def write_report(checklists, report_file, owner, repo, elapsed_time):
         
         # License
         f.write("### License \n\n")
-        if checklists['license']['ifpassed']:
-            f.write("- Accepted \n")        
         for item in checklists['license']['errors']:
             f.write(f"- {label[2]} {item} \n")
         for item in checklists['license']['warnings']:
@@ -549,8 +549,6 @@ def write_report(checklists, report_file, owner, repo, elapsed_time):
         
         # Programming language
         f.write(f"### Programming Language \n\n")
-        if checklists['language']['ifpassed']:
-            f.write('- Language version specified \n')
         for item in checklists['language']['errors']:
             f.write(f"- {label[2]} {item} \n")
         for item in checklists['language']['warnings']:
@@ -561,8 +559,6 @@ def write_report(checklists, report_file, owner, repo, elapsed_time):
 
         # Documentation
         f.write(f"### Documentation \n\n")
-        if checklists['files']['ifpassed']:
-            f.write('- All mandatory files provided \n')
         for item in checklists['files']['errors']:
             f.write(f"- {label[2]} {item} \n")
         for item in checklists['files']['warnings']:
@@ -573,8 +569,6 @@ def write_report(checklists, report_file, owner, repo, elapsed_time):
 
         # README template
         f.write(f"### README  \n\n")
-        if checklists['readme']['ifpassed']:
-            f.write('- README is structured as per format \n')
         for item in checklists['readme']['errors']:
             f.write(f"- {label[2]} {item} \n")
         for item in checklists['readme']['warnings']:
@@ -585,8 +579,6 @@ def write_report(checklists, report_file, owner, repo, elapsed_time):
 
         # Repo2docker
         f.write(f"### Repo2docker \n\n")
-        if checklists['repo2docker']['ifpassed']:
-            f.write('- Repo2docker successful \n')
         for item in checklists['repo2docker']['errors']:
             f.write(f"- {label[2]} {item} \n")
         for item in checklists['repo2docker']['warnings']:
