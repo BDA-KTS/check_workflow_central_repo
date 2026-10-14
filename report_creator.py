@@ -501,158 +501,102 @@ def write_report(checklists, report_file, owner, repo, elapsed_time):
         
         #others = ["![Python](https://img.shields.io/badge/Python-supported-yellow)", "![R](https://img.shields.io/badge/R-supported-yellow)", "![Python](https://img.shields.io/badge/Python-supported-green)", "![R](https://img.shields.io/badge/R-supported-green)","![Python](https://img.shields.io/badge/Python-supported-orange)", "![R](https://img.shields.io/badge/R-supported-orange)"]
 
-        f.write("### Summary \n")
-        f.write("| Category | Level Attained | \n")
-        f.write("| --- | --- | \n")
-        if checklists['license']['ifpassed'] and 'citation' in checklists['files']['messages']:
-            f.write(f"| Reusability and attribution | {badge_reuse[0]} <br> both license and citation file accepted |\n")
-        elif checklists['license']['warnings']:
-            f.write(f" | Reusability and attribution | {badge_reuse[1]} <br> License file is not accepted | \n")
+        f.write("## Summary \n")
+        f.write(f"Reusability and attribution: ")
+        if checklists['license']['ifpassed']:
+             f.write(f"{badge_reuse[0]} \n")
+        elif checklists['license']['warnings'] or 'citation' not in checklists['files']['messages']:
+            f.write(f"{badge_reuse[1]} \n")
         else:
-            f.write(f"| Reusability and attribution | {badge_reuse[2]} <br>")
-            if not checklists['license']['ifpassed']:
-                f.write("No license, or license not supported <br>")
-            if 'citation' not in checklists['files']['messages']:
-                f.write("Citation file not found <br>")
-        f.write("| \n")
+            f.write(f"{badge_reuse[2]} \n\n")
 
+        f.write("Transparency: ")
         if checklists['readme']['ifpassed'] and checklists['files']['ifpassed']:
-            f.write(f"| Transparency | {badge_trans[0]} <br> Required files provided and README in template |\n")
+            f.write(f"{badge_trans[0]} \n")
         elif checklists['readme']['warnings'] or checklists['files']['warnings']:
-            f.write(f"| Transparency | {badge_trans[1]} <br> Duplicate files, or README formatting inconsistencies |\n")
+            f.write(f"{badge_trans[1]} \n")
         else:
-            f.write(f"| Transparency | {badge_trans[2]} <br>")
-            if not checklists['readme']['errors']:
-                f.write("README missing sections <br>")
-            if checklists['files']['errors']:
-                f.write("Mandatory files missing <br>")                        
-        f.write("| \n")
+            f.write(f"{badge_trans[2]} \n\n")
         
+        f.write(f"Computational reproducibility: ")
         if checklists['repo2docker']['ifpassed'] and checklists['language']['ifpassed']:
-            f.write(f"| Computational reproducibility | {badge_repro[0]} <br> Repo2docker works and language version specified | \n")
+            f.write(f"{badge_repro[0]} \n")
         elif checklists['repo2docker']['warnings'] or checklists['language']['warnings']:
-            f.write(f"| Computational reproducibility | {badge_repro[1]} <br> Language version not specified | \n")
+            f.write(f"{badge_repro[1]} \n")
         else:
-            f.write(f"| Computational reproducibility | {badge_repro[2]} <br>")
-            if checklists['repo2docker']['errors']:
-                f.write("Repo2docker has errors <br>")
-            if checklists['language']['errors']:
-                f.write("Language version has errors <br>")
-        f.write("| \n")
+            f.write(f"{badge_repro[2]} \n\n")
         
-        f.write("| Resource consumption | |")
-        if checklists['repo2docker']['ifpassed']:
+        f.write("Resource consumption: ")
+        if checklists['sustainability']['ifpassed']:
             for message in checklists['repo2docker']['messages']:
-                f.write(f"| | {message} | \n")
+                f.write(f" - {message}\n")
         else:
-            f.write("| | Resource consumption could not be computed due to Repo2docker failure | \n")
-        f.write("\n\n")
+            f.write("Resource consumption could not be computed due to Repo2docker failure \n\n")
 
-        f.write("## Detailed Report\n")
-
+        
+        f.write("## Detailed Report \n\n")
         
         label = [" ✅ **Information:**", " ⚠️ **Warnings:**", " ⛔ **Errors:**"]
         
-        # Reusability and attribution
-        for key in checklists['license']:
-            if key != 'ifpassed':
-                f.write(' '.join(checklists['license'][key]))
-        f.write('\n---\n')
-        for key in checklists['language']:
-            if key != 'ifpassed':
-                f.write(' '.join(checklists['language'][key]))
-        f.write('\n---\n')
-        for key in checklists['files']:
-            if key != 'ifpassed':
-                f.write(' '.join(checklists['files'][key]))
-        f.write('\n---\n')
-        for key in checklists['repo2docker']:
-            if key != 'ifpassed':
-                f.write(' '.join(checklists['repo2docker'][key]))
-        f.write('\n---\n')
-        for key in checklists['readme']:
-            if key != 'ifpassed':
-                f.write(' '.join(checklists['readme'][key]))
-        f.write('\n---\n')
-        for key in checklists['sustainability']:
-            if key != 'ifpassed':
-                f.write(' '.join(checklists['sustainability'][key]))
-        f.write('\n---\n')
-
-        if False:
-            reuse = 0
-            report = {}
-            if checklists['license'].errors:  
-                reuse = 2
-                report[reuse] = checklists['license'].errors
-            if 'citation' in checklists['files'].errors:
-                reuse = 2
-                report[reuse] += ['Citation file missing'] 
+        # License
+        f.write("### License \n\n")
+        if checklists['licsense']['ifpassed']:
+            f.write("Accepted \n")        
+        for item in checklists['license']['errors']:
+            f.write(f"{label[2]} {item} \n")
+        for item in checklists['license']['warnings']:
+            f.write(f"{label[1]} {item} \n")
+        for item in checklists['license']['messages']:
+            f.write(f"{label[0]} {item} \n")
+        f.write('\n\n')
         
-            if checklists['license'].warnings:
-                reuse = 1
-                report[reuse] = checklists['license'].warnings
-            if 'citation' in checklists['files'].warnings:
-                reuse = 1  
-                report[reuse] += ['Citation file not formatted properly']
+        # Programming language
+        f.write(f"### Programming Language \n\n")
+        if checklists['language']['ifpassed']:
+            f.write('Language version specified \n')
+        for item in checklists['language']['errors']:
+            f.write(f"{label[2]} {item} \n")
+        for item in checklists['language']['warnings']:
+            f.write(f"{label[1]} {item} \n")
+        for item in checklists['language']['messages']:
+            f.write(f"{label[0]} {item} \n")
+        f.write('\n\n')
 
-            reuse = 0
-            report[reuse] = checklists['license'].messages
-            #report[reuse] += checklists['files'].messages
-            if ('citation' not in checklists['files'].errors) and ('citation' not in checklists['files'].warnings):
-                report[reuse] += ["Citation file exists"]
+        # Documentation
+        f.write(f"### Documentation \n\n")
+        if checklists['files']['ifpassed']:
+            f.write('All mandatory files provided \n')
+        for item in checklists['files']['errors']:
+            f.write(f"{label[2]} {item} \n")
+        for item in checklists['files']['warnings']:
+            f.write(f"{label[1]} {item} \n")
+        for item in checklists['files']['messages']:
+            f.write(f"{label[0]} {item} \n")
+        f.write('\n\n')
 
+        # README template
+        f.write(f"### README  \n\n")
+        if checklists['readme']['ifpassed']:
+            f.write('README is structured as per format \n')
+        for item in checklists['readme']['errors']:
+            f.write(f"{label[2]} {item} \n")
+        for item in checklists['readme']['warnings']:
+            f.write(f"{label[1]} {item} \n")
+        for item in checklists['readme']['messages']:
+            f.write(f"{label[0]} {item} \n")
+        f.write('\n\n')
 
-            f.write(f"### {badge_reuse[reuse]} \n\n")
-            for item in report[reuse]:
-                f.write(f" - {label[reuse]} {item} \n")
-            
-            
-
-            # Reporting transparency
-            trans = 0
-            report = {}
-            if checklists['files'].errors or checklists['readme'].errors:
-                trans = 2
-                report[trans] = checklists['files'].errors + checklists['readme'].errors
-            elif checklists['files'].warnings or checklists['readme'].warnings:
-                trans = 1
-                report[trans] = checklists['files'].warnings + checklists['readme'].warnings
-            else:
-                trans = 0
-                report[trans] = checklists['files'].messages + checklists['readme'].messages
-            
-            f.write(f"### {badge_trans[trans]} \n\n")
-            for item in report[trans]:
-                f.write(f" - {label[trans]} {item} \n")
-
-            # Computational reproducibility
-            repro = 0
-            report = {}
-            if checklists['files'].errors or checklists['language'].errors:
-                repro = 2
-                report[repro] = checklists['files'].errors + checklists['language'].errors
-            elif checklists['files'].warnings or checklists['language'].warnings:
-                repro = 1
-                report[repro] = checklists['files'].warnings + checklists['language'].warnings
-            else:
-                repro = 0
-                report[repro] = checklists['files'].messages + checklists['language'].messages
-
-            f.write(f"### {badge_repro[repro]} \n\n")
-            for item in report[repro]:
-                f.write(f" - {label[repro]} {item} \n")
-
-            # Sustainability / Resource consumption
-            f.write(f" {checklists['sustainability'].name} \n")
-            if checklists['sustainability'].errors:
-                f.write(f" {label[2]} {checklists['sustainability'].errors} \n")
-            if checklists['sustainability'].warnings:
-                f.write(f" {label[1]} {checklists['sustainability'].warnings} \n")
-        
-            f.write(f"### Resource Consumption \n\n")
-            for item in checklists['sustainability'].messages:
-                f.write(f"{item} \n")
+        # Repo2docker
+        f.write(f"### Repo2docker \n\n")
+        if checklists['repo2docker']['ifpassed']:
+            f.write('Repo2docker successful \n')
+        for item in checklists['repo2docker']['errors']:
+            f.write(f"{label[2]} {item} \n")
+        for item in checklists['repo2docker']['warnings']:
+            f.write(f"{label[1]} {item} \n")
+        for item in checklists['repo2docker']['messages']:
+            f.write(f"{label[0]} {item} \n")
+        f.write('\n\n')
         
         
 def write_macro(checklists, report_file, owner, repo, elapsed_time):
