@@ -1,7 +1,7 @@
 # Report: [SEBSCHELLI / MH_SciTweets_Heuristics](https://github.com/SEBSCHELLI/MH_SciTweets_Heuristics)
 
-<small>created on 2026-10-14 13:19:22, 
- Review time: 1:56 (min/sec)
+<small>created on 2026-10-14 13:57:36, 
+ Review time: 1:44 (min/sec)
 
 ## Summary 
 | Category | Level attained | 
@@ -9,12 +9,12 @@
 | Reusability and attribution | ![Reusability](https://img.shields.io/badge/Reusable-green) | 
 | Transparency | ![Transparency](https://img.shields.io/badge/incomplete%20documentation-orange) | 
 | Computational reproducibility | ![Reproducibility](https://img.shields.io/badge/partially%20reproducible%20code-yellow) | 
-| Resource consumption | Repo2Docker build successful.
-Environment validation: PASS
-Build time: 116.41 seconds
-Peak Python process memory: 58912
-CPU utilization: Not measured
-Energy consumption: Not measured
+| Resource consumption | Repo2Docker build successful.| | 
+Environment validation: PASS| | 
+Build time: 0.88 seconds| | 
+Peak Python process memory: 58464| | 
+CPU utilization: Not measured| | 
+Energy consumption: Not measured| | 
 CO₂ emissions: Not measured | 
 ## Detailed Report 
 
@@ -56,6 +56,7 @@ CO₂ emissions: Not measured |
 
 ### Repo2docker 
 
--  ⛔ **Errors:** Repo2Docker test failed with unexpected error: name 'tr' is not defined 
+- Repo2docker successful 
+-  ✅ **Information:** Repo2Docker build successful. Binder environment is valid. 
 
 
