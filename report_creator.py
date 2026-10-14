@@ -526,7 +526,7 @@ def write_report(checklists, report_file, owner, repo, elapsed_time):
             f.write(f"| Computational reproducibility | {badge_repro[2]} | \n")
         
         if checklists['sustainability']['ifpassed']:
-            f.write(f"| Resource consumption | {'\n'.join(checklists['sustainability']['messages'])} | \n")
+            f.write(f"| Resource consumption | {'| | \n'.join(checklists['sustainability']['messages'])} | \n")
         else:
             f.write("| Resource consumption | Resource consumption could not be computed due to Repo2docker failure | \n")
 
