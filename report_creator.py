@@ -540,7 +540,7 @@ def write_report(checklists, report_file, owner, repo, elapsed_time):
         
         # License
         f.write("### License \n\n")
-        if checklists['licsense']['ifpassed']:
+        if checklists['license']['ifpassed']:
             f.write("Accepted \n")        
         for item in checklists['license']['errors']:
             f.write(f"{label[2]} {item} \n")
