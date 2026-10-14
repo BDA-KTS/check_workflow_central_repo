@@ -502,36 +502,33 @@ def write_report(checklists, report_file, owner, repo, elapsed_time):
         #others = ["![Python](https://img.shields.io/badge/Python-supported-yellow)", "![R](https://img.shields.io/badge/R-supported-yellow)", "![Python](https://img.shields.io/badge/Python-supported-green)", "![R](https://img.shields.io/badge/R-supported-green)","![Python](https://img.shields.io/badge/Python-supported-orange)", "![R](https://img.shields.io/badge/R-supported-orange)"]
 
         f.write("## Summary \n")
-        f.write(f"Reusability and attribution: ")
+        f.write("| Category | Level attained | \n")
+        f.write("| --- | --- | \n")
         if checklists['license']['ifpassed']:
-             f.write(f"{badge_reuse[0]} \n")
+             f.write(f"| Reusability and attribution | {badge_reuse[0]} | \n")
         elif checklists['license']['warnings'] or 'citation' not in checklists['files']['messages']:
-            f.write(f"{badge_reuse[1]} \n")
+            f.write(f"| Reusability and attribution | {badge_reuse[1]} | \n")
         else:
-            f.write(f"{badge_reuse[2]} \n\n")
+            f.write(f"| Reusability and attribution | {badge_reuse[2]} |\n")
 
-        f.write("Transparency: ")
         if checklists['readme']['ifpassed'] and checklists['files']['ifpassed']:
-            f.write(f"{badge_trans[0]} \n")
+            f.write(f"| Transparency | {badge_trans[0]} | \n")
         elif checklists['readme']['warnings'] or checklists['files']['warnings']:
-            f.write(f"{badge_trans[1]} \n")
+            f.write(f"| Transparency | {badge_trans[1]} | \n")
         else:
-            f.write(f"{badge_trans[2]} \n\n")
+            f.write(f"| Transparency | {badge_trans[2]} | \n")
         
-        f.write(f"Computational reproducibility: ")
         if checklists['repo2docker']['ifpassed'] and checklists['language']['ifpassed']:
-            f.write(f"{badge_repro[0]} \n")
+            f.write(f"| Computational reproducibility | {badge_repro[0]} | \n")
         elif checklists['repo2docker']['warnings'] or checklists['language']['warnings']:
-            f.write(f"{badge_repro[1]} \n")
+            f.write(f"| Computational reproducibility | {badge_repro[1]} | \n")
         else:
-            f.write(f"{badge_repro[2]} \n\n")
+            f.write(f"| Computational reproducibility | {badge_repro[2]} | \n")
         
-        f.write("Resource consumption: ")
         if checklists['sustainability']['ifpassed']:
-            for message in checklists['repo2docker']['messages']:
-                f.write(f" - {message}\n")
+            f.write(f"| Resource consumption | {'\n'.join(checklists['sustainability']['messages'])} | \n")
         else:
-            f.write("Resource consumption could not be computed due to Repo2docker failure \n\n")
+            f.write("| Resource consumption | Resource consumption could not be computed due to Repo2docker failure | \n")
 
         
         f.write("## Detailed Report \n\n")
@@ -541,61 +538,61 @@ def write_report(checklists, report_file, owner, repo, elapsed_time):
         # License
         f.write("### License \n\n")
         if checklists['license']['ifpassed']:
-            f.write("Accepted \n")        
+            f.write("- Accepted \n")        
         for item in checklists['license']['errors']:
-            f.write(f"{label[2]} {item} \n")
+            f.write(f"- {label[2]} {item} \n")
         for item in checklists['license']['warnings']:
-            f.write(f"{label[1]} {item} \n")
+            f.write(f"- {label[1]} {item} \n")
         for item in checklists['license']['messages']:
-            f.write(f"{label[0]} {item} \n")
+            f.write(f"- {label[0]} {item} \n")
         f.write('\n\n')
         
         # Programming language
         f.write(f"### Programming Language \n\n")
         if checklists['language']['ifpassed']:
-            f.write('Language version specified \n')
+            f.write('- Language version specified \n')
         for item in checklists['language']['errors']:
-            f.write(f"{label[2]} {item} \n")
+            f.write(f"- {label[2]} {item} \n")
         for item in checklists['language']['warnings']:
-            f.write(f"{label[1]} {item} \n")
+            f.write(f"- {label[1]} {item} \n")
         for item in checklists['language']['messages']:
-            f.write(f"{label[0]} {item} \n")
+            f.write(f"- {label[0]} {item} \n")
         f.write('\n\n')
 
         # Documentation
         f.write(f"### Documentation \n\n")
         if checklists['files']['ifpassed']:
-            f.write('All mandatory files provided \n')
+            f.write('- All mandatory files provided \n')
         for item in checklists['files']['errors']:
-            f.write(f"{label[2]} {item} \n")
+            f.write(f"- {label[2]} {item} \n")
         for item in checklists['files']['warnings']:
-            f.write(f"{label[1]} {item} \n")
+            f.write(f"- {label[1]} {item} \n")
         for item in checklists['files']['messages']:
-            f.write(f"{label[0]} {item} \n")
+            f.write(f"- {label[0]} {item} \n")
         f.write('\n\n')
 
         # README template
         f.write(f"### README  \n\n")
         if checklists['readme']['ifpassed']:
-            f.write('README is structured as per format \n')
+            f.write('- README is structured as per format \n')
         for item in checklists['readme']['errors']:
-            f.write(f"{label[2]} {item} \n")
+            f.write(f"- {label[2]} {item} \n")
         for item in checklists['readme']['warnings']:
-            f.write(f"{label[1]} {item} \n")
+            f.write(f"- {label[1]} {item} \n")
         for item in checklists['readme']['messages']:
-            f.write(f"{label[0]} {item} \n")
+            f.write(f"- {label[0]} {item} \n")
         f.write('\n\n')
 
         # Repo2docker
         f.write(f"### Repo2docker \n\n")
         if checklists['repo2docker']['ifpassed']:
-            f.write('Repo2docker successful \n')
+            f.write('- Repo2docker successful \n')
         for item in checklists['repo2docker']['errors']:
-            f.write(f"{label[2]} {item} \n")
+            f.write(f"- {label[2]} {item} \n")
         for item in checklists['repo2docker']['warnings']:
-            f.write(f"{label[1]} {item} \n")
+            f.write(f"- {label[1]} {item} \n")
         for item in checklists['repo2docker']['messages']:
-            f.write(f"{label[0]} {item} \n")
+            f.write(f"- {label[0]} {item} \n")
         f.write('\n\n')
         
         
