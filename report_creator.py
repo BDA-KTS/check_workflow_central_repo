@@ -363,6 +363,8 @@ def repo2dockertest_sustainability():
 
         # Peak memory usage of this Python process (not necessarily Docker).
         peak_ram = resource.getrusage(resource.RUSAGE_SELF).ru_maxrss
+        # Linux reports KiB; macOS reports bytes
+        peak_ram_mib = peak_ram / (1024 if sys.platform == "linux" else 1024**2)
 
         if process.returncode == 0:
             result['ifpassed'] = True
@@ -374,7 +376,7 @@ def repo2dockertest_sustainability():
             error_labels.append("repo2docker")
             result['messages'].append("Environment validation: FAIL")
 
-        result['messages'].extend([f"Build time: {execution_time:.2f} seconds", f"Peak Python process memory: {peak_ram}", "CPU utilization: Not measured", "Energy consumption: Not measured", "CO₂ emissions: Not measured", ])
+        result['messages'].extend([f"Build time: {execution_time:.2f} seconds", f"Peak RAM usage: {peak_ram_mib:.2f} MiB", "CPU utilization: ?", "Energy consumption: ?", "CO₂ emissions: ?", ])
 
     except FileNotFoundError:
         result['errors'].append("repo2docker is not installed.")
