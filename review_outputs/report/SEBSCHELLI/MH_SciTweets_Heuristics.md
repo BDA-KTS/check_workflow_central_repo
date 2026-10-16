@@ -1,7 +1,7 @@
 # Report: [SEBSCHELLI / MH_SciTweets_Heuristics](https://github.com/SEBSCHELLI/MH_SciTweets_Heuristics)
 
-<small>created on 2026-10-14 14:06:43, 
- Review time: 1:59 (min/sec)
+<small>created on 2026-10-16 13:41:20, 
+ Review time: 1:45 (min/sec)
 
 ## Summary 
 | Category | Level attained | 
@@ -12,11 +12,11 @@
 | Resource consumption | | 
 | | Repo2Docker build successful. | 
 | | Environment validation: PASS | 
-| | Build time: 1.00 seconds | 
-| | Peak Python process memory: 58572 | 
-| | CPU utilization: Not measured | 
-| | Energy consumption: Not measured | 
-| | CO₂ emissions: Not measured | 
+| | Build time: 0.90 seconds | 
+| | Peak RAM usage: 57.00 MiB | 
+| | CPU utilization: ? | 
+| | Energy consumption: ? | 
+| | CO₂ emissions: ? | 
 
 
 ## Detailed Report 
