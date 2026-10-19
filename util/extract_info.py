@@ -110,7 +110,7 @@ def convert_readme_ipynb(readme_path: Path)  :
                     subtitles.append(line[3:].strip())
     return check_readme(titles, subtitles, result)
 
-def check_readme(titles,subtitles, result):
+def check_readme(titles,subtitles, result, NECESSARY_SUBTITLES):
     if len(titles) < 1:
         result['ifpassed'] = False
         result['errors'].append("Method title not defined.")
