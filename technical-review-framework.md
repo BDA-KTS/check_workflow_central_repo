@@ -1,0 +1,10 @@
+# Method Technical review Framework
+
+This framework evaluates [Methods Hub](https://methodshub.gesis.org/) method repositories across three dimensions: **reusability and attribution**, **reporting transparency**, and **computational reproducibility**. Each dimension categorized as fully, partially or not satisfying the [Methods Hub guidelines](https://github.com/GESIS-Methods-Hub/guidelines).
+
+
+| Dimension | Fully satisfied | Partially satisfied | Not satisfied |
+|---|---|---|---|
+| **Reusability and attribution** | ![Reusability](https://img.shields.io/badge/Reusability-fully%20reusable-green) <br> Valid open licence and `CITATION.cff` file | ![Reusability](https://img.shields.io/badge/Reusability-partially%20reusable-yellow) <br> Multiple licences leading to ambiguity of applicable terms | ![Reusability](https://img.shields.io/badge/Reusability-not%20reusable-orange) <br> Valid open licence or `CITATION.cff` file missing |
+| **Transparency** | ![Transparency](https://img.shields.io/badge/Transparency-full%20documentation-green) <br> All mandatory files and required README sections are present and correctly formatted | ![Transparency](https://img.shields.io/badge/Transparency-inconsistent%20formatting-yellow) <br> Required content is present, but formatting issues, duplicate sections, or duplicate file | ![Transparency](https://img.shields.io/badge/Transparency-incomplete%20documentation-orange) <br> One or more mandatory files or required README sections are missing |
+| **Computational reproducibility** | ![Reproducibility](https://img.shields.io/badge/Reproducibility-single%20click%20reproducible-green) <br> `repo2docker` builds the environment successfully, and the programming language version is specified | ![Reproducibility](https://img.shields.io/badge/Reproducibility-partially%20reproducible%20code-yellow) <br> `repo2docker` builds successfully, but the programming language version is not specified | ![Reproducibility](https://img.shields.io/badge/Reproducibility-not%20single%20click%20reproducible-orange) <br> `repo2docker` fails to build the environment |
