@@ -1,22 +1,12 @@
-import html
 import os
 import json
-import re
-import subprocess
-import sys
-from dataclasses import dataclass, field
-import joblib
-import nbformat
 from pathlib import Path
 from typing import Set, List, Counter
-from licensename import from_text
 from datetime import datetime
 import time
 from config import Settings
-from jsons.Json_PreCooking import strip_markdown
 
-from util.reporting_functions.py import *
-
+from util.review_functions import *
 import resource
 
 
@@ -39,64 +29,69 @@ ML_PATH = Settings.ML_PATH
 report = []
 
 
+badge_reuse = ["![Reusability](https://img.shields.io/badge/Reusable-green)", "![Reusability](https://img.shields.io/badge/Reusability-partially%20reusable-yellow)", "![Reusability](https://img.shields.io/badge/Reusability-not%20reusable-orange)"]
+badge_trans = ["![Transparency](https://img.shields.io/badge/full%20documentation-green)", "![Transparency](https://img.shields.io/badge/inconsistent%20formatting-yellow)", "![Transparency](https://img.shields.io/badge/incomplete%20documentation-orange)"]
+badge_repro = ["![Reproducibility](https://img.shields.io/badge/single%20click%20reproducible-green)", "![Reproducibility](https://img.shields.io/badge/partially%20reproducible%20code-yellow)", "![Reproducibility](https://img.shields.io/badge/not%20single%20click%20reproducible-orange)"]
 
 
-
-
-
-
-
-    
-
-    
-
-
-    
-
-
-
-
-def load_ml_artifacts():
-    model = joblib.load(ML_PATH/"model.joblib")
-    vectorizer = joblib.load(ML_PATH/ "vectorizer.joblib")
-    mlb = joblib.load(ML_PATH / "mlb.joblib")
-    return model, vectorizer, mlb
-
-def predict_labels_with_probability(path: Path ,threshold: float = 0.5):
-    result = {'ifpassed': False, 'messages': [], 'warnings': [], 'errors': []}
-    text = extract_text_from_content(path)
-    model, vectorizer, mlb = load_ml_artifacts()
-    vec = vectorizer.transform([text])
-    probs = model.predict_proba(vec)[0]
-    probability_map = {
-        label: float(prob)
-        for label, prob in zip(mlb.classes_, probs)
-    }
-    
-    predicted = [
-        label for label, prob in probability_map.items()
-        if prob >= threshold
-    ]
-    if predicted:
-        predicted.sort(key=lambda label: probability_map[label], reverse=True)
-        result['messages'] = [f"Predicted labels: {', '.join(predicted) if predicted else 'none'}", f"Probability: {round(probability_map[predicted[0]] * 100, 2)}%"]
+def summary(checklists, f):
+    f.write("## Summary \n")
+    f.write("| Category | Level attained | Guidelines reference | \n")
+    f.write("| --- | --- | \n")
+    # Reusability and attribution    
+    if checklists['license']['ifpassed'] and 'citation' in checklists['files']['messages']:
+        f.write(f"| Reusability and attribution | {badge_reuse[0]} | | \n")
+    elif checklists['license']['warnings']:
+        f.write(f"| Reusability and attribution | {badge_reuse[1]} |  multiple license files found, [for more ...](#license) | \n")
     else:
-        result['messages'] = ["No labels predicted with probability above threshold."]
-    result['ifpassed'] = True
-    return result
-
-#def summary(checklists):
-    #if any(not checklist.passed for checklist in checklists):
-    #    passed = False
-    #    errors.append("Major Flaws, Error in at least one Check")
-    #    error_labels.append("Critical")
-    #elif  any(checklist.warnings for checklist in checklists) and passed:
-    #    warnings.append("Passed but with warnings")
-    #    error_labels.append("Warning")
-    #else:
-    #    messages.append("Passed perfectly")
-    #return CheckResult("Summary", passed, messages, warnings, errors, [],[],error_labels)
-
+        f.write(f"| Reusability and attribution | {badge_reuse[2]} |")   
+        if checklists['license']['errors'] and 'citation' not in checklists['files']['messages']:
+            f.write(f"| No or invalid license, [for more ...](#license) <br> Citation file not found [for more ...](#documentation) | \n")
+        if checklists['license']['errors'] and 'citation' in checklists['files']['messages']:
+            f.write(f"| No or invalid license, [for more ...](#license) | \n")
+        if not checklists['license']['errors'] and 'citation' not in checklists['files']['messages']:
+            f.write(f"| Citation file not found [for more ...](#documentation) | \n")
+    # transparency
+    if checklists['readme']['ifpassed'] and checklists['files']['ifpassed']:
+        f.write(f"| Transparency | {badge_trans[0]} | | \n")
+    elif checklists['readme']['warnings'] or checklists['files']['warnings']:
+        f.write(f"| Transparency | {badge_trans[1]} | ")
+        if checklists['readme']['warnings'] and checklists['files']['warnings']:
+            f.write(f" Duplicate files, [for more ...](#documentation) <br> README sections duplicates for formating issue, [for more ...](#readme) | \n")
+        if checklists['readme']['warnings'] and not checklists['files']['warnings']:
+            f.write(f" README sections duplicates for formating issue, [for more ...](#readme) | \n")
+        if not checklists['readme']['warnings'] and checklists['files']['warnings']:
+            f.write(f" Duplicate files, [for more ...](#documentation) | \n")
+    else:
+        f.write(f"| Transparency | {badge_trans[2]} | ")
+        if checklists['readme']['errors'] and checklists['files']['errors']:
+            f.write(f" Missing mandatory files, [for more ...](#documentation) <br> README missing mandatory sections, [for more ...](#readme) | \n")
+        if checklists['readme']['errors'] and not checklists['files']['errors']:
+            f.write(f" README missing mandatory sections, [for more ...](#readme) | \n")
+        if not checklists['readme']['warnings'] and checklists['files']['warnings']:
+            f.write(f" Missing mandatory files, [for more ...](#documentation) | \n")
+        #computational reproduciiblity
+        if checklists['repo2docker']['ifpassed'] and checklists['language']['ifpassed']:
+            f.write(f"| Computational reproducibility | {badge_repro[0]} | | \n")
+        elif checklists['repo2docker']['warnings'] or checklists['language']['warnings']:
+            f.write(f"| Computational reproducibility | {badge_repro[1]} | ")
+            if checklists['repo2docker']['warnings'] and checklists['language']['warnings']:
+                f.write(f" Binder files missing, [for more ...](#documentation) <br> programming language version not specified, [for more ...](#programming-language)  | \n")
+            if checklists['repo2docker']['warnings'] and not checklists['language']['warnings']:
+                f.write(f" Repo2docker failed, [for more ...](#repo2docker) | \n")
+            if not checklists['repo2docker']['warnings'] and checklists['language']['warnings']:
+                f.write(f" programming language version not specified, [for more ...](#programming-language) | \n")
+        elif checklists['repo2docker']['errors']:
+            f.write(f"| Computational reproducibility | {badge_repro[2]} |  Repo2docker failed, [for more ...](#repo2docker)  | \n")
+        
+        if checklists['sustainability']['ifpassed']:
+            f.write("| Resource consumption | | \n")
+            for message in checklists['sustainability']['messages']:
+                key, value = message.split(':')
+                f.write(f"| | {key} | {value} | \n")
+        else:
+            f.write("|  | Resource consumption could not be computed due to Repo2docker failure | | \n")
+        f.write("\n\n")
 
 
 def write_report(checklists, report_file, owner, repo, elapsed_time):
@@ -104,69 +99,67 @@ def write_report(checklists, report_file, owner, repo, elapsed_time):
         total_seconds = int(elapsed_time.total_seconds())
         minutes, seconds = divmod(total_seconds, 60)
         f.write(f"# Report: [{owner} / {repo}](https://github.com/{owner}/{repo})\n\n" f"<small>created on {time.strftime('%Y-%m-%d %H:%M:%S')}, \n Review time: {minutes}:{seconds:02d} (min/sec)\n\n")
-
-        #f.write("[![Report Creator](https://github.com/BDA-KTS/check_workflow_central_repo/actions/workflows/test_workflow.yml/badge.svg)](https://github.com/BDA-KTS/check_workflow_central_repo/actions/workflows/test_workflow.yml)\n\n")
-
-        #[![Report Creator](https://github.com/BDA-KTS/check_workflow_central_repo/actions/workflows/test_workflow.yml/badge.svg)](https://github.com/BDA-KTS/check_workflow_central_repo/actions/workflows/test_workflow.yml)
-        #f.write("## Report generated at {}\n\n".format(time.strftime("%Y-%m-%d %H:%M:%S")))
-        #f.write(f"## Link to the repository: [GitHub Repository](https://github.com/{owner}/{repo})\n\n")
         
+        summary(checklists, f)
+             
         
-        #f.write(f"### Working Environment:", f"{env}", f"{required_binder}", f"{root_files}", f"{extended_files}")
-
-        badge_reuse = ["![Reusability](https://img.shields.io/badge/Reusable-green)", "![Reusability](https://img.shields.io/badge/Reusability-partially%20reusable-yellow)", "![Reusability](https://img.shields.io/badge/Reusability-not%20reusable-orange)"]
-        badge_trans = ["![Transparency](https://img.shields.io/badge/full%20documentation-green)", "![Transparency](https://img.shields.io/badge/inconsistent%20formatting-yellow)", "![Transparency](https://img.shields.io/badge/incomplete%20documentation-orange)"]
-        badge_repro = ["![Reproducibility](https://img.shields.io/badge/single%20click%20reproducible-green)", "![Reproducibility](https://img.shields.io/badge/partially%20reproducible%20code-yellow)", "![Reproducibility](https://img.shields.io/badge/not%20single%20click%20reproducible-orange)"]
-        
-        #others = ["![Python](https://img.shields.io/badge/Python-supported-yellow)", "![R](https://img.shields.io/badge/R-supported-yellow)", "![Python](https://img.shields.io/badge/Python-supported-green)", "![R](https://img.shields.io/badge/R-supported-green)","![Python](https://img.shields.io/badge/Python-supported-orange)", "![R](https://img.shields.io/badge/R-supported-orange)"]
-
-        f.write("## Summary \n")
-        f.write("| Category | Level attained | \n")
-        f.write("| --- | --- | \n")
-        if checklists['license']['ifpassed']:
-             f.write(f"| Reusability and attribution | {badge_reuse[0]} | \n")
-        elif checklists['license']['warnings'] or 'citation' not in checklists['files']['messages']:
-            f.write(f"| Reusability and attribution | {badge_reuse[1]} | \n")
-        else:
-            f.write(f"| Reusability and attribution | {badge_reuse[2]} |\n")
-
-        if checklists['readme']['ifpassed'] and checklists['files']['ifpassed']:
-            f.write(f"| Transparency | {badge_trans[0]} | \n")
-        elif checklists['readme']['warnings'] or checklists['files']['warnings']:
-            f.write(f"| Transparency | {badge_trans[1]} | \n")
-        else:
-            f.write(f"| Transparency | {badge_trans[2]} | \n")
-        
-        if checklists['repo2docker']['ifpassed'] and checklists['language']['ifpassed']:
-            f.write(f"| Computational reproducibility | {badge_repro[0]} | \n")
-        elif checklists['repo2docker']['warnings'] or checklists['language']['warnings']:
-            f.write(f"| Computational reproducibility | {badge_repro[1]} | \n")
-        else:
-            f.write(f"| Computational reproducibility | {badge_repro[2]} | \n")
-        
-        if checklists['sustainability']['ifpassed']:
-            f.write("| Resource consumption | | \n")
-            for message in checklists['sustainability']['messages']:
-                f.write(f"| | {message} | \n")
-        else:
-            f.write("|  | Resource consumption could not be computed due to Repo2docker failure | \n")
-        f.write("\n\n")
-        
-        f.write("## Detailed Report \n\n")
+        f.write("# Detailed Report \n\n")
         
         label = [" ✅ **Information:**", " ⚠️ **Warnings:**", " ⛔ **Errors:**"]
         
-        # License
+        # Reusability and attribution
+        f.write("## Reusability and attribution \n\n")
+        f.write("The method is reusable if supported by a valid open-source licence and has citation metadata provided in supported CITATION.cff file. \n")
         f.write("### License \n\n")
         for item in checklists['license']['errors']:
-            f.write(f"- {label[2]} {item} \n")
+            f.write(f"- {label[2]} {item} (to fix this issue, please consult the [Openness criteria in guidelines](https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/README.md#openness-criteria)) \n")
         for item in checklists['license']['warnings']:
-            f.write(f"- {label[1]} {item} \n")
+            f.write(f"- {label[1]} {item} (to fix this issue, please consult the [Openness criteria in guidelines](https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/README.md#openness-criteria)) \n")
         for item in checklists['license']['messages']:
             f.write(f"- {label[0]} {item} \n")
         f.write('\n\n')
+        f.write("### Citation \n\n")
+        if 'citation' in checklists['files']['messages']:
+            f.write("Citation.cff file accepted \n")
+        else:
+            f.write("No valid Citation.cff file found, please consult the [documentation quality criteria in guidelines](https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/README.md#documentation-quality-criteria) \n")
         
-        # Programming language
+        #Transparency
+        f.write("## Transparency \n\n")
+        f.write("The method is fully transparent when it has all required documents and has README as per template. \n")
+        f.write(f"### Documentation \n\n")
+        for item in checklists['files']['errors']:
+            if 'license' not in item or 'citation' not in item:
+                f.write(f"- {label[2]} {item}, please consult the [documentation quality criteria in guidelines](https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/README.md#documentation-quality-criteria) \n")
+        for item in checklists['files']['warnings']:
+            if 'license' not in item or 'citation' not in item:
+                f.write(f"- {label[1]} {item}, please consult the [documentation quality criteria in guidelines](https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/README.md#documentation-quality-criteria) \n")
+        for item in checklists['files']['messages']:
+            if 'license' not in item or 'citation' not in item:
+                f.write(f"- {label[0]} {item}, please consult the [documentation quality criteria in guidelines](https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/README.md#documentation-quality-criteria) \n")
+        f.write('\n\n')
+        # README template
+        f.write(f"### README  \n\n")
+        for item in checklists['readme']['errors']:
+            f.write(f"- {label[2]} {item}, please consult the [README template in guidelines](https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md?plain=1) \n")
+        for item in checklists['readme']['warnings']:
+            f.write(f"- {label[1]} {item}, please consult the [README template in guidelines](https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md?plain=1) \n")
+        for item in checklists['readme']['messages']:
+            f.write(f"- {label[0]} {item}, please consult the [README template in guidelines](https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md?plain=1) \n")
+        f.write('\n\n')
+        # Computational reproducibility
+        f.write("## Computational reproducibility \n\n")
+        f.write("Computational reproducibility is supported if repo2docker successfully builds the execution environment and the programming language version is explicitly specified in the repository’s configuration files. \n")
+        # Repo2docker
+        f.write(f"### Repo2docker \n\n")
+        for item in checklists['repo2docker']['errors']:
+            f.write(f"- {label[2]} {item}, please consult the [binder environment in guidelines](https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/README.md#binder-environment) \n")
+        for item in checklists['repo2docker']['warnings']:
+            f.write(f"- {label[1]} {item}, please consult the [binder environment in guidelines](https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/README.md#binder-environment) \n")
+        for item in checklists['repo2docker']['messages']:
+            f.write(f"- {label[0]} {item}, please consult the [binder environment in guidelines](https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/README.md#binder-environment) \n")
+        f.write('\n\n')
+        # programming language
         f.write(f"### Programming Language \n\n")
         for item in checklists['language']['errors']:
             f.write(f"- {label[2]} {item} \n")
@@ -174,38 +167,8 @@ def write_report(checklists, report_file, owner, repo, elapsed_time):
             f.write(f"- {label[1]} {item} \n")
         for item in checklists['language']['messages']:
             f.write(f"- {label[0]} {item} \n")
-        f.write('\n\n')
+        f.write('\n\n')               
 
-        # Documentation
-        f.write(f"### Documentation \n\n")
-        for item in checklists['files']['errors']:
-            f.write(f"- {label[2]} {item} \n")
-        for item in checklists['files']['warnings']:
-            f.write(f"- {label[1]} {item} \n")
-        for item in checklists['files']['messages']:
-            f.write(f"- {label[0]} {item} \n")
-        f.write('\n\n')
-
-        # README template
-        f.write(f"### README  \n\n")
-        for item in checklists['readme']['errors']:
-            f.write(f"- {label[2]} {item} \n")
-        for item in checklists['readme']['warnings']:
-            f.write(f"- {label[1]} {item} \n")
-        for item in checklists['readme']['messages']:
-            f.write(f"- {label[0]} {item} \n")
-        f.write('\n\n')
-
-        # Repo2docker
-        f.write(f"### Repo2docker \n\n")
-        for item in checklists['repo2docker']['errors']:
-            f.write(f"- {label[2]} {item} \n")
-        for item in checklists['repo2docker']['warnings']:
-            f.write(f"- {label[1]} {item} \n")
-        for item in checklists['repo2docker']['messages']:
-            f.write(f"- {label[0]} {item} \n")
-        f.write('\n\n')
-        
         
 def write_macro(checklists, report_file, owner, repo, elapsed_time):
     total_seconds = int(elapsed_time.total_seconds())
@@ -237,7 +200,7 @@ def main():
 
     # License check
     #if 'license' in root_files or 'license' in extended_files:
-    checklists['license'] = license_check()
+    checklists['license'] = license_check(TEST_PATH)
     #else:
     #    checklists['license'] = {'ifpassed': False, 'messages': [], 'warnings': [], 'errors': ["License Check failed, no license file found"]}
     # Working language
