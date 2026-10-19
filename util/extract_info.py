@@ -65,7 +65,7 @@ def get_files(path: Path, BINDER_DIRS):
     return root_files , extended_files
 
 
-def convert_readme_md(readme_path: Path) :
+def convert_readme_md(readme_path: Path, NECESSARY_SUBTITLES) :
     """Analyze the README for required titles and subtitles."""
     result = {'ifpassed': False, 'messages': [], 'warnings': [], 'errors': []}
 
@@ -84,7 +84,7 @@ def convert_readme_md(readme_path: Path) :
     except Exception as e:
         result['errors'].append(f"Readme check failed: Error reading file ({e})")
         return result
-    return check_readme(titles, subtitles, result)
+    return check_readme(titles, subtitles, result, NECESSARY_SUBTITLES)
 
 def convert_readme_ipynb(readme_path: Path)  :
     result = {'ifpassed': False, 'messages': [], 'warnings': [], 'errors':[]}
@@ -108,7 +108,7 @@ def convert_readme_ipynb(readme_path: Path)  :
                     titles.append(line[2:].strip())
                 elif line.startswith("## "):
                     subtitles.append(line[3:].strip())
-    return check_readme(titles, subtitles, result)
+    return check_readme(titles, subtitles, result, NECESSARY_SUBTITLES)
 
 def check_readme(titles,subtitles, result, NECESSARY_SUBTITLES):
     if len(titles) < 1:
