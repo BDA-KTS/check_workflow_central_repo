@@ -6,6 +6,7 @@ import sys
 import nbformat
 from pathlib import Path
 import time
+from typing import Set, List, Counter
 from jsons.Json_PreCooking import strip_markdown
 
 def get_file_extensions(path: Path) -> Set[str]:
