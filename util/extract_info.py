@@ -52,7 +52,7 @@ def get_needed_files(suffixes: Set[str]) -> Set[str]:
         required_for_binder.add('environment.yml')
     return required_for_binder
 
-def get_files(path: Path):
+def get_files(path: Path, BINDER_DIRS):
     root_files =[]
     extended_files=[]
     for binder_directory in BINDER_DIRS:
