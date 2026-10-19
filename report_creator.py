@@ -30,9 +30,9 @@ ML_PATH = Settings.ML_PATH
 report = []
 
 
-badge_reuse = ["![Reusability](https://img.shields.io/badge/Reusable-green)", "![Reusability](https://img.shields.io/badge/Reusability-partially%20reusable-yellow)", "![Reusability](https://img.shields.io/badge/Reusability-not%20reusable-orange)"]
-badge_trans = ["![Transparency](https://img.shields.io/badge/full%20documentation-green)", "![Transparency](https://img.shields.io/badge/inconsistent%20formatting-yellow)", "![Transparency](https://img.shields.io/badge/incomplete%20documentation-orange)"]
-badge_repro = ["![Reproducibility](https://img.shields.io/badge/single%20click%20reproducible-green)", "![Reproducibility](https://img.shields.io/badge/partially%20reproducible%20code-yellow)", "![Reproducibility](https://img.shields.io/badge/not%20single%20click%20reproducible-orange)"]
+badge_reuse = ["![Reusability](https://img.shields.io/badge/Reusability-fully%20reusable-green)", "![Reusability](https://img.shields.io/badge/Reusability-partially%20reusable-yellow)", "![Reusability](https://img.shields.io/badge/Reusability-not%20reusable-orange)"]
+badge_trans = ["![Transparency](https://img.shields.io/badge/Transparency-complete%20documentation-green)", "![Transparency](https://img.shields.io/badge/Transparency-inconsistent%20formatting-yellow)", "![Transparency](https://img.shields.io/badge/Transparency-incomplete%20documentation-orange)"]
+badge_repro = ["![Reproducibility](https://img.shields.io/badge/Reproducibility-single%20click%20reproducible-green)", "![Reproducibility](https://img.shields.io/badge/Reproducibility-partially%20reproducible%20code-yellow)", "![Reproducibility](https://img.shields.io/badge/Reproducibility-not%20click%20reproducible-orange)"]
 
 
 def summary(checklists, f):
