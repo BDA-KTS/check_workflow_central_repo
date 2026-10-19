@@ -218,11 +218,11 @@ def main():
     # Readme check
     readme_path = TEST_PATH / readme_name
     if readme_path.suffix == ".ipynb":
-        checklists['readme'] = convert_readme_ipynb(readme_path)
+        checklists['readme'] = convert_readme_ipynb(readme_path, NECESSARY_SUBTITLES)
     elif readme_path.suffix == ".md":
-        checklists['readme'] = convert_readme_md(readme_path)
+        checklists['readme'] = convert_readme_md(readme_path, NECESSARY_SUBTITLES)
     elif readme_path.suffix == ".qmd":
-        checklists['readme'] = convert_readme_md(readme_path)
+        checklists['readme'] = convert_readme_md(readme_path, NECESSARY_SUBTITLES)
     else:
         checklists['readme'] = {'ifpassed': False, 'messages': [], 'warnings': [], 'errors': ["Readme check failed: Format not yet supported"]}
 
