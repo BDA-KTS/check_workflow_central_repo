@@ -197,7 +197,7 @@ def main():
     # File presence checks
     suffixes = get_file_extensions(TEST_PATH)
     required_binder = get_needed_files(suffixes)
-    root_files, extended_files=get_files(TEST_PATH)
+    root_files, extended_files=get_files(TEST_PATH, BINDER_DIRS)
 
     # License check
     #if 'license' in root_files or 'license' in extended_files:
