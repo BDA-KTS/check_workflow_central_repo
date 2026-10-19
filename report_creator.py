@@ -38,7 +38,7 @@ badge_repro = ["![Reproducibility](https://img.shields.io/badge/single%20click%2
 def summary(checklists, f):
     f.write("## Summary \n")
     f.write("| Category | Level attained | Guidelines reference | \n")
-    f.write("| --- | --- | \n")
+    f.write("| :--- | :--- | :--- | \n")
     # Reusability and attribution    
     if checklists['license']['ifpassed'] and 'citation' in checklists['files']['messages']:
         f.write(f"| Reusability and attribution | {badge_reuse[0]} | | \n")
