@@ -1,11 +1,11 @@
 # Report: [SEBSCHELLI / MH_SciTweets_Heuristics](https://github.com/SEBSCHELLI/MH_SciTweets_Heuristics)
 
-<small>created on 2026-10-19 20:04:24, 
+<small>created on 2026-10-19 21:42:19, 
  Review time: 0:00 (min/sec)
 
 ## Summary 
 | Category | Level attained | Guidelines reference | 
-| --- | --- | 
+| :--- | :--- | :--- | 
 | Reusability and attribution | ![Reusability](https://img.shields.io/badge/Reusability-not%20reusable-orange) || Citation file not found [for more ...](#documentation) | 
 | Transparency | ![Transparency](https://img.shields.io/badge/incomplete%20documentation-orange) |  README missing mandatory sections, [for more ...](#readme) | 
 | Computational reproducibility | ![Reproducibility](https://img.shields.io/badge/partially%20reproducible%20code-yellow) |  programming language version not specified, [for more ...](#programming-language) | 
