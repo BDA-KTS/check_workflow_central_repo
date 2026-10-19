@@ -86,7 +86,7 @@ def convert_readme_md(readme_path: Path, NECESSARY_SUBTITLES) :
         return result
     return check_readme(titles, subtitles, result, NECESSARY_SUBTITLES)
 
-def convert_readme_ipynb(readme_path: Path)  :
+def convert_readme_ipynb(readme_path: Path, NECESSARY_SUBTITLES):
     result = {'ifpassed': False, 'messages': [], 'warnings': [], 'errors':[]}
 
     if not readme_path.exists():
