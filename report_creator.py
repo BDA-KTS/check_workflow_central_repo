@@ -7,6 +7,7 @@ import time
 from config import Settings
 
 from util.review_functions import *
+from util.extract_info import *
 import resource
 
 
