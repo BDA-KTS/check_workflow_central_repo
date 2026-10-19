@@ -110,7 +110,7 @@ def write_report(checklists, report_file, owner, repo, elapsed_time):
         
         # Reusability and attribution
         f.write("## Reusability and attribution \n\n")
-        f.write("The method is reusable if supported by a valid open-source licence and has citation metadata provided in supported CITATION.cff file. \n")
+        f.write("The method is reusable if supported by a valid open-source licence and has citation metadata provided in supported CITATION.CFF file. \n")
         
         for item in checklists['license']['errors']:
             f.write(f"- {label[2]} {item} (to fix this issue, please consult the [Openness criteria in guidelines](https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/README.md#openness-criteria)) \n")
@@ -120,9 +120,9 @@ def write_report(checklists, report_file, owner, repo, elapsed_time):
             f.write(f"- {label[0]} {item} \n")
         f.write('\n\n')
         if 'citation' in checklists['files']['messages']:
-            f.write("Citation.cff file accepted \n")
+            f.write(f"- {label[2]} CITATION.CFF file accepted \n")
         else:
-            f.write("No valid Citation.cff file found, please consult the [documentation quality criteria in guidelines](https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/README.md#documentation-quality-criteria) \n")
+            f.write(f"- {label[0]} No valid CITATION.CFF file found, please consult the [documentation quality criteria in guidelines](https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/README.md#documentation-quality-criteria) \n")
         
         #Transparency
         f.write("## Transparency \n\n")
