@@ -4,7 +4,7 @@ from typing import Set, List, Counter
 from licensename import from_text
 import time
 import resource
-
+from pathlib import Path
 
 def check_for_formal_files(repo_requirements, root_files):
     repo_sorted = sorted([f.casefold().split(".")[0] for f in root_files])
