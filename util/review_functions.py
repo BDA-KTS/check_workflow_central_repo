@@ -136,7 +136,7 @@ def get_language_version(path: Path):
     return {'ifpassed': False, 'messages': [], 'warnings': ['Python/R version is not specified for the method'], 'errors': []}
 
 
-def license_check(TEST_PATH):
+def license_check(TEST_PATH, FREE_LICENSES):
     result = {'ifpassed': False, 'messages':[], 'warnings':[], 'errors':[]}
     license_files = [
         f for f in TEST_PATH.iterdir()
