@@ -36,7 +36,8 @@ badge_repro = ["![Reproducibility](https://img.shields.io/badge/Reproducibility-
 
 
 def summary(checklists, f):
-    f.write("## Summary ([Technical review framework](https://github.com/BDA-KTS/check_workflow_central_repo/blob/main/technical-review-framework.md))\n")
+    f.write("## Summary \n\n")
+    f.write("[Technical review framework](https://github.com/BDA-KTS/check_workflow_central_repo/blob/main/technical-review-framework.md)")
     f.write("| Category | Level attained | Guidelines reference | \n")
     f.write("| :--- | :--- | :--- | \n")
     # Reusability and attribution    
@@ -86,12 +87,12 @@ def summary(checklists, f):
             f.write(f"| Computational reproducibility | {badge_repro[2]} |  Repo2docker failed, [for more ...](#Computational-reproducibility)  | \n")
         
         if checklists['sustainability']['ifpassed']:
-            f.write("| Resource consumption | | \n")
+            f.write("| Resource consumption | \n")
             for message in checklists['sustainability']['messages']:
                 key, value = message.split(':')
                 f.write(f"| | {key} | {value} | \n")
         else:
-            f.write("|  | Resource consumption could not be computed due to Repo2docker failure | | \n")
+            f.write("| Resource consumption | not computed due to Repo2docker failure | | \n")
         f.write("\n\n")
 
 
