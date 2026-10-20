@@ -45,7 +45,7 @@ def summary(checklists, f):
         f.write(f"| Reusability and attribution | {badge_reuse[0]} | | \n")
     elif checklists['license']['warnings'] or 'citation' not in checklists['files']['messages']:
         if checklists['license']['warnings'] and 'citation' not in checklists['files']['messages']:
-            f.write(f"| Reusability and attribution | {badge_reuse[1]} |  multiple license files found, more in [License](#license) section <br> Citation file not found, find more in [CITATION File](#citation-file) section | \n")
+            f.write(f"| Reusability and attribution | {badge_reuse[1]} |  multiple license files found, more in [License](#license) section <br> Citation file not found, more in [CITATION File](#citation-file) section | \n")
         if checklists['license']['warnings']:
             f.write(f"| Reusability and attribution | {badge_reuse[1]} |  multiple license files found, more in [License](#license) section | \n")
         if 'citation' not in checklists['files']['messages']:
@@ -116,27 +116,27 @@ def write_report(checklists, report_file, owner, repo, elapsed_time):
         f.write("The method is reusable if supported by a valid open-source licence and has citation metadata in CITATION.CFF file. \n")
         f.write("### License \n")
         for item in checklists['license']['errors']:
-            f.write(f"- {label[2]} {item} (to fix the issue, read more on [openness criteria in guidelines](https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/README.md#openness-criteria)) \n")
+            f.write(f"- {label[2]} {item}, for help on this issue, visit [openness criteria in guidelines](https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/README.md#openness-criteria) \n")
         for item in checklists['license']['warnings']:
-            f.write(f"- {label[1]} {item} (to fix the issue, read more on [openness criteria in guidelines](https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/README.md#openness-criteria)) \n")
+            f.write(f"- {label[1]} {item}, for help on this issue, visit [openness criteria in guidelines](https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/README.md#openness-criteria) \n")
         for item in checklists['license']['messages']:
             f.write(f"- {label[0]} {item} \n")
         f.write('### CITATION File \n')
         if 'citation' in checklists['files']['messages']:
             f.write(f"- {label[0]} CITATION.CFF file accepted \n")
         else:
-            f.write(f"- {label[2]} No valid CITATION.CFF file found, read more on [documentation quality criteria in guidelines](https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/README.md#documentation-quality-criteria) \n")
+            f.write(f"- {label[2]} No valid CITATION.CFF file found, for help on this issue, visit [documentation quality criteria in guidelines](https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/README.md#documentation-quality-criteria) \n")
         
         #Transparency
         f.write("## Transparency \n\n")
-        f.write("The method is fully transparent when all required files are provided and README in follows [Methods Hub template](https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md?plain=1). \n")
+        f.write("The method is fully documented when all required files are provided and README follows [Methods Hub Template](https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md?plain=1). \n")
         f.write("### Documentation \n")
         for item in checklists['files']['errors']:
             if 'license' not in item or 'citation' not in item:
-                f.write(f"- {label[2]} {item}, read more on [documentation quality criteria in guidelines](https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/README.md#documentation-quality-criteria) \n")
+                f.write(f"- {label[2]} {item}, for help on this issue, visit [documentation quality criteria in guidelines](https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/README.md#documentation-quality-criteria) \n")
         for item in checklists['files']['warnings']:
             if 'license' not in item or 'citation' not in item:
-                f.write(f"- {label[1]} {item}, read more on [documentation quality criteria in guidelines](https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/README.md#documentation-quality-criteria) \n")
+                f.write(f"- {label[1]} {item}, for help on this issue, visit [documentation quality criteria in guidelines](https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/README.md#documentation-quality-criteria) \n")
         for item in checklists['files']['messages']:
             if 'license' not in item or 'citation' not in item:
                 f.write(f"- {label[0]} {item} \n")
@@ -144,9 +144,9 @@ def write_report(checklists, report_file, owner, repo, elapsed_time):
         # README template
         f.write("### README Template \n")
         for item in checklists['readme']['errors']:
-            f.write(f"- {label[2]} {item}, read more on [README template in guidelines](https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md?plain=1) \n")
+            f.write(f"- {label[2]} {item}, for help on this issue, visit [README template in guidelines](https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md?plain=1) \n")
         for item in checklists['readme']['warnings']:
-            f.write(f"- {label[1]} {item}, read more on [README template in guidelines](https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md?plain=1) \n")
+            f.write(f"- {label[1]} {item}, for help on this issue, visit [README template in guidelines](https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md?plain=1) \n")
         for item in checklists['readme']['messages']:
             f.write(f"- {label[0]} {item} \n")
         f.write('\n\n')
@@ -156,9 +156,9 @@ def write_report(checklists, report_file, owner, repo, elapsed_time):
         # Repo2docker
         f.write("### Repo2docker Build")
         for item in checklists['repo2docker']['errors']:
-            f.write(f"- {label[2]} {item}, read more on [binder environment in guidelines](https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/README.md#binder-environment) \n")
+            f.write(f"- {label[2]} {item}, for help on this issue, visit [binder environment in guidelines](https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/README.md#binder-environment) \n")
         for item in checklists['repo2docker']['warnings']:
-            f.write(f"- {label[1]} {item}, read more on [binder environment in guidelines](https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/README.md#binder-environment) \n")
+            f.write(f"- {label[1]} {item}, for help on this issue, visit [binder environment in guidelines](https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/README.md#binder-environment) \n")
         for item in checklists['repo2docker']['messages']:
             f.write(f"- {label[0]} {item} \n")
         f.write('\n\n')
