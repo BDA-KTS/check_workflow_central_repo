@@ -1,6 +1,6 @@
 # Report: [SEBSCHELLI / MH_SciTweets_Heuristics](https://github.com/SEBSCHELLI/MH_SciTweets_Heuristics)
 
-<small>created on 2026-10-20 15:02:28, 
+<small>created on 2026-10-20 15:07:27, 
  Review time: 1:42 (min/sec)
 
 ## Summary 
@@ -14,7 +14,11 @@
 | Resource consumption | 
 | | Repo2Docker build successful | | 
 | | Environment validation |  PASS | 
-| | Environment validation |  FAIL | 
+| | Build time |  0.88 seconds | 
+| | Peak RAM usage |  38.60 GiB | 
+| | CPU utilization |  ? | 
+| | Energy consumption |  ? | 
+| | CO₂ emissions |  ? | 
 
 
 # Detailed Report 
@@ -53,7 +57,8 @@ The method is fully documented when all required files are provided and README f
 ## Computational reproducibility 
 
 Computational reproducibility is supported if repo2docker successfully builds the execution environment and the programming language version is explicitly specified in configuration files (e.g., runtime.txt or environment.yml etc.). 
-### Repo2docker Build-  ✅ **Information:** Repo2Docker build successful. Binder environment is valid. 
+### Repo2docker Build 
+-  ✅ **Information:** Repo2Docker build successful. Binder environment is valid. 
 
 
 ### Programming Language 
