@@ -194,6 +194,18 @@ def repo2dockertest():
         result['errors'].append(f"Repo2Docker test failed with unexpected error: {e}")
     return result
 
+def get_image_disk_size():
+    image_size_gib = None
+    # Look for an image ID in the build output
+    match = re.search(r"sha256:([a-f0-9]{64})", process.stdout + process.stderr,)
+    if match:
+        image_id = "sha256:" + match.group(1)
+         size_bytes = int(subprocess.check_output(["docker", "image", "inspect", image_name, "--format", "{{.Size}}"], text=True, ).strip())
+
+        if result.returncode == 0:
+            image_size_gib = int(size_bytes) / (1024 ** 3)
+    return image_size_gib
+
 def repo2dockertest_sustainability():
     """Build the repository and report basic sustainability metrics."""
     result = {'ifpassed': False, 'messages': [], 'warnings': [], 'errors': []}
@@ -213,15 +225,7 @@ def repo2dockertest_sustainability():
             result['ifpassed'] = True
             result['messages'].append("Repo2Docker build successful")
             result['messages'].append("Environment validation: PASS")
-            image_size_mib = None
-            if process.returncode == 0:
-                # Look for an image ID in the build output
-                match = re.search(r"sha256:([a-f0-9]{64})", process.stdout + process.stderr,)
-            if match:
-                image_id = "sha256:" + match.group(1)
-                result = subprocess.run(["docker", "image", "inspect", image_id, "--format", "{{.Size}}", ], capture_output=True, text=True, check=False,)
-                if result.returncode == 0:
-                    image_size_mib = int(result.stdout.strip()) / (1024 ** 3)
+            image_size_gib = get_image_disk_size(process)
         else:
             result['errors'].append("Repo2Docker build failed.")
             result['errors'].append(result.stderr[-2000:])
