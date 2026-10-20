@@ -37,7 +37,7 @@ badge_repro = ["![Reproducibility](https://img.shields.io/badge/Reproducibility-
 
 def summary(checklists, f):
     f.write("## Summary \n\n")
-    f.write("[Technical review framework](https://github.com/BDA-KTS/check_workflow_central_repo/blob/main/technical-review-framework.md)")
+    f.write("[Technical review framework](https://github.com/BDA-KTS/check_workflow_central_repo/blob/main/technical-review-framework.md) \n")
     f.write("| Category | Level attained | Guidelines reference | \n")
     f.write("| :--- | :--- | :--- | \n")
     # Reusability and attribution    
@@ -110,7 +110,7 @@ def write_report(checklists, report_file, owner, repo, elapsed_time):
         label = [" ✅ **Information:**", " ⚠️ **Warnings:**", " ⛔ **Errors:**"]
         
         # Reusability and attribution
-        f.write("## Reusability and attribution \n\n")
+        f.write("## Reusability and Attribution (License, CITATION) \n\n")
         f.write("The method is reusable if supported by a valid open-source licence and has citation metadata provided in supported CITATION.CFF file. \n")
         
         for item in checklists['license']['errors']:
@@ -121,13 +121,13 @@ def write_report(checklists, report_file, owner, repo, elapsed_time):
             f.write(f"- {label[0]} {item} \n")
         f.write('\n\n')
         if 'citation' in checklists['files']['messages']:
-            f.write(f"- {label[2]} CITATION.CFF file accepted \n")
+            f.write(f"- {label[0]} CITATION.CFF file accepted \n")
         else:
-            f.write(f"- {label[0]} No valid CITATION.CFF file found, please consult the [documentation quality criteria in guidelines](https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/README.md#documentation-quality-criteria) \n")
+            f.write(f"- {label[2]} No valid CITATION.CFF file found, please consult the [documentation quality criteria in guidelines](https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/README.md#documentation-quality-criteria) \n")
         
         #Transparency
-        f.write("## Transparency \n\n")
-        f.write("The method is fully transparent when it has all required documents and has README as per template. \n")
+        f.write("## Transparency (Files, README Template) \n\n")
+        f.write("The method is fully transparent when it has all required documents and has README as per [Methods Hubtemplate](https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md?plain=1). \n")
         for item in checklists['files']['errors']:
             if 'license' not in item or 'citation' not in item:
                 f.write(f"- {label[2]} {item}, please consult the [documentation quality criteria in guidelines](https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/README.md#documentation-quality-criteria) \n")
@@ -136,7 +136,7 @@ def write_report(checklists, report_file, owner, repo, elapsed_time):
                 f.write(f"- {label[1]} {item}, please consult the [documentation quality criteria in guidelines](https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/README.md#documentation-quality-criteria) \n")
         for item in checklists['files']['messages']:
             if 'license' not in item or 'citation' not in item:
-                f.write(f"- {label[0]} {item}, please consult the [documentation quality criteria in guidelines](https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/README.md#documentation-quality-criteria) \n")
+                f.write(f"- {label[0]} {item} \n")
         f.write('\n\n')
         # README template
         for item in checklists['readme']['errors']:
@@ -144,7 +144,7 @@ def write_report(checklists, report_file, owner, repo, elapsed_time):
         for item in checklists['readme']['warnings']:
             f.write(f"- {label[1]} {item}, please consult the [README template in guidelines](https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md?plain=1) \n")
         for item in checklists['readme']['messages']:
-            f.write(f"- {label[0]} {item}, please consult the [README template in guidelines](https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md?plain=1) \n")
+            f.write(f"- {label[0]} {item} \n")
         f.write('\n\n')
         # Computational reproducibility
         f.write("## Computational reproducibility \n\n")
@@ -155,7 +155,7 @@ def write_report(checklists, report_file, owner, repo, elapsed_time):
         for item in checklists['repo2docker']['warnings']:
             f.write(f"- {label[1]} {item}, please consult the [binder environment in guidelines](https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/README.md#binder-environment) \n")
         for item in checklists['repo2docker']['messages']:
-            f.write(f"- {label[0]} {item}, please consult the [binder environment in guidelines](https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/README.md#binder-environment) \n")
+            f.write(f"- {label[0]} {item} \n")
         f.write('\n\n')
         # programming language
         for item in checklists['language']['errors']:
