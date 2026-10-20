@@ -1,7 +1,7 @@
 # Report: [SEBSCHELLI / MH_SciTweets_Heuristics](https://github.com/SEBSCHELLI/MH_SciTweets_Heuristics)
 
-<small>created on 2026-10-20 14:51:13, 
- Review time: 1:41 (min/sec)
+<small>created on 2026-10-20 15:02:28, 
+ Review time: 1:42 (min/sec)
 
 ## Summary 
 
@@ -25,10 +25,10 @@ The method is reusable if supported by a valid open-source licence and has citat
 ### License 
 -  ✅ **Information:** License MIT accepted as an open License 
 ### CITATION File 
--  ⛔ **Errors:** No valid CITATION.CFF file found, read more on [documentation quality criteria in guidelines](https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/README.md#documentation-quality-criteria) 
+-  ⛔ **Errors:** No valid CITATION.CFF file found, for help on this issue, visit [documentation quality criteria in guidelines](https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/README.md#documentation-quality-criteria) 
 ## Transparency 
 
-The method is fully transparent when all required files are provided and README in follows [Methods Hub template](https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md?plain=1). 
+The method is fully documented when all required files are provided and README follows [Methods Hub Template](https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md?plain=1). 
 ### Documentation 
 -  ✅ **Information:** license:license 
 -  ✅ **Information:** requirements.txt 
@@ -37,7 +37,7 @@ The method is fully transparent when all required files are provided and README 
 
 
 ### README Template 
--  ⛔ **Errors:** Method has 5, i.e., more than 1 title cases., read more on [README template in guidelines](https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md?plain=1) 
+-  ⛔ **Errors:** Method has 5, i.e., more than 1 title cases., for help on this issue, visit [README template in guidelines](https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md?plain=1) 
 -  ✅ **Information:** Description 
 -  ✅ **Information:** Use Cases 
 -  ✅ **Information:** Input Data 
