@@ -183,7 +183,7 @@ def repo2dockertest():
         else:
             result['errors'].append("Repo2Docker build failed.")
             combined_output = "".join(
-                part for part in [result.stdout, result.stderr] if part
+                part for part in [output.stdout, output.stderr] if part
             )
             result['errors'].append(combined_output[-4000:] + "")
 
@@ -213,13 +213,22 @@ def repo2dockertest_sustainability():
             result['ifpassed'] = True
             result['messages'].append("Repo2Docker build successful")
             result['messages'].append("Environment validation: PASS")
+            image_size_mib = None
+            if process.returncode == 0:
+                # Look for an image ID in the build output
+                match = re.search(r"sha256:([a-f0-9]{64})", process.stdout + process.stderr,)
+            if match:
+                image_id = "sha256:" + match.group(1)
+                result = subprocess.run(["docker", "image", "inspect", image_id, "--format", "{{.Size}}", ], capture_output=True, text=True, check=False,)
+                if result.returncode == 0:
+                    image_size_mib = int(result.stdout.strip()) / (1024 ** 3)
         else:
             result['errors'].append("Repo2Docker build failed.")
             result['errors'].append(result.stderr[-2000:])
             error_labels.append("repo2docker")
             result['messages'].append("Environment validation: FAIL")
 
-        result['messages'].extend([f"Build time: {execution_time:.2f} seconds", f"Peak RAM usage: {peak_ram_mib:.2f} MiB", "CPU utilization: ?", "Energy consumption: ?", "CO₂ emissions: ?", ])
+        result['messages'].extend([f"Build time: {execution_time:.2f} seconds", f"Peak RAM usage: {peak_ram_mib:.2f} GiB", f"Image size: {image_size_mib} MiB", "CPU utilization: ?", "Energy consumption: ?", "CO₂ emissions: ?", ])
 
     except FileNotFoundError:
         result['errors'].append("repo2docker is not installed.")
