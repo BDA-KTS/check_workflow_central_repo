@@ -232,7 +232,7 @@ def repo2dockertest_sustainability():
             error_labels.append("repo2docker")
             result['messages'].append("Environment validation: FAIL")
 
-        result['messages'].extend([f"Build time: {execution_time:.2f} seconds", f"Peak RAM usage: {peak_ram_mib:.2f} GiB", "CPU utilization: ?", "Energy consumption: ?", "CO₂ emissions: ?", ])
+        result['messages'].extend([f"Build time: {execution_time:.2f} seconds", f"Peak RAM usage: {peak_ram_mib:.2f} MiB", "CPU utilization: ?", "Energy consumption: ?", "CO₂ emissions: ?", ])
 
     except FileNotFoundError:
         result['errors'].append("repo2docker is not installed.")
