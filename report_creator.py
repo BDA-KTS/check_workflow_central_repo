@@ -23,9 +23,9 @@ OUTPUT_PATH = Path(Settings.OUTPUT_PATH[event_type])
 REPORT_PATH = Settings.REPORT_PATH
 AGGREGATION_PATH = Settings.AGGREGATION_PATH
 NECESSARY_SUBTITLES = Settings.NECESSARY_SUBTITLES
-FREE_LICENSES = Settings.FREE_LICENSES
+
 REPO_REQUIREMENTS = Settings.REPO_REQUIREMENTS
-BINDER_DIRS = Settings.BINDER_DIRS
+
 ML_PATH = Settings.ML_PATH
 report = []
 
@@ -37,7 +37,7 @@ badge_repro = ["![Reproducibility](https://img.shields.io/badge/Reproducibility-
 
 def summary(checklists, f):
     f.write("## Summary \n\n")
-    f.write("[Technical review framework](https://github.com/BDA-KTS/check_workflow_central_repo/blob/main/technical-review-framework.md) \n")
+    f.write("(generated following [Technical review framework](https://github.com/BDA-KTS/check_workflow_central_repo/blob/main/technical-review-framework.md)) \n")
     f.write("| Category | Level attained | Guidelines reference | \n")
     f.write("| :--- | :--- | :--- | \n")
     # Reusability and attribution    
@@ -127,7 +127,7 @@ def write_report(checklists, report_file, owner, repo, elapsed_time):
         
         #Transparency
         f.write("## Transparency (Files, README Template) \n\n")
-        f.write("The method is fully transparent when it has all required documents and has README as per [Methods Hubtemplate](https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md?plain=1). \n")
+        f.write("The method is fully transparent when it all required documents are provided and its README in on [Methods Hub template](https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md?plain=1). \n")
         for item in checklists['files']['errors']:
             if 'license' not in item or 'citation' not in item:
                 f.write(f"- {label[2]} {item}, please consult the [documentation quality criteria in guidelines](https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/README.md#documentation-quality-criteria) \n")
@@ -191,17 +191,17 @@ def main():
     aggregated_dir.mkdir(parents=True, exist_ok=True)
     aggregated = aggregated_dir / f"{repo}.jsonl"
     # File presence checks
-    suffixes = get_file_extensions(TEST_PATH)
+    suffixes = get_file_extensions()
     required_binder = get_needed_files(suffixes)
-    root_files, extended_files=get_files(TEST_PATH, BINDER_DIRS)
+    root_files, extended_files = get_files()
 
     # License check
     #if 'license' in root_files or 'license' in extended_files:
-    checklists['license'] = license_check(TEST_PATH, FREE_LICENSES)
+    checklists['license'] = license_check()
     #else:
     #    checklists['license'] = {'ifpassed': False, 'messages': [], 'warnings': [], 'errors': ["License Check failed, no license file found"]}
     # Working language
-    checklists['language'] = get_language_version(TEST_PATH)
+    checklists['language'] = get_language_version()
     # Binder environment
     checklists['files'] = check_for_files(REPO_REQUIREMENTS,required_binder,root_files,extended_files)
      # Simulate Repo2Docker 2
