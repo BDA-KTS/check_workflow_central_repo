@@ -45,11 +45,11 @@ def summary(checklists, f):
         f.write(f"| Reusability and attribution | {badge_reuse[0]} | | \n")
     elif checklists['license']['warnings'] or 'citation' not in checklists['files']['messages']:
         if checklists['license']['warnings'] and 'citation' not in checklists['files']['messages']:
-            f.write(f"| Reusability and attribution | {badge_reuse[1]} |  multiple license files found, more in [License](#license) report <br> Citation file not found, find more in [CITATION File](#citation-file) report | \n")
+            f.write(f"| Reusability and attribution | {badge_reuse[1]} |  multiple license files found, more in [License](#license) section <br> Citation file not found, find more in [CITATION File](#citation-file) section | \n")
         if checklists['license']['warnings']:
-            f.write(f"| Reusability and attribution | {badge_reuse[1]} |  multiple license files found, more in [License](#license) report | \n")
+            f.write(f"| Reusability and attribution | {badge_reuse[1]} |  multiple license files found, more in [License](#license) section | \n")
         if 'citation' not in checklists['files']['messages']:
-            f.write(f"| Reusability and attribution | {badge_reuse[1]} | Citation file not found, more in [CITATION File](#citation-file) report | \n")
+            f.write(f"| Reusability and attribution | {badge_reuse[1]} | Citation file not found, more in [CITATION File](#citation-file) section | \n")
     else:
         f.write(f"| Reusability and attribution | {badge_reuse[2]} | No valid license found, more in [License](#license) section <br> Citation file not found, more in [CITATION File](#citation-file) section | \n")   
     # transparency
