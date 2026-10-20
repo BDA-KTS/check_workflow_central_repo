@@ -200,7 +200,7 @@ def get_image_disk_size():
     match = re.search(r"sha256:([a-f0-9]{64})", process.stdout + process.stderr,)
     if match:
         image_id = "sha256:" + match.group(1)
-         size_bytes = int(subprocess.check_output(["docker", "image", "inspect", image_name, "--format", "{{.Size}}"], text=True, ).strip())
+        size_bytes = int(subprocess.check_output(["docker", "image", "inspect", image_name, "--format", "{{.Size}}"], text=True, ).strip())
 
         if result.returncode == 0:
             image_size_gib = int(size_bytes) / (1024 ** 3)
