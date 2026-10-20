@@ -157,14 +157,14 @@ def license_check():
 
     licenses = [license_ for license_ in licenses if license_ is not None]
     if len(licenses) > 1:
-        result['warning'].append("More than one license files found")
+        result['warning'].append("More than one License files found")
 
     elif len(licenses) == 1:
         if licenses[0] in FREE_LICENSES:
             result['ifpassed'] = True
-            result['messages'].append(f"License {licenses[0]} accepted as an open license")
+            result['messages'].append(f"License {licenses[0]} accepted as an open License")
         else:
-            result['errors'].append(f"License {licenses[0]} not accepted as an open license")
+            result['errors'].append(f"License {licenses[0]} not accepted as an open License")
     else:
         result['errors'].append("No valid License found")
     return result
@@ -211,7 +211,7 @@ def repo2dockertest_sustainability():
 
         if process.returncode == 0:
             result['ifpassed'] = True
-            result['messages'].append("Repo2Docker build successful.")
+            result['messages'].append("Repo2Docker build successful")
             result['messages'].append("Environment validation: PASS")
         else:
             result['errors'].append("Repo2Docker build failed.")
