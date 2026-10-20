@@ -154,7 +154,7 @@ def write_report(checklists, report_file, owner, repo, elapsed_time):
         f.write("## Computational reproducibility \n\n")
         f.write("Computational reproducibility is supported if repo2docker successfully builds the execution environment and the programming language version is explicitly specified in configuration files (e.g., runtime.txt or environment.yml etc.). \n")
         # Repo2docker
-        f.write("### Repo2docker Build")
+        f.write("### Repo2docker Build \n")
         for item in checklists['repo2docker']['errors']:
             f.write(f"- {label[2]} {item}, for help on this issue, visit [binder environment in guidelines](https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/README.md#binder-environment) \n")
         for item in checklists['repo2docker']['warnings']:
