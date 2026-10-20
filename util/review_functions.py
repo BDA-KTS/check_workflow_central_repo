@@ -6,6 +6,10 @@ import time
 import resource
 from pathlib import Path
 
+from config import Settings
+TEST_PATH = Settings.TEST_PATH
+FREE_LICENSES = Settings.FREE_LICENSES
+
 def check_for_formal_files(repo_requirements, root_files):
     repo_sorted = sorted([f.casefold().split(".")[0] for f in root_files])
     required = {r.casefold() for r in repo_requirements}
@@ -136,7 +140,7 @@ def get_language_version(path: Path):
     return {'ifpassed': False, 'messages': [], 'warnings': ['Python/R version is not specified for the method'], 'errors': []}
 
 
-def license_check(TEST_PATH, FREE_LICENSES):
+def license_check():
     result = {'ifpassed': False, 'messages':[], 'warnings':[], 'errors':[]}
     license_files = [
         f for f in TEST_PATH.iterdir()
