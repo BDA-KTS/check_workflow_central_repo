@@ -9,9 +9,13 @@ import time
 from typing import Set, List, Counter
 from jsons.Json_PreCooking import strip_markdown
 
-def get_file_extensions(path: Path) -> Set[str]:
+from config import Settings
+TEST_PATH = Settings.TEST_PATH
+BINDER_DIRS = Settings.BINDER_DIRS
+
+def get_file_extensions() -> Set[str]:
     #Get all file extensions in the given directory recursively.
-    return {path.suffix for path in path.rglob("*") if path.is_file()}
+    return {TEST_PATH.suffix for TEST_PATH in TEST_PATH.rglob("*") if TEST_PATH.is_file()}
 
 def get_event_data() -> tuple:
     #Load event data from GITHUB_EVENT_PATH.
@@ -52,14 +56,14 @@ def get_needed_files(suffixes: Set[str]) -> Set[str]:
         required_for_binder.add('environment.yml')
     return required_for_binder
 
-def get_files(path: Path, BINDER_DIRS):
+def get_files():
     root_files =[]
     extended_files=[]
     for binder_directory in BINDER_DIRS:
-        if not (path / binder_directory).is_dir():
+        if not (TEST_PATH / binder_directory).is_dir():
             continue
-        for f in (path/ binder_directory).iterdir():
-            if f.parent == path:
+        for f in (TEST_PATH/ binder_directory).iterdir():
+            if f.parent == TEST_PATH:
                 root_files.append(f.name)
             extended_files.append(f.name)
     return root_files , extended_files
