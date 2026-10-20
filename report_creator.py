@@ -114,7 +114,7 @@ def write_report(checklists, report_file, owner, repo, elapsed_time):
         
         # Reusability and attribution
         f.write("## Reusability and Attribution (License, CITATION) \n\n")
-        f.write("The method is reusable if supported by a valid open-source licence and has citation metadata provided in supported CITATION.CFF file. \n")
+        f.write("The method is reusable if supported by a valid open-source licence and has citation metadata in CITATION.CFF file. \n")
         
         for item in checklists['license']['errors']:
             f.write(f"- {label[2]} {item} (to fix this issue, please consult the [Openness criteria in guidelines](https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/README.md#openness-criteria)) \n")
@@ -130,7 +130,7 @@ def write_report(checklists, report_file, owner, repo, elapsed_time):
         
         #Transparency
         f.write("## Transparency (Files, README Template) \n\n")
-        f.write("The method is fully transparent when it all required documents are provided and its README in on [Methods Hub template](https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md?plain=1). \n")
+        f.write("The method is fully transparent when all required files are provided and README in follows [Methods Hub template](https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md?plain=1). \n")
         for item in checklists['files']['errors']:
             if 'license' not in item or 'citation' not in item:
                 f.write(f"- {label[2]} {item}, please consult the [documentation quality criteria in guidelines](https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/README.md#documentation-quality-criteria) \n")
@@ -151,7 +151,7 @@ def write_report(checklists, report_file, owner, repo, elapsed_time):
         f.write('\n\n')
         # Computational reproducibility
         f.write("## Computational reproducibility \n\n")
-        f.write("Computational reproducibility is supported if repo2docker successfully builds the execution environment and the programming language version is explicitly specified in the repository’s configuration files. \n")
+        f.write("Computational reproducibility is supported if repo2docker successfully builds the execution environment and the programming language version is explicitly specified in configuration files (e.g., runtime.txt or environment.yml etc.). \n")
         # Repo2docker
         for item in checklists['repo2docker']['errors']:
             f.write(f"- {label[2]} {item}, please consult the [binder environment in guidelines](https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/README.md#binder-environment) \n")
