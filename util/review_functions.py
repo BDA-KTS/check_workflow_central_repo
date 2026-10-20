@@ -225,14 +225,14 @@ def repo2dockertest_sustainability():
             result['ifpassed'] = True
             result['messages'].append("Repo2Docker build successful")
             result['messages'].append("Environment validation: PASS")
-            image_size_gib = get_image_disk_size(process)
+            #image_size_gib = get_image_disk_size(process)
         else:
             result['errors'].append("Repo2Docker build failed.")
             result['errors'].append(result.stderr[-2000:])
             error_labels.append("repo2docker")
             result['messages'].append("Environment validation: FAIL")
 
-        result['messages'].extend([f"Build time: {execution_time:.2f} seconds", f"Peak RAM usage: {peak_ram_mib:.2f} GiB", f"Image size: {image_size_gib} MiB", "CPU utilization: ?", "Energy consumption: ?", "CO₂ emissions: ?", ])
+        result['messages'].extend([f"Build time: {execution_time:.2f} seconds", f"Peak RAM usage: {peak_ram_mib:.2f} GiB", "CPU utilization: ?", "Energy consumption: ?", "CO₂ emissions: ?", ])
 
     except FileNotFoundError:
         result['errors'].append("repo2docker is not installed.")
