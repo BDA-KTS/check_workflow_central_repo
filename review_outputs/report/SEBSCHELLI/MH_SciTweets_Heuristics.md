@@ -1,11 +1,12 @@
 # Report: [SEBSCHELLI / MH_SciTweets_Heuristics](https://github.com/SEBSCHELLI/MH_SciTweets_Heuristics)
 
-<small>created on 2026-10-20 09:12:49, 
+<small>created on 2026-10-20 09:28:34, 
  Review time: 0:00 (min/sec)
 
 ## Summary 
 
-[Technical review framework](https://github.com/BDA-KTS/check_workflow_central_repo/blob/main/technical-review-framework.md)| Category | Level attained | Guidelines reference | 
+[Technical review framework](https://github.com/BDA-KTS/check_workflow_central_repo/blob/main/technical-review-framework.md) 
+| Category | Level attained | Guidelines reference | 
 | :--- | :--- | :--- | 
 | Reusability and attribution | ![Reusability](https://img.shields.io/badge/Reusability-not%20reusable-orange) || Citation file not found [for more ...](#Transparency) | 
 | Transparency | ![Transparency](https://img.shields.io/badge/Transparency-incomplete%20documentation-orange) |  README missing mandatory sections, [for more ...](#Transparency) | 
@@ -15,33 +16,33 @@
 
 # Detailed Report 
 
-## Reusability and attribution 
+## Reusability and Attribution (License, CITATION) 
 
 The method is reusable if supported by a valid open-source licence and has citation metadata provided in supported CITATION.CFF file. 
 -  ✅ **Information:** License MIT accepted as an open license 
 
 
--  ✅ **Information:** No valid CITATION.CFF file found, please consult the [documentation quality criteria in guidelines](https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/README.md#documentation-quality-criteria) 
-## Transparency 
+-  ⛔ **Errors:** No valid CITATION.CFF file found, please consult the [documentation quality criteria in guidelines](https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/README.md#documentation-quality-criteria) 
+## Transparency (Files, README Template) 
 
-The method is fully transparent when it has all required documents and has README as per template. 
--  ✅ **Information:** license:license, please consult the [documentation quality criteria in guidelines](https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/README.md#documentation-quality-criteria) 
--  ✅ **Information:** requirements.txt, please consult the [documentation quality criteria in guidelines](https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/README.md#documentation-quality-criteria) 
--  ✅ **Information:** binder, please consult the [documentation quality criteria in guidelines](https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/README.md#documentation-quality-criteria) 
--  ✅ **Information:** All required documents found, please consult the [documentation quality criteria in guidelines](https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/README.md#documentation-quality-criteria) 
+The method is fully transparent when it has all required documents and has README as per [Methods Hubtemplate](https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md?plain=1). 
+-  ✅ **Information:** license:license 
+-  ✅ **Information:** requirements.txt 
+-  ✅ **Information:** binder 
+-  ✅ **Information:** All required documents found 
 
 
 -  ⛔ **Errors:** Method has 5, i.e., more than 1 title cases., please consult the [README template in guidelines](https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md?plain=1) 
--  ✅ **Information:** Description, please consult the [README template in guidelines](https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md?plain=1) 
--  ✅ **Information:** Use Cases, please consult the [README template in guidelines](https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md?plain=1) 
--  ✅ **Information:** Input Data, please consult the [README template in guidelines](https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md?plain=1) 
--  ✅ **Information:** Output Data, please consult the [README template in guidelines](https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md?plain=1) 
--  ✅ **Information:** Hardware Requirements, please consult the [README template in guidelines](https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md?plain=1) 
--  ✅ **Information:** Environment Setup, please consult the [README template in guidelines](https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md?plain=1) 
--  ✅ **Information:** How to Use, please consult the [README template in guidelines](https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md?plain=1) 
--  ✅ **Information:** Technical Details, please consult the [README template in guidelines](https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md?plain=1) 
--  ✅ **Information:** References, please consult the [README template in guidelines](https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md?plain=1) 
--  ✅ **Information:** Contact Details, please consult the [README template in guidelines](https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md?plain=1) 
+-  ✅ **Information:** Description 
+-  ✅ **Information:** Use Cases 
+-  ✅ **Information:** Input Data 
+-  ✅ **Information:** Output Data 
+-  ✅ **Information:** Hardware Requirements 
+-  ✅ **Information:** Environment Setup 
+-  ✅ **Information:** How to Use 
+-  ✅ **Information:** Technical Details 
+-  ✅ **Information:** References 
+-  ✅ **Information:** Contact Details 
 
 
 ## Computational reproducibility 
