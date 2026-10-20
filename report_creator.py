@@ -89,8 +89,11 @@ def summary(checklists, f):
         if checklists['sustainability']['ifpassed']:
             f.write("| Resource consumption | \n")
             for message in checklists['sustainability']['messages']:
-                key, value = message.split(':')
-                f.write(f"| | {key} | {value} | \n")
+                if ':' in message:
+                    key, value = message.split(':')
+                    f.write(f"| | {key} | {value} | \n")
+                else:
+                    f.write(f"| | {message} | | \n")
         else:
             f.write("| Resource consumption | not computed due to Repo2docker failure | | \n")
         f.write("\n\n")
