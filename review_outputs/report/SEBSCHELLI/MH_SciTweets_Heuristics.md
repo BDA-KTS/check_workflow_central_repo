@@ -1,21 +1,21 @@
 # Report: [SEBSCHELLI / MH_SciTweets_Heuristics](https://github.com/SEBSCHELLI/MH_SciTweets_Heuristics)
 
-<small>created on 2026-10-20 10:08:15, 
- Review time: 1:46 (min/sec)
+<small>created on 2026-10-20 11:30:19, 
+ Review time: 1:39 (min/sec)
 
 ## Summary 
 
 (generated following [Technical review framework](https://github.com/BDA-KTS/check_workflow_central_repo/blob/main/technical-review-framework.md)) 
 | Category | Level attained | Guidelines reference | 
 | :--- | :--- | :--- | 
-| Reusability and attribution | ![Reusability](https://img.shields.io/badge/Reusability-not%20reusable-orange) || Citation file not found [for more ...](#Transparency) | 
-| Transparency | ![Transparency](https://img.shields.io/badge/Transparency-incomplete%20documentation-orange) |  README missing mandatory sections, [for more ...](#Transparency) | 
-| Computational reproducibility | ![Reproducibility](https://img.shields.io/badge/Reproducibility-partially%20reproducible-yellow) |  programming language version not specified, [for more ...](#Computational-reproducibility) | 
+| Reusability and attribution | ![Reusability](https://img.shields.io/badge/Reusability-partially%20reusable-yellow) | Citation file not found, more in [CITATION File](#citation-file) report | 
+| Transparency | ![Transparency](https://img.shields.io/badge/Transparency-insufficiently%20documented-orange) |  README missing mandatory subheadings, more in [README Template](#readme-template) section | 
+| Computational reproducibility | ![Reproducibility](https://img.shields.io/badge/Reproducibility-partially%20reproducible-yellow) |  programming language version not specified, more in [Programming Language](#programming-language) section | 
 | Resource consumption | 
 | | Repo2Docker build successful. | | 
 | | Environment validation |  PASS | 
-| | Build time |  0.74 seconds | 
-| | Peak RAM usage |  38.45 MiB | 
+| | Build time |  0.79 seconds | 
+| | Peak RAM usage |  38.69 MiB | 
 | | CPU utilization |  ? | 
 | | Energy consumption |  ? | 
 | | CO₂ emissions |  ? | 
@@ -23,23 +23,25 @@
 
 # Detailed Report 
 
-## Reusability and Attribution (License, CITATION) 
+## Reusability and Attribution 
 
-The method is reusable if supported by a valid open-source licence and has citation metadata provided in supported CITATION.CFF file. 
+The method is reusable if supported by a valid open-source licence and has citation metadata in CITATION.CFF file. 
+### License 
 -  ✅ **Information:** License MIT accepted as an open license 
+### CITATION File 
+-  ⛔ **Errors:** No valid CITATION.CFF file found, read more on [documentation quality criteria in guidelines](https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/README.md#documentation-quality-criteria) 
+## Transparency 
 
-
--  ⛔ **Errors:** No valid CITATION.CFF file found, please consult the [documentation quality criteria in guidelines](https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/README.md#documentation-quality-criteria) 
-## Transparency (Files, README Template) 
-
-The method is fully transparent when it all required documents are provided and its README in on [Methods Hub template](https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md?plain=1). 
+The method is fully transparent when all required files are provided and README in follows [Methods Hub template](https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md?plain=1). 
+### Documentation 
 -  ✅ **Information:** license:license 
 -  ✅ **Information:** requirements.txt 
 -  ✅ **Information:** binder 
 -  ✅ **Information:** All required documents found 
 
 
--  ⛔ **Errors:** Method has 5, i.e., more than 1 title cases., please consult the [README template in guidelines](https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md?plain=1) 
+### README Template 
+-  ⛔ **Errors:** Method has 5, i.e., more than 1 title cases., read more on [README template in guidelines](https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md?plain=1) 
 -  ✅ **Information:** Description 
 -  ✅ **Information:** Use Cases 
 -  ✅ **Information:** Input Data 
@@ -54,10 +56,11 @@ The method is fully transparent when it all required documents are provided and 
 
 ## Computational reproducibility 
 
-Computational reproducibility is supported if repo2docker successfully builds the execution environment and the programming language version is explicitly specified in the repository’s configuration files. 
--  ✅ **Information:** Repo2Docker build successful. Binder environment is valid. 
+Computational reproducibility is supported if repo2docker successfully builds the execution environment and the programming language version is explicitly specified in configuration files (e.g., runtime.txt or environment.yml etc.). 
+### Repo2docker Build-  ✅ **Information:** Repo2Docker build successful. Binder environment is valid. 
 
 
+### Programming Language 
 -  ⚠️ **Warnings:** Python/R version is not specified for the method 
 
 
