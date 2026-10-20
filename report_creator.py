@@ -51,7 +51,7 @@ def summary(checklists, f):
         if 'citation' not in checklists['files']['messages']:
             f.write(f"| Reusability and attribution | {badge_reuse[1]} | Citation file not found, more in [CITATION File](#citation-file) report | \n")
     else:
-        f.write(f"| Reusability and attribution | {badge_reuse[2]} | No valid license found, more in [License](#license) section <br> Citation file not found, more in [CITATION File](#citation-file) section | \n") ")   
+        f.write(f"| Reusability and attribution | {badge_reuse[2]} | No valid license found, more in [License](#license) section <br> Citation file not found, more in [CITATION File](#citation-file) section | \n")   
     # transparency
     if checklists['readme']['ifpassed'] and checklists['files']['ifpassed']:
         f.write(f"| Transparency | {badge_trans[0]} | | \n")
