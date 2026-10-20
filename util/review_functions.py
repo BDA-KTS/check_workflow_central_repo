@@ -109,7 +109,7 @@ def check_for_files(repo_requirements,required_binder,root_files,extended_files)
         result['messages'].append("All required documents found")
     return result
 
-def get_language_version(path: Path):
+def get_language_version():
     ENVIRONMENT_PATTERNS = {
         "Python": {
             "environment.yml": r"python\s*=\s*[\"']?([0-9]+(?:\.[0-9]+){0,2})",
@@ -127,7 +127,7 @@ def get_language_version(path: Path):
 
     for language, patterns in ENVIRONMENT_PATTERNS.items():
         for filename, pattern in patterns.items():
-            file_path = path / filename
+            file_path = TEST_PATH / filename
 
             if not file_path.exists():
                 continue
