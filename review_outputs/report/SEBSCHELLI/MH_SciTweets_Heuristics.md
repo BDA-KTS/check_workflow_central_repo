@@ -1,12 +1,12 @@
 # Report: [SEBSCHELLI / MH_SciTweets_Heuristics](https://github.com/SEBSCHELLI/MH_SciTweets_Heuristics)
 
-<small>created on 2026-10-20 15:24:57, 
- Review time: 1:38 (min/sec)
+<small>created on 2026-10-26 13:17:41, 
+ Review time: 2:09 (min/sec)
 
 ## Summary 
 
 (generated following [Technical review framework](https://github.com/BDA-KTS/check_workflow_central_repo/blob/main/technical-review-framework.md)) 
-| Category | Level attained | Guidelines reference | 
+| Category | Level attained | Report section | 
 | :--- | :--- | :--- | 
 | Reusability and attribution | ![Reusability](https://img.shields.io/badge/Reusability-partially%20reusable-yellow) | Citation file not found, more in [CITATION File](#citation-file) section | 
 | Transparency | ![Transparency](https://img.shields.io/badge/Transparency-insufficiently%20documented-orange) |  README missing mandatory subheadings, more in [README Template](#readme-template) section | 
@@ -14,8 +14,8 @@
 | Resource consumption | 
 | | Repo2Docker build successful | | 
 | | Environment validation |  PASS | 
-| | Build time |  0.72 seconds | 
-| | Peak RAM usage |  38.56 MiB | 
+| | Build time |  0.91 seconds | 
+| | Peak RAM usage |  39.98 MiB | 
 | | CPU utilization |  ? | 
 | | Energy consumption |  ? | 
 | | CO₂ emissions |  ? | 
@@ -41,17 +41,7 @@ The method is fully documented when all required files are provided and README f
 
 
 ### README Template 
--  ⛔ **Errors:** Method has 5, i.e., more than 1 title cases., for help on this issue, visit [README template in guidelines](https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md?plain=1) 
--  ✅ **Information:** Description 
--  ✅ **Information:** Use Cases 
--  ✅ **Information:** Input Data 
--  ✅ **Information:** Output Data 
--  ✅ **Information:** Hardware Requirements 
--  ✅ **Information:** Environment Setup 
--  ✅ **Information:** How to Use 
--  ✅ **Information:** Technical Details 
--  ✅ **Information:** References 
--  ✅ **Information:** Contact Details 
+-  ⛔ **Errors:** Readme check failed: Error reading file (name 'line' is not defined), for help on this issue, visit [README template in guidelines](https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md?plain=1) 
 
 
 ## Computational reproducibility 
