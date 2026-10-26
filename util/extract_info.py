@@ -81,8 +81,8 @@ def convert_readme_md(readme_path: Path, NECESSARY_SUBTITLES) :
     try:
         with open(readme_path, encoding="utf-8") as f:
             content = f.read()
-            h1_headings = re.findall(r"(?m)^#(?!#)\s+.*$", line)
-            h2_headings = re.findall(r"(?m)^##(?!#)\s+.*$", line)
+            h1_headings = re.findall(r"(?m)^#(?!#)\s+.*$", content)
+            h2_headings = re.findall(r"(?m)^##(?!#)\s+.*$", content)
             if h1_headings: #line.startswith("# "):
                 #titles.append(line[2:].strip())
                 titles.append(h1_headings)
