@@ -122,7 +122,7 @@ def check_readme(titles,subtitles, result, NECESSARY_SUBTITLES):
         result['ifpassed'] = False
         result['errors'].append("Method title not defined.")
     elif len(titles) == 1:
-        result['message'].append("Method title accepted.")
+        result['messages'].append("Method title accepted.")
     else:
         result['ifpassed'] = False
         result['errors'].append(f"Method has {len(titles)}, i.e., more than 1 title cases.")
