@@ -1,7 +1,7 @@
 # Report: [SEBSCHELLI / MH_SciTweets_Heuristics](https://github.com/SEBSCHELLI/MH_SciTweets_Heuristics)
 
-<small>created on 2026-10-26 13:17:41, 
- Review time: 2:09 (min/sec)
+<small>created on 2026-10-26 13:30:22, 
+ Review time: 2:13 (min/sec)
 
 ## Summary 
 
@@ -14,8 +14,8 @@
 | Resource consumption | 
 | | Repo2Docker build successful | | 
 | | Environment validation |  PASS | 
-| | Build time |  0.91 seconds | 
-| | Peak RAM usage |  39.98 MiB | 
+| | Build time |  1.24 seconds | 
+| | Peak RAM usage |  39.73 MiB | 
 | | CPU utilization |  ? | 
 | | Energy consumption |  ? | 
 | | CO₂ emissions |  ? | 
@@ -41,7 +41,17 @@ The method is fully documented when all required files are provided and README f
 
 
 ### README Template 
--  ⛔ **Errors:** Readme check failed: Error reading file (name 'line' is not defined), for help on this issue, visit [README template in guidelines](https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md?plain=1) 
+-  ⛔ **Errors:** Method README has no section headings defined., for help on this issue, visit [README template in guidelines](https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md?plain=1) 
+-  ⛔ **Errors:** Method README has How to Use section heading missing, https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#how-to-use, for help on this issue, visit [README template in guidelines](https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md?plain=1) 
+-  ⛔ **Errors:** Method README has Environment Setup section heading missing, https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#environment-setup, for help on this issue, visit [README template in guidelines](https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md?plain=1) 
+-  ⛔ **Errors:** Method README has Output Data section heading missing, https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#output-data, for help on this issue, visit [README template in guidelines](https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md?plain=1) 
+-  ⛔ **Errors:** Method README has Input Data section heading missing, https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#input-data, for help on this issue, visit [README template in guidelines](https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md?plain=1) 
+-  ⛔ **Errors:** Method README has Technical Details section heading missing, https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#how-to-use, for help on this issue, visit [README template in guidelines](https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md?plain=1) 
+-  ⛔ **Errors:** Method README has Use Cases section heading missing, https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#use-cases, for help on this issue, visit [README template in guidelines](https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md?plain=1) 
+-  ⛔ **Errors:** Method README has Contact Details section heading missing, https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#contact-detailsn , for help on this issue, visit [README template in guidelines](https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md?plain=1) 
+-  ⛔ **Errors:** Method README has Description section heading missing, https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#description, for help on this issue, visit [README template in guidelines](https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md?plain=1) 
+-  ⛔ **Errors:** Method README has Hardware Requirements section heading missing, https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md#hardware-requirements, for help on this issue, visit [README template in guidelines](https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/method/template.md?plain=1) 
+-  ✅ **Information:** Method title accepted. 
 
 
 ## Computational reproducibility 
