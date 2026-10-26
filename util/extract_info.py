@@ -80,11 +80,14 @@ def convert_readme_md(readme_path: Path, NECESSARY_SUBTITLES) :
     subtitles = []
     try:
         with open(readme_path, encoding="utf-8") as f:
-            for line in f:
-                if line.startswith("# "):
-                    titles.append(line[2:].strip())
-                elif line.startswith("## "):
-                    subtitles.append(line[3:].strip())
+            content = f.read()
+            h1_headings = re.findall(r"(?m)^#(?!#)\s+.*$", line)
+            h2_headings = re.findall(r"(?m)^##(?!#)\s+.*$", line)
+            if h1_headings: #line.startswith("# "):
+                #titles.append(line[2:].strip())
+                titles.append(h1_headings)
+            elif h2_headings:
+                subtitles.append(h2_headings)
     except Exception as e:
         result['errors'].append(f"Readme check failed: Error reading file ({e})")
         return result
