@@ -38,7 +38,7 @@ badge_repro = ["![Reproducibility](https://img.shields.io/badge/Reproducibility-
 def summary(checklists, f):
     f.write("## Summary \n\n")
     f.write("(generated following [Technical review framework](https://github.com/BDA-KTS/check_workflow_central_repo/blob/main/technical-review-framework.md)) \n")
-    f.write("| Category | Level attained | Guidelines reference | \n")
+    f.write("| Category | Level attained | Report section | \n")
     f.write("| :--- | :--- | :--- | \n")
     # Reusability and attribution    
     if checklists['license']['ifpassed'] and 'citation' in checklists['files']['messages']:
