@@ -134,7 +134,7 @@ def check_readme(titles,subtitles, result, NECESSARY_SUBTITLES):
         result['messages'].append(f"{subtitle}")
     for item in missing:
         result['ifpassed'] = False
-        reslt['errors'].append(f"Method README has {item} section heading missing, {NECESSARY_SUBTITLES[item]}")
+        result['errors'].append(f"Method README has {item} section heading missing, {NECESSARY_SUBTITLES[item]}")
 
     if len(subtitles) != len(set(subtitles)):
         result['warnings'].append("Method README has duplicate section headings.")
