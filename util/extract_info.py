@@ -76,24 +76,27 @@ def convert_readme_md(readme_path: Path, NECESSARY_SUBTITLES) :
     if not readme_path.exists():
         result['errors'].append(f"Readme check failed: {readme_path} not found")
         return result
-    titles = []
-    subtitles = []
+    h1 = []
+    h2 = []
     try:
         with open(readme_path, encoding="utf-8") as f:
             content = f.read()
             h1_headings = re.findall(r"(?m)^#(?!#)\s+.*$", content)
             h1_headings = [h1[2:].strip() for h1 in h1_headings]
-            h2_headings = re.findall(r"(?m)^##(?!#)\s+.*$", content)
+            h2_headings = re.findall(r"(?m)^\s*##(?!#)\s+.*$", content)
             h2_headings = [h2[3:].strip() for h2 in h2_headings]
+            h3_plus_headings = re.findall(r"(?m)^\s*#{3,6}\s+.*$", content)
             if h1_headings: #line.startswith("# "):
                 #titles.append(line[2:].strip())
-                titles.append(h1_headings)
+                h1.append(h1_headings)
             elif h2_headings:
-                subtitles.append(h2_headings)
+                h2.append(h2_headings)
+            if h3_plus_headings:
+                result["errors"].append(h3_plus_headings)
     except Exception as e:
         result['errors'].append(f"Readme check failed: Error reading file ({e})")
         return result
-    return check_readme(titles, subtitles, result, NECESSARY_SUBTITLES)
+    return check_readme(h1, h2, result, NECESSARY_SUBTITLES)
 
 def convert_readme_ipynb(readme_path: Path, NECESSARY_SUBTITLES):
     result = {'ifpassed': False, 'messages': [], 'warnings': [], 'errors':[]}
