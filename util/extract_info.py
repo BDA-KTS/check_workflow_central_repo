@@ -88,9 +88,9 @@ def convert_readme_md(readme_path: Path, NECESSARY_SUBTITLES) :
             h3_plus_headings = re.findall(r"(?m)^\s*#{3,6}\s+.*$", content)
             if h3_plus_headings:
                 result["errors"].append(h3_plus_headings)
-    result['messages'].append(h1_headings)
-    result['messages'].append(h2_headings)
-    result['messages'].append(h3_plus_headings)
+            result['messages'].append(h1_headings)
+            result['messages'].append(h2_headings)
+            result['messages'].append(h3_plus_headings)
     except Exception as e:
         result['errors'].append(f"Readme check failed: Error reading file ({e})")
         return result
