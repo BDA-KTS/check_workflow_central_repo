@@ -87,10 +87,7 @@ def convert_readme_md(readme_path: Path, NECESSARY_SUBTITLES) :
             h2_headings = [h2[3:].strip() for h2 in h2_headings]
             h3_plus_headings = re.findall(r"(?m)^\s*#{3,6}\s+.*$", content)
             if h3_plus_headings:
-                result["errors"].append(h3_plus_headings)
-            result['messages'].append(h1_headings)
-            result['messages'].append(h2_headings)
-            result['messages'].append(h3_plus_headings)
+                result["warnings"].append(f"level 3 and/or below headings found as well that are generally discouraged.")
     except Exception as e:
         result['errors'].append(f"Readme check failed: Error reading file ({e})")
         return result
