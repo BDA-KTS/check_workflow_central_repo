@@ -40,6 +40,7 @@ def summary(checklists, f):
     f.write("(generated following [Technical review framework](https://github.com/BDA-KTS/check_workflow_central_repo/blob/main/technical-review-framework.md)) \n")
     f.write("| Category | Level attained | Report section | \n")
     f.write("| :--- | :--- | :--- | \n")
+    
     # Reusability and attribution    
     if checklists['license']['ifpassed'] and 'citation' in checklists['files']['messages']:
         f.write(f"| Reusability and attribution | {badge_reuse[0]} | | \n")
@@ -52,6 +53,7 @@ def summary(checklists, f):
             f.write(f"| Reusability and attribution | {badge_reuse[1]} | Citation file not found, more in [CITATION File](#citation-file) section | \n")
     else:
         f.write(f"| Reusability and attribution | {badge_reuse[2]} | No valid license found, more in [License](#license) section <br> Citation file not found, more in [CITATION File](#citation-file) section | \n")   
+    
     # transparency
     if checklists['readme']['ifpassed'] and checklists['files']['ifpassed']:
         f.write(f"| Transparency | {badge_trans[0]} | | \n")
@@ -71,30 +73,32 @@ def summary(checklists, f):
             f.write(f" README missing mandatory subheadings, more in [README Template](#readme-template) section | \n")
         if not checklists['readme']['warnings'] and checklists['files']['warnings']:
             f.write(f" Missing mandatory files, more in [Documentation](#documentation) section | \n")
-        #computational reproduciiblity
-        if checklists['repo2docker']['ifpassed'] and checklists['language']['ifpassed']:
-            f.write(f"| Computational reproducibility | {badge_repro[0]} | | \n")
-        elif checklists['repo2docker']['warnings'] or checklists['language']['warnings']:
-            f.write(f"| Computational reproducibility | {badge_repro[1]} | ")
-            if checklists['repo2docker']['warnings'] and checklists['language']['warnings']:
-                f.write(f" Repo2docker build issue, more in [Repo2docker Build](#repo2docker-build) section <br> programming language version not specified, more in [Programming Language](#programming-language) section | \n")
-            if checklists['repo2docker']['warnings'] and not checklists['language']['warnings']:
-                f.write(f" Repo2docker failed, more in [Repo2docker Build](#repo2docker-build) section | \n")
-            if not checklists['repo2docker']['warnings'] and checklists['language']['warnings']:
-                f.write(f" programming language version not specified, more in [Programming Language](#programming-language) section | \n")
-        elif checklists['repo2docker']['errors']:
-            f.write(f"| Computational reproducibility | {badge_repro[2]} |  Repo2docker failed, more in [Repo2docker Build](#Repo2docker-build) section  | \n")
-        
-        if checklists['sustainability']['ifpassed']:
-            f.write("| Resource consumption | \n")
-            for message in checklists['sustainability']['messages']:
-                if ':' in message:
-                    key, value = message.split(':')
-                    f.write(f"| | {key} | {value} | \n")
-                else:
-                    f.write(f"| | {message} | | \n")
-        else:
-            f.write("| Resource consumption | not computed due to Repo2docker failure | | \n")
+    
+    # computational reproduciiblity
+    if checklists['repo2docker']['ifpassed'] and checklists['language']['ifpassed']:
+        f.write(f"| Computational reproducibility | {badge_repro[0]} | | \n")
+    elif checklists['repo2docker']['warnings'] or checklists['language']['warnings']:
+        f.write(f"| Computational reproducibility | {badge_repro[1]} | ")
+        if checklists['repo2docker']['warnings'] and checklists['language']['warnings']:
+            f.write(f" Repo2docker build issue, more in [Repo2docker Build](#repo2docker-build) section <br> programming language version not specified, more in [Programming Language](#programming-language) section | \n")
+        if checklists['repo2docker']['warnings'] and not checklists['language']['warnings']:
+            f.write(f" Repo2docker failed, more in [Repo2docker Build](#repo2docker-build) section | \n")
+        if not checklists['repo2docker']['warnings'] and checklists['language']['warnings']:
+            f.write(f" programming language version not specified, more in [Programming Language](#programming-language) section | \n")
+    elif checklists['repo2docker']['errors']:
+        f.write(f"| Computational reproducibility | {badge_repro[2]} |  Repo2docker failed, more in [Repo2docker Build](#Repo2docker-build) section  | \n")
+
+    # resources 
+    if checklists['sustainability']['ifpassed']:
+        f.write("| Resource consumption | \n")
+        for message in checklists['sustainability']['messages']:
+            if ':' in message:
+                key, value = message.split(':')
+                f.write(f"| | {key} | {value} | \n")
+            else:
+                f.write(f"| | {message} | | \n")
+    else:
+        f.write("| Resource consumption | not computed due to Repo2docker failure | | \n")
         f.write("\n\n")
 
 
