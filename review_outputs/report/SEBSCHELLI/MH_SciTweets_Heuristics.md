@@ -1,7 +1,7 @@
 # Report: [SEBSCHELLI / MH_SciTweets_Heuristics](https://github.com/SEBSCHELLI/MH_SciTweets_Heuristics)
 
-<small>created on 2026-10-27 23:30:56, 
- Review time: 2:09 (min/sec)
+<small>created on 2026-10-27 23:48:24, 
+ Review time: 2:16 (min/sec)
 
 ## Summary 
 
@@ -10,6 +10,15 @@
 | :--- | :--- | :--- | 
 | Reusability and attribution | ![Reusability](https://img.shields.io/badge/Reusability-partially%20reusable-yellow) | Citation file not found, more in [CITATION File](#citation-file) section | 
 | Transparency | ![Transparency](https://img.shields.io/badge/Transparency-partially%20documented-yellow) |  README has subheading duplicates or formating issue, more in [README Template](#readme-template) section | 
+| Computational reproducibility | ![Reproducibility](https://img.shields.io/badge/Reproducibility-partially%20reproducible-yellow) |  programming language version not specified, more in [Programming Language](#programming-language) section | 
+| Resource consumption | 
+| | Repo2Docker build successful | | 
+| | Environment validation |  PASS | 
+| | Build time |  0.95 seconds | 
+| | Peak RAM usage |  39.76 MiB | 
+| | CPU utilization |  ? | 
+| | Energy consumption |  ? | 
+| | CO₂ emissions |  ? | 
 # Detailed Report 
 
 ## Reusability and Attribution 
