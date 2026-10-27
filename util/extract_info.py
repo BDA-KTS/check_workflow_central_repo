@@ -83,7 +83,7 @@ def convert_readme_md(readme_path: Path, NECESSARY_SUBTITLES) :
             content = f.read()
             h1_headings = re.findall(r"(?m)^#(?!#)\s+.*$", content)
             h1_headings = [h1[2:].strip() for h1 in h1_headings]
-            h2_headings = re.findall(r"(?m)^\s*##(?!#)\s+.*$", content)
+            h2_headings = re.findall(r"(?m)^## .+$", content)
             h2_headings = [h2[3:].strip() for h2 in h2_headings]
             h3_plus_headings = re.findall(r"(?m)^\s*#{3,6}\s+.*$", content)
             if h3_plus_headings:
@@ -125,7 +125,7 @@ def check_readme(titles,subtitles, result, NECESSARY_SUBTITLES):
         result['ifpassed'] = False
         result['errors'].append("Method title not defined.")
     elif len(titles) == 1:
-        result['messages'].append("Method title accepted.")
+        result['messages'].append(f"Method title '{titles}' accepted.")
     else:
         result['ifpassed'] = False
         result['errors'].append(f"Method has {len(titles)}, i.e., more than 1 title cases.")
