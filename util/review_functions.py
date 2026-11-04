@@ -4,6 +4,7 @@ from typing import Set, List, Counter
 from licensename import from_text
 import time
 import resource
+import re
 from pathlib import Path
 
 from config import Settings
