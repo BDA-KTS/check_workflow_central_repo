@@ -241,7 +241,7 @@ def main():
     elapsed_time = time_end - time_start
     # Write the report
     write_report(checklists, report_file,owner,repo, elapsed_time)
-    write_macro(checklists, aggregated, owner, repo, elapsed_time)
+    #write_macro(checklists, aggregated, owner, repo, elapsed_time)
 
 
 if __name__ == "__main__":
