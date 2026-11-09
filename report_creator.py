@@ -197,9 +197,9 @@ def main():
     report_dir.mkdir(parents=True, exist_ok=True)
     report_file = report_dir / f"{repo}.md"
 
-    aggregated_dir = OUTPUT_PATH / AGGREGATION_PATH / owner
-    aggregated_dir.mkdir(parents=True, exist_ok=True)
-    aggregated = aggregated_dir / f"{repo}.jsonl"
+    #aggregated_dir = OUTPUT_PATH / AGGREGATION_PATH / owner
+    #aggregated_dir.mkdir(parents=True, exist_ok=True)
+    #aggregated = aggregated_dir / f"{repo}.jsonl"
     # File presence checks
     suffixes = get_file_extensions()
     required_binder = get_needed_files(suffixes)
