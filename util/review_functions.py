@@ -87,14 +87,17 @@ def check_for_binder_files(required_binder,extended_files):
         result['messages'].append("binder")
     return result
 
-
-def check_for_files(repo_requirements,required_binder,root_files,extended_files):
+def check_postbuild_file(extended_files):
     match = next((f for f in extended_files if f.casefold().split(".")[0] == "postbuild"), None)
     if match is not None and not any(f for f in root_files if f.casefold().split(".")[0] == "postbuild" ):
-        extended_files.remove(match)
-        root_files.append("postbuild")
+        return {'ifpassed': True, 'messages': 'postBuild file found', 'warnings': [], 'errors': [], 'help': ["[documentation quality criteria in guidelines](https://github.com/GESIS-Methods-Hub/guidelines#quality-criteria)"]}
+    else:
+        {'ifpassed': False, 'messages': 'postBuild file found', 'warnings': [], 'errors': ['postBuild file not found'], 'help': ["[documentation quality criteria in guidelines](https://github.com/GESIS-Methods-Hub/guidelines#quality-criteria)"]}
+        
     
-    formal_files = check_for_formal_files(repo_requirements, root_files)
+def check_for_files(repo_requirements,required_binder,root_files,extended_files):
+      
+    #formal_files = check_for_formal_files(repo_requirements, root_files)
     binder_files=check_for_binder_files(required_binder,extended_files)
     
     result = {'ifpassed': False, 'messages': [], 'warnings': [], 'errors': []}
@@ -109,41 +112,54 @@ def check_for_files(repo_requirements,required_binder,root_files,extended_files)
         result['messages'].append("All required documents found")
     return result
 
-def get_language_version():
+def get_language_version(lang_files):
     ENVIRONMENT_PATTERNS = {
         "Python": {
             "environment.yml": r"python\s*=\s*[\"']?([0-9]+(?:\.[0-9]+){0,2})",
             "runtime.txt": r"python[-=]?([0-9]+(?:\.[0-9]+){0,2})",
             "pyproject.toml": r"requires-python\s*=\s*[\"']([^\"']+)[\"']",
-            "setup.py": r"python_requires\s*=\s*[\"']([^\"']+)[\"']",
-            "setup.cfg": r"python_requires\s*=\s*([^\n]+)",
+            "Pipfile": r"(?m)^\s*python_version\s*=\s*[\"']([0-9]+(?:\.[0-9]+){0,2})[\"']",
         },
-        "R": {
-            "DESCRIPTION": r"R\s*\(>=\s*([0-9]+(?:\.[0-9]+){0,2})\)",
+       "R": {
             "renv.lock": r'"R"\s*:\s*\{[^}]*"Version"\s*:\s*"([0-9]+(?:\.[0-9]+){0,2})"',
-            "environment.yml": r"r-base\s*=\s*[\"']?([0-9]+(?:\.[0-9]+){0,2})",
+            "environment.yml": r"(?im)^\s*r-base\s*=\s*[\"']?([0-9]+(?:\.[0-9]+){0,2})",
         },
     }
 
     for language, patterns in ENVIRONMENT_PATTERNS.items():
         for filename, pattern in patterns.items():
-            file_path = TEST_PATH / filename
+            if filename in lang_files:
+                file_path = TEST_PATH / filename
 
-            if not file_path.exists():
-                continue
+                text = file_path.read_text(encoding="utf-8")
+                match = re.search(pattern, text, re.IGNORECASE)
 
-            text = file_path.read_text(encoding="utf-8")
-            match = re.search(pattern, text, re.IGNORECASE)
+                if match:
+                    return {'ifpassed': True, 'messages': f"{language} version: "f"{match.group(1)} (from {filename})", 'warnings': [], 'errors': [], 'help': []} 
+    return {'ifpassed': False, 'messages': [], 'warnings': ['Python/R version is not specified for the method'], 'errors': [], 'help': []}
 
-            if match:
-                return {'ifpassed': True, 'messages': f"{language} version: "f"{match.group(1)} (from {filename})", 'warnings': [], 'errors': []} 
-    return {'ifpassed': False, 'messages': [], 'warnings': ['Python/R version is not specified for the method'], 'errors': []}
+def check_citation_info(extended_files):
+    result = {'ifpassed': False, 'messages':[], 'warnings':[], 'errors':[], 'help': ["[documentation quality criteria in guidelines](https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/README.md#documentation-quality-criteria)"]}
+    for f in extended_files:
+        if f.is_file() and f.name.casefold().startswith('citation'):
+            result['messages'] = 'Citation file exists'
+    if not result['messages']:
+        result['errors'] = 'Citation file missing'
+    return result
 
+def check_environment_files(environment_files, extended_files):
+    for file in environment_files:
+       if file in extended_files:
+           return {'ifpassed': True, 'messages': f"file {file} has virtual environment configurations", 'warnings':[], 'errors':[], 'help': []}
+    return {'ifpassed': True, 'messages': f"No file found with virtual working environment configurations", 'warnings':[], 'errors':[], 'help': []}
+    
 
-def license_check():
-    result = {'ifpassed': False, 'messages':[], 'warnings':[], 'errors':[]}
+def license_check(extended_files):
+    result = {'ifpassed': False, 'messages':[], 'warnings':[], 'errors':[], 'help': ["[openness criteria in guidelines](https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/README.md#openness-criteria)"]}
+    for f in extended_files:
+        if f.is_file() and f.name.casefold().startswith("license")
     license_files = [
-        f for f in TEST_PATH.iterdir()
+        f for f in extended_files
         if f.is_file() and f.name.casefold().startswith("license")
     ]
     licenses = []
