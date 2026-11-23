@@ -211,9 +211,12 @@ def main():
     #else:
     #    checklists['license'] = {'ifpassed': False, 'messages': [], 'warnings': [], 'errors': ["License Check failed, no license file found"]}
     # Working language
-    checklists['language'] = get_language_version()
+    checklists['language'] = get_language_version(required_binder['language_version'])
     # Binder environment
-    checklists['files'] = check_for_files(REPO_REQUIREMENTS,required_binder,root_files,extended_files)
+    checklists['citation'] = check_citation_info(extended_files)
+    checklists['binder'] = check_postbuild_file(extended_files)
+    checklists['environment'] = check_environment_files(required_binder['environment'], extended_files)
+    #checklists['files'] = check_for_files(REPO_REQUIREMENTS,required_binder,root_files,extended_files)
      # Simulate Repo2Docker 2
     #if "binder" in checklists['files'].messages:
     checklists['repo2docker'] = repo2dockertest()
