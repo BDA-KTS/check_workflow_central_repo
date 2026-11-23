@@ -46,14 +46,14 @@ def get_event_data() -> tuple:
     return full_name, readme_name
 
 def get_needed_files(suffixes: Set[str]) -> Set[str]:
-    required_for_binder = set()
+    required_for_binder = {"binder_file": ["postBuild"]}
     suffixes_lower = {s.casefold() for s in suffixes}
     if ".py" in suffixes_lower:
-        required_for_binder.add("requirements.txt")
+        required_for_binder["language_version"] = ["environment.yml", "runtime.txt", "pyproject.toml", "pipfile"]
+        required_for_binder["environment"] = ["requirements.txt", "environment.yml", "pyproject.toml", "pipfile"]
     if ".r" in suffixes_lower:
-        required_for_binder.add("runtime.txt")      
-    if '.yml' in suffixes_lower:
-        required_for_binder.add('environment.yml')
+        required_for_binder["language_version"] = ["environment.yml", "renv.lock"]
+        required_for_binder["environment"] = ["environment.yml", "install.r"]
     return required_for_binder
 
 def get_files():
@@ -84,10 +84,6 @@ def convert_readme_md(readme_path: Path, NECESSARY_SUBTITLES) :
             h1_headings = re.findall(r"(?m)^#(?!#)\s+.*$", content)
             h1_headings = [h1[2:].strip() for h1 in h1_headings]
             h2_headings = re.findall(r"(?m)^## .+$", content)
-            h2_headings = [h2[3:].strip() for h2 in h2_headings]
-            h3_plus_headings = re.findall(r"(?m)^\s*#{3,6}\s+.*$", content)
-            if h3_plus_headings:
-                result["warnings"].append(f"level 3 and/or below headings found as well that are generally discouraged.")
     except Exception as e:
         result['errors'].append(f"Readme check failed: Error reading file ({e})")
         return result
