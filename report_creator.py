@@ -207,7 +207,7 @@ def main():
 
     # License check
     #if 'license' in root_files or 'license' in extended_files:
-    checklists['license'] = license_check()
+    checklists['license'] = license_check(extended_files)
     #else:
     #    checklists['license'] = {'ifpassed': False, 'messages': [], 'warnings': [], 'errors': ["License Check failed, no license file found"]}
     # Working language
