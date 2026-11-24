@@ -157,11 +157,8 @@ def check_environment_files(environment_files, extended_files):
 def license_check(extended_files):
     result = {'ifpassed': False, 'messages':[], 'warnings':[], 'errors':[], 'help': ["[openness criteria in guidelines](https://github.com/GESIS-Methods-Hub/guidelines/blob/v0/README.md#openness-criteria)"]}
     for f in extended_files:
-        if f.is_file() and f.name.casefold().startswith("license")
-    license_files = [
-        f for f in extended_files
-        if f.is_file() and f.name.casefold().startswith("license")
-    ]
+        if f.is_file() and f.name.casefold().startswith("license"):
+            license_files = [f for f in extended_files if f.is_file() and f.name.casefold().startswith("license")]
     licenses = []
     for f in license_files:
         try:
